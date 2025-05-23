@@ -1,0 +1,30 @@
+----------------------------  BM25  ----------------------------------
+Retrieving for track A, type Multi, retriever_name bm25
+ResuTehran0021189196.lts saved to ./Retrieval/Results/A_Multi_bm25_index_25_26.jsonl
+Retrieving for track A, type Uni, retriever_name bm25
+---------------------------------------------------------------------------------------------------- 30
+ResuTehran0021189196.lts saved to ./Retrieval/Results/A_Uni_bm25_index_25_26.jsonl
+----------------------------  ColBERT  ----------------------------------
+Retrieving for track A, type Multi, retriever_name colbert
+ResuTehran0021189196.lts saved to ./Retrieval/Results/A_Multi_colbert_index_25_26.jsonl
+Retrieving for track A, type Uni, retriever_name colbert
+---------------------------------------------------------------------------------------------------- 30
+
+#> QueryTokenizer.tensorize(batch_text[0], batch_background[0], bsize) ==
+#> Input: What did Sherise buy for $2,650?, 		 True, 		 None
+#> Output IDs: torch.Size([32]), tensor([  101,     1,  2054,  2106,  2016, 29346,  4965,  2005,  1002,  1016,
+         1010, 13757,  1029,   102,   103,   103,   103,   103,   103,   103,
+          103,   103,   103,   103,   103,   103,   103,   103,   103,   103,
+          103,   103], device='cuda:0')
+#> Output Mask: torch.Size([32]), tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0], device='cuda:0')
+
+ResuTehran0021189196.lts saved to ./Retrieval/Results/A_Uni_colbert_index_25_26.jsonl
+----------------------------  Contriever  ----------------------------------
+Retrieving for track A, type Multi, retriever_name contriever
+ResuTehran0021189196.lts saved to ./Retrieval/Results/A_Multi_contriever_index_25_26.jsonl
+Retrieving for track A, type Uni, retriever_name contriever
+---------------------------------------------------------------------------------------------------- 30
+ResuTehran0021189196.lts saved to ./Retrieval/Results/A_Uni_contriever_index_25_26.jsonl
+----------------------------  DragonPlus  ----------------------------------
+Retrieving for track A, type Multi, retriever_name dragonplus

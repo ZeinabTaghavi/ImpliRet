@@ -1,0 +1,22 @@
+[
+    "happened",
+    "took place",
+    "was held",
+    "was organized",
+    "occurred",
+    "was hosted",
+    "was carried out",
+    "went on",
+    "was conducted",
+    "was arranged",
+    "was put on",
+    "went ahead",
+    "was celebrated",
+    "was staged",
+    "was run",
+    "was executed",
+    "took place as planned",
+    "came about",
+    "occurred as scheduled",
+    "was launched"
+]

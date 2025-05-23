@@ -1,0 +1,163 @@
+{
+    "Clothing": {
+        "high_priced": [
+            "Alexander McQueen",
+            "Gucci",
+            "Louis Vuitton",
+            "Prada",
+            "Balenciaga"
+        ],
+        "low_priced": [
+            "H&M",
+            "Zara",
+            "Uniqlo",
+            "Forever 21",
+            "Gap"
+        ],
+        "items_to_buy": [
+            "bag",
+            "hat",
+            "shoes",
+            "coat",
+            "dress"
+        ]
+    },
+    "Antiques & Decorations": {
+        "high_priced": [
+            "Lalique",
+            "Baccarat",
+            "Christie's",
+            "Wedgwood",
+            "Herend"
+        ],
+        "low_priced": [
+            "IKEA",
+            "Target Home",
+            "Pier 1 Imports",
+            "HomeGoods",
+            "Walmart Interiors"
+        ],
+        "items_to_buy": [
+            "vase",
+            "figurine",
+            "painting",
+            "ornamental clock",
+            "candelabra"
+        ]
+    },
+    "Electronics": {
+        "high_priced": [
+            "Apple",
+            "Bang & Olufsen",
+            "Sony (High-End)",
+            "Bose",
+            "Samsung (Premium)"
+        ],
+        "low_priced": [
+            "Xiaomi",
+            "Vizio",
+            "TCL",
+            "Realme",
+            "Acer"
+        ],
+        "items_to_buy": [
+            "smartphone",
+            "headphones",
+            "laptop",
+            "smart TV",
+            "tablet"
+        ]
+    },
+    "Furniture": {
+        "high_priced": [
+            "Restoration Hardware",
+            "Roche Bobois",
+            "Herman Miller",
+            "Poltrona Frau",
+            "Knoll"
+        ],
+        "low_priced": [
+            "IKEA",
+            "Ashley Furniture",
+            "Wayfair",
+            "Bob's Discount Furniture",
+            "Target Furniture"
+        ],
+        "items_to_buy": [
+            "sofa",
+            "dining table",
+            "bookshelf",
+            "bed frame",
+            "chair"
+        ]
+    },
+    "Jewelry": {
+        "high_priced": [
+            "Tiffany & Co.",
+            "Cartier",
+            "Van Cleef & Arpels",
+            "Harry Winston",
+            "Bulgari"
+        ],
+        "low_priced": [
+            "Pandora",
+            "Swarovski",
+            "Kay Jewelers",
+            "Zales",
+            "Claire's"
+        ],
+        "items_to_buy": [
+            "necklace",
+            "ring",
+            "bracelet",
+            "earrings",
+            "pendant"
+        ]
+    },
+    "Sports Equipment": {
+        "high_priced": [
+            "Titleist",
+            "Wilson Staff",
+            "Yonex",
+            "Callaway",
+            "Mizuno (Professional Series)"
+        ],
+        "low_priced": [
+            "Decathlon",
+            "Kmart Sporting Goods",
+            "AmazonBasics (Sports)",
+            "Rawlings (Entry-Level)",
+            "Everlast"
+        ],
+        "items_to_buy": [
+            "basketball",
+            "tennis racket",
+            "golf clubs",
+            "soccer ball",
+            "fitness tracker"
+        ]
+    },
+    "Kitchen Appliances": {
+        "high_priced": [
+            "Viking",
+            "Sub-Zero",
+            "Wolf",
+            "Miele",
+            "Gaggenau"
+        ],
+        "low_priced": [
+            "Hamilton Beach",
+            "Black+Decker",
+            "Oster",
+            "Cuisinart",
+            "Frigidaire"
+        ],
+        "items_to_buy": [
+            "refrigerator",
+            "microwave",
+            "blender",
+            "toaster",
+            "coffee machine"
+        ]
+    }
+}

@@ -1,0 +1,41 @@
+Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
+2025-05-11 12:03:31,761	INFO worker.py:1810 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
+Loading safetensors checkpoint shards:   0% Completed | 0/30 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:   3% Completed | 1/30 [00:03<01:40,  3.47s/it]
+Loading safetensors checkpoint shards:   7% Completed | 2/30 [00:04<00:55,  1.97s/it]
+Loading safetensors checkpoint shards:  10% Completed | 3/30 [00:05<00:40,  1.51s/it]
+Loading safetensors checkpoint shards:  13% Completed | 4/30 [00:06<00:34,  1.34s/it]
+Loading safetensors checkpoint shards:  17% Completed | 5/30 [00:09<00:48,  1.93s/it]
+Loading safetensors checkpoint shards:  20% Completed | 6/30 [00:10<00:39,  1.64s/it]
+Loading safetensors checkpoint shards:  23% Completed | 7/30 [00:13<00:46,  2.02s/it]
+Loading safetensors checkpoint shards:  27% Completed | 8/30 [00:16<00:50,  2.28s/it]
+Loading safetensors checkpoint shards:  30% Completed | 9/30 [00:18<00:50,  2.42s/it]
+Loading safetensors checkpoint shards:  33% Completed | 10/30 [00:21<00:51,  2.60s/it]
+Loading safetensors checkpoint shards:  37% Completed | 11/30 [00:22<00:39,  2.10s/it]
+Loading safetensors checkpoint shards:  40% Completed | 12/30 [00:25<00:40,  2.25s/it]
+Loading safetensors checkpoint shards:  43% Completed | 13/30 [00:28<00:41,  2.45s/it]
+Loading safetensors checkpoint shards:  47% Completed | 14/30 [00:29<00:32,  2.01s/it]
+Loading safetensors checkpoint shards:  50% Completed | 15/30 [00:31<00:32,  2.18s/it]
+Loading safetensors checkpoint shards:  53% Completed | 16/30 [00:32<00:25,  1.81s/it]
+Loading safetensors checkpoint shards:  57% Completed | 17/30 [00:33<00:20,  1.56s/it]
+Loading safetensors checkpoint shards:  60% Completed | 18/30 [00:34<00:16,  1.41s/it]
+Loading safetensors checkpoint shards:  63% Completed | 19/30 [00:35<00:14,  1.31s/it]
+Loading safetensors checkpoint shards:  67% Completed | 20/30 [00:36<00:11,  1.17s/it]
+Loading safetensors checkpoint shards:  70% Completed | 21/30 [00:37<00:10,  1.12s/it]
+Loading safetensors checkpoint shards:  73% Completed | 22/30 [00:38<00:08,  1.07s/it]
+Loading safetensors checkpoint shards:  77% Completed | 23/30 [00:39<00:06,  1.15it/s]
+Loading safetensors checkpoint shards:  80% Completed | 24/30 [00:40<00:05,  1.11it/s]
+Loading safetensors checkpoint shards:  83% Completed | 25/30 [00:41<00:04,  1.08it/s]
+Loading safetensors checkpoint shards:  87% Completed | 26/30 [00:42<00:03,  1.04it/s]
+Loading safetensors checkpoint shards:  90% Completed | 27/30 [00:43<00:02,  1.00it/s]
+Loading safetensors checkpoint shards:  93% Completed | 28/30 [00:44<00:01,  1.00it/s]
+Loading safetensors checkpoint shards:  97% Completed | 29/30 [00:45<00:01,  1.01s/it]
+Loading safetensors checkpoint shards: 100% Completed | 30/30 [00:46<00:00,  1.01s/it]
+Loading safetensors checkpoint shards: 100% Completed | 30/30 [00:46<00:00,  1.54s/it]
+
+Capturing CUDA graph shapes:   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graph shapes:   3%|▎         | 1/35 [00:00<00:28,  1.20it/s]Capturing CUDA graph shapes:   6%|▌         | 2/35 [00:01<00:25,  1.31it/s]Capturing CUDA graph shapes:   9%|▊         | 3/35 [00:02<00:22,  1.41it/s]Capturing CUDA graph shapes:  11%|█▏        | 4/35 [00:02<00:21,  1.41it/s]Capturing CUDA graph shapes:  14%|█▍        | 5/35 [00:03<00:20,  1.47it/s]Capturing CUDA graph shapes:  17%|█▋        | 6/35 [00:04<00:18,  1.53it/s]Capturing CUDA graph shapes:  20%|██        | 7/35 [00:04<00:18,  1.51it/s]Capturing CUDA graph shapes:  23%|██▎       | 8/35 [00:05<00:18,  1.49it/s]Capturing CUDA graph shapes:  26%|██▌       | 9/35 [00:06<00:17,  1.48it/s]Capturing CUDA graph shapes:  29%|██▊       | 10/35 [00:06<00:16,  1.55it/s]Capturing CUDA graph shapes:  31%|███▏      | 11/35 [00:07<00:15,  1.58it/s]Capturing CUDA graph shapes:  34%|███▍      | 12/35 [00:07<00:14,  1.59it/s]Capturing CUDA graph shapes:  37%|███▋      | 13/35 [00:08<00:13,  1.60it/s]Capturing CUDA graph shapes:  40%|████      | 14/35 [00:09<00:14,  1.48it/s]Capturing CUDA graph shapes:  43%|████▎     | 15/35 [00:10<00:13,  1.49it/s]Capturing CUDA graph shapes:  46%|████▌     | 16/35 [00:10<00:12,  1.52it/s]Capturing CUDA graph shapes:  49%|████▊     | 17/35 [00:11<00:11,  1.55it/s]Capturing CUDA graph shapes:  51%|█████▏    | 18/35 [00:11<00:11,  1.54it/s]Capturing CUDA graph shapes:  54%|█████▍    | 19/35 [00:12<00:10,  1.56it/s]Capturing CUDA graph shapes:  57%|█████▋    | 20/35 [00:13<00:09,  1.57it/s]Capturing CUDA graph shapes:  60%|██████    | 21/35 [00:13<00:08,  1.59it/s]Capturing CUDA graph shapes:  63%|██████▎   | 22/35 [00:14<00:08,  1.56it/s]Capturing CUDA graph shapes:  66%|██████▌   | 23/35 [00:15<00:07,  1.53it/s]Capturing CUDA graph shapes:  69%|██████▊   | 24/35 [00:15<00:07,  1.52it/s]Capturing CUDA graph shapes:  71%|███████▏  | 25/35 [00:16<00:06,  1.46it/s]Capturing CUDA graph shapes:  74%|███████▍  | 26/35 [00:17<00:06,  1.45it/s]Capturing CUDA graph shapes:  77%|███████▋  | 27/35 [00:18<00:05,  1.44it/s]Capturing CUDA graph shapes:  80%|████████  | 28/35 [00:18<00:04,  1.48it/s]Capturing CUDA graph shapes:  83%|████████▎ | 29/35 [00:19<00:04,  1.48it/s]Capturing CUDA graph shapes:  86%|████████▌ | 30/35 [00:19<00:03,  1.49it/s]Capturing CUDA graph shapes:  89%|████████▊ | 31/35 [00:20<00:02,  1.52it/s]Capturing CUDA graph shapes:  91%|█████████▏| 32/35 [00:21<00:01,  1.56it/s]Capturing CUDA graph shapes:  94%|█████████▍| 33/35 [00:21<00:01,  1.46it/s]Capturing CUDA graph shapes:  97%|█████████▋| 34/35 [00:22<00:00,  1.38it/s]Capturing CUDA graph shapes: 100%|██████████| 35/35 [00:23<00:00,  1.34it/s]Capturing CUDA graph shapes: 100%|██████████| 35/35 [00:23<00:00,  1.48it/s]
+Processed prompts:   0%|          | 0/9 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:  11%|█         | 1/9 [00:03<00:27,  3.47s/it, est. speed input: 135.27 toks/s, output: 21.01 toks/s]Processed prompts:  22%|██▏       | 2/9 [00:04<00:13,  1.93s/it, est. speed input: 222.02 toks/s, output: 39.74 toks/s]Processed prompts:  33%|███▎      | 3/9 [00:04<00:06,  1.16s/it, est. speed input: 315.48 toks/s, output: 60.99 toks/s]Processed prompts:  44%|████▍     | 4/9 [00:04<00:04,  1.21it/s, est. speed input: 391.84 toks/s, output: 80.66 toks/s]Processed prompts:  67%|██████▋   | 6/9 [00:05<00:01,  2.03it/s, est. speed input: 543.19 toks/s, output: 121.57 toks/s]Processed prompts:  78%|███████▊  | 7/9 [00:05<00:00,  2.39it/s, est. speed input: 605.78 toks/s, output: 141.17 toks/s]Processed prompts: 100%|██████████| 9/9 [00:06<00:00,  2.86it/s, est. speed input: 710.27 toks/s, output: 176.53 toks/s]Processed prompts: 100%|██████████| 9/9 [00:06<00:00,  1.49it/s, est. speed input: 710.27 toks/s, output: 176.53 toks/s]
+Processed prompts:   0%|          | 0/1 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 100%|██████████| 1/1 [00:03<00:00,  3.77s/it, est. speed input: 124.69 toks/s, output: 31.84 toks/s]Processed prompts: 100%|██████████| 1/1 [00:03<00:00,  3.77s/it, est. speed input: 124.69 toks/s, output: 31.84 toks/s]
+Processed prompts: 0it [00:00, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts: 0it [00:00, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]
+/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 1 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

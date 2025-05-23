@@ -1,0 +1,18 @@
+# dataset / split
+dataset_folder: ./Dataset_Generation/Data/
+track: S
+data_type: Uni
+
+# model (vLLM server)
+# the exact name of the model is in config file in the model_configs directory
+model_name: llama_3.3_70b         # uses the vLLM‑API config
+model_configs_dir: Experiments/evaluation/model_configs
+
+# decoding / eval
+metric: EM , contains , rouge-recall
+k: 5
+user_retrieval: false
+seed: 42
+
+# results
+output_folder: ./Experiments/evaluation/results/
