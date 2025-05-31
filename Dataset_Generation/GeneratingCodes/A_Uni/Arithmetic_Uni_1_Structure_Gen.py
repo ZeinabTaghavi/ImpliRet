@@ -122,12 +122,14 @@ def generate_dataset(num_users = 50, num_items = 30, max_price = 3000):
     # Load input data
     # ------------------------------------------------------------
 
-    with open("./Dataset_Generation/Dataset_Helping/names.txt", "r") as file:
-        names = ' '.join([line.strip() for line in file.readlines()])
-        names_list = list(ast.literal_eval(names))
+    names_list = []
+    with open("./Dataset_Generation/Dataset_Helping/names.jsonl", "r") as file:
+        for line in file:
+            names_list.append(json.loads(line.strip()))
 
     with open("./Dataset_Generation/Dataset_Helping/A_Uni/A_Uni_Base_JSON.json", "r") as f:
         shopping_data = json.load(f)
+
 
     # ------------------------------------------------------------
     # Generate user data
@@ -141,7 +143,7 @@ def generate_dataset(num_users = 50, num_items = 30, max_price = 3000):
 
     user_dataset = {}
     for user in users:
-        user_dataset[user] = {"user_1": user, "shopping_info": []}
+        user_dataset[user['name']] = {"user_1": user, "shopping_info": []}
         all_tuples = []
         for shopping_type in category_tuples:
             all_tuples.extend(category_tuples[shopping_type])
@@ -203,7 +205,7 @@ def generate_dataset(num_users = 50, num_items = 30, max_price = 3000):
                 high_price_brand = (low_brand, list_price_2[idx])
                 low_price_brand = (high_brand, list_price_1[idx])
 
-            user_2 = random.choice([u for u in names_list if u != user])
+            user_2 = random.choice([u for u in names_list if u['name'] != user['name']])
             shopping_info = {"user_2": user_2,
                             "shopping_type": shopping_type,
                             "item_to_buy": item_to_buy,
@@ -213,7 +215,7 @@ def generate_dataset(num_users = 50, num_items = 30, max_price = 3000):
                             "final_price": list_price_1[idx],
                             "final_shopping": item_was_bought}
         
-            user_dataset[user]["shopping_info"].append(shopping_info)
+            user_dataset[user['name']]["shopping_info"].append(shopping_info)
 
     # ------------------------------------------------------------
     # Save dataset
@@ -222,7 +224,7 @@ def generate_dataset(num_users = 50, num_items = 30, max_price = 3000):
     output_file = './Dataset_Generation/Dataset_Helping/A_Uni/A_Uni_Structured.jsonl'
     with open(output_file, 'w') as f:
         for user, data in user_dataset.items():
-            line = {'user_1': user, 'shopping_info': data['shopping_info']}
+            line = data
             f.write(json.dumps(line) + '\n')
 
     print(f"Step1: Arithmetic Uni Dataset Structure saved to {output_file}")
