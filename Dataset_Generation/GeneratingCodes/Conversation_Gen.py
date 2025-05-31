@@ -1,8 +1,7 @@
 
 from huggingface_hub import login
-from vllm import LLM, SamplingParams
 from utils.prompts import ALL_PROMPTS
-from utils.loading_model import load_model
+from utils.loading_model import ModelLoader
 from utils.feature_extraction import *
 import json
 import argparse
@@ -76,11 +75,7 @@ def several_attempts_generation(evaluation_function,
                                more_than_ok_type: str = 'more_than_ok'):
 
     if not llm_output_prepared:
-        sampling_params = SamplingParams(temperature=temperature, max_tokens=max_tokens)
-        outputs = llm.chat(messages=prompts,
-                        sampling_params=sampling_params,
-                        use_tqdm=True)
-        llm_outputs = [o.outputs[0].text for o in outputs]
+        llm_outputs = llm.generate(prompts, temperature=temperature, max_tokens=max_tokens)
     else:
         llm_outputs = llm_outputs
 
@@ -95,11 +90,7 @@ def several_attempts_generation(evaluation_function,
             break
         else:
             mistaken_prompts = [prompts[i] for i in mistaken_idx]
-            sampling_params = SamplingParams(temperature=temperature, max_tokens=max_tokens)
-            outputs = llm.chat(messages=mistaken_prompts,
-                    sampling_params=sampling_params,
-                    use_tqdm=True)
-            re_generated_llm_outputs = [o.outputs[0].text for o in outputs]
+            re_generated_llm_outputs = llm.generate(mistaken_prompts, temperature=temperature, max_tokens=max_tokens)
             for i in range(len(mistaken_idx)):
                 llm_outputs[mistaken_idx[i]] = re_generated_llm_outputs[i]
     
@@ -243,7 +234,8 @@ def main(num_gpus: int = 4,
     # Initialize model
     print("Loading the model...")
         
-    llm = load_model(model_name, num_gpus)
+    llm = ModelLoader(model_name, num_gpus)
+    llm.load_model()
     
     experiment = experiment_setup(num_gpus, model_name, track, conv_type, datasets_helping_folder)
    
@@ -298,12 +290,8 @@ def main(num_gpus: int = 4,
     
     if not os.path.exists(experiment['output_filename_conversation']):
         print("Generating outputs in step 1...")
-        sampling_params = SamplingParams(temperature=temperature, max_tokens=max_tokens_conversation_generation)
-        outputs = llm.chat(messages=prompts_conversation_generation,
-                    sampling_params=sampling_params,
-                    use_tqdm=True)
 
-        llm_outputs_conversation = [o.outputs[0].text for o in outputs]
+        llm_outputs_conversation = llm.generate(prompts_conversation_generation, temperature=temperature, max_tokens=max_tokens_conversation_generation)
         llm_outputs_feature_extraction = ['-' for o in outputs]
 
         mistaken_conversation_idx, conversation_list = filter_generated_conversation_responses(llm_outputs_conversation, experiment['conv_lines'], 'string', 'more_than_not_ok')
@@ -361,13 +349,10 @@ def main(num_gpus: int = 4,
             # Generate feature extractions
             print("Generating extractions...")
             print(f"1 - Number of extractions that will be generated: {len(mistaken_extracted_idx)}")
-            sampling_params = SamplingParams(temperature=temperature, max_tokens=max_tokens_feature_extraction)
             selected_prompts = [prompts_feature_extraction[i] for i in mistaken_extracted_idx]
-            outputs = llm.chat(messages=selected_prompts,
-                            sampling_params=sampling_params,
-                            use_tqdm=True)
+            outputs = llm.generate(selected_prompts, temperature=temperature, max_tokens=max_tokens_feature_extraction)
             for i in range(len(mistaken_extracted_idx)):
-                llm_outputs_feature_extraction[mistaken_extracted_idx[i]] = outputs[i].outputs[0].text
+                llm_outputs_feature_extraction[mistaken_extracted_idx[i]] = outputs[i]
 
             # Attempt to fix feature extractions
             print("2 - Regenerating works if needed")
@@ -379,11 +364,7 @@ def main(num_gpus: int = 4,
                     break
                 else:
                     mistaken_prompts = [prompts_feature_extraction[i] for i in mistaken_extracted_idx]
-                    sampling_params = SamplingParams(temperature=temperature, max_tokens=max_tokens_feature_extraction)
-                    outputs = llm.chat(messages=mistaken_prompts,
-                            sampling_params=sampling_params,
-                            use_tqdm=True)
-                    re_generated_llm_outputs = [o.outputs[0].text for o in outputs]
+                    re_generated_llm_outputs = llm.generate(mistaken_prompts, temperature=temperature, max_tokens=max_tokens_feature_extraction)
                     for i in range(len(mistaken_extracted_idx)):
                         llm_outputs_feature_extraction[mistaken_extracted_idx[i]] = re_generated_llm_outputs[i]
 
@@ -395,11 +376,7 @@ def main(num_gpus: int = 4,
                 print(f"Number of mistaken works in after {total_attempts} attempts: {len(mistaken_extracted_idx)}")
                 # Generate new conversations
                 new_conv_prompts = [prompts_conversation_generation[i] for i in mistaken_extracted_idx]
-                sampling_params = SamplingParams(temperature=temperature, max_tokens=max_tokens_conversation_generation)
-                outputs = llm.chat(messages=new_conv_prompts,
-                        sampling_params=sampling_params,
-                        use_tqdm=True)
-                re_generated_llm_outputs = [o.outputs[0].text for o in outputs]
+                re_generated_llm_outputs = llm.generate(new_conv_prompts, temperature=temperature, max_tokens=max_tokens_conversation_generation)
                 for i in range(len(mistaken_extracted_idx)):
                     llm_outputs_conversation[mistaken_extracted_idx[i]] = re_generated_llm_outputs[i]
                 
@@ -410,12 +387,9 @@ def main(num_gpus: int = 4,
                                         "role": "user",
                                         "content": experiment['FEATURE_EXTRACTION_PROMPT'].format(context=re_generated_llm_outputs[i])
                                     }] for i in range(len(re_generated_llm_outputs))]
-                sampling_params = SamplingParams(temperature=temperature, max_tokens=max_tokens_feature_extraction)
-                outputs = llm.chat(messages=mistaken_prompts,
-                        sampling_params=sampling_params,
-                        use_tqdm=True)
+                re_generated_llm_outputs = llm.generate(mistaken_prompts, temperature=temperature, max_tokens=max_tokens_feature_extraction)
                 for i in range(len(mistaken_extracted_idx)):
-                    llm_outputs_feature_extraction[mistaken_extracted_idx[i]] = outputs[i].outputs[0].text
+                    llm_outputs_feature_extraction[mistaken_extracted_idx[i]] = re_generated_llm_outputs[i]
 
                 mistaken_extracted_idx, extracted_feature_list = experiment['feature_extraction_function'](llm_outputs_feature_extraction, selected_info_list)
             
@@ -470,10 +444,10 @@ if __name__ == '__main__':
     print('---------------------------')
 
     # Set up Hugging Face authentication
-    # hf_token = os.environ.get("HF_TOKEN")
-    # if not hf_token:
-    #     raise ValueError("Please set the HF_TOKEN environment variable with your Hugging Face token")
-    # login(token=hf_token)
+    hf_token = os.environ.get("HF_TOKEN")
+    if not hf_token:
+        raise ValueError("Please set the HF_TOKEN environment variable with your Hugging Face token")
+    login(token=hf_token)
 
     config = {
         **vars(args),

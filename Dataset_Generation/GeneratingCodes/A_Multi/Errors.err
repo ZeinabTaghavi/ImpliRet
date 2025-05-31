@@ -1,49 +1,11 @@
 Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
-2025-05-31 16:29:52,659	INFO worker.py:1810 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
-Loading safetensors checkpoint shards:   0% Completed | 0/30 [00:00<?, ?it/s]
-Loading safetensors checkpoint shards:   3% Completed | 1/30 [00:03<01:33,  3.21s/it]
-Loading safetensors checkpoint shards:   7% Completed | 2/30 [00:06<01:26,  3.09s/it]
-Loading safetensors checkpoint shards:  10% Completed | 3/30 [00:08<01:18,  2.92s/it]
-Loading safetensors checkpoint shards:  13% Completed | 4/30 [00:11<01:12,  2.80s/it]
-Loading safetensors checkpoint shards:  17% Completed | 5/30 [00:14<01:08,  2.75s/it]
-Loading safetensors checkpoint shards:  20% Completed | 6/30 [00:17<01:07,  2.79s/it]
-Loading safetensors checkpoint shards:  23% Completed | 7/30 [00:19<01:03,  2.76s/it]
-Loading safetensors checkpoint shards:  27% Completed | 8/30 [00:22<01:00,  2.75s/it]
-Loading safetensors checkpoint shards:  30% Completed | 9/30 [00:25<00:58,  2.76s/it]
-Loading safetensors checkpoint shards:  33% Completed | 10/30 [00:27<00:54,  2.74s/it]
-Loading safetensors checkpoint shards:  37% Completed | 11/30 [00:30<00:51,  2.71s/it]
-Loading safetensors checkpoint shards:  40% Completed | 12/30 [00:33<00:47,  2.64s/it]
-Loading safetensors checkpoint shards:  43% Completed | 13/30 [00:35<00:45,  2.68s/it]
-Loading safetensors checkpoint shards:  47% Completed | 14/30 [00:38<00:42,  2.69s/it]
-Loading safetensors checkpoint shards:  50% Completed | 15/30 [00:42<00:44,  2.99s/it]
-Loading safetensors checkpoint shards:  53% Completed | 16/30 [00:46<00:45,  3.24s/it]
-Loading safetensors checkpoint shards:  57% Completed | 17/30 [00:50<00:45,  3.49s/it]
-Loading safetensors checkpoint shards:  60% Completed | 18/30 [00:54<00:43,  3.61s/it]
-Loading safetensors checkpoint shards:  63% Completed | 19/30 [00:58<00:41,  3.75s/it]
-Loading safetensors checkpoint shards:  67% Completed | 20/30 [01:02<00:38,  3.86s/it]
-Loading safetensors checkpoint shards:  70% Completed | 21/30 [01:06<00:35,  3.92s/it]
-Loading safetensors checkpoint shards:  73% Completed | 22/30 [01:10<00:30,  3.87s/it]
-Loading safetensors checkpoint shards:  77% Completed | 23/30 [01:11<00:22,  3.25s/it]
-Loading safetensors checkpoint shards:  80% Completed | 24/30 [01:15<00:20,  3.43s/it]
-Loading safetensors checkpoint shards:  83% Completed | 25/30 [01:19<00:17,  3.55s/it]
-Loading safetensors checkpoint shards:  87% Completed | 26/30 [01:23<00:14,  3.70s/it]
-Loading safetensors checkpoint shards:  90% Completed | 27/30 [01:27<00:11,  3.74s/it]
-Loading safetensors checkpoint shards:  93% Completed | 28/30 [01:31<00:07,  3.79s/it]
-Loading safetensors checkpoint shards:  97% Completed | 29/30 [01:35<00:03,  3.83s/it]
-Loading safetensors checkpoint shards: 100% Completed | 30/30 [01:39<00:00,  3.97s/it]
-Loading safetensors checkpoint shards: 100% Completed | 30/30 [01:39<00:00,  3.32s/it]
-
-Capturing CUDA graph shapes:   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graph shapes:   3%|▎         | 1/35 [00:00<00:26,  1.27it/s]Capturing CUDA graph shapes:   6%|▌         | 2/35 [00:01<00:23,  1.40it/s]Capturing CUDA graph shapes:   9%|▊         | 3/35 [00:02<00:21,  1.47it/s]Capturing CUDA graph shapes:  11%|█▏        | 4/35 [00:02<00:19,  1.57it/s]Capturing CUDA graph shapes:  14%|█▍        | 5/35 [00:03<00:18,  1.59it/s]Capturing CUDA graph shapes:  17%|█▋        | 6/35 [00:03<00:18,  1.58it/s]Capturing CUDA graph shapes:  20%|██        | 7/35 [00:04<00:18,  1.51it/s]Capturing CUDA graph shapes:  23%|██▎       | 8/35 [00:05<00:18,  1.49it/s]Capturing CUDA graph shapes:  26%|██▌       | 9/35 [00:06<00:17,  1.49it/s]Capturing CUDA graph shapes:  29%|██▊       | 10/35 [00:06<00:16,  1.53it/s]Capturing CUDA graph shapes:  31%|███▏      | 11/35 [00:07<00:15,  1.53it/s]Capturing CUDA graph shapes:  34%|███▍      | 12/35 [00:07<00:14,  1.55it/s]Capturing CUDA graph shapes:  37%|███▋      | 13/35 [00:08<00:13,  1.59it/s]Capturing CUDA graph shapes:  40%|████      | 14/35 [00:09<00:13,  1.56it/s]Capturing CUDA graph shapes:  43%|████▎     | 15/35 [00:09<00:12,  1.59it/s]Capturing CUDA graph shapes:  46%|████▌     | 16/35 [00:10<00:12,  1.58it/s]Capturing CUDA graph shapes:  49%|████▊     | 17/35 [00:11<00:11,  1.57it/s]Capturing CUDA graph shapes:  51%|█████▏    | 18/35 [00:11<00:10,  1.57it/s]Capturing CUDA graph shapes:  54%|█████▍    | 19/35 [00:12<00:10,  1.53it/s]Capturing CUDA graph shapes:  57%|█████▋    | 20/35 [00:13<00:09,  1.51it/s]Capturing CUDA graph shapes:  60%|██████    | 21/35 [00:13<00:09,  1.53it/s]Capturing CUDA graph shapes:  63%|██████▎   | 22/35 [00:14<00:08,  1.56it/s]Capturing CUDA graph shapes:  66%|██████▌   | 23/35 [00:14<00:07,  1.56it/s]Capturing CUDA graph shapes:  69%|██████▊   | 24/35 [00:15<00:07,  1.55it/s]Capturing CUDA graph shapes:  71%|███████▏  | 25/35 [00:16<00:06,  1.54it/s]Capturing CUDA graph shapes:  74%|███████▍  | 26/35 [00:16<00:05,  1.55it/s]Capturing CUDA graph shapes:  77%|███████▋  | 27/35 [00:17<00:04,  1.61it/s]Capturing CUDA graph shapes:  80%|████████  | 28/35 [00:18<00:04,  1.67it/s]Capturing CUDA graph shapes:  83%|████████▎ | 29/35 [00:18<00:03,  1.64it/s]Capturing CUDA graph shapes:  86%|████████▌ | 30/35 [00:19<00:03,  1.65it/s]Capturing CUDA graph shapes:  89%|████████▊ | 31/35 [00:19<00:02,  1.62it/s]Capturing CUDA graph shapes:  91%|█████████▏| 32/35 [00:20<00:01,  1.59it/s]Capturing CUDA graph shapes:  94%|█████████▍| 33/35 [00:21<00:01,  1.56it/s]Capturing CUDA graph shapes:  97%|█████████▋| 34/35 [00:21<00:00,  1.56it/s]Capturing CUDA graph shapes: 100%|██████████| 35/35 [00:22<00:00,  1.57it/s]Capturing CUDA graph shapes: 100%|██████████| 35/35 [00:22<00:00,  1.56it/s]
-[rank0]: Traceback (most recent call last):
-[rank0]:   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Dataset_Generation/GeneratingCodes/Conversation_Gen.py", line 481, in <module>
-[rank0]:     main(**config)
-[rank0]:   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Dataset_Generation/GeneratingCodes/Conversation_Gen.py", line 247, in main
-[rank0]:     experiment = experiment_setup(num_gpus, model_name, track, conv_type, datasets_helping_folder)
-[rank0]:                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-[rank0]:   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Dataset_Generation/GeneratingCodes/Conversation_Gen.py", line 203, in experiment_setup
-[rank0]:     assert len(dataset[0][dataset_bunch_key]) == q_num_per_session, f"Number of questions per session in the dataset is not equal to the number of questions per session in the experiment. {len(dataset[0][dataset_bunch_key])} != {q_num_per_session}"
-[rank0]: AssertionError: Number of questions per session in the dataset is not equal to the number of questions per session in the experiment. 20 != 30
-[rank0]:[W531 16:33:55.377319498 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())
-/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 1 leaked shared_memory objects to clean up at shutdown
-  warnings.warn('resource_tracker: There appear to be %d '
-srun: error: lrz-dgx-a100-005: task 0: Exited with exit code 1
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:03<00:33,  3.01s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:05<00:29,  2.91s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:08<00:25,  2.87s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:11<00:22,  2.85s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:14<00:19,  2.84s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:17<00:16,  2.83s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:19<00:14,  2.82s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:22<00:11,  2.81s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:25<00:08,  2.81s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:28<00:05,  2.81s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:31<00:02,  2.80s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:31<00:00,  2.03s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:31<00:00,  2.61s/it]
+skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=3), device(type='cuda', index=1), device(type='cuda', index=2)
+skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=3), device(type='cuda', index=1), device(type='cuda', index=2)
+skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=3), device(type='cuda', index=1), device(type='cuda', index=2)
+skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=3), device(type='cuda', index=1), device(type='cuda', index=2)
+skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=3), device(type='cuda', index=1), device(type='cuda', index=2)
+skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=3), device(type='cuda', index=1), device(type='cuda', index=2)
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 5166653.0 ON lrz-dgx-a100-005 CANCELLED AT 2025-05-31T23:12:01 ***
+slurmstepd: error: *** JOB 5166653 ON lrz-dgx-a100-005 CANCELLED AT 2025-05-31T23:12:01 ***
