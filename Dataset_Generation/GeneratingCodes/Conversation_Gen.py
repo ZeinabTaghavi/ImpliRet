@@ -454,7 +454,7 @@ def main(num_gpus: int = 4,
 if __name__ == '__main__':
     # Parse arguments
     parser = argparse.ArgumentParser(description="First Experiment:")
-    parser.add_argument("--model_name", type=str, default="meta-llama/Llama-3.3-70B-Instruct", help="LLM Name.")
+    parser.add_argument("--model_name", type=str, default="google/gemma-3-27b-it", help="LLM Name: google/gemma-3-27b-it or meta-llama/Llama-3.3-70B-Instruct")
     parser.add_argument("--track", type=str, default="A", help="Track name: A:Arithmetic, S:Semantic, or T:Temporal.")
     parser.add_argument("--conv_type", type=str, default="Multi", help="Conversation type: Uni, or Multi.")
     parser.add_argument("--datasets_helping_folder", type=str, default="./Dataset_Generation/Dataset_Helping", help="Path to datasets folder of helping files (structured dataset).")
