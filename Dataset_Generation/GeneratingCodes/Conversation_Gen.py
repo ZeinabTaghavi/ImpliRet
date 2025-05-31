@@ -130,11 +130,10 @@ def experiment_setup(num_gpus: int,
         dataset_bunch_key = 'posts'
         selected_info_keys = ['forum_post', 'question'] # for feature extraction
         conversation_generation_keys_main = ['topic', 'forum_question'] # for conversation generation prompt
-        conversation_generation_keys = ['forum_post_2']
+        conversation_generation_keys = ['forum_post_1_user', 'forum_post_2']
         
         feature_extraction_function = filter_generated_feature_parsing_step_A_Multi
 
-        STARTING_CONVERSATION_PROMPT = ALL_PROMPTS['PROMPTS_A_Multi']['STARTING_CONVERSATION_PROMPT']
         CONVERSATION_GENERATION_PROMPT = ALL_PROMPTS['PROMPTS_A_Multi']['CONVERSATION_GENERATION_PROMPT']
         FEATURE_EXTRACTION_PROMPT = ALL_PROMPTS['PROMPTS_A_Multi']['FEATURE_EXTRACTION_PROMPT']
 
@@ -146,7 +145,6 @@ def experiment_setup(num_gpus: int,
 
         feature_extraction_function = filter_generated_feature_parsing_step_A_Uni 
 
-        STARTING_CONVERSATION_PROMPT = ALL_PROMPTS['PROMPTS_A_Uni']['STARTING_CONVERSATION_PROMPT']
         CONVERSATION_GENERATION_PROMPT = ALL_PROMPTS['PROMPTS_A_Uni']['CONVERSATION_GENERATION_PROMPT']
         FEATURE_EXTRACTION_PROMPT = ALL_PROMPTS['PROMPTS_A_Uni']['FEATURE_EXTRACTION_PROMPT']
 
@@ -158,7 +156,6 @@ def experiment_setup(num_gpus: int,
         
         feature_extraction_function = filter_generated_feature_parsing_step_S_Multi
 
-        STARTING_CONVERSATION_PROMPT = ALL_PROMPTS['PROMPTS_S_Multi']['STARTING_CONVERSATION_PROMPT']
         CONVERSATION_GENERATION_PROMPT = ALL_PROMPTS['PROMPTS_S_Multi']['CONVERSATION_GENERATION_PROMPT']
         FEATURE_EXTRACTION_PROMPT = ALL_PROMPTS['PROMPTS_S_Multi']['FEATURE_EXTRACTION_PROMPT']
 
@@ -170,7 +167,6 @@ def experiment_setup(num_gpus: int,
 
         feature_extraction_function = filter_generated_feature_parsing_step_S_Uni
 
-        STARTING_CONVERSATION_PROMPT = ALL_PROMPTS['PROMPTS_S_Uni']['STARTING_CONVERSATION_PROMPT']
         CONVERSATION_GENERATION_PROMPT = ALL_PROMPTS['PROMPTS_S_Uni']['CONVERSATION_GENERATION_PROMPT']
         FEATURE_EXTRACTION_PROMPT = ALL_PROMPTS['PROMPTS_S_Uni']['FEATURE_EXTRACTION_PROMPT']
     
@@ -182,7 +178,6 @@ def experiment_setup(num_gpus: int,
         
         feature_extraction_function = filter_generated_works_parsing_step_T_Multi
 
-        STARTING_CONVERSATION_PROMPT = ALL_PROMPTS['PROMPTS_T_Multi']['STARTING_CONVERSATION_PROMPT']
         CONVERSATION_GENERATION_PROMPT = ALL_PROMPTS['PROMPTS_T_Multi']['CONVERSATION_GENERATION_PROMPT']
         FEATURE_EXTRACTION_PROMPT = ALL_PROMPTS['PROMPTS_T_Multi']['FEATURE_EXTRACTION_PROMPT']
 
@@ -194,7 +189,6 @@ def experiment_setup(num_gpus: int,
 
         feature_extraction_function = filter_generated_works_parsing_step_T_Uni
 
-        STARTING_CONVERSATION_PROMPT = ALL_PROMPTS['PROMPTS_T_Uni']['STARTING_CONVERSATION_PROMPT']
         CONVERSATION_GENERATION_PROMPT = ALL_PROMPTS['PROMPTS_T_Uni']['CONVERSATION_GENERATION_PROMPT']
         FEATURE_EXTRACTION_PROMPT = ALL_PROMPTS['PROMPTS_T_Uni']['FEATURE_EXTRACTION_PROMPT']
 
@@ -230,7 +224,6 @@ def experiment_setup(num_gpus: int,
         'conversation_generation_keys': conversation_generation_keys,
         'conv_lines': conv_lines,
         'feature_extraction_function': feature_extraction_function,
-        'STARTING_CONVERSATION_PROMPT': STARTING_CONVERSATION_PROMPT,
         'CONVERSATION_GENERATION_PROMPT': CONVERSATION_GENERATION_PROMPT,
         'FEATURE_EXTRACTION_PROMPT': FEATURE_EXTRACTION_PROMPT,
     }
@@ -255,41 +248,6 @@ def main(num_gpus: int = 4,
     
     experiment = experiment_setup(num_gpus, model_name, track, conv_type, datasets_helping_folder)
    
-    print('-------------------------------- Generating starting lines of conversations --------------------------------')
-    if os.path.exists(experiment['output_filename_starting_main_conversations']):
-        print(f"Loading starting conversations from {experiment['output_filename_starting_main_conversations']}")
-        starting_conversations = load_jsonl(experiment['output_filename_starting_main_conversations'])
-    else:
-        prompts_starting_conv = [ [
-                {
-                    "role": "system",
-                    "content": "You are a helpful assistant."
-                },
-                {
-                    "role": "user",
-                    "content": experiment['STARTING_CONVERSATION_PROMPT'].format(num_starting_points=experiment['q_num_per_session'])
-                }
-                
-            ] for _ in range(int(experiment['num_sessions']))]
-
-        print(f'Number of itteration for generating {experiment["q_num_per_session"]} strarting points: {len((prompts_starting_conv))}')
-        _, starting_conversations = several_attempts_generation(total_attempts=total_attempts,
-                                                            temperature=temperature,
-                                                            llm=llm,
-                                                            evaluation_function=filter_generated_conversation_responses,
-                                                            llm_output_prepared=False,
-                                                            prompts=prompts_starting_conv,
-                                                            num_expected_lines=experiment['q_num_per_session'],
-                                                            max_tokens=max_tokens_starting_conv,
-                                                            output_type='list',
-                                                            more_than_ok_type='more_than_ok')
-
-        print(f"saving starting conversations...")
-        with open(experiment['output_filename_starting_main_conversations'], 'w') as f:
-            for output in starting_conversations:
-                json.dump(output, f)
-                f.write('\n')
-        print(f"starting conversations saved to {experiment['output_filename_starting_main_conversations']}")
     
     print('---------------------------------------- Generating the conversations ----------------------------------------')
     # Prepare prompts for conversation generation
@@ -299,7 +257,6 @@ def main(num_gpus: int = 4,
         if experiment['conv_type'] == 'Uni':
             user = experiment['dataset'][i]['user_1']
         for i_2, conversation_bunch in enumerate(experiment['dataset'][i][experiment['dataset_bunch_key']]):
-            starting_conv = starting_conversations[i][i_2]
             selected_info = {key: conversation_bunch[key] for key in experiment['selected_info_keys']}
             input_dict = {}
 
@@ -311,13 +268,18 @@ def main(num_gpus: int = 4,
             # this is adding from the conversation_bunch
             for key in experiment['conversation_generation_keys']:
                 try:
-                    second_key = int(key.split('_')[-1])
-                    first_key = '_'.join(key.split('_')[:-1])
-                    input_dict[first_key] = conversation_bunch[first_key][int(second_key)]
+                    second_key = int(key.split('_')[-2])
+                    first_key = '_'.join(key.split('_')[:-2])
+                    new_name = key.split('_')[-1]
+                    input_dict[new_name] = conversation_bunch[first_key][int(second_key)]
                 except:
-                    input_dict[key] = conversation_bunch[key]
+                    try: 
+                        second_key = int(key.split('_')[-1])
+                        first_key = '_'.join(key.split('_')[:-1])
+                        input_dict[first_key] = conversation_bunch[first_key][int(second_key)]
+                    except:
+                        input_dict[key] = conversation_bunch[key]
 
-            input_dict['starting_conv'] = starting_conv
             conversation = [
                     {
                         "role": "system",
@@ -480,7 +442,7 @@ def main(num_gpus: int = 4,
             f.write('\n')
     print(f'outputs saved: \n {experiment["output_filename_conversation"]} \n {experiment["output_filename_feature_extraction"]}')
     print(len(mistaken_conversation_idx))
-    assert len(mistaken_conversation_idx) == 0, f"There are still mistaken conversations: {["\n".join(conversation_list[i] for i in mistaken_conversation_idx)]}"
+    assert len(mistaken_conversation_idx) == 0, f"There are still mistaken conversations:\n" + "\n".join(conversation_list[i] for i in mistaken_conversation_idx)
     assert len(mistaken_extracted_idx) == 0, f"There are still mistaken extractions: {["\n".join(extracted_feature_list[i] for i in mistaken_extracted_idx)]}"
 
     print('---------------------------------------- Dataset Generation Completed ----------------------------------------')
@@ -509,9 +471,10 @@ if __name__ == '__main__':
     print('---------------------------')
 
     # Set up Hugging Face authentication
-    login(token=os.environ.get("HF_TOKEN"))
-    if not os.environ.get("HF_TOKEN"):
+    hf_token = os.environ.get("HF_TOKEN")
+    if not hf_token:
         raise ValueError("Please set the HF_TOKEN environment variable with your Hugging Face token")
+    login(token=hf_token)
 
     config = {
         **vars(args),

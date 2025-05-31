@@ -2,25 +2,6 @@ ALL_PROMPTS = {
 
 # A_Multi
 "PROMPTS_A_Multi": {
-'STARTING_CONVERSATION_PROMPT' : """
-
-**Task**
-Generate {num_starting_points} distinct, natural-sounding first sentences suitable as the opening line of a response in an online forum discussion.
-
-**Requirements**
-- No numbering, bullets, or extra text before or after each sentence.
-- Tone must be friendly, approachable, and universally applicable.
-- Avoid any topic-specific references.
-- Use general phrasing.
-- Do not mention purchases or someone buying something.
-- Do not include numerical references in the sentences.
-
-**Output Format**
-At least {num_starting_points} distinct sentences.
-Separate each sentence with a blank line.
-"""
-,
-
 'CONVERSATION_GENERATION_PROMPT' : '''
 
 **Task**
@@ -29,15 +10,18 @@ Generate a natural response to a forum question.
 **Input**
 - `topic`: A short topic of the forum discussion.
 - `forum_question`: A base question posted in the forum.
+- `user`: a dictionary with the following keys:
+  - `name`: Name of the user.
+  - `persona`: Persona of the user.
 - `forum_post`: A list of three sentences:
-  1. The price of an item from a certain brand's model to dollars (e.g., "Gaming Chairs from Secretlab, model 2019: 1650").
+  1. The price of an item from a certain brand's model to dollars (e.g., "Gaming Chairs from Secretlab model 2019: 1650 dollars").
   2. The price of another item from the same brand but a different model, the price is described in relative form to the first item (e.g., "Secretlab, model 2019: 2.5 times more expensive than model 2016").
   3. A sentence stating which model of the brand was ultimately purchased (e.g., "model 2016 was purchased").
-- `first_sentence`: The first sentence of the response.
+
 
 **Requirements**
 - In the response, you should answer the "forum_question" by using the information in "forum_post".
-- You can use the information in "first_sentence" (modify it if needed) to start the conversation.
+- You can use the information in user["persona"] that is about the user['name'] to make the response more natural.
 - Preserve the numeric references (prices, multipliers, etc.).
 - You can write the numbers as words, but do not change the value at all (e.g., 3.5 can be mentioned as "three and a half").
 - Write the relative price in a natural way (e.g., "Secretlab, model 2019: 2.5 times more expensive than model 2016" can be mentioned as "The Secretlab 2019 model costs two and a half times as much as the 2016 model.").
@@ -45,7 +29,7 @@ Generate a natural response to a forum question.
 - Only mention the information once in the response.
 - Make sure that you generate grammatically correct sentences.
 - Optionally include a reason for choosing the second brand.
-- Your generated answer must be coherent and make the Answer natural as a human is really answering the `forum_question` in 4 sentences.
+- Your generated answer must be coherent and make the Answer natural as a human is really answering the `forum_question` in 5 sentences.
 
 
 **Output Format**
@@ -85,24 +69,7 @@ INPUT: {context}
 
 # A_Uni
 "PROMPTS_A_Uni": { 
-  
-'STARTING_CONVERSATION_PROMPT' : """
-**Task**
-Generate {num_starting_points} distinct, natural-sounding first sentences suitable as the opening line of a conversation between two friends.
 
-**Requirements**
-- No numbering, bullets, or extra text before or after each sentence.
-- Tone must be friendly, approachable, and universally applicable.
-- Avoid any numerical mentions.
-- Do not mention purchases or someone buying something.
-- Do not include temporal or numerical references.
-- Avoid common starting phrases; strive for originality.
-
-**Output Format**
-At least {num_starting_points} distinct sentences.
-Separate each sentence with a blank line.
-"""
-,
 'CONVERSATION_GENERATION_PROMPT' : '''
 
 **Task**
@@ -167,24 +134,6 @@ INPUT: {context}
 
 # S_Multi
 "PROMPTS_S_Multi": { 
-'STARTING_CONVERSATION_PROMPT' : """
-
-**Task**
-Generate {num_starting_points} distinct, natural-sounding first sentences suitable as the opening line of a response in an online forum discussion.
-
-**Requirements**
-- No numbering, bullets, or extra text before or after each sentence.
-- Tone must be friendly, approachable, and universally applicable.
-- Avoid any topic-specific references.
-- Use general phrasing.
-- Do not mention purchases or someone buying something.
-- Do not include numerical references in the sentences.
-
-**Output Format**
-At least {num_starting_points} distinct sentences.
-Separate each sentence with a blank line.
-"""
-,
 'CONVERSATION_GENERATION_PROMPT' : '''
 
 **Task**
@@ -240,25 +189,6 @@ INPUT: {context}
 
 # S_Uni
 "PROMPTS_S_Uni": { 
-  
-'STARTING_CONVERSATION_PROMPT' : """
-
-**Task**
-Generate {num_starting_points} distinct, natural-sounding first sentences suitable as the opening line of a conversation between two friends.
-
-**Requirements**
-- No numbering, bullets, or extra text before or after each sentence.
-- Tone must be friendly, approachable, and universally applicable.
-- Avoid any numerical mentions.
-- Do not mention purchases or someone buying something.
-- Do not include temporal or numerical references.
-- Avoid common starting phrases; strive for originality.
-
-**Output Format**
-At least {num_starting_points} distinct sentences.
-Separate each sentence with a blank line.
-"""
-,
 'CONVERSATION_GENERATION_PROMPT' : '''
 
 **Task**
@@ -317,24 +247,6 @@ INPUT: {context}
 
 # T_Multi
 "PROMPTS_T_Multi": { 
-'STARTING_CONVERSATION_PROMPT' : """
-
-**Task**
-Generate {num_starting_points} distinct, natural-sounding first sentences suitable as the opening line of a response in an online forum discussion.
-
-**Requirements**
-- No numbering, bullets, or extra text before or after each sentence.
-- Tone must be friendly, approachable, and universally applicable.
-- Avoid any topic-specific references.
-- Use general phrasing.
-- Do not mention purchases or someone buying something.
-- Do not include numerical references in the sentences.
-
-**Output Format**
-At least {num_starting_points} distinct sentences.
-Separate each sentence with a blank line.
-"""
-,
 'CONVERSATION_GENERATION_PROMPT' : '''
 
 **Task**
@@ -397,25 +309,7 @@ INPUT: {context}
 
 # T_Uni
 "PROMPTS_T_Uni": { 
-  
-'STARTING_CONVERSATION_PROMPT' : """
 
-**Task**
-Generate {num_starting_points} distinct, natural-sounding first sentences suitable as the opening line of a conversation between two friends.
-
-**Requirements**
-- No numbering, bullets, or extra text before or after each sentence.
-- Tone must be friendly, approachable, and universally applicable.
-- Avoid any numerical mentions.
-- Do not mention purchases or someone buying something.
-- Do not include temporal or numerical references.
-- Avoid common starting phrases; strive for originality.
-
-**Output Format**
-At least {num_starting_points} distinct sentences.
-Separate each sentence with a blank line.
-"""
-,
 'CONVERSATION_GENERATION_PROMPT' : '''
 
 **Task**
