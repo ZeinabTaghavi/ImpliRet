@@ -28,7 +28,7 @@ def find_valid_list_prices(num_items=30, max_tries=10, max_price=3000):
         Two lists containing paired prices
     """
 
-    for _ in range(20):
+    for _ in range(30):
         base_price_1 = list(range(0,num_items))
         random.shuffle(base_price_1)
         prices = []
@@ -176,7 +176,7 @@ def generate_message_prices(list_price_1 , list_price_2, names, brands, topic, q
     return message_prices
 
 
-def generate_dataset(num_items=20, max_price=3000):
+def generate_dataset(num_items=30, max_price=3000):
     """
     Generate the complete dataset with forum topics and price comparisons.
     
@@ -212,7 +212,9 @@ def generate_dataset(num_items=20, max_price=3000):
         # Generate prices and messages
         list_price_1, list_price_2 = find_valid_list_prices(num_items, max_price)
         topic_users = random.sample(shuffled_names_list, 30)
-     
+
+
+        
         message_dates = generate_message_prices(list_price_1, list_price_2, topic_users, topic['items'], topic["topic"], topic['question'])
         dataset_row["posts"] = message_dates
         dataset.append(dataset_row)

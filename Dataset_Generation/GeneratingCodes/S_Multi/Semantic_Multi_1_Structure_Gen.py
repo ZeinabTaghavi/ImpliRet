@@ -46,7 +46,7 @@ def generate_message_for_each_user(list_of_users, list_of_destinations, question
     return messages
 
 
-def generate_dataset(num_items=20):
+def generate_dataset(num_items=30):
 
     names_list = []
     with open("./Dataset_Generation/Dataset_Helping/names.jsonl", "r") as file:
@@ -62,7 +62,6 @@ def generate_dataset(num_items=20):
 
     dataset = []
     shuffled_names_list = names_list.copy()
-    num_items = 30
 
     country_list = {}
     for sample in wikidata_samples:

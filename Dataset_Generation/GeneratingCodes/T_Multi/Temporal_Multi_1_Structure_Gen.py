@@ -88,9 +88,10 @@ def generate_dataset(num_users = 50, num_items = 30, max_price = 3000):
     """Generate the temporal multi-task dataset structure."""
     
     # Load names data
-    with open("./Dataset_Generation/Dataset_Helping/names.txt", "r") as file:
-        names = ' '.join([line.strip().replace(" ", "") for line in file.readlines()])
-        names_list = sorted(list(set(ast.literal_eval(names))))
+    names_list = []
+    with open("./Dataset_Generation/Dataset_Helping/names.jsonl", "r") as file:
+        for line in file:
+            names_list.append(json.loads(line.strip()))
 
     # Load forum topics
     forum_topics = []
@@ -113,18 +114,16 @@ def generate_dataset(num_users = 50, num_items = 30, max_price = 3000):
     for topic in forum_topics:
         dataset_row = {
             'topic': topic["topic"],
-            'forum_question': topic["base_question"],
+            'forum_question': topic["forum_question"],
             "posts": []
         }
         
-        work_dates = generate_work_dates(20, OVERALL_START, OVERALL_END)
-        topic_users = random.sample(shuffled_names_list, 20)
-        for user in topic_users:
-            shuffled_names_list.remove(user)
+        work_dates = generate_work_dates(30, OVERALL_START, OVERALL_END)
+        topic_users = random.sample(shuffled_names_list, 30)
 
         message_dates = generate_message_dates(work_dates)
         
-        for i in range(20):
+        for i in range(30):
             work_date = datetime.strptime(format_date(work_dates[i]), "%Y-%m-%d").strftime("%B %d, %Y")
             message_date = format_date(message_dates[i])
             offset = (message_dates[i] - work_dates[i]).days

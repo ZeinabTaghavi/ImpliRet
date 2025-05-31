@@ -174,7 +174,7 @@ def making_schedule(user, users, WINDOW_DAYS, W_repeat, W_once, min_duration, ma
                     qs_hour = random.randint(s_slot + 1, e_slot - 1)
                 else:
                     qs_hour = s_slot
-                user_2 = random.choice([s_u for s_u in users if s_u != user])
+                user_2 = random.choice([s_u for s_u in users if s_u['name'] != user['name']])
                 schedule.append({
                     "user_2": user_2,
                     "work": work,
@@ -236,7 +236,7 @@ def making_schedule(user, users, WINDOW_DAYS, W_repeat, W_once, min_duration, ma
                     qs_hour = random.randint(s_slot + 1, e_slot - 1)
                 else:
                     qs_hour = s_slot
-                user_2 = random.choice([s_u for s_u in users if s_u != user])
+                user_2 = random.choice([s_u for s_u in users if s_u['name'] != user['name']])
                 schedule.append({
                     "user_2": user_2,
                     "work": work,
@@ -280,7 +280,7 @@ def making_schedule(user, users, WINDOW_DAYS, W_repeat, W_once, min_duration, ma
                     qs_hour = random.randint(s_slot + 1, e_slot - 1)
                 else:
                     qs_hour = s_slot
-                user_2 = random.choice([s_u for s_u in users if s_u != user])
+                user_2 = random.choice([s_u for s_u in users if s_u['name'] != user['name']])
                 schedule.append({
                     "user_2": user_2,
                     "work": work,
@@ -336,9 +336,10 @@ def generate_dataset(num_users = 50, num_items = 30, window_days = 14, day_start
         phrases = ' '.join([line.strip() for line in file.readlines()])
         W_repeat_list = sorted(list(ast.literal_eval(phrases)))
 
-    with open("./Dataset_Generation/Dataset_Helping/names.txt", "r") as file:
-        names = ' '.join([line.strip() for line in file.readlines()])
-        names_list = sorted(list(ast.literal_eval(names)))
+    names_list = []
+    with open("./Dataset_Generation/Dataset_Helping/names.jsonl", "r") as file:
+        for line in file:
+            names_list.append(json.loads(line.strip()))
 
     # ------------------------------------------------------------
     # Generate Basic Schedules
@@ -361,7 +362,7 @@ def generate_dataset(num_users = 50, num_items = 30, window_days = 14, day_start
             schedule_2[i]['question_time'] = (schedule_2[i]['question_time'][0]+14 , schedule_2[i]['question_time'][1])
 
         schedule = schedule_1 + schedule_2
-        user_schedules[user] = {
+        user_schedules[user['name']] = {
             "user_1": user,
             "schedule": schedule
         }
@@ -388,6 +389,7 @@ def generate_dataset(num_users = 50, num_items = 30, window_days = 14, day_start
         delta = (seg_end - seg_start).days
         offset = random.randint(0, delta) if delta > 0 else 0
         base_date = seg_start + timedelta(days=offset)
+       
         user_start_dates[user] = base_date
 
     # Update schedules with actual dates
@@ -441,7 +443,7 @@ def generate_dataset(num_users = 50, num_items = 30, window_days = 14, day_start
     with open(output_file, 'w') as f:
         for user, schedule_data in user_schedules.items():
             schedule_with_user = schedule_data.copy()
-            schedule_with_user['user_1'] = user
+            schedule_with_user['user_1'] = schedule_with_user['user_1']
             for schedule in schedule_with_user['schedule']:
                 schedule["message_time"] = (
                     schedule["message_time"][0], 

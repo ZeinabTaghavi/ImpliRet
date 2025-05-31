@@ -242,6 +242,7 @@ def main(num_gpus: int = 4,
     """Main execution function."""
     # Initialize model
     print("Loading the model...")
+        
     llm = load_model(model_name, num_gpus)
     
     experiment = experiment_setup(num_gpus, model_name, track, conv_type, datasets_helping_folder)
@@ -455,7 +456,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="First Experiment:")
     parser.add_argument("--model_name", type=str, default="meta-llama/Llama-3.3-70B-Instruct", help="LLM Name.")
     parser.add_argument("--track", type=str, default="A", help="Track name: A:Arithmetic, S:Semantic, or T:Temporal.")
-    parser.add_argument("--conv_type", type=str, default="Uni", help="Conversation type: Uni, or Multi.")
+    parser.add_argument("--conv_type", type=str, default="Multi", help="Conversation type: Uni, or Multi.")
     parser.add_argument("--datasets_helping_folder", type=str, default="./Dataset_Generation/Dataset_Helping", help="Path to datasets folder of helping files (structured dataset).")
     args = parser.parse_args()
 
@@ -469,10 +470,10 @@ if __name__ == '__main__':
     print('---------------------------')
 
     # Set up Hugging Face authentication
-    hf_token = os.environ.get("HF_TOKEN")
-    if not hf_token:
-        raise ValueError("Please set the HF_TOKEN environment variable with your Hugging Face token")
-    login(token=hf_token)
+    # hf_token = os.environ.get("HF_TOKEN")
+    # if not hf_token:
+    #     raise ValueError("Please set the HF_TOKEN environment variable with your Hugging Face token")
+    # login(token=hf_token)
 
     config = {
         **vars(args),
