@@ -16,7 +16,7 @@ export VLLM_WORKER_MULTIPROC_METHOD=fork
 conda activate base
 echo "Starting the job" 
 
-srun python3 ./Dataset_Generation/GeneratingCodes/Conversation_Gen.py --track A --conv_type Multi --num_extra_samples_per_main_question 499
+srun python3 ./Dataset_Generation/GeneratingCodes/Conversation_Gen.py --track A --conv_type Multi
 
-# srun python3 ./Dataset_Generation/GeneratingCodes/Conversation_Gen.py --track A --conv_type Uni --num_extra_samples_per_main_question 499
+# srun python3 ./Dataset_Generation/GeneratingCodes/Conversation_Gen.py --track A --conv_type Uni
 echo "Job finished"

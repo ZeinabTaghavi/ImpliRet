@@ -192,13 +192,11 @@ def experiment_setup(num_gpus: int,
         CONVERSATION_GENERATION_PROMPT = ALL_PROMPTS['PROMPTS_T_Uni']['CONVERSATION_GENERATION_PROMPT']
         FEATURE_EXTRACTION_PROMPT = ALL_PROMPTS['PROMPTS_T_Uni']['FEATURE_EXTRACTION_PROMPT']
 
+    q_num_per_session = 30
+    num_sessions = 50
     if conv_type == 'Multi':
-        q_num_per_session = 20
-        num_sessions = 25
         conv_lines = 1
     elif conv_type == 'Uni':
-        q_num_per_session = 30
-        num_sessions = 50
         conv_lines = 10
     
     assert len(dataset) == num_sessions, f"Number of sessions in the dataset is not equal to the number of sessions in the experiment. {len(dataset)} != {num_sessions}"
