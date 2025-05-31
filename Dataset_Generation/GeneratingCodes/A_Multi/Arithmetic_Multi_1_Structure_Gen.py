@@ -186,9 +186,11 @@ def generate_dataset(num_items=20, max_price=3000):
     """
 
     # Load user names
-    with open("./Dataset_Generation/Dataset_Helping/names.txt", "r") as file:
-        names = ' '.join([line.strip().replace(" ", "") for line in file.readlines()])
-        names_list = sorted(list(set(ast.literal_eval(names))))
+    names_list = []
+    with open("./Dataset_Generation/Dataset_Helping/names.jsonl", "r") as file:
+        for line in file:
+            names_list.append(json.loads(line.strip()))
+   
 
     # Load forum topics
     forum_topics = []
@@ -204,18 +206,17 @@ def generate_dataset(num_items=20, max_price=3000):
     for topic in forum_topics:
         dataset_row = {
             'topic': topic["topic"],
-            'forum_question': topic["base_question"],
+            'forum_question': topic["forum_question"],
         }
 
         # Generate prices and messages
         list_price_1, list_price_2 = find_valid_list_prices(num_items, max_price)
-        topic_users = random.sample(shuffled_names_list, 20)
-        for user in topic_users:
-            shuffled_names_list.remove(user)
-
+        topic_users = random.sample(shuffled_names_list, 30)
+     
         message_dates = generate_message_prices(list_price_1, list_price_2, topic_users, topic['items'], topic["topic"], topic['question'])
         dataset_row["posts"] = message_dates
         dataset.append(dataset_row)
+  
 
     # Save dataset
     output_dir = Path("./Dataset_Generation/Dataset_Helping/A_Multi")
