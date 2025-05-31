@@ -1,163 +1,102 @@
 {
-    "Clothing": {
-        "high_priced": [
-            "Alexander McQueen",
-            "Gucci",
-            "Louis Vuitton",
-            "Prada",
-            "Balenciaga"
-        ],
-        "low_priced": [
-            "H&M",
-            "Zara",
-            "Uniqlo",
-            "Forever 21",
-            "Gap"
-        ],
-        "items_to_buy": [
-            "bag",
-            "hat",
-            "shoes",
-            "coat",
-            "dress"
-        ]
-    },
-    "Antiques & Decorations": {
-        "high_priced": [
-            "Lalique",
-            "Baccarat",
-            "Christie's",
-            "Wedgwood",
-            "Herend"
-        ],
-        "low_priced": [
-            "IKEA",
-            "Target Home",
-            "Pier 1 Imports",
-            "HomeGoods",
-            "Walmart Interiors"
-        ],
-        "items_to_buy": [
-            "vase",
-            "figurine",
-            "painting",
-            "ornamental clock",
-            "candelabra"
-        ]
-    },
     "Electronics": {
-        "high_priced": [
-            "Apple",
-            "Bang & Olufsen",
-            "Sony (High-End)",
-            "Bose",
-            "Samsung (Premium)"
-        ],
-        "low_priced": [
-            "Xiaomi",
-            "Vizio",
-            "TCL",
-            "Realme",
-            "Acer"
-        ],
-        "items_to_buy": [
-            "smartphone",
-            "headphones",
-            "laptop",
-            "smart TV",
-            "tablet"
-        ]
+      "items_to_buy": ["Laptop", "Television", "Tablet", "Monitor", "Headphones", "Speaker", "E-reader", "Projector", "Soundbar", "Turntable"],
+      "high_priced": ["Bang & Olufsen", "Devialet", "McIntosh", "Mark Levinson", "Bowers & Wilkins", "Leica", "Hasselblad", "Astell&Kern", "Nagra", "Linn"],
+      "low_priced": ["Anker", "TCL", "Hisense", "Insignia", "Onn", "Monoprice", "JLab", "Skullcandy", "Wyze", "AmazonBasics"]
+    },
+    "Home Appliances": {
+      "items_to_buy": ["Refrigerator", "Washer", "Dryer", "Oven", "Microwave", "Dishwasher", "Freezer", "Cooktop", "Humidifier", "Purifier"],
+      "high_priced": ["Sub-Zero", "Wolf", "Miele", "Gaggenau", "Thermador", "Viking", "La Cornue", "Dacor", "Liebherr", "Bertazzoni"],
+      "low_priced": ["Amana", "Hotpoint", "Magic Chef", "Frigidaire", "GE Appliances", "Danby", "Haier", "Comfee", "Galanz", "RCA (Appliances)"]
     },
     "Furniture": {
-        "high_priced": [
-            "Restoration Hardware",
-            "Roche Bobois",
-            "Herman Miller",
-            "Poltrona Frau",
-            "Knoll"
-        ],
-        "low_priced": [
-            "IKEA",
-            "Ashley Furniture",
-            "Wayfair",
-            "Bob's Discount Furniture",
-            "Target Furniture"
-        ],
-        "items_to_buy": [
-            "sofa",
-            "dining table",
-            "bookshelf",
-            "bed frame",
-            "chair"
-        ]
+      "items_to_buy": ["Sofa", "Chair", "Table", "Bookshelf", "Bedframe", "Dresser", "Cabinet", "Ottoman", "Desk", "Bench"],
+      "high_priced": ["Herman Miller", "Knoll", "Cassina", "Roche Bobois", "Poltrona Frau", "Ligne Roset", "B&B Italia", "Flexform", "Minotti", "Restoration Hardware"],
+      "low_priced": ["IKEA", "Zinus", "Sauder", "Target (Room Essentials)", "Walmart (Mainstays)", "South Shore", "Furinno", "Bush Furniture", "Wayfair Basics", "Big Lots"]
     },
-    "Jewelry": {
-        "high_priced": [
-            "Tiffany & Co.",
-            "Cartier",
-            "Van Cleef & Arpels",
-            "Harry Winston",
-            "Bulgari"
-        ],
-        "low_priced": [
-            "Pandora",
-            "Swarovski",
-            "Kay Jewelers",
-            "Zales",
-            "Claire's"
-        ],
-        "items_to_buy": [
-            "necklace",
-            "ring",
-            "bracelet",
-            "earrings",
-            "pendant"
-        ]
+    "Clothing": {
+      "items_to_buy": ["Jacket", "Jeans", "Shirt", "Sweater", "Trousers", "Shorts", "Dress", "Coat", "Blouse", "Hoodie"],
+      "high_priced": ["Gucci", "Prada", "Chanel", "Hermès", "Dior", "Saint Laurent", "Balenciaga", "Valentino", "Burberry", "Tom Ford"],
+      "low_priced": ["H&M", "Zara", "Uniqlo", "Old Navy", "GAP", "Primark", "Forever 21", "Shein", "Target (Goodfellow & Co)", "Amazon Essentials"]
     },
-    "Sports Equipment": {
-        "high_priced": [
-            "Titleist",
-            "Wilson Staff",
-            "Yonex",
-            "Callaway",
-            "Mizuno (Professional Series)"
-        ],
-        "low_priced": [
-            "Decathlon",
-            "Kmart Sporting Goods",
-            "AmazonBasics (Sports)",
-            "Rawlings (Entry-Level)",
-            "Everlast"
-        ],
-        "items_to_buy": [
-            "basketball",
-            "tennis racket",
-            "golf clubs",
-            "soccer ball",
-            "fitness tracker"
-        ]
+    "Sporting Goods & Outdoor Gear": {
+      "items_to_buy": ["Tent", "Backpack", "Skis", "Snowboard", "Bicycle", "Helmet", "Dumbbell", "Racket", "Cleats", "Goggles"],
+      "high_priced": ["Arc'teryx", "Patagonia", "Canada Goose", "Moncler", "Specialized (S-Works)", "Santa Cruz Bicycles", "Orvis", "Simms", "Kjus", "Assos"],
+      "low_priced": ["Decathlon (Quechua)", "Ozark Trail", "Coleman", "Champion", "Spalding", "Wilson (Basic Lines)", "Fila", "Umbro", "And1", "Starter"]
     },
-    "Kitchen Appliances": {
-        "high_priced": [
-            "Viking",
-            "Sub-Zero",
-            "Wolf",
-            "Miele",
-            "Gaggenau"
-        ],
-        "low_priced": [
-            "Hamilton Beach",
-            "Black+Decker",
-            "Oster",
-            "Cuisinart",
-            "Frigidaire"
-        ],
-        "items_to_buy": [
-            "refrigerator",
-            "microwave",
-            "blender",
-            "toaster",
-            "coffee machine"
-        ]
+    "Jewelry & Watches": {
+      "items_to_buy": ["Necklace", "Ring", "Earrings", "Bracelet", "Watch", "Pendant", "Brooch", "Cufflinks", "Charm", "Locket"],
+      "high_priced": ["Cartier", "Tiffany & Co.", "Rolex", "Patek Philippe", "Audemars Piguet", "Van Cleef & Arpels", "Harry Winston", "Chopard", "Bulgari", "Graff"],
+      "low_priced": ["Fossil", "Timex", "Casio", "Swatch", "Invicta", "Claire's", "Accessorize", "Pandora (Silver)", "Alex and Ani", "Nine West (Jewelry)"]
+    },
+    "Power Tools & Hardware": {
+      "items_to_buy": ["Drill", "Saw", "Hammer", "Wrench", "Sander", "Grinder", "Level", "Pliers", "Screwdriver", "Vice"],
+      "high_priced": ["Festool", "Hilti", "Snap-on", "Fein", "Mafell", "Mirka", "Stabila", "Knipex", "Wera", "Lie-Nielsen"],
+      "low_priced": ["Ryobi", "Craftsman", "Black+Decker", "Skil", "HART", "Hyper Tough", "Bauer (Harbor Freight)", "Chicago Electric", "Stanley (Hand Tools)", "Workpro"]
+    },
+    "Musical Instruments": {
+      "items_to_buy": ["Guitar", "Keyboard", "Drum Set", "Violin", "Trumpet", "Flute", "Saxophone", "Cello", "Amplifier", "Microphone"],
+      "high_priced": ["Steinway & Sons", "C.F. Martin & Co.", "Gibson (Custom Shop)", "Fender (Custom Shop)", "PRS (Private Stock)", "Fazioli", "Moog", "Neumann", "Selmer Paris", "Bösendorfer"],
+      "low_priced": ["Squier", "Epiphone", "Yamaha (Entry-Level)", "Ibanez (Entry-Level)", "Donner", "Behringer", "Rogue", "Mitchell", "Pyle", "Lyons"]
+    },
+    "Automotive Parts & Accessories": {
+      "items_to_buy": ["Tire", "Battery", "Wiper", "Filter", "Mat", "Cover", "Charger", "Mount", "Rack", "Dashcam"],
+      "high_priced": ["Brembo", "Bilstein", "Recaro", "BBS", "Akrapovič", "HRE Wheels", "KW Suspensions", "Michelin (Performance)", "Pirelli (Performance)", "Rotiform"],
+      "low_priced": ["Duralast", "Valucraft", "ACDelco (Economy)", "Fram", "Monroe (Economy)", "Turtle Wax", "Armor All", "STP", "Prestone", "Rain-X"]
+    },
+    "Home Improvement Supplies": {
+      "items_to_buy": ["Tile", "Faucet", "Sink", "Toilet", "Paint", "Lumber", "Window", "Door", "Fixture", "Shelving"],
+      "high_priced": ["Waterworks", "Farrow & Ball", "Ann Sacks", "Marvin Windows", "Lutron (High-End)", "Dornbracht", "Duravit", "Rocky Mountain Hardware", "Smallbone of Devizes", "Plain English Design"],
+      "low_priced": ["Glacier Bay", "Project Source", "Behr (Economy)", "Style Selections", "American Standard (Economy)", "Delta (Economy)", "Valspar (Economy)", "Rust-Oleum", "DAP", "Owens Corning (Basic Insulation)"]
+    },
+    "Luggage & Travel Gear": {
+      "items_to_buy": ["Suitcase", "Duffel", "Carry-on", "Weekender", "Tote", "Pouch", "Adapter", "Pillow", "Tag", "Lock"],
+      "high_priced": ["Rimowa", "Tumi", "Briggs & Riley", "Globe-Trotter", "Moynat", "Goyard", "Zero Halliburton", "Hartmann", "Montblanc (Luggage)", "Bric's (Bellagio)"],
+      "low_priced": ["American Tourister", "Rockland", "AmazonBasics", "Coolife", "Kenneth Cole Reaction", "SwissGear", "Olympia USA", "Travelers Club", "U.S. Traveler", "Lucas Luggage"]
+    },
+    "Fine Art & Collectibles": {
+      "items_to_buy": ["Painting", "Sculpture", "Print", "Figurine", "Vase", "Coin", "Stamp", "Comic", "Poster", "Lithograph"],
+      "high_priced": ["Sotheby's", "Christie's", "Gagosian", "Pace Gallery", "David Zwirner", "Hauser & Wirth", "Lévy Gorvy", "White Cube", "Acquavella Galleries", "Larry Gagosian"],
+      "low_priced": ["Art.com", "AllPosters", "Etsy (Prints)", "Society6", "Redbubble", "IKEA (Art)", "Desenio", "Minted (Art Prints)", "Fine Art America (Prints)", "Great Big Canvas"]
+    },
+    "Mattresses & Bedding": {
+      "items_to_buy": ["Mattress", "Comforter", "Duvet", "Sheet", "Blanket", "Topper", "Protector", "Bedspread", "Quilt", "Sham"],
+      "high_priced": ["Hästens", "Tempur-Pedic (LuxeAlign)", "Stearns & Foster", "Beautyrest Black", "Saatva (Luxury Firm)", "Vispring", "DUXIANA", "Aireloom", "Frette", "Sferra"],
+      "low_priced": ["Zinus", "Linenspa", "Allswell", "Lucid", "Tuft & Needle (Original)", "Casper (Original)", "IKEA (Mattresses)", "Mainstays (Bedding)", "Utopia Bedding", "Mellanni"]
+    },
+    "High-End Kitchenware & Dining": {
+      "items_to_buy": ["Cookware", "Cutlery", "Glassware", "Dinnerware", "Blender", "Mixer", "Kettle", "Toaster", "Grill", "Carafe"],
+      "high_priced": ["All-Clad", "Le Creuset", "Staub", "Mauviel", "Demeyere", "Vitamix", "Wolf Gourmet", "Riedel", "Christofle", "Sub-Zero (Wine Storage)"],
+      "low_priced": ["T-fal", "Farberware", "Calphalon (Select)", "Cuisinart (Basic)", "Pyrex", "Corelle", "Oster", "Hamilton Beach", "Anchor Hocking", "Lodge (Cast Iron)"]
+    },
+    "Office Electronics & Productivity Tools": {
+      "items_to_buy": ["Printer", "Scanner", "Shredder", "Laminator", "Mouse", "Webcam", "Dock", "Hub", "Presenter", "Footrest"],
+      "high_priced": ["Wacom (Cintiq Pro)", "Epson (SureColor Pro Printers)", "Fujitsu (ScanSnap High-End)", "Poly (Video Conferencing)", "Barco (ClickShare)", "Microsoft (Surface Hub)", "NEC (Professional Displays)", "Planar (Video Walls)", "Crestron (Automation)", "Sennheiser (TeamConnect)"],
+      "low_priced": ["Logitech (Basic Peripherals)", "HP (Basic Printers)", "Canon (Basic Printers)", "Kensington (Basic Ergonomics)", "Fellowes (Basic Office)", "SanDisk (USB Drives)", "UGREEN", "Anker (Hubs/Chargers)", "Dell (Basic Monitors)", "Brother (Basic Labelers)"]
+    },
+    "Premium Baby & Kids Gear": {
+      "items_to_buy": ["Stroller", "Carseat", "Crib", "Playpen", "Highchair", "Bouncer", "Swaddle", "Mobile", "Toy Box", "Walker"],
+      "high_priced": ["Stokke", "Bugaboo", "Uppababy", "Cybex (Platinum)", "Nuna", "Silver Cross", "Clek", "Babyzen YOYO", "SNOO", "Oeuf NYC"],
+      "low_priced": ["Graco", "Evenflo", "Safety 1st", "Cosco Kids", "Delta Children", "Kolcraft", "Baby Trend", "LuvLap", "Chicco (Basic)", "Summer Infant"]
+    },
+    "Gardening & Patio Equipment": {
+      "items_to_buy": ["Mower", "Trimmer", "Blower", "Hose", "Sprinkler", "Planter", "Lounger", "Umbrella", "Heater", "Smoker"],
+      "high_priced": ["Weber (Summit Series)", "Traeger (Timberline)", "Big Green Egg", "Stihl (Professional)", "Husqvarna (Professional)", "Brown Jordan", "Dedon", "Toro (Titan MAX)", "Honda (HRX Series)", "Ooni (Pro Pizza Ovens)"],
+      "low_priced": ["Scotts", "Black+Decker (Garden)", "Sun Joe", "Greenworks (Basic)", "Char-Broil", "Kingsford", "Miracle-Gro", "Vigoro", "Expert Gardener", "Ames"]
+    },
+    "Optical Goods & Eyewear": {
+      "items_to_buy": ["Glasses", "Sunglasses", "Lenses", "Frames", "Case", "Cleaner", "Magnifier", "Binoculars", "Telescope", "Monocle"],
+      "high_priced": ["Cartier (Eyewear)", "Lindberg", "Mykita", "DITA Eyewear", "Jacques Marie Mage", "Chrome Hearts Eyewear", "Tom Ford Eyewear", "Chanel Eyewear", "Oliver Peoples", "Persol"],
+      "low_priced": ["Warby Parker", "Zenni Optical", "EyeBuyDirect", "GlassesUSA.com", "Firmoo", "Pair Eyewear", "Foster Grant", "Quay Australia", "Target Optical (Brands)", "Costco Optical (Brands)"]
+    },
+    "Smartphones & Wearables": {
+      "items_to_buy": ["Smartphone", "Smartwatch", "Tracker", "Band", "Earbuds", "Cable", "Stand", "Powerbank", "Grip", "Stylus"],
+      "high_priced": ["Apple (Pro Max & Hermès Watch)", "Samsung (Fold & Ultra)", "Google (Pixel Pro)", "Garmin (Fenix & Epix)", "Tag Heuer (Connected)", "Montblanc (Summit)", "Huawei (Porsche Design)", "Sony (Xperia Pro)", "Xiaomi (Mi MIX Fold)", "Oppo (Find X Lamborghini)"],
+      "low_priced": ["Nokia (C-Series)", "Motorola (Moto E)", "OnePlus (Nord N)", "Realme (C-Series)", "Poco (M-Series)", "Xiaomi (Redmi)", "Amazfit (Bip)", "Fitbit (Inspire)", "Wyze (Band)", "TCL (Smartphones)"]
+    },
+    "Antiques": {
+      "items_to_buy": ["Armoire", "Chifforobe", "Settee", "Radio", "Clock", "Mirror", "Globe", "Chest", "Gramophone", "Bureau"],
+      "high_priced": ["Sotheby's (Auction)", "Christie's (Auction)", "Bonhams (Auction)", "Phillips (Auction)", "Doyle New York", "Heritage Auctions", "Rago Arts", "Skinner Inc.", "Keno Brothers", "Mallett Antiques"],
+      "low_priced": ["Ruby Lane", "Etsy (Vintage)", "eBay (Antiques)", "Chairish (Vintage)", "1stDibs (Vintage)", "Local Antique Mall", "Flea Market Stalls", "Estate Sale Companies", "Goodwill (Select Locations)", "Consignment Shops"]
     }
-}
+  }
