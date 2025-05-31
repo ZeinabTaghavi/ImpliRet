@@ -10,32 +10,6 @@ import json
 
 random.seed(42)
 
-# def generate_distinct_dates(n, start_date=datetime(2024, 1, 1), end_date=datetime(2024, 12, 31)):
-#     """
-#     Generate n distinct random dates between start_date and end_date.
-    
-#     Args:
-#         n: Number of distinct dates to generate
-#         start_date: Start date (default: 2024-01-01)
-#         end_date: End date (default: 2024-12-31)
-        
-#     Returns:
-#         List of n distinct dates in ISO format in ascending order
-#     """
-#     # Calculate total number of possible days
-#     total_days = (end_date - start_date).days + 1
-    
-#     # Ensure n doesn't exceed possible days
-#     if n > total_days:
-#         raise ValueError(f"Cannot generate {n} distinct dates in a {total_days} day period")
-        
-#     # Generate n random distinct days
-#     random_days = sorted(random.sample(range(total_days), n))
-    
-#     # Convert to actual dates in ISO format
-#     dates = [(start_date + timedelta(days=day)).strftime("%Y-%m-%d") for day in random_days]
-
-#     return dates
 
 def generate_user_trip_destination(country_list, num_items):
     """
@@ -72,13 +46,19 @@ def generate_dataset(users_num=50, num_items=30):
     # ------------------------------------------------------------
     
     # Load list of user names
-    with open("./Dataset_Generation/Dataset_Helping/names.txt", "r") as file:
-        names = ' '.join([line.strip() for line in file.readlines()])
-        names_list = sorted(list(ast.literal_eval(names)))
+    names_list = []
+    with open("./Dataset_Generation/Dataset_Helping/names.jsonl", "r") as file:
+        for line in file:
+            names_list.append(json.loads(line.strip()))
 
     # Load destination data from Wikidata
     with open("./Dataset_Generation/Dataset_Helping/S_Both/Wikidata_scored_Records/wikidata_step_8_gpt_unique_locations.jsonl", "r") as f:
         wikidata_samples = [json.loads(line) for line in f]
+
+    # Load the travel purposes
+    with open("./Dataset_Generation/Dataset_Helping/S_Uni/S_Uni_Base_JSON.json", "r") as f:
+        travel_purposes = json.load(f)['travel_purposes']
+
 
     # ------------------------------------------------------------
     # Organize Destinations by Country
@@ -102,7 +82,9 @@ def generate_dataset(users_num=50, num_items=30):
 
     # Generate trip data for each user
     for user in users:
-        user_dataset[user] = {"user_1": user, "trip_info": []}
+        user_dataset[user['name']] = {"user_1": user, "trip_info": []}
+        travel_purpose = random.sample(travel_purposes, num_items)
+        assert len(set(travel_purpose)) == len(travel_purpose), "Travel purposes are not unique"
 
         # Generate destinations for this user
         user_trips_items = generate_user_trip_destination(country_list, num_items)
@@ -110,22 +92,21 @@ def generate_dataset(users_num=50, num_items=30):
         # Select friends and companions for trips
         friends = random.sample([f for f in names_list if f != user], int(num_items * 2))
         users_2 = random.sample(friends, num_items)  # Primary companions
-        trip_friends = [f for f in friends if f not in users_2]  # Additional friends
         
         # Create trip entries
         for i in range(num_items):
             user_2 = users_2[i]
             trip = user_trips_items[i]
-            trip_friend = trip_friends[i]
+            purpose = travel_purpose[i]
 
             trip_info = {
                 "user_2": user_2,
                 "trip_destination": trip['itemLabel'],
-                "trip_friends": trip_friend,
+                "trip_purpose": purpose,
                 "trip_country": trip['countryLabel'],
                 "type_of_location": trip['instanceOf']
             }
-            user_dataset[user]["trip_info"].append(trip_info)
+            user_dataset[user['name']]["trip_info"].append(trip_info)
 
     # ------------------------------------------------------------
     # Save Dataset
@@ -134,7 +115,7 @@ def generate_dataset(users_num=50, num_items=30):
     output_file = './Dataset_Generation/Dataset_Helping/S_Uni/S_Uni_Structured.jsonl'
     with open(output_file, 'w') as f:
         for user, data in user_dataset.items():
-            line = {'user_1': user, 'trip_info': data['trip_info']}
+            line = {'user_1': data['user_1'], 'trip_info': data['trip_info']}
             f.write(json.dumps(line) + '\n')
     
     print(f"Step1: Semantic Uni Dataset Structure saved to {output_file}")

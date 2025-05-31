@@ -25,7 +25,7 @@ def generate_user_trip_destination(country_list, num_items):
     return user_trip_destinations
 
 
-def generate_message_for_each_user(list_of_users, list_of_destinations, year=2024):
+def generate_message_for_each_user(list_of_users, list_of_destinations, question, year=2024):
     messages = []
     all_countries = []
     for user, destination in zip(list_of_users, list_of_destinations):
@@ -37,8 +37,8 @@ def generate_message_for_each_user(list_of_users, list_of_destinations, year=202
         message = {
             "forum_post": (random_date, user, destination_name),
             "destination_type": destination_type,
-            "question": f"Who has been to {destination_country}?",
-            "answer": user
+            "question": question.format(country=destination_country),
+            "answer": user['name']
         }
         
         messages.append(message)
@@ -48,9 +48,10 @@ def generate_message_for_each_user(list_of_users, list_of_destinations, year=202
 
 def generate_dataset(num_items=20):
 
-    with open("./Dataset_Generation/Dataset_Helping/names.txt", "r") as file:
-        names = ' '.join([line.strip() for line in file.readlines()])
-        names_list = sorted(list(ast.literal_eval(names)))
+    names_list = []
+    with open("./Dataset_Generation/Dataset_Helping/names.jsonl", "r") as file:
+        for line in file:
+            names_list.append(json.loads(line.strip()))
 
     with open("./Dataset_Generation/Dataset_Helping/S_Both/Wikidata_scored_Records/wikidata_step_8_gpt_unique_locations.jsonl", "r") as f:
         wikidata_samples = [json.loads(line) for line in f]
@@ -61,7 +62,7 @@ def generate_dataset(num_items=20):
 
     dataset = []
     shuffled_names_list = names_list.copy()
-    num_items = 20
+    num_items = 30
 
     country_list = {}
     for sample in wikidata_samples:
@@ -79,7 +80,7 @@ def generate_dataset(num_items=20):
 
         list_of_users = random.sample(shuffled_names_list, num_items)
         list_of_destinations = generate_user_trip_destination(country_list, num_items)
-        messages = generate_message_for_each_user(list_of_users, list_of_destinations)
+        messages = generate_message_for_each_user(list_of_users, list_of_destinations, topic["question"])
         dataset_row["posts"] = messages
         dataset.append(dataset_row)
 
