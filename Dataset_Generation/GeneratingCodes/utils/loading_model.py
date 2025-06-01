@@ -2,6 +2,7 @@ import os
 import torch
 from vllm import LLM, SamplingParams
 from transformers import AutoProcessor, Gemma3ForConditionalGeneration
+from tqdm.auto import tqdm
 
 
 class ModelLoader:
@@ -55,38 +56,67 @@ class ModelLoader:
                     raise
 
 
-    def generate(self, prompts, temperature=1.0, max_tokens=4096):
+    def generate(self, prompts, temperature=1.0, max_tokens=4096, batch_size=16):
         if self.backend == "vllm":
             sampling_params = SamplingParams(temperature=temperature, max_tokens=max_tokens)
             outputs = self.model.chat(messages=prompts, sampling_params=sampling_params, use_tqdm=True)
             return [output.outputs[0].text for output in outputs]
         elif self.backend == "transformers":
             outputs = []
-            for chat in prompts:
-                # standardize content into Gemma-style structure
-                gemma_chat = []
-                for msg in chat:
-                    if isinstance(msg["content"], str):
-                        gemma_chat.append({
-                            "role": msg["role"],
-                            "content": [{"type": "text", "text": msg["content"]}]
-                        })
-                    else:
-                        gemma_chat.append(msg)
+            for batch_start in tqdm(range(0, len(prompts), batch_size), desc="Generating batches"):
+                batch_prompts = prompts[batch_start: batch_start + batch_size]
 
-                inputs = self.processor.apply_chat_template(
-                        gemma_chat, add_generation_prompt=True, tokenize=True,
-                        return_dict=True, return_tensors="pt"
-                    ).to(self.model.device, dtype=torch.bfloat16)
+                input_ids_list = []
+                attention_list = []
+                for chat in batch_prompts:
+                    gemma_chat = []
+                    for msg in chat:
+                        if isinstance(msg["content"], str):
+                            gemma_chat.append({
+                                "role": msg["role"],
+                                "content": [{"type": "text", "text": msg["content"]}]
+                            })
+                        else:
+                            gemma_chat.append(msg)
 
-                input_len = inputs["input_ids"].shape[-1]
+                    single = self.processor.apply_chat_template(
+                        gemma_chat,
+                        add_generation_prompt=True,
+                        tokenize=True,
+                        return_dict=True,
+                        return_tensors="pt",
+                    )
+                    input_ids_list.append(single["input_ids"].squeeze(0))
+                    attention_list.append(single["attention_mask"].squeeze(0))
+
+                from torch.nn.utils.rnn import pad_sequence
+                pad_id = self.processor.tokenizer.pad_token_id
+                input_ids = pad_sequence(input_ids_list, batch_first=True, padding_value=pad_id)
+                attention_mask = pad_sequence(attention_list, batch_first=True, padding_value=0)
+
+                inputs = {
+                    "input_ids": input_ids.to(self.model.device, dtype=torch.long),
+                    "attention_mask": attention_mask.to(self.model.device, dtype=torch.long),
+                }
+                input_lens = [len(ids) for ids in input_ids_list]
 
                 with torch.inference_mode():
-                    generation = self.model.generate(**inputs, max_new_tokens=max_tokens, do_sample=True, temperature=temperature)
-                    generation = generation[0][input_len:]
+                    generations = self.model.generate(
+                        **inputs,
+                        max_new_tokens=max_tokens,
+                        do_sample=True,
+                        temperature=temperature,
+                    )
 
-                text = self.processor.decode(generation, skip_special_tokens=True)
-                outputs.append(text)
+                for i, gen in enumerate(generations):
+                    continuation = gen[input_lens[i]:]
+                    text = self.processor.decode(continuation, skip_special_tokens=True)
+                    outputs.append(text)
+
+                # free memory
+                del input_ids, attention_mask, generations
+                torch.cuda.empty_cache()
+
             return outputs
         else:
             raise ValueError("Model backend is not recognized. Please load the model first.")

@@ -90,7 +90,7 @@ def filter_generated_feature_parsing_step_A_Multi(generated_response, shopping_l
 
 def filter_generated_feature_parsing_step_S_Uni(generated_response, trip_list):
     """Filter and validate generated features from step 2."""
-    pattern_2 = r'\[\s*\{\s*"destination"\s*:\s*"[^"]+"\s*,\s*"friends"\s*:\s*"[^"]+"\s*\}(?:\s*,\s*\{\s*"destination"\s*:\s*"[^"]+"\s*,\s*"friends"\s*:\s*"[^"]+"\s*\})*\s*\]'
+    pattern_2 = r'\[\s*\{\s*"destination"\s*:\s*"[^"]+"\s*,\s*"purpose"\s*:\s*"[^"]+"\s*\}(?:\s*,\s*\{\s*"destination"\s*:\s*"[^"]+"\s*,\s*"purpose"\s*:\s*"[^"]+"\s*\})*\s*\]'
 
     extracted_feature_list = generated_response.copy()
     mistaken_extracted_idx = []
@@ -102,19 +102,19 @@ def filter_generated_feature_parsing_step_S_Uni(generated_response, trip_list):
         if len(matches) > 0:
             extracted_item = [(match) for match in matches]
             correct_destination = trip['trip_destination'].replace("'","")
-            correct_friends = trip['trip_friends']
+            correct_purpose = trip['trip_purpose']
             extracted_destinations = str(extracted_item).replace("'","").replace('/','').replace('\\',"")
             if sum([section in extracted_destinations for section in str(correct_destination).split(' ')]) > 0 \
-                and correct_friends in extracted_destinations:
+                and sum([p.lower() in extracted_destinations.lower() for p in str(correct_purpose).split(' ')]) > 0:
                 extracted_feature_list[idx] = extracted_item
                 mistaken_extracted_idx = [i for i in mistaken_extracted_idx if i != idx]
             else:
                 print('------------ Extracted Destinations --------------------')
                 print(sum([section in extracted_destinations for section in str(correct_destination).split(' ')]) > 0)
-                print(correct_friends in extracted_destinations)
+                print(sum([p.lower() in extracted_destinations.lower() for p in str(correct_purpose).split(' ')]) > 0)
                 print(extracted_destinations)
                 print(correct_destination)
-                print(correct_friends)
+                print(correct_purpose)
                 mistaken_extracted_idx.append(idx)
                 extracted_feature_list[idx] = '-'
         else:

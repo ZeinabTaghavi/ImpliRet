@@ -76,26 +76,28 @@ INPUT: {context}
 Generate a natural conversation between two people ("user_1" and "user_2") based on a shopping list.
 
 **Input**
-- `user_1`: Name of the first user.
-- `user_2`: Name of the second user.
+- `user_1`: A dictionary with the following keys:
+  - `name`: Name of the first user.
+  - `persona`: Persona of the first user.
+- `user_2`: A dictionary with the following keys:
+  - `name`: Name of the second user.
+  - `persona`: Persona of the second user.
 - `shopping_type`: Type of shopping.
 - `item_to_buy`: The purchased item.
 - `bought`: A list of three sentences:
   1. The price of the item in another brand.
   2. The price of the item in the brand bought, relative to the first.
   3. The brand bought.
-- `first_sentence`: The first sentence of the conversation.
 
 **Requirements**
 - In the conversation, "user_1" will share a shopping information message and should mention that wit as in the 'shopping_type' category and bought the 'item_to_buy', while "user_2" must engage naturally but must not reveal or comment on any shopping or locational information.
-- You can use the information in "first_sentence" (modify it if needed) to start the conversation.
+- You can use the information in user_1["persona"] that is about the user_1['name'], and user_2["persona"] that is about the user_2['name'] to make the response more natural.
 - Preserve exact numbers and relative phrasing in the `bought` sentences.
 - Explicitly state that "user_1" did not buy from the first brand.
 - Explicitly state that "user_1" bought from the second brand.
 - "user_2" replies naturally without referencing shopping or numerical details.
 - Make sure that you generate grammatically correct sentences.
 - Mention exact brands and shopping types as given once in the conversation.
-- Optionally include a reason for choosing the second brand.
 - The conversation must consist of exactly 10 utterances.
 - Each utterance is on its own line.
 
@@ -143,18 +145,20 @@ Generate a natural response to a forum question.
 - `topic`: A short topic of the forum discussion.
 - `forum_question`: A base question posted in the forum.
 - `forum_post`: The location that the person wants to use for responding to the "forum_question".
+- `user`: a dictionary with the following keys:
+  - `name`: Name of the user.
+  - `persona`: Persona of the user.
 - `type_of_location`: The type of location that the person in the post is talking about in "forum_post".
-- `first_sentence`: The first sentence of the response.
+
 **Requirements**
-- In the response, you should answer the "forum_question" by using the information in "forum_post".
-- You can use the information in "first_sentence" (modify it if needed) to start the conversation.
-- You should mention that the user was in the location mentioned in "forum_post" and you can use the information in "type_of_location" to know the type of location mentioned in "forum_post".
-- Make sure that you generate grammatically correct sentences.
-- Only mention the `forum_post` information once in the response.
+- In the response, you should answer the "forum_question" to say that use participated in the activity mentioned in "topic" in the "forum_post" or location behind "forum_post".
+- You can use the information in user["persona"] that is about the user['name'] to make the response more natural.
+- You should mention that the user was in the location mentioned in "forum_post" or behind it, and you can use the information in "type_of_location" to know the type of location mentioned in "forum_post", but make sure that you mention the location name exactly as it is in "forum_post".
+- Only mention the `forum_post` location name once in the response.
 - Do not alter the location in `forum_post`, use it exactly as it is without any changes.
-- Do not mention any other location than the one in `forum_post`
-- Optionally include a reason for choosing the second brand.
-- Your generated answer must be coherent and make the Answer natural as a human is really answering the `forum_question` in 4 sentences.
+- Do not mention any other location than the one in `forum_post`.
+- Make sure that you generate grammatically correct sentences.
+- Your generated answer must be coherent and make the Answer natural as a human is really answering the `forum_question` in 5 sentences.
 
 
 **Output Format**
@@ -195,20 +199,25 @@ INPUT: {context}
 Generate a natural conversation between two people ("user" and "user_2") based on a trip.
 
 **Input**
-- `user_1`: Name of the first user.
-- `user_2`: Name of the second user.
+- `user_1`: A dictionary with the following keys:
+  - `name`: Name of the first user.
+  - `persona`: Persona of the first user.
+- `user_2`: A dictionary with the following keys:
+  - `name`: Name of the second user.
+  - `persona`: Persona of the second user.
 - `trip_destination`: Destination of the trip.
 - `type_of_location`: Type of location.
-- `trip_friends`: Friends of the trip.
-- `first_sentence`: The first sentence of the conversation.
+- `trip_purpose`: The purpose of the trip.
 
 **Requirements**
-- In the conversation, "user_1" will share a trip information message and should mention that it was in the 'trip_destination' with the 'trip_friends', while "user_2" must engage naturally but must not reveal or comment on any trip or locational information.
-- You can use the information in "first_sentence" (modify it if needed) to start the conversation.
-- "user_2" replies naturally without referencing locational information.
+- In the conversation, "user_1" will share a trip information message and should mention that it was in the 'trip_destination' with the purpose of what mentioned in 'trip_purpose', while "user_2" must engage naturally but must not reveal or comment on any trip or locational information.
+- You can use the information in user_1["persona"] that is about the user_1['name'], and user_2["persona"] that is about the user_2['name'] to make the response more natural.
+- You should mention the 'trip_destination' exactly as it is in the conversation.
+- You should mention the 'trip_purpose' exactly once as it is in the conversation.
+- "user_2" replies naturally without referencing trip or locational information.
 - Do not mention any other locational information in the conversation. Do not mention the country or city of the trip destination.
 - Make sure that you have exactly mentioned the 'trip_destination' in the conversation without any other information or changes.
-- Mention the 'trip_destination' exactly as it is once in the conversation.
+- Mention the 'trip_destination' and 'trip_purpose' exactly once in the conversation, do not change it.
 - Make sure that you generate grammatically correct sentences.
 - Do not mention the country or city of the 'trip_destination'.
 - "type_of_location" is the type of location that the "user_1" has gone to, which can help you make the conversation more natural.
@@ -224,22 +233,21 @@ INPUT: {context}
 'FEATURE_EXTRACTION_PROMPT' : '''
 
 **Task**
-Identify places that the user has gone or visited, and the people that the user has gone with.
+Identify the destination of the trip and the purpose of the trip.
 
 **Input**
 Input is a conversation transcript as a list of lines, each:
 <user name>: <utterance>
 
 **Requirements**
-- Detect places that the user has gone to or visited.
-- Determine the people that the user has gone with.
-- If no places or people are found, return an empty list.
+- Detect the destination of the trip and the purpose of the trip.
+- If no destination or purpose is found, return an empty list.
 - Do not include any additional commentary.
 
 **Output Format**
 A list of dictionaries with keys:
-- `destination` (string): Name of the place that the user has gone or visited.
-- `friends` (string): Name of the people that the user has gone with.
+- `destination` (string): Name of the destination of the trip.
+- `purpose` (string): Name of the purpose of the trip.
 
 INPUT: {context}
 '''
