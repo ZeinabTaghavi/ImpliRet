@@ -1,11 +1,37 @@
 Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
-Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:03<00:33,  3.01s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:05<00:29,  2.91s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:08<00:25,  2.87s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:11<00:22,  2.85s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:14<00:19,  2.84s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:17<00:16,  2.83s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:19<00:14,  2.82s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:22<00:11,  2.81s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:25<00:08,  2.81s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:28<00:05,  2.81s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:31<00:02,  2.80s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:31<00:00,  2.03s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:31<00:00,  2.61s/it]
+Loading checkpoint shards:   0%|          | 0/12 [00:00<?, ?it/s]Loading checkpoint shards:   8%|▊         | 1/12 [00:03<00:33,  3.08s/it]Loading checkpoint shards:  17%|█▋        | 2/12 [00:06<00:31,  3.16s/it]Loading checkpoint shards:  25%|██▌       | 3/12 [00:09<00:28,  3.17s/it]Loading checkpoint shards:  33%|███▎      | 4/12 [00:12<00:25,  3.17s/it]Loading checkpoint shards:  42%|████▏     | 5/12 [00:15<00:22,  3.17s/it]Loading checkpoint shards:  50%|█████     | 6/12 [00:18<00:19,  3.17s/it]Loading checkpoint shards:  58%|█████▊    | 7/12 [00:22<00:15,  3.17s/it]Loading checkpoint shards:  67%|██████▋   | 8/12 [00:25<00:12,  3.17s/it]Loading checkpoint shards:  75%|███████▌  | 9/12 [00:28<00:09,  3.17s/it]Loading checkpoint shards:  83%|████████▎ | 10/12 [00:31<00:06,  3.17s/it]Loading checkpoint shards:  92%|█████████▏| 11/12 [00:34<00:03,  3.19s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:35<00:00,  2.32s/it]Loading checkpoint shards: 100%|██████████| 12/12 [00:35<00:00,  2.94s/it]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/_inductor/compile_fx.py:167: UserWarning: TensorFloat32 tensor cores for float32 matrix multiplication available but not enabled. Consider setting `torch.set_float32_matmul_precision('high')` for better performance.
+  warnings.warn(
 skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=3), device(type='cuda', index=1), device(type='cuda', index=2)
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
 skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=3), device(type='cuda', index=1), device(type='cuda', index=2)
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
 skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=3), device(type='cuda', index=1), device(type='cuda', index=2)
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
 skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=3), device(type='cuda', index=1), device(type='cuda', index=2)
-skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=3), device(type='cuda', index=1), device(type='cuda', index=2)
-skipping cudagraphs due to skipping cudagraphs due to multiple devices: device(type='cuda', index=0), device(type='cuda', index=3), device(type='cuda', index=1), device(type='cuda', index=2)
+The following generation flags are not valid and may be ignored: ['top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
 srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
-slurmstepd: error: *** STEP 5166653.0 ON lrz-dgx-a100-005 CANCELLED AT 2025-05-31T23:12:01 ***
-slurmstepd: error: *** JOB 5166653 ON lrz-dgx-a100-005 CANCELLED AT 2025-05-31T23:12:01 ***
+slurmstepd: error: *** JOB 5166883 ON lrz-dgx-a100-001 CANCELLED AT 2025-06-01T10:34:18 ***
+slurmstepd: error: *** STEP 5166883.0 ON lrz-dgx-a100-001 CANCELLED AT 2025-06-01T10:34:18 ***

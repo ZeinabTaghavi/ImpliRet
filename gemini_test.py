@@ -29,18 +29,25 @@ messages = [
 ]
 
 inputs = processor.apply_chat_template(
-    messages, add_generation_prompt=True, tokenize=True,
+    [messages, messages, messages], add_generation_prompt=True, tokenize=True,
     return_dict=True, return_tensors="pt"
 ).to(model.device, dtype=torch.bfloat16)
 
-input_len = inputs["input_ids"].shape[-1]
+# Compute true lengths for each sequence (non‑padded tokens)
+input_lens = (inputs["input_ids"] != processor.tokenizer.pad_token_id).sum(dim=1)
 
 with torch.inference_mode():
-    generation = model.generate(**inputs, max_new_tokens=100, do_sample=False)
-    generation = generation[0][input_len:]
+    generations = model.generate(**inputs, max_new_tokens=100, do_sample=False)
 
-decoded = processor.decode(generation, skip_special_tokens=True)
-print(decoded)
+# Decode results for each item in the batch
+outputs = []
+for i, gen in enumerate(generations):
+    gen = gen[input_lens[i]:]  # strip the prompt part
+    text = processor.decode(gen, skip_special_tokens=True)
+    outputs.append(text)
+
+for idx, out in enumerate(outputs, 1):
+    print(f"Output {idx}: {out}\n")
 
 # **Overall Impression:** The image is a close-up shot of a vibrant garden scene, 
 # focusing on a cluster of pink cosmos flowers and a busy bumblebee. 

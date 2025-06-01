@@ -235,7 +235,6 @@ def main(num_gpus: int = 4,
     print("Loading the model...")
         
     llm = ModelLoader(model_name, num_gpus)
-    llm.load_model()
     
     experiment = experiment_setup(num_gpus, model_name, track, conv_type, datasets_helping_folder)
    

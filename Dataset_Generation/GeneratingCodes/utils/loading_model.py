@@ -1,10 +1,8 @@
 import os
 import torch
 from vllm import LLM, SamplingParams
-from transformers import pipeline
 from transformers import AutoProcessor, Gemma3ForConditionalGeneration
 
-torch.set_float32_matmul_precision("high")   # or "medium"
 
 class ModelLoader:
     def __init__(self, model_name, num_gpus):
@@ -15,16 +13,11 @@ class ModelLoader:
         self.device = 0 if torch.cuda.is_available() else -1
         self.processor = None
 
-    def load_model(self):
         if self.model_name == "google/gemma-3-27b-it":
-            torch_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
-            self.device = 0 if torch.cuda.is_available() else -1
-            self.processor = AutoProcessor.from_pretrained(self.model_name, use_fast=True)
             self.model = Gemma3ForConditionalGeneration.from_pretrained(
-                self.model_name,
-                torch_dtype=torch_dtype,
-                device_map="auto" if self.device == 0 else None,
+                self.model_name, device_map="auto"
             ).eval()
+            self.processor = AutoProcessor.from_pretrained(self.model_name, use_fast=True)
             self.backend = "transformers"
             print("Gemma 3 model (multimodal) loaded with AutoProcessor.")
         else:
@@ -61,7 +54,6 @@ class ModelLoader:
                     print(f"Error loading model: {e}")
                     raise
 
-        return self.model
 
     def generate(self, prompts, temperature=1.0, max_tokens=4096):
         if self.backend == "vllm":
@@ -82,25 +74,19 @@ class ModelLoader:
                     else:
                         gemma_chat.append(msg)
 
-                if self.processor is not None:  # Gemma multimodal route
-                    inputs = self.processor.apply_chat_template(
-                        gemma_chat,
-                        add_generation_prompt=True,
-                        tokenize=True,
-                        return_dict=True,
-                        return_tensors="pt",
+                inputs = self.processor.apply_chat_template(
+                        gemma_chat, add_generation_prompt=True, tokenize=True,
+                        return_dict=True, return_tensors="pt"
                     ).to(self.model.device, dtype=torch.bfloat16)
-                    input_len = inputs["input_ids"].shape[-1]
-                    with torch.inference_mode():
-                        gen = self.model.generate(
-                            **inputs,
-                            max_new_tokens=max_tokens,
-                            temperature=temperature,
-                            do_sample=temperature > 0,
-                        )
-                    gen = gen[0][input_len:]
-                    text = self.processor.decode(gen, skip_special_tokens=True).strip()
-                    outputs.append(text)
+
+                input_len = inputs["input_ids"].shape[-1]
+
+                with torch.inference_mode():
+                    generation = self.model.generate(**inputs, max_new_tokens=max_tokens, do_sample=True, temperature=temperature)
+                    generation = generation[0][input_len:]
+
+                text = self.processor.decode(generation, skip_special_tokens=True)
+                outputs.append(text)
             return outputs
         else:
             raise ValueError("Model backend is not recognized. Please load the model first.")
