@@ -431,7 +431,7 @@ def generate_dataset(num_users = 50, num_items = 30, window_days = 14, day_start
                     # Calculate the difference in days
                     delta = (activity_date - message_date).days
                     if delta < -1:
-                        offset_days.append(f"In {-1 * delta} days ago")
+                        offset_days.append(f"{-1 * delta} days ago")
                     elif delta == -1:
                         offset_days.append(f"Yesterday")
                     elif delta == 0:
@@ -439,7 +439,7 @@ def generate_dataset(num_users = 50, num_items = 30, window_days = 14, day_start
                     elif delta == 1:
                         offset_days.append(f"Tomorrow")
                     else:
-                        offset_days.append(f"In {delta} days later")
+                        offset_days.append(f"{delta} days later")
             else:
                 min_date = min(activity["days"])
                 delta_min = (datetime.strptime(min_date, "%Y-%m-%d") - message_date).days
