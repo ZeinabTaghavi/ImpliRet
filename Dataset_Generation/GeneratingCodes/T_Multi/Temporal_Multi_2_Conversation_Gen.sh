@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH -p lrz-dgx-a100-80x8
+#SBATCH -p lrz-hgx-h100-94x4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
-#SBATCH -t 0-01:00:00
+#SBATCH -t 0-07:00:00
 #SBATCH -o ./Dataset_Generation/GeneratingCodes/T_Multi/Outputs.out
 #SBATCH -e ./Dataset_Generation/GeneratingCodes/T_Multi/Errors.err
 #SBATCH --mail-type=ALL

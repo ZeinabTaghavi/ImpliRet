@@ -3,7 +3,7 @@
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
-#SBATCH -t 0-00:30:00
+#SBATCH -t 0-10:00:00
 #SBATCH -o ./Dataset_Generation/GeneratingCodes/A_Uni/Outputs.out
 #SBATCH -e ./Dataset_Generation/GeneratingCodes/A_Uni/Errors.err
 #SBATCH --mail-type=ALL
