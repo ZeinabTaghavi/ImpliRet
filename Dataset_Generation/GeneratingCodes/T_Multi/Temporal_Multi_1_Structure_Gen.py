@@ -132,7 +132,7 @@ def generate_dataset(num_users = 50, num_items = 30, max_price = 3000):
             forum_post = f"{forum_item}"
             question_template = topic["question"]
             question = question_template.replace("{date}", work_date)
-            answer = user
+            answer = user['name']
             record = {
                 "forum_post": (message_date, user, forum_post),
                 "offset_days": f"{offset} days ago",
