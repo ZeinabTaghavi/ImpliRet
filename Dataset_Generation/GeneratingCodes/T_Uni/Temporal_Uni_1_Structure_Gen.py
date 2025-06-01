@@ -425,12 +425,37 @@ def generate_dataset(num_users = 50, num_items = 30, window_days = 14, day_start
             message_date = datetime.strptime(message_time[0], "%Y-%m-%d")
             offset_days = []
 
-            for activity_day in activity["days"]:
-                activity_date = datetime.strptime(activity_day, "%Y-%m-%d")
-                # Calculate the difference in days
-                delta = (activity_date - message_date).days
-                offset_days.append(delta)
-            
+            if activity["activity_type"] != "Repeating-Sequential":
+                for activity_day in activity["days"]:
+                    activity_date = datetime.strptime(activity_day, "%Y-%m-%d")
+                    # Calculate the difference in days
+                    delta = (activity_date - message_date).days
+                    if delta < -1:
+                        offset_days.append(f"In {-1 * delta} days ago")
+                    elif delta == -1:
+                        offset_days.append(f"Yesterday")
+                    elif delta == 0:
+                        offset_days.append(f"Today")
+                    elif delta == 1:
+                        offset_days.append(f"Tomorrow")
+                    else:
+                        offset_days.append(f"In {delta} days later")
+            else:
+                min_date = min(activity["days"])
+                delta_min = (datetime.strptime(min_date, "%Y-%m-%d") - message_date).days
+                if delta_min < -1:
+                    offset_days.append(f"Started {-1 * delta_min} days ago, for {len(activity['days'])} consecutive days")
+                elif delta_min == -1:
+                    offset_days.append(f"Started yesterday, for {len(activity['days'])} consecutive days")
+                elif delta_min == 0:
+                    offset_days.append(f"Starting today, for {len(activity['days'])} consecutive days")
+                elif delta_min == 1:
+                    offset_days.append(f"Starting tomorrow, for {len(activity['days'])} consecutive days")
+                elif delta_min == 1:
+                    offset_days.append(f"Starting tomorrow, for {len(activity['days'])} consecutive days")
+                else:
+                    offset_days.append(f"Starting in {delta_min} days, for {len(activity['days'])} consecutive days")
+
             activity["offset_days"] = offset_days
 
     # ------------------------------------------------------------
