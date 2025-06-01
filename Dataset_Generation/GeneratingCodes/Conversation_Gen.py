@@ -291,7 +291,7 @@ def main(num_gpus: int = 4,
         print("Generating outputs in step 1...")
 
         llm_outputs_conversation = llm.generate(prompts_conversation_generation, temperature=temperature, max_tokens=max_tokens_conversation_generation)
-        llm_outputs_feature_extraction = ['-' for o in outputs]
+        llm_outputs_feature_extraction = ['-' for o in llm_outputs_conversation]
 
         mistaken_conversation_idx, conversation_list = filter_generated_conversation_responses(llm_outputs_conversation, experiment['conv_lines'], 'string', 'more_than_not_ok')
         mistaken_extracted_idx, extracted_feature_list = experiment['feature_extraction_function'](llm_outputs_feature_extraction, selected_info_list)
