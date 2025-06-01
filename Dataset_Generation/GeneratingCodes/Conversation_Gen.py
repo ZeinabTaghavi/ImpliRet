@@ -152,9 +152,9 @@ def experiment_setup(num_gpus: int,
 
     elif track == 'S' and conv_type == 'Uni':
         dataset_bunch_key = 'trip_info'
-        selected_info_keys = ['trip_destination', 'trip_friends']
+        selected_info_keys = ['trip_destination', 'trip_purpose']
         conversation_generation_keys_main = ['user_1']
-        conversation_generation_keys = ['user_2', 'trip_destination', 'type_of_location', 'trip_friends']
+        conversation_generation_keys = ['user_2', 'trip_destination', 'type_of_location', 'trip_purpose']
 
         feature_extraction_function = filter_generated_feature_parsing_step_S_Uni
 
@@ -176,7 +176,7 @@ def experiment_setup(num_gpus: int,
         dataset_bunch_key = 'schedule'
         selected_info_keys = ['days', 'hours']
         conversation_generation_keys_main = ['user_1']
-        conversation_generation_keys = ['user_2', 'work', 'activity_type', 'hours', 'offset_days', 'message_time']
+        conversation_generation_keys = ['user_2', 'work', 'hours', 'offset_days', 'message_time']
 
         feature_extraction_function = filter_generated_works_parsing_step_T_Uni
 

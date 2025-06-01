@@ -13,27 +13,23 @@ Generate a natural response to a forum question.
 - `user`: a dictionary with the following keys:
   - `name`: Name of the user.
   - `persona`: Persona of the user.
-- `forum_post`: A list of three sentences:
-  1. The price of an item from a certain brand's model to dollars (e.g., "Gaming Chairs from Secretlab model 2019: 1650 dollars").
-  2. The price of another item from the same brand but a different model, the price is described in relative form to the first item (e.g., "Secretlab, model 2019: 2.5 times more expensive than model 2016").
+- `forum_post`: A list of three sentences:  
+  1. The price of an item from a certain brand's model in dollars (e.g., "Gaming Chairs from Secretlab model 2019: 1650 dollars").  
+  2. The price of another item from the same brand but a different model, described relative to the first item (e.g., "Secretlab, model 2019: 2.5 times more expensive than model 2016").  
   3. A sentence stating which model of the brand was ultimately purchased (e.g., "model 2016 was purchased").
 
-
 **Requirements**
-- In the response, you should answer the "forum_question" by using the information in "forum_post".
-- You can use the information in user["persona"] that is about the user['name'] to make the response more natural.
-- Preserve the numeric references (prices, multipliers, etc.).
-- You can write the numbers as words, but do not change the value at all (e.g., 3.5 can be mentioned as "three and a half").
-- Write the relative price in a natural way (e.g., "Secretlab, model 2019: 2.5 times more expensive than model 2016" can be mentioned as "The Secretlab 2019 model costs two and a half times as much as the 2016 model.").
-- Explicitly mention the brand and model references, or the model was purchased.
+- Answer the `forum_question` by using the information in `forum_post`.
+- You may incorporate details from `user["persona"]` about `user['name']` to make the response more natural.
+- Explicitly mention the brand and model references, or the model that was purchased.
+- Preserve the numeric references (prices, multipliers, etc.). You may write the numbers as words, but do not change their values (e.g., 3.5 → "three and a half").
+- Write the relative price in a natural way (e.g., "The Secretlab 2019 model costs two and a half times as much as the 2016 model.").
 - Only mention the information once in the response.
-- Make sure that you generate grammatically correct sentences.
-- Optionally include a reason for choosing the second brand.
-- Your generated answer must be coherent and make the Answer natural as a human is really answering the `forum_question` in 5 sentences.
-
+- Ensure all sentences are grammatically correct.
+- Your generated answer must be coherent and make the answer sound like a real human reply in **five sentences**.
 
 **Output Format**
-Only 1 line of response, without any prefix or suffix.
+Only **one line** of response, without any prefix or suffix.
 
 INPUT: {context}
 '''
@@ -71,7 +67,6 @@ INPUT: {context}
 "PROMPTS_A_Uni": { 
 
 'CONVERSATION_GENERATION_PROMPT' : '''
-
 **Task**
 Generate a natural conversation between two people ("user_1" and "user_2") based on a shopping list.
 
@@ -84,25 +79,27 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
   - `persona`: Persona of the second user.
 - `shopping_type`: Type of shopping.
 - `item_to_buy`: The purchased item.
-- `bought`: A list of three sentences:
-  1. The price of the item in another brand.
-  2. The price of the item in the brand bought, relative to the first.
+- `bought`: A list of three sentences:  
+  1. The price of the item in another brand.  
+  2. The price of the item in the brand bought, relative to the first.  
   3. The brand bought.
 
 **Requirements**
-- In the conversation, "user_1" will share a shopping information message and should mention that wit as in the 'shopping_type' category and bought the 'item_to_buy', while "user_2" must engage naturally but must not reveal or comment on any shopping or locational information.
-- You can use the information in user_1["persona"] that is about the user_1['name'], and user_2["persona"] that is about the user_2['name'] to make the response more natural.
-- Preserve exact numbers and relative phrasing in the `bought` sentences.
-- Explicitly state that "user_1" did not buy from the first brand.
-- Explicitly state that "user_1" bought from the second brand.
-- "user_2" replies naturally without referencing shopping or numerical details.
-- Make sure that you generate grammatically correct sentences.
-- Mention exact brands and shopping types as given once in the conversation.
-- The conversation must consist of exactly 10 utterances.
-- Each utterance is on its own line.
+- In the conversation, `user_1['name']` must share a message describing their shopping experience: it was in the `shopping_type` category and they bought the `item_to_buy`.  
+- `user_2['name']` must engage naturally in the conversation but should not mention or comment on any shopping, timing, locational, or numerical information.  
+- You may use details from `user_1["persona"]` and `user_2["persona"]` to make the dialogue more natural.  
+- Mention the exact `shopping_type`, brands, and `item_to_buy` **once** in the conversation.  
+- Preserve all exact numbers and the original relative phrasing contained in the `bought` sentences.  
+- Explicitly state that `user_1` did **not** buy from the first brand.  
+- Explicitly state that `user_1` **did** buy from the second brand.  
+- All sentences must be grammatically correct.  
+- The conversation must consist of **exactly 10 utterances**, each on its own line.  
 
 **Output Format**
-Only 10 lines of dialogue are separated by newlines. For each line, separate the user name (one of the values of `user_1` or `user_2`) and the utterance with a colon
+Only 10 lines of dialogue, separated by newlines.  
+For each line, write:  
+`SpeakerName: Utterance`  
+where `SpeakerName` is either `user_1['name']` or `user_2['name']`.
 
 INPUT: {context}
 '''
@@ -137,7 +134,6 @@ INPUT: {context}
 # S_Multi
 "PROMPTS_S_Multi": { 
 'CONVERSATION_GENERATION_PROMPT' : '''
-
 **Task**
 Generate a natural response to a forum question.
 
@@ -151,15 +147,15 @@ Generate a natural response to a forum question.
 - `type_of_location`: The type of location that the person in the post is talking about in "forum_post".
 
 **Requirements**
-- In the response, you should answer the "forum_question" to say that use participated in the activity mentioned in "topic" in the "forum_post" or location behind "forum_post".
-- You can use the information in user["persona"] that is about the user['name'] to make the response more natural.
-- You should mention that the user was in the location mentioned in "forum_post" or behind it, and you can use the information in "type_of_location" to know the type of location mentioned in "forum_post", but make sure that you mention the location name exactly as it is in "forum_post".
+- In the response, you should answer the "forum_question" by stating that you participated in the activity mentioned in "topic" at the "forum_post" location or at a place directly behind it.
+- If the activity in `topic` would be inappropriate at the exact `forum_post` location, you may instead reference a suitable place immediately next to or behind it (e.g., "the dance studio just behind St. Mary's Church"), while still mentioning the `forum_post` location name exactly once.
+- You can use the information in `user["persona"]` that is about the `user['name']` to make the response more natural.
+- You should mention that the user was in the location mentioned in "forum_post" or behind it, and you can use the information in `type_of_location` to know the type of location mentioned in "forum_post", but make sure that you mention the location name exactly as it is in "forum_post".
 - Only mention the `forum_post` location name once in the response.
-- Do not alter the location in `forum_post`, use it exactly as it is without any changes.
+- Do not alter the location in `forum_post`; use it exactly as it is without any changes.
 - Do not mention any other location than the one in `forum_post`.
 - Make sure that you generate grammatically correct sentences.
-- Your generated answer must be coherent and make the Answer natural as a human is really answering the `forum_question` in 5 sentences.
-
+- Your generated answer must be coherent and must read naturally, as if a human is really answering the `forum_question`, in exactly 5 sentences.
 
 **Output Format**
 Only 1 line of response, without any prefix or suffix.
@@ -194,9 +190,8 @@ INPUT: {context}
 # S_Uni
 "PROMPTS_S_Uni": { 
 'CONVERSATION_GENERATION_PROMPT' : '''
-
 **Task**
-Generate a natural conversation between two people ("user" and "user_2") based on a trip.
+Generate a natural conversation between two people ("user_1" and "user_2") based on a trip.
 
 **Input**
 - `user_1`: A dictionary with the following keys:
@@ -206,26 +201,27 @@ Generate a natural conversation between two people ("user" and "user_2") based o
   - `name`: Name of the second user.
   - `persona`: Persona of the second user.
 - `trip_destination`: Destination of the trip.
-- `type_of_location`: Type of location.
+- `type_of_location`: The type of location.
 - `trip_purpose`: The purpose of the trip.
 
 **Requirements**
-- In the conversation, "user_1" will share a trip information message and should mention that it was in the 'trip_destination' with the purpose of what mentioned in 'trip_purpose', while "user_2" must engage naturally but must not reveal or comment on any trip or locational information.
-- You can use the information in user_1["persona"] that is about the user_1['name'], and user_2["persona"] that is about the user_2['name'] to make the response more natural.
-- You should mention the 'trip_destination' exactly as it is in the conversation.
-- You should mention the 'trip_purpose' exactly once as it is in the conversation.
-- "user_2" replies naturally without referencing trip or locational information.
-- Do not mention any other locational information in the conversation. Do not mention the country or city of the trip destination.
-- Make sure that you have exactly mentioned the 'trip_destination' in the conversation without any other information or changes.
-- Mention the 'trip_destination' and 'trip_purpose' exactly once in the conversation, do not change it.
+- In the conversation, user_1['name'] will share a trip-information message stating that they were at the `trip_destination` for the purpose specified in `trip_purpose`, while user_2['name'] must engage naturally but must not reveal or comment on any trip or locational information.
+- Mention the `trip_destination` exactly once, spelled exactly as provided, and do not add or change any details. Do not mention its country or city.
+- Mention the `trip_purpose` exactly once, spelled exactly as provided.
+- If the activity in `trip_purpose` would be inappropriate at the exact `trip_destination` location, you may instead reference a suitable place immediately next to or behind it (e.g., "the dance studio just behind St. Mary's Church"), while still mentioning the `trip_destination` location name exactly once.
+- Do not mention any other locational information in the conversation.
+- user_2['name'] replies naturally without referencing trip or locational information.
+- You may use the information in user_1["persona"] and user_2["persona"] to make the responses more natural.
+- `type_of_location` describes the kind of place user_1 visited and can help make the conversation sound natural.
 - Make sure that you generate grammatically correct sentences.
-- Do not mention the country or city of the 'trip_destination'.
-- "type_of_location" is the type of location that the "user_1" has gone to, which can help you make the conversation more natural.
 - The conversation must consist of exactly 10 utterances.
 - Each utterance is on its own line.
 
 **Output Format**
-Only 10 lines of dialogue are separated by newlines. For each line, separate the user name (one of the values of `user_1` or `user_2`) and the utterance with a colon
+Only 10 lines of dialogue, separated by newlines.  
+For each line, write:  
+`SpeakerName: Utterance`  
+where `SpeakerName` is either `user_1['name']` or `user_2['name']`.
 
 INPUT: {context}
 '''
@@ -256,7 +252,6 @@ INPUT: {context}
 # T_Multi
 "PROMPTS_T_Multi": { 
 'CONVERSATION_GENERATION_PROMPT' : '''
-
 **Task**
 Generate a natural response to a forum question.
 
@@ -264,21 +259,20 @@ Generate a natural response to a forum question.
 - `topic`: A short topic of the forum discussion.
 - `forum_question`: A base question posted in the forum.
 - `forum_post`: The item related to the topic that the person wants to use for responding to the "forum_question".
-- `offset_days`: The date that the person in the post is talking about in "forum_post".
-- `first_sentence`: The first sentence of the response.
+- `user`: a dictionary with the following keys:
+  - `name`: Name of the user.
+  - `persona`: Persona of the user.
+- `offset_days`: The relative date (e.g., "3 days ago") that the person in the post is talking about in "forum_post".
 
 **Requirements**
-- In the response, you should answer the "forum_question" by using the item mentioned in "forum_post".
-- You can use the information in "first_sentence" (modify it if needed) to start the conversation.
-- You should mention that the user had done the work on the date mentioned in "offset_days", based on the 'topic', choose a verb that is suitable for the work.
-- The work should be done exactly in one day, so avoid using vague temporal references like "until", "by the ...", "completed", "finished", etc.
-- Do not alter the `offset_days`, use it exactly as it is without any changes, only you are allowed to say it with words or numbers (e.g., "2 days ago", "two days ago").
-- Do not mention any other item than the one in "forum_post".
-- Do not mention any date other than the one in "offset_days".
-- Only mention the `forum_post` information once in the response.
+- In the response, answer the "forum_question" by stating that the user did the work on the date given in "offset_days", choosing a verb appropriate to the 'topic'.
+- You can use the information in `user["persona"]` about `user['name']` to make the response more natural.
+- Mention the `forum_post` item exactly once and do not mention any other item.
+- Do not alter `offset_days`; use it exactly as written, though you may spell out its number component (e.g., "2 days ago" or "two days ago"). Do not convert it to a calendar date.
+- The work must have occurred on a single day; avoid vague temporal expressions such as "until", "by the ...", "completed", or "finished".
+- Do not mention any date other than the one in `offset_days`.
 - Make sure that you generate grammatically correct sentences.
-- Your generated answer must be coherent and make the Answer natural as a human is really answering the `forum_question` in 4 sentences.
-
+- Your generated answer must be coherent and sound natural, as if a real person is answering the `forum_question`, in exactly five sentences.
 
 **Output Format**
 Only 1 line of response, without any prefix or suffix.
@@ -324,40 +318,35 @@ INPUT: {context}
 Generate a natural conversation between two people ("user_1" and "user_2") based on the given schedule.
 
 **Input**
-- `user_1`: Name of the first user.
-- `user_2`: Name of the second user.
+- `user_1`: A dictionary with the following keys:
+  - `name`: Name of the first user.
+  - `persona`: Persona of the first user.
+- `user_2`: A dictionary with the following keys:
+  - `name`: Name of the second user.
+  - `persona`: Persona of the second user.
 - `work`: The work task.
-- `activity_type`: the repeating type of the activity, it can be "One-Time" (that means the user have to do the "work" in the day dated and mentioned "hour"), "Repeating-Sequential" (that means we have a sequential days that the user have to do the "work" in mentioned "hour"), "Repeating-Non-Sequential" (that means the "work" will be done in different days that maybe are not in following days)
-- `days`: the dates on which the work has been done.
 - `hours`: The hours that the work is to be performed.
-- `offset_days`: The list of offset_days of the work, if it is a list of one item, it means the work was done on that day, if it is a list of more than one items, it means the work was done on multiple days.
+- `offset_days`: A list describing when the work was done, relative to `message_time`. Each element is either a single relative day (e.g., '3 days ago', 'yesterday', 'today', 'in 2 days') or a span (e.g., 'Starting in 3 days for 4 consecutive days').
 - `message_time`: The time that the conversation is being sent: [date of the message, day of the week, hour in 24h format]
-- `first_sentence`: The first sentence of the conversation.
 
 **Requirements**
-- In the conversation, "user_1" will share a schedule information message and should mention that they did the 'work' on a day or days and 'hours', while "user_2" must engage naturally but must not reveal or comment on their schedules.
-- You can use the information in "first_sentence" (modify it if needed) to start the conversation.
-- You should mention that the 'user_1' did the 'work' on the specific day or days. Mention the day of working relative to today with the help of the corresponding 'offset_days'. For each item of 'offset_days', if the item is negative, it means the work was done before today (e.g, -5 means "5 days ago"); if it is positive, it means the work was done after today (e.g, 4 means "4 days later").
-- Make sure that you mentioned all the days in the 'offset_days' list.
-- You can also mention the days relative to each other in the conversation, for example, if the 'offset_days' is [2, 6, 12], you can say it in this way: "2 days later, 4 days after that, and 6 days after the second day".
-  For example, if the work day is ['2020-01-12'] and the message day is ['2020-01-13']. Here `offset_days` is [-1] : (2020-01-12) - (2020-01-13) = -1. Hence, you can say "yesterday".
-  Or if the message_date is ['2021-02-15'] and work days are ['2021-02-17', '2021-02-18', '2021-02-19']. Here `offset_days` are [2, 3, 4].  Hence, you can say "from two days later, for 3 consecutive days". 
-  Or if the message_date is ['2021-03-11'] and work days are ['2021-03-16', '2021-03-18'] and the "hours" is (11,15). Here `offset_days` is [5, 7], and the difference is 7-5=2. Hence, you can say "5 days later, and two days after that, from 11 in the morning for 4 hours on both days" or "5 days later, and two days after that, from 11 a.m. for 4 hours on both days"
-  Or if the message_date is ['2022-11-10'] and work days are ['2021-11-16', '2021-11-19', '2021-11-23'] and the "hours" is (10,12). Here `offset_days` is [6, 9, 13], and the difference is 9-6=3, and 13-9=4. Hence, you can say "6 days later, and 3 days after that, and 4 days after the second day from 11 in the morning for 4 hours on both days" or "5 days later, and to days after that, from 11 a.m. for 4 hours on both days"
-  
-- Do not mention any explicit date for working, only mention the days relative to today.
-- All the work are being done in the same hour mentioned in 'hours', you should not directly mention the end hour, but make sure that you accurately mention end hour relative to the start hour (e.g., "from 1 p.m. until 3 hours after that" or "from 9 in the morning for three hours").
+- In the conversation, user_1['name'] will share a message describing their recent or upcoming work schedule and must mention the `work` and all `offset_days` in a single utterance.
+- user_2['name'] must engage naturally in the conversation but should not mention or comment on any schedule, timing, or numerical details.
+- You can use the information in user_1["persona"] that is about the user_1['name'], and user_2["persona"] that is about the user_2['name'] to make the response more natural.
+- You should mention that the user_1['name'] did the 'work' on the specific day or days. Mention the day(s) of work using the same relative phrasing as in offset_days. You may express numbers as words (e.g., '2 days ago' or 'two days ago'), but do not rephrase or summarize the content of any span.
+- All the work is being done in the same hour interval as specified in hours, you should not directly mention the end hour, but make sure that you accurately mention end hour relative to the start hour (e.g., "from 1 p.m. until 3 hours after that" or "from 9 in the morning for three hours"). Do not change the hours.
 - Mention the `work` in the conversation exactly as it is (only change the tense if needed).
-- Do not change the date information. Ensure that the "hours" you use in the conversation for "work" are correct and accurate. For example, if the work is "updating a work log" and the "message_time" is ("2023-07-21", "Friday", 14), and the "hours" are (7, 10), You can use it like this: "2023-07-21", "Alaina", "I have to update a work log tomorrow from 7 in the morning for three hours."
-- The message time is the time at which the conversation is being sent; you can only choose a random minute for the conversation. The format should be like this: "YYYY-MM-DD HH:MM" (e.g., "2024-01-01 12:00").
-- "user_2" replies naturally without referencing schedule or numerical details.
-- Mention the working schedule once in the conversation.
+- Do not change the "message_time" information. Ensure that the "hours" you use in the conversation for "work" are correct and accurate. For example, if the work is "updating a work log" and the "message_time" is ("2023-07-21", "Friday", 14), and the "hours" are (7, 10), You can use it like this: "2023-07-21", "Alaina", "I have to update a work log tomorrow from 7 in the morning for three hours."
+- The message time is the time at which the conversation is being sent; Use the hour provided in message_time. For each utterance, randomly select a valid minute (00-59), ensuring that time either increases or remains the same across the 10 utterances. The format should be like this: "YYYY-MM-DD HH:MM" (e.g., "2024-01-01 12:00").
 - Make sure that you generate grammatically correct sentences.
 - The conversation must consist of exactly 10 utterances.
 - Each utterance is on its own line.
 
 **Output Format**
-Only 10 lines of dialogue are separated by newlines. For each line, separate the message time and the user name (one of the values of `user_1` or `user_2`) with a comma, and separate the user name and the utterance with a colon.
+Only 10 lines of dialogue, separated by newlines.  
+For each line, write:  
+`SpeakerName: Utterance`  
+where `SpeakerName` is either `user_1['name']` or `user_2['name']`.
 
 INPUT: {context}
 '''
