@@ -1,4 +1,5 @@
 Starting the job
+INFO 06-02 11:12:03 [__init__.py:243] Automatically detected platform cuda.
 ----- Experiment Setup ----
 model_name: google/gemma-3-27b-it
 track: A
@@ -7,7 +8,6 @@ datasets_helping_folder: ./Dataset_Generation/Dataset_Helping
 Number of GPUs: 4
 ---------------------------
 Loading the model...
-Gemma 3 model (multimodal) loaded with AutoProcessor.
----------------------------------------- Generating the conversations ----------------------------------------
-length of prompts_conversation_generation:  1500
-Generating outputs in step 1...
+INFO 06-02 11:12:10 [__init__.py:31] Available plugins for group vllm.general_plugins:
+INFO 06-02 11:12:10 [__init__.py:33] - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver
+INFO 06-02 11:12:10 [__init__.py:36] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.

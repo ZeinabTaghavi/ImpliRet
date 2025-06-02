@@ -1,13 +1,2 @@
 Starting the job
------ Experiment Setup ----
-model_name: google/gemma-3-27b-it
-track: T
-conv_type: Multi
-datasets_helping_folder: ./Dataset_Generation/Dataset_Helping
-Number of GPUs: 4
----------------------------
-Loading the model...
-Gemma 3 model (multimodal) loaded with AutoProcessor.
----------------------------------------- Generating the conversations ----------------------------------------
-length of prompts_conversation_generation:  1500
-Generating outputs in step 1...
+INFO 06-02 11:12:18 [__init__.py:243] Automatically detected platform cuda.
