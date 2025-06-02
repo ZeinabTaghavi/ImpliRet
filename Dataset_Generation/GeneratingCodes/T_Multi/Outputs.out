@@ -11,4 +11,3 @@ Gemma 3 model (multimodal) loaded with AutoProcessor.
 ---------------------------------------- Generating the conversations ----------------------------------------
 length of prompts_conversation_generation:  1500
 Generating outputs in step 1...
-Job finished

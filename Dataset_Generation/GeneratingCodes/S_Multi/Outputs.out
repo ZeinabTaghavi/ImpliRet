@@ -10,5 +10,18 @@ Loading the model...
 Gemma 3 model (multimodal) loaded with AutoProcessor.
 ---------------------------------------- Generating the conversations ----------------------------------------
 length of prompts_conversation_generation:  1500
-Generating outputs in step 1...
+Loading outputs from step 1...
+len(conversation_list) 1500
+Outputs loaded from ./Dataset_Generation/Dataset_Helping/S_Multi/S_Multi_Structured_Generated_conversation.jsonl and ./Dataset_Generation/Dataset_Helping/S_Multi/S_Multi_Structured_Generated_feature_extraction.jsonl
+Number of mistaken conversations: 0
+Number of mistaken extractions: 0
+End of step 1
+mistaken_extracted_idx: []
+saving outputs...
+outputs saved: 
+ ./Dataset_Generation/Dataset_Helping/S_Multi/S_Multi_Structured_Generated_conversation.jsonl 
+ ./Dataset_Generation/Dataset_Helping/S_Multi/S_Multi_Structured_Generated_feature_extraction.jsonl
+0
+---------------------------------------- Dataset Generation Completed ----------------------------------------
+Process group destroyed.
 Job finished

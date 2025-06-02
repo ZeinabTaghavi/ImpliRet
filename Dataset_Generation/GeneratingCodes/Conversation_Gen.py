@@ -403,19 +403,19 @@ def main(num_gpus: int = 4,
             if len(mistaken_extracted_idx) == 0 and len(mistaken_conversation_idx) == 0:
                 break
 
-    print('saving outputs...')
-    with open(experiment['output_filename_conversation'], 'w') as f:
-        for output in conversation_list:
-            json.dump(output, f)
-            f.write('\n')
-    with open(experiment['output_filename_feature_extraction'], 'w') as f:
-        for output in llm_outputs_feature_extraction:
-            json.dump(output, f)
-            f.write('\n')
-    print(f'outputs saved: \n {experiment["output_filename_conversation"]} \n {experiment["output_filename_feature_extraction"]}')
-    print(len(mistaken_conversation_idx))
-    assert len(mistaken_conversation_idx) == 0, f"There are still mistaken conversations:\n" + "\n".join(conversation_list[i] for i in mistaken_conversation_idx)
-    assert len(mistaken_extracted_idx) == 0, f"There are still mistaken extractions: {["\n".join(extracted_feature_list[i] for i in mistaken_extracted_idx)]}"
+        print('saving outputs...')
+        with open(experiment['output_filename_conversation'], 'w') as f:
+            for output in conversation_list:
+                json.dump(output, f)
+                f.write('\n')
+        with open(experiment['output_filename_feature_extraction'], 'w') as f:
+            for output in llm_outputs_feature_extraction:
+                json.dump(output, f)
+                f.write('\n')
+        print(f'outputs saved: \n {experiment["output_filename_conversation"]} \n {experiment["output_filename_feature_extraction"]}')
+        print(len(mistaken_conversation_idx))
+        assert len(mistaken_conversation_idx) == 0, f"There are still mistaken conversations:\n" + "\n".join(conversation_list[i] for i in mistaken_conversation_idx)
+        assert len(mistaken_extracted_idx) == 0, f"There are still mistaken extractions: {["\n".join(extracted_feature_list[i] for i in mistaken_extracted_idx)]}"
 
     print('---------------------------------------- Dataset Generation Completed ----------------------------------------')
     # Cleanup
