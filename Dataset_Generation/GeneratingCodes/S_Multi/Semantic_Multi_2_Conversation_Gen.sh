@@ -1,6 +1,5 @@
 #!/bin/bash
-#SBATCH -p mcml-hgx-a100-80x4 
-#SBATCH -q mcml
+#SBATCH -p lrz-hgx-h100-94x4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G

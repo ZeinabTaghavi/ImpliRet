@@ -1,5 +1,41 @@
 ALL_PROMPTS = {
+"STARTING_PHRASE_PROMPT_Multi": ''' 
 
+**Task**
+Generate {num_starting_points} distinct, natural-sounding first phrases suitable as the opening line of a response in an online forum discussion, for example, "I think", "In my point of view".
+
+**Requirements**
+- No numbering, bullets, or extra text before or after each sentence.
+- Tone must be friendly, approachable, and universally applicable.
+- Avoid any topic-specific references.
+- Use general phrasing.
+- Do not mention purchases or someone buying something.
+- Do not include numerical references in the sentences.
+
+**Output Format**
+At least {num_starting_points} distinct phrases.
+Separate each sentence with a blank line.
+
+''',
+"STARTING_PHRASE_PROMPT_Uni": ''' 
+
+**Task**
+Generate {num_starting_points} distinct, natural-sounding first phrases suitable as the opening line of a conversation between two friends, for example, "Hey! How's it going?", "Anything exciting happening?".
+
+**Requirements**
+- No numbering, bullets, or extra text before or after each sentence.
+- Tone must be friendly, approachable, and universally applicable.
+- Avoid any topic-specific references.
+- Use general phrasing.
+- Do not mention purchases or someone buying something.
+- Do not include numerical references in the sentences.
+
+**Output Format**
+At least {num_starting_points} distinct phrases.
+Separate each sentence with a blank line.
+
+'''
+,
 # A_Multi
 "PROMPTS_A_Multi": {
 'CONVERSATION_GENERATION_PROMPT' : '''
@@ -17,14 +53,17 @@ Generate a natural response to a forum question.
   1. The price of an item from a certain brand's model in dollars (e.g., "Gaming Chairs from Secretlab model 2019: 1650 dollars").  
   2. The price of another item from the same brand but a different model, described relative to the first item (e.g., "Secretlab, model 2019: 2.5 times more expensive than model 2016").  
   3. A sentence stating which model of the brand was ultimately purchased (e.g., "model 2016 was purchased").
+- `starting_phrase`: A starting phrase for the opening line of a response in an online forum discussion
 
 **Requirements**
 - Answer the `forum_question` by using the information in `forum_post`.
 - You may incorporate details from `user["persona"]` about `user['name']` to make the response more natural.
 - Explicitly mention the brand and model references, or the model that was purchased.
 - Preserve the numeric references (prices, multipliers, etc.). You may write the numbers as words, but do not change their values (e.g., 3.5 → "three and a half").
+- Use the `starting_phrase` as the opening line of the response.
 - Write the relative price in a natural way (e.g., "The Secretlab 2019 model costs two and a half times as much as the 2016 model.").
 - Only mention the information once in the response.
+
 - Ensure all sentences are grammatically correct.
 - Your generated answer must be coherent and make the answer sound like a real human reply in **five sentences**.
 
@@ -83,6 +122,7 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
   1. The price of the item in another brand.  
   2. The price of the item in the brand bought, relative to the first.  
   3. The brand bought.
+  - `starting_phrase`: A starting phrase for the opening line of a conversation between two friends
 
 **Requirements**
 - In the conversation, `user_1['name']` must share a message describing their shopping experience: it was in the `shopping_type` category and they bought the `item_to_buy`.  
@@ -92,6 +132,7 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
 - Preserve all exact numbers and the original relative phrasing contained in the `bought` sentences.  
 - Explicitly state that `user_1` did **not** buy from the first brand.  
 - Explicitly state that `user_1` **did** buy from the second brand.  
+- Use the `starting_phrase` as the opening line of the response.
 - All sentences must be grammatically correct.  
 - The conversation must consist of **exactly 10 utterances**, each on its own line.  
 
@@ -145,6 +186,7 @@ Generate a natural response to a forum question.
   - `name`: Name of the user.
   - `persona`: Persona of the user.
 - `type_of_location`: The type of location that the person in the post is talking about in "forum_post".
+- `starting_phrase`: A starting phrase for the opening line of a response in an online forum discussion
 
 **Requirements**
 - In the response, you should answer the "forum_question" by stating that you participated in the activity mentioned in "topic" at the "forum_post" location or at a place directly behind it.
@@ -154,6 +196,7 @@ Generate a natural response to a forum question.
 - Only mention the `forum_post` location name once in the response.
 - Do not alter the location in `forum_post`; use it exactly as it is without any changes.
 - Do not mention any other location than the one in `forum_post`.
+- Use the `starting_phrase` as the opening line of the response.
 - Make sure that you generate grammatically correct sentences.
 - Your generated answer must be coherent and must read naturally, as if a human is really answering the `forum_question`, in exactly 5 sentences.
 
@@ -203,6 +246,7 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
 - `trip_destination`: Destination of the trip.
 - `type_of_location`: The type of location.
 - `trip_purpose`: The purpose of the trip.
+- `starting_phrase`: A starting phrase for the opening line of a conversation between two friends
 
 **Requirements**
 - In the conversation, user_1['name'] will share a trip-information message stating that they were at the `trip_destination` for the purpose specified in `trip_purpose`, while user_2['name'] must engage naturally but must not reveal or comment on any trip or locational information.
@@ -213,6 +257,7 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
 - user_2['name'] replies naturally without referencing trip or locational information.
 - You may use the information in user_1["persona"] and user_2["persona"] to make the responses more natural.
 - `type_of_location` describes the kind of place user_1 visited and can help make the conversation sound natural.
+- Use the `starting_phrase` as the opening line of the response.
 - Make sure that you generate grammatically correct sentences.
 - The conversation must consist of exactly 10 utterances.
 - Each utterance is on its own line.
@@ -263,6 +308,7 @@ Generate a natural response to a forum question.
   - `name`: Name of the user.
   - `persona`: Persona of the user.
 - `offset_days`: The relative date (e.g., "3 days ago") that the person in the post is talking about in "forum_post".
+- `starting_phrase`: A starting phrase for the opening line of a response in an online forum discussion
 
 **Requirements**
 - In the response, answer the "forum_question" by stating that the user did the work on the date given in "offset_days", choosing a verb appropriate to the 'topic'.
@@ -271,6 +317,7 @@ Generate a natural response to a forum question.
 - Do not alter `offset_days`; use it exactly as written, though you may spell out its number component (e.g., "2 days ago" or "two days ago"). Do not convert it to a calendar date.
 - The work must have occurred on a single day; avoid vague temporal expressions such as "until", "by the ...", "completed", or "finished".
 - Do not mention any date other than the one in `offset_days`.
+- Use the `starting_phrase` as the opening line of the response.
 - Make sure that you generate grammatically correct sentences.
 - Your generated answer must be coherent and sound natural, as if a real person is answering the `forum_question`, in exactly five sentences.
 
@@ -328,6 +375,8 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
 - `hours`: The hours that the work is to be performed.
 - `offset_days`: A list describing when the work was done, relative to `message_time`. Each element is either a single relative day (e.g., '3 days ago', 'yesterday', 'today', 'in 2 days') or a span (e.g., 'Starting in 3 days for 4 consecutive days').
 - `message_time`: The time that the conversation is being sent: [date of the message, day of the week, hour in 24h format]
+- `starting_phrase`: A starting phrase for the opening line of a conversation between two friends
+
 
 **Requirements**
 - In the conversation, user_1['name'] will share a message describing their recent or upcoming work schedule and must mention the `work` and all `offset_days` in a single utterance.
@@ -338,6 +387,7 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
 - Mention the `work` in the conversation exactly as it is (only change the tense if needed).
 - Do not change the "message_time" information. Ensure that the "hours" you use in the conversation for "work" are correct and accurate. For example, if the work is "updating a work log" and the "message_time" is ("2023-07-21", "Friday", 14), and the "hours" are (7, 10), You can use it like this: "2023-07-21", "Alaina", "I have to update a work log tomorrow from 7 in the morning for three hours."
 - The message time is the time at which the conversation is being sent; Use the hour provided in message_time. For each utterance, randomly select a valid minute (00-59), ensuring that time either increases or remains the same across the 10 utterances. The format should be like this: "YYYY-MM-DD HH:MM" (e.g., "2024-01-01 12:00").
+- Use the `starting_phrase` as the opening line of the response.
 - Make sure that you generate grammatically correct sentences.
 - The conversation must consist of exactly 10 utterances.
 - Each utterance is on its own line.

@@ -1,4 +1,3 @@
-
 from huggingface_hub import login
 from utils.prompts import ALL_PROMPTS
 from utils.loading_model import ModelLoader
@@ -115,7 +114,7 @@ def experiment_setup(num_gpus: int,
     output_filename_conversation = f"{datasets_helping_folder}/{track}_{conv_type}/{track}_{conv_type}_Structured_Generated_conversation.jsonl"
     output_filename_feature_extraction = f"{datasets_helping_folder}/{track}_{conv_type}/{track}_{conv_type}_Structured_Generated_feature_extraction.jsonl"
     output_filename_extra_samples = f"{datasets_helping_folder}/{track}_{conv_type}/{track}_{conv_type}_Structured_Generated_extra_samples.jsonl"
-    output_filename_starting_conversations = f"{datasets_helping_folder}/{track}_{conv_type}/{track}_{conv_type}_Structured_Generated_starting_conversations.jsonl"
+    output_filename_starting_phrases = f"{datasets_helping_folder}/{track}_{conv_type}/{track}_{conv_type}_Structured_Generated_starting_phrases.jsonl"
 
     if track == 'A' and conv_type == 'Multi':
         dataset_bunch_key = 'posts'
@@ -183,6 +182,11 @@ def experiment_setup(num_gpus: int,
         CONVERSATION_GENERATION_PROMPT = ALL_PROMPTS['PROMPTS_T_Uni']['CONVERSATION_GENERATION_PROMPT']
         FEATURE_EXTRACTION_PROMPT = ALL_PROMPTS['PROMPTS_T_Uni']['FEATURE_EXTRACTION_PROMPT']
 
+    if conv_type == 'Multi':
+        STARTING_PHRASE_PROMPT = ALL_PROMPTS['STARTING_PHRASE_PROMPT_Multi']
+    elif conv_type == 'Uni':
+        STARTING_PHRASE_PROMPT = ALL_PROMPTS['STARTING_PHRASE_PROMPT_Uni']
+
     q_num_per_session = 30
     num_sessions = 50
     if conv_type == 'Multi':
@@ -204,7 +208,7 @@ def experiment_setup(num_gpus: int,
         'output_filename_conversation': output_filename_conversation,
         'output_filename_feature_extraction': output_filename_feature_extraction,
         'output_filename_extra_samples': output_filename_extra_samples,
-        'output_filename_starting_conversations': output_filename_starting_conversations,
+        'output_filename_starting_phrases': output_filename_starting_phrases,
         'output_filename_starting_main_conversations': output_filename_starting_main_conversations,
         'dataset_bunch_key': dataset_bunch_key,
         'datasets_helping_folder': datasets_helping_folder,
@@ -213,6 +217,7 @@ def experiment_setup(num_gpus: int,
         'conversation_generation_keys': conversation_generation_keys,
         'conv_lines': conv_lines,
         'feature_extraction_function': feature_extraction_function,
+        'STARTING_PHRASE_PROMPT': STARTING_PHRASE_PROMPT,
         'CONVERSATION_GENERATION_PROMPT': CONVERSATION_GENERATION_PROMPT,
         'FEATURE_EXTRACTION_PROMPT': FEATURE_EXTRACTION_PROMPT,
     }
@@ -238,6 +243,42 @@ def main(num_gpus: int = 4,
     
     experiment = experiment_setup(num_gpus, model_name, track, conv_type, datasets_helping_folder)
    
+
+    print('-------------------------------- Generating starting lines of conversations --------------------------------')
+    if os.path.exists(experiment['output_filename_starting_main_conversations']):
+        print(f"Loading starting conversations from {experiment['output_filename_starting_main_conversations']}")
+        starting_phrases = load_jsonl(experiment['output_filename_starting_main_conversations'])
+    else:
+        prompts_starting_conv = [ [
+                {
+                    "role": "system",
+                    "content": "You are a helpful assistant."
+                },
+                {
+                    "role": "user",
+                    "content": experiment['STARTING_PHRASE_PROMPT'].format(num_starting_points=experiment['q_num_per_session'])
+                }
+                
+            ] for _ in range(int(experiment['num_sessions']))]
+
+        print(f'Number of itteration for generating {experiment["q_num_per_session"]} strarting points: {len((prompts_starting_conv))}')
+        _, starting_phrases = several_attempts_generation(total_attempts=total_attempts,
+                                                            temperature=temperature,
+                                                            llm=llm,
+                                                            evaluation_function=filter_generated_conversation_responses,
+                                                            llm_output_prepared=False,
+                                                            prompts=prompts_starting_conv,
+                                                            num_expected_lines=experiment['q_num_per_session'],
+                                                            max_tokens=max_tokens_starting_conv,
+                                                            output_type='list',
+                                                            more_than_ok_type='more_than_ok')
+
+        print(f"saving starting conversations...")
+        with open(experiment['output_filename_starting_main_conversations'], 'w') as f:
+            for output in starting_phrases:
+                json.dump(output, f)
+                f.write('\n')
+        print(f"starting conversations saved to {experiment['output_filename_starting_main_conversations']}")
     
     print('---------------------------------------- Generating the conversations ----------------------------------------')
     # Prepare prompts for conversation generation
@@ -247,8 +288,10 @@ def main(num_gpus: int = 4,
         if experiment['conv_type'] == 'Uni':
             user = experiment['dataset'][i]['user_1']
         for i_2, conversation_bunch in enumerate(experiment['dataset'][i][experiment['dataset_bunch_key']]):
+            starting_phrase = starting_phrases[i][i_2]
             selected_info = {key: conversation_bunch[key] for key in experiment['selected_info_keys']}
             input_dict = {}
+            input_dict['starting_phrase'] = starting_phrase
 
             # if you need to add more keys to the input_dict, you can do it here
             # it is adding from the data row
@@ -414,8 +457,6 @@ def main(num_gpus: int = 4,
                 f.write('\n')
         print(f'outputs saved: \n {experiment["output_filename_conversation"]} \n {experiment["output_filename_feature_extraction"]}')
         print(len(mistaken_conversation_idx))
-        assert len(mistaken_conversation_idx) == 0, f"There are still mistaken conversations:\n" + "\n".join(conversation_list[i] for i in mistaken_conversation_idx)
-        assert len(mistaken_extracted_idx) == 0, f"There are still mistaken extractions: {["\n".join(extracted_feature_list[i] for i in mistaken_extracted_idx)]}"
 
     print('---------------------------------------- Dataset Generation Completed ----------------------------------------')
     # Cleanup
@@ -423,6 +464,13 @@ def main(num_gpus: int = 4,
     if dist.is_initialized():
         dist.destroy_process_group()
     print("Process group destroyed.")
+
+    # Ensure extracted_feature_list is defined before assertion
+    if 'extracted_feature_list' not in locals():
+        extracted_feature_list = []
+
+    assert len(mistaken_conversation_idx) == 0, f"There are still mistaken conversations:\n" + "\n".join(conversation_list[i] for i in mistaken_conversation_idx)
+    assert len(mistaken_extracted_idx) == 0, f"There are still mistaken extractions: {["\n".join(extracted_feature_list[i] for i in mistaken_extracted_idx)]}"
 
 if __name__ == '__main__':
     # Parse arguments
