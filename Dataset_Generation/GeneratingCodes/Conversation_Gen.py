@@ -229,8 +229,8 @@ def main(num_gpus: int = 4,
          conv_type: str = 'Uni',
          datasets_helping_folder: str = './Dataset_Generation/Dataset_Helping',
          temperature: float = 1,
-         total_attempts: int = 35,
-         total_attempts_hard: int = 20,
+         total_attempts: int = 15,
+         total_attempts_hard: int = 5,
          max_tokens_starting_conv: int = 4096,
          max_tokens_conversation_generation: int = 1024,
          max_tokens_feature_extraction: int = 512,):
@@ -457,6 +457,8 @@ def main(num_gpus: int = 4,
                 f.write('\n')
         print(f'outputs saved: \n {experiment["output_filename_conversation"]} \n {experiment["output_filename_feature_extraction"]}')
         print(len(mistaken_conversation_idx))
+        assert len(mistaken_conversation_idx) == 0, f"There are still mistaken conversations:\n" + "\n".join(conversation_list[i] for i in mistaken_conversation_idx)
+        assert len(mistaken_extracted_idx) == 0, f"There are still mistaken extractions: {["\n".join(extracted_feature_list[i] for i in mistaken_extracted_idx)]}"
 
     print('---------------------------------------- Dataset Generation Completed ----------------------------------------')
     # Cleanup
@@ -464,13 +466,6 @@ def main(num_gpus: int = 4,
     if dist.is_initialized():
         dist.destroy_process_group()
     print("Process group destroyed.")
-
-    # Ensure extracted_feature_list is defined before assertion
-    if 'extracted_feature_list' not in locals():
-        extracted_feature_list = []
-
-    assert len(mistaken_conversation_idx) == 0, f"There are still mistaken conversations:\n" + "\n".join(conversation_list[i] for i in mistaken_conversation_idx)
-    assert len(mistaken_extracted_idx) == 0, f"There are still mistaken extractions: {["\n".join(extracted_feature_list[i] for i in mistaken_extracted_idx)]}"
 
 if __name__ == '__main__':
     # Parse arguments
