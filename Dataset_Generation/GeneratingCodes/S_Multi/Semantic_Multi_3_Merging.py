@@ -42,28 +42,28 @@ def merging_dataset(base_path):
             assert i*30 + j == x
             
             x += 1 
-            user_response = generated_data[int(i*30 + j)].replace(f"{user}:", "$$$$").replace(f"{user} ", "").replace("$$$$", f"{user}:")
+            user_response = generated_data[int(i*30 + j)].replace(f"{user['name']}:", "$$$$").replace(f"{user['name']} ", "").replace("$$$$", f"{user['name']}:")
             hour = random.randint(8, 17)
             minute = random.sample(range(0, 60),1)
 
-    #         if user_response == '-':
-    #             raise Exception("user_response is '-'")
-    #         dataset.append({
-    #             "user_ID": i,
-    #             "topic": topic,
-    #             "forum_question": forum_question,
-    #             "message_date": message_date,
-    #             "user": user,
-    #             "context": f"{message_date} {hour:02d}:{minute[0]:02d}, {user}: {user_response}",
-    #             "question": posts[j]['question'],
-    #             "answer": posts[j]['answer']
-    #         })
+            if user_response == '-':
+                raise Exception("user_response is '-'")
+            dataset.append({
+                "user_ID": i,
+                "topic": topic,
+                "forum_question": forum_question,
+                "message_date": message_date,
+                "user": user['name'],
+                "context": f"{message_date} {hour:02d}:{minute[0]:02d}, {user['name']}: {user_response}",
+                "question": posts[j]['question'],
+                "answer": posts[j]['answer']
+            })
 
-    # with open(base_path + 'Data/S_Multi.jsonl', 'w', encoding='utf-8') as f:
-    #     for item in dataset:
-    #         json.dump(item, f, ensure_ascii=False)
-    #         f.write('\n')
-    # print(f"S_Multi: {len(dataset)}, stored in {base_path}/Data/A_Multi.jsonl")
+    with open(base_path + 'Data/S_Multi.jsonl', 'w', encoding='utf-8') as f:
+        for item in dataset:
+            json.dump(item, f, ensure_ascii=False)
+            f.write('\n')
+    print(f"S_Multi: {len(dataset)}, stored in {base_path}/Data/A_Multi.jsonl")
 
 if __name__ == "__main__":
     base_path = './Dataset_Generation/'

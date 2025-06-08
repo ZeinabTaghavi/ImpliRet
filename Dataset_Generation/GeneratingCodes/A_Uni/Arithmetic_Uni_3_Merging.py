@@ -7,8 +7,6 @@ from datetime import date, timedelta, datetime
 # Initialize random seed
 # ------------------------------------------------------------
 
-errored_list = [10]
-errored_dict = {10 : '''I recently purchased a pair of Fendi sunglasses, and I can tell you that the 2016 model costs one thousand four hundred dollars, while the 2021 model costs twenty-five percent more, which is a significant difference. The Fendi 2021 model costs one thousand seven hundred fifty dollars, which is twenty-five percent more than the 2016 model. I chose the 2021 model because of its sleek design and superior UV protection. Overall, I think Fendi offers great quality and style, and the 2021 model is a worthwhile investment, which is why I ultimately decided to purchase it.''' }
 random.seed(42)
 def cleaning_conversation(conversation, num_utterance, names):
     conversation = conversation.replace('\\n', '\n')
@@ -103,7 +101,7 @@ def merging_dataset(base_path):
             x += 1
 
             conversation = generated_data[int(i*30 + j)]
-            conversation = cleaning_conversation(conversation, 10, [user, user_2])
+            conversation = cleaning_conversation(conversation, 10, [user['name'], user_2['name']])
   
 
             random_days = random.randint(0, (end_date - start_date).days)
@@ -120,15 +118,13 @@ def merging_dataset(base_path):
                 print(conversation, i*30 + j)
                 raise Exception("conversation is '-'")
 
-
- 
             price_format = str(shopping_info_list[j]['final_price']) if shopping_info_list[j]['final_price'] < 1000 else f"{str(shopping_info_list[j]['final_price'])[:-3]},{str(shopping_info_list[j]['final_price'])[-3:]}"
-            question = f"What did {user} buy for ${price_format}?"
+            question = f"What did {user['name']} buy for ${price_format}?"
             dataset.append({
                 "user_ID": user_ID,
-                "user": user,
-                "user_2": user_2,
-                "context": '\n'.join(conversation).replace(f"{user}: {user_2}:", f"{user_2}:").replace(f"{user_2}: {user}:", f"{user}:").replace(f"{user_2}: {user_2}:", f"{user_2}:").replace(f"{user}: {user}:", f"{user}:"),
+                "user": user['name'],
+                "user_2": user_2['name'],
+                "context": '\n'.join(conversation).replace(f"{user['name']}: {user_2['name']}:", f"{user_2['name']}:").replace(f"{user_2['name']}: {user['name']}:", f"{user['name']}:").replace(f"{user_2['name']}: {user_2['name']}:", f"{user_2['name']}:").replace(f"{user['name']}: {user['name']}:", f"{user['name']}:"),
                 "extra_info": {k:v for k,v in shopping_info_list[j].items() if k in ['shopping_type', 'item_to_buy', 'high_price_brand', 'low_price_brand']},
                 "question": question,
                 "answer": shopping_info_list[j]['final_shopping'],

@@ -43,21 +43,21 @@ def merging_dataset(base_path):
             hour = random.randint(8, 17)
             minute = random.sample(range(0, 60),1)
             user = posts[j]['forum_post'][1]
-            if i*20 + j != x:
-                print(i*20 + j, x)
-            assert i*20 + j == x
+            if i*30 + j != x:
+                print(i*30 + j, x)
+            assert i*30 + j == x
             x += 1
-            user_response = generated_data[int(i*20 + j)].replace(f"{user}:", "$$$$").replace(f"{user} ", "").replace("$$$$", f"{user}:")
+            user_response = generated_data[int(i*30 + j)].replace(f"{user}:", "$$$$").replace(f"{user} ", "").replace("$$$$", f"{user}:")
             if user_response == '-':
-                print(user_response, i*20 + j)
+                print(user_response, i*30 + j)
                 raise Exception("user_response is '-'")
             dataset.append({
                 "user_ID": i,
                 "topic": topic,
                 "forum_question": forum_question,
                 "message_date": f"{message_date} {hour:02d}:{minute[0]:02d}",
-                "user": user,
-                "context": f"{message_date} {hour:02d}:{minute[0]:02d}, {user}: {user_response}",
+                "user": user['name'],
+                "context": f"{message_date} {hour:02d}:{minute[0]:02d}, {user['name']}: {user_response}",
                 "question": posts[j]['question'],
                 "answer": posts[j]['answer']
             })

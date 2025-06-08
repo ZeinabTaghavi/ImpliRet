@@ -5,8 +5,6 @@ from datetime import date, timedelta
 from pathlib import Path
 import os
 
-errored_list = [10]
-errored_dict = {10 : '''I recently purchased a pair of Fendi sunglasses, and I can tell you that the 2016 model costs one thousand four hundred dollars, while the 2021 model costs twenty-five percent more, which is a significant difference. The Fendi 2021 model costs one thousand seven hundred fifty dollars, which is twenty-five percent more than the 2016 model. I chose the 2021 model because of its sleek design and superior UV protection. Overall, I think Fendi offers great quality and style, and the 2021 model is a worthwhile investment, which is why I ultimately decided to purchase it.''' }
 random.seed(42)
 
 import json 
@@ -51,10 +49,7 @@ def merging_dataset(base_path):
         generated_data = [json.loads(line) for line in f]
 
 
-    name_file_path = base_path + "Dataset_Helping/names.txt"
-    with open(name_file_path, "r") as file:
-        names = ' '.join([line.strip().replace(" ", "") for line in file.readlines()])
-        names_list = sorted(list(set(ast.literal_eval(names))))
+
 
     print(f'len(generated_data): {len(generated_data)}') 
     print(f"Loaded {len(generated_data)} records from generated data file")
@@ -68,31 +63,25 @@ def merging_dataset(base_path):
         topic = structured_data[i]['topic']
         forum_question = structured_data[i]['forum_question']
         posts = structured_data[i]['posts']
-        accupied_names = [post['forum_post'][1] for post in structured_data[i]['posts']]
-        allowed_names = [name for name in names_list if name not in accupied_names]
-
 
         for j in range(len(posts)):
             message_date = posts[j]['forum_post'][0]
             user = posts[j]['forum_post'][1]
-            if i*20 + j != x:
-                print(i*20 + j, x)
-            assert i*20 + j == x
+            if i*30 + j != x:
+                print(i*30 + j, x)
+            assert i*30 + j == x
             x += 1
 
            
-            user_response = generated_data[int(i*20 + j)].replace(f"{user}:", "$$$$").replace(f"{user} ", "").replace("$$$$", f"{user}:")
+            user_response = generated_data[int(i*30 + j)].replace(f"{user['name']}:", "$$$$").replace(f"{user['name']} ", "").replace("$$$$", f"{user['name']}:")
             if user_response == '-':
-                if i*20 + j in errored_list:
-                    user_response = errored_dict[i*20 + j]
-                else:
-                    raise Exception("user_response is '-'")
+                raise Exception("user_response is '-'")
 
             hour = random.randint(8, 17)
             minute = random.sample(range(0, 60),1)
 
             item_name = posts[j]['question'].split('model from which brand costs')[0].replace('what ', '').lower().strip()
-            price = int(posts[j]['question'].split('model from which brand costs')[1].replace('dollars?', ''))
+            price = int(posts[j]['question'].split('that cost $')[1].replace('?', ''))
             price_format = str(price) if price < 1000 else f"{str(price)[:-3]},{str(price)[-3:]}"
 
             dataset.append({
@@ -100,8 +89,8 @@ def merging_dataset(base_path):
                 "topic": topic,
                 "forum_question": forum_question,
                 "message_date": f"{message_date} {hour:02d}:{minute[0]:02d}",
-                "user": user,
-                "context": f"{message_date} {hour:02d}:{minute[0]:02d}, {user}: {user_response}",
+                "user": user['name'],
+                "context": f"{message_date} {hour:02d}:{minute[0]:02d}, {user['name']}: {user_response}",
                 "question": f"What brand and model of {item_name} were priced at ${price_format}?",
                 "answer": posts[j]['answer'],
             })
