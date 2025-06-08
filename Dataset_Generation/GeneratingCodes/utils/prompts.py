@@ -136,6 +136,10 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
 - Preserve all exact numbers and the original relative phrasing contained in the `bought` sentences.  
 - Explicitly state that `user_1` did **not** buy from the first brand.  
 - Explicitly state that `user_1` **did** buy from the second brand.  
+- **Place the complete shopping report in exactly one user_1 utterance of your choice** (it may be the 2nd, 3rd, 7th—any single line).  
+  - That utterance must contain the literal text of `shopping_type`, `item_to_buy`, **all brand names**, and **all numbers** from the three `bought` sentences.  
+  - After that line, neither speaker may repeat or partially restate those strings or figures; use indirect terms like "it", "the item", or "that second brand" instead.  
+  - No additional brands, items, or numerical prices may be introduced elsewhere.
 - Use the `starting_phrase` as the opening line of the first utterance.
 - All sentences must be grammatically correct.  
 - The conversation must consist of **exactly 10 utterances**, each on its own line.  
@@ -265,6 +269,10 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
 - You may use the information in user_1["persona"] and user_2["persona"] to make the responses more natural.
 - `type_of_location` describes the kind of place user_1 visited and can help make the conversation sound natural.
 - Use the `starting_phrase` as the opening line of the first utterance.
+- **Place the complete trip note in exactly one user_1 utterance of your choice** (it may be the 2nd, 3rd, 7th—any single line).  
+  - That utterance must contain the literal text of `trip_destination` and `trip_purpose`, each spelled exactly as provided.  
+  - After that line, either speaker may refer to the place or activity only indirectly (e.g., "there", "it", "that visit") and must never restate or partially repeat those exact strings.  
+  - No additional locational or purpose details may be introduced later.
 - Make sure that you generate grammatically correct sentences.
 - The conversation must consist of exactly 10 utterances.
 - Each utterance is on its own line.
@@ -394,9 +402,13 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
 - You should mention that the user_1['name'] did the 'work' on the specific day or days. Mention the day(s) of work using the same relative phrasing as in offset_days. You may express numbers as words (e.g., '2 days ago' or 'two days ago'), but do not rephrase or summarize the content of any span.
 - All the work is being done in the same hour interval as specified in hours, you should not directly mention the end hour, but make sure that you accurately mention end hour relative to the start hour (e.g., "from 1 p.m. until 3 hours after that" or "from 9 in the morning for three hours"). Do not change the hours.
 - Mention the `work` in the conversation exactly as it is (only change the tense if needed).
-- The literal text in `work` (character-for-character) must appear **exactly once** in the entire 10-utterance dialogue—inside user_1's scheduling line that also lists all `offset_days`.  
-  - After that first mention, either speaker may **refer back to the activity only indirectly** (e.g., "it", "those sessions", "the task", "that shift").  
-  - Do **not** restate the schedule or the exact `work` string again in any form.
+- **Place the full schedule in exactly one user_1 utterance of your choice** (it may be the 2nd, 3rd, 7th—any single line).  
+  - That utterance must:
+    - include the literal text of `work` (tense may change),  
+    - repeat every phrase in `offset_days` verbatim, and  
+    - give the hour window exactly once, phrased relative to the start hour (e.g., "from 1 p.m. until three hours after that").  
+  - After that line, either speaker may refer to the activity only indirectly ("it", "those sessions", "the task") and must **never** restate the exact `work` string, schedule, or hours.  
+  - No new dates, spans, or numerical details may appear elsewhere.
 - Do not change the "message_time" information. Ensure that the "hours" you use in the conversation for "work" are correct and accurate. For example, if the work is "updating a work log" and the "message_time" is ("2023-07-21", "Friday", 14), and the "hours" are (7, 10), You can use it like this: "2023-07-21", "Alaina", "I have to update a work log tomorrow from 7 in the morning for three hours."
 - The message time is the time at which the conversation is being sent; Use the hour provided in message_time. For each utterance, randomly select a valid minute (00-59), ensuring that time either increases or remains the same across the 10 utterances.The final format of the message time should be like this: "YYYY-MM-DD HH:MM" (e.g., "2024-01-01 12:00").
 - Use the `starting_phrase` as the opening line of the first utterance.
