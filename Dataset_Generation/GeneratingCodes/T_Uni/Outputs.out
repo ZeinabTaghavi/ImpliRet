@@ -1,1 +1,887 @@
 Starting the job
+INFO 06-08 08:44:19 [__init__.py:243] Automatically detected platform cuda.
+----- Experiment Setup ----
+model_name: google/gemma-3-27b-it
+track: T
+conv_type: Uni
+datasets_helping_folder: ./Dataset_Generation/Dataset_Helping
+Number of GPUs: 4
+---------------------------
+Loading the model...
+INFO 06-08 08:44:22 [__init__.py:31] Available plugins for group vllm.general_plugins:
+INFO 06-08 08:44:22 [__init__.py:33] - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver
+INFO 06-08 08:44:22 [__init__.py:36] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 06-08 08:44:41 [config.py:793] This model supports multiple tasks: {'classify', 'embed', 'reward', 'generate', 'score'}. Defaulting to 'generate'.
+INFO 06-08 08:44:41 [config.py:2118] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 06-08 08:44:47 [core.py:438] Waiting for init message from front-end.
+INFO 06-08 08:44:47 [core.py:65] Initializing a V1 LLM engine (v0.9.0.1) with config: model='google/gemma-3-27b-it', speculative_config=None, tokenizer='google/gemma-3-27b-it', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir='/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/', load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=google/gemma-3-27b-it, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level": 3, "custom_ops": ["none"], "splitting_ops": ["vllm.unified_attention", "vllm.unified_attention_with_output"], "compile_sizes": [], "inductor_compile_config": {"enable_auto_functionalized_v2": false}, "use_cudagraph": true, "cudagraph_num_of_warmups": 1, "cudagraph_capture_sizes": [512, 504, 496, 488, 480, 472, 464, 456, 448, 440, 432, 424, 416, 408, 400, 392, 384, 376, 368, 360, 352, 344, 336, 328, 320, 312, 304, 296, 288, 280, 272, 264, 256, 248, 240, 232, 224, 216, 208, 200, 192, 184, 176, 168, 160, 152, 144, 136, 128, 120, 112, 104, 96, 88, 80, 72, 64, 56, 48, 40, 32, 24, 16, 8, 4, 2, 1], "max_capture_size": 512}
+INFO 06-08 08:45:25 [ray_utils.py:333] No current placement group found. Creating a new placement group.
+INFO 06-08 08:45:25 [ray_distributed_executor.py:176] use_ray_spmd_worker: True
+[36m(pid=3345330)[0m INFO 06-08 08:45:36 [__init__.py:243] Automatically detected platform cuda.
+INFO 06-08 08:45:44 [ray_distributed_executor.py:352] non_carry_over_env_vars from config: set()
+INFO 06-08 08:45:44 [ray_distributed_executor.py:354] Copying the following environment variables to workers: ['VLLM_USE_RAY_SPMD_WORKER', 'VLLM_USE_RAY_COMPILED_DAG', 'VLLM_WORKER_MULTIPROC_METHOD', 'VLLM_USE_V1']
+INFO 06-08 08:45:44 [ray_distributed_executor.py:357] If certain env vars should NOT be copied to workers, add them to /dss/dsshome1/0B/di38wip/.config/vllm/ray_non_carry_over_env_vars.json file
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:45:44 [__init__.py:31] Available plugins for group vllm.general_plugins:
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:45:44 [__init__.py:33] - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:45:44 [__init__.py:36] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+[36m(pid=3345299)[0m INFO 06-08 08:45:36 [__init__.py:243] Automatically detected platform cuda.[32m [repeated 3x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(RayWorkerWrapper pid=3345330)[0m WARNING 06-08 08:45:46 [utils.py:2671] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f264bf07980>
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:45:51 [utils.py:1077] Found nccl from library libnccl.so.2
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:45:51 [pynccl.py:69] vLLM is using nccl==2.26.2
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:45:44 [__init__.py:31] Available plugins for group vllm.general_plugins:[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:45:44 [__init__.py:33] - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:45:44 [__init__.py:36] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345299)[0m WARNING 06-08 08:45:46 [utils.py:2671] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f53ceea3f50>[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:45:53 [custom_all_reduce_utils.py:245] reading GPU P2P access cache from /dss/dsshome1/0B/di38wip/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:45:53 [shm_broadcast.py:250] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_7192ab6c'), local_subscribe_addr='ipc:///tmp/3a41fb2b-15c9-4037-bfa5-a91b6480728f', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:45:53 [parallel_state.py:1064] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[36m(RayWorkerWrapper pid=3345299)[0m WARNING 06-08 08:46:10 [topk_topp_sampler.py:58] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:45:51 [utils.py:1077] Found nccl from library libnccl.so.2[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:45:51 [pynccl.py:69] vLLM is using nccl==2.26.2[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:45:53 [custom_all_reduce_utils.py:245] reading GPU P2P access cache from /dss/dsshome1/0B/di38wip/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:45:53 [parallel_state.py:1064] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 2, EP rank 2[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:46:12 [gpu_model_runner.py:1531] Starting to load model google/gemma-3-27b-it...
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:46:12 [cuda.py:217] Using Flash Attention backend on V1 engine.
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:46:14 [backends.py:35] Using InductorAdaptor
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:46:15 [weight_utils.py:291] Using model weights format ['*.safetensors']
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:47:11 [default_loader.py:280] Loading weights took 55.64 seconds
+[36m(RayWorkerWrapper pid=3345297)[0m WARNING 06-08 08:46:12 [topk_topp_sampler.py:58] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:46:12 [gpu_model_runner.py:1531] Starting to load model google/gemma-3-27b-it...[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:46:12 [cuda.py:217] Using Flash Attention backend on V1 engine.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:46:14 [backends.py:35] Using InductorAdaptor[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:46:15 [weight_utils.py:291] Using model weights format ['*.safetensors'][32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:47:12 [gpu_model_runner.py:1549] Model loading took 13.1667 GiB and 59.362845 seconds
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:47:13 [gpu_model_runner.py:1863] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 32 image items of the maximum feature size.
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:47:49 [backends.py:459] Using cache directory: /dss/dsshome1/0B/di38wip/.cache/vllm/torch_compile_cache/29d75a4ef6/rank_0_0 for vLLM's torch.compile
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:47:49 [backends.py:469] Dynamo bytecode transform time: 27.69 s
+[36m(RayWorkerWrapper pid=3345303)[0m INFO 06-08 08:47:12 [default_loader.py:280] Loading weights took 56.16 seconds[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345303)[0m INFO 06-08 08:47:13 [gpu_model_runner.py:1549] Model loading took 13.1667 GiB and 60.279640 seconds[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:47:13 [gpu_model_runner.py:1863] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 32 image items of the maximum feature size.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:48:18 [backends.py:132] Directly load the compiled graph(s) for shape None from the cache, took 26.615 s
+[36m(RayWorkerWrapper pid=3345297)[0m INFO 06-08 08:47:51 [backends.py:459] Using cache directory: /dss/dsshome1/0B/di38wip/.cache/vllm/torch_compile_cache/29d75a4ef6/rank_3_0 for vLLM's torch.compile[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345297)[0m INFO 06-08 08:47:51 [backends.py:469] Dynamo bytecode transform time: 29.73 s[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:48:28 [monitor.py:33] torch.compile takes 27.69 s in total
+[36m(RayWorkerWrapper pid=3345297)[0m INFO 06-08 08:48:20 [backends.py:132] Directly load the compiled graph(s) for shape None from the cache, took 27.049 s[32m [repeated 3x across cluster][0m
+INFO 06-08 08:48:31 [kv_cache_utils.py:637] GPU KV cache size: 483,200 tokens
+INFO 06-08 08:48:31 [kv_cache_utils.py:640] Maximum concurrency for 4,096 tokens per request: 117.97x
+INFO 06-08 08:48:31 [kv_cache_utils.py:637] GPU KV cache size: 480,816 tokens
+INFO 06-08 08:48:31 [kv_cache_utils.py:640] Maximum concurrency for 4,096 tokens per request: 117.39x
+INFO 06-08 08:48:31 [kv_cache_utils.py:637] GPU KV cache size: 480,816 tokens
+INFO 06-08 08:48:31 [kv_cache_utils.py:640] Maximum concurrency for 4,096 tokens per request: 117.39x
+INFO 06-08 08:48:31 [kv_cache_utils.py:637] GPU KV cache size: 483,200 tokens
+INFO 06-08 08:48:31 [kv_cache_utils.py:640] Maximum concurrency for 4,096 tokens per request: 117.97x
+[36m(RayWorkerWrapper pid=3345303)[0m INFO 06-08 08:49:49 [custom_all_reduce.py:195] Registering 8308 cuda graph addresses
+[36m(RayWorkerWrapper pid=3345299)[0m INFO 06-08 08:48:28 [monitor.py:33] torch.compile takes 27.79 s in total[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=3345330)[0m INFO 06-08 08:49:50 [gpu_model_runner.py:1933] Graph capturing finished in 79 secs, took 4.04 GiB
+INFO 06-08 08:49:50 [core.py:167] init engine (profile, create kv cache, warmup model) took 157.41 seconds
+Model loaded successfully using vLLM.
+-------------------------------- Generating starting lines of conversations --------------------------------
+Loading starting conversations from ./Dataset_Generation/Dataset_Helping/T_Uni/T_Uni_Structured_Generated_starting_main_conversations.jsonl
+---------------------------------------- Generating the conversations ----------------------------------------
+length of prompts_conversation_generation:  1500
+Loading outputs from step 1...
+len(conversation_list) 1500
+Outputs loaded from ./Dataset_Generation/Dataset_Helping/T_Uni/T_Uni_Structured_Generated_conversation.jsonl and ./Dataset_Generation/Dataset_Helping/T_Uni/T_Uni_Structured_Generated_feature_extraction.jsonl
+Number of mistaken conversations: 12
+Number of mistaken extractions: 423
+End of step 1
+mistaken_extracted_idx: [2, 10, 13, 15, 16, 17, 19, 23, 24, 30, 31, 33, 34, 35, 37, 39, 44, 45, 47, 48, 50, 52, 57, 59, 62, 65, 71, 76, 77, 78, 79, 81, 82, 85, 88, 90, 92, 93, 99, 100, 106, 110, 118, 121, 134, 144, 145, 149, 151, 153, 154, 157, 165, 167, 168, 169, 171, 183, 189, 192, 196, 199, 203, 204, 207, 208, 213, 226, 227, 231, 233, 237, 238, 239, 241, 244, 247, 251, 258, 260, 268, 274, 275, 281, 288, 289, 297, 302, 319, 324, 329, 333, 339, 340, 342, 347, 353, 360, 362, 363, 378, 391, 393, 394, 395, 398, 402, 404, 405, 406, 407, 409, 414, 418, 421, 425, 428, 430, 433, 434, 436, 439, 440, 446, 450, 451, 452, 453, 456, 458, 459, 461, 463, 467, 468, 470, 478, 484, 485, 486, 488, 491, 493, 494, 495, 510, 512, 513, 514, 517, 518, 521, 526, 528, 529, 531, 534, 537, 542, 544, 547, 550, 559, 562, 563, 567, 571, 572, 574, 577, 579, 583, 584, 593, 594, 595, 597, 600, 618, 623, 629, 630, 631, 632, 633, 642, 650, 659, 660, 666, 675, 677, 681, 686, 688, 690, 692, 694, 697, 702, 708, 713, 716, 718, 722, 724, 731, 736, 737, 739, 744, 745, 750, 751, 752, 754, 760, 766, 770, 774, 776, 779, 780, 783, 790, 792, 793, 797, 798, 799, 805, 806, 807, 808, 809, 811, 812, 814, 816, 820, 837, 842, 852, 855, 856, 861, 865, 871, 872, 873, 876, 878, 881, 883, 884, 887, 889, 891, 895, 896, 897, 900, 905, 912, 915, 918, 919, 920, 928, 932, 933, 934, 937, 940, 947, 948, 957, 959, 960, 962, 966, 969, 973, 974, 975, 976, 980, 989, 990, 992, 1000, 1002, 1019, 1022, 1024, 1025, 1032, 1039, 1052, 1054, 1055, 1061, 1062, 1063, 1065, 1066, 1069, 1071, 1073, 1074, 1075, 1078, 1082, 1084, 1085, 1088, 1089, 1090, 1092, 1093, 1095, 1098, 1102, 1105, 1107, 1116, 1124, 1128, 1160, 1162, 1172, 1173, 1175, 1178, 1186, 1189, 1191, 1194, 1197, 1201, 1203, 1206, 1211, 1215, 1217, 1218, 1225, 1230, 1231, 1235, 1237, 1238, 1239, 1240, 1243, 1248, 1249, 1253, 1258, 1259, 1262, 1263, 1268, 1269, 1275, 1280, 1284, 1291, 1300, 1305, 1308, 1315, 1320, 1322, 1331, 1333, 1334, 1335, 1336, 1340, 1343, 1352, 1354, 1362, 1368, 1370, 1385, 1387, 1389, 1396, 1398, 1400, 1408, 1412, 1414, 1415, 1426, 1427, 1428, 1441, 1442, 1444, 1449, 1452, 1455, 1458, 1459, 1460, 1461, 1464, 1466, 1467, 1471, 1473, 1474, 1475, 1480, 1485, 1486, 1487, 1489, 1490, 1491]
+---------------------------------------- Hard Attempt 0 of 25 ----------------------------------------
+Soft Attempt 0 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+INFO 06-08 08:50:14 [chat_utils.py:419] Detected the chat template content format to be 'openai'. You can set `--chat-template-content-format` to override this.
+INFO 06-08 08:50:14 [ray_distributed_executor.py:561] VLLM_USE_RAY_COMPILED_DAG_CHANNEL_TYPE = auto
+INFO 06-08 08:50:14 [ray_distributed_executor.py:563] VLLM_USE_RAY_COMPILED_DAG_OVERLAP_COMM = False
+INFO 06-08 08:50:14 [ray_distributed_executor.py:578] RAY_CGRAPH_get_timeout is set to 300
+Soft Attempt 1 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 2 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 3 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 4 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 5 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 6 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 7 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 8 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 9 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Number of mistaken generated conversations: 12
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Number of generated conversations: 1500
+Generating extractions...
+1 - Number of extractions that will be generated: 423
+2 - Regenerating works if needed
+Regenerating works: Attempt 0 of 10
+Regenerating works: Attempt 1 of 10
+Regenerating works: Attempt 2 of 10
+Regenerating works: Attempt 3 of 10
+Regenerating works: Attempt 4 of 10
+Regenerating works: Attempt 5 of 10
+Regenerating works: Attempt 6 of 10
+Regenerating works: Attempt 7 of 10
+Regenerating works: Attempt 8 of 10
+Regenerating works: Attempt 9 of 10
+Number of mistaken works in after 25 attempts: 423
+3 - Regenerating conversation if needed...
+Number of mistaken works in after 10 attempts: 423
+Number of mistaken extractions: 420
+[2, 10, 13, 15, 16, 17, 19, 23, 24, 30, 31, 33, 34, 35, 37, 39, 44, 45, 47, 48, 50, 52, 57, 59, 62, 65, 71, 76, 77, 78, 79, 81, 82, 85, 88, 90, 92, 93, 99, 100, 106, 110, 118, 121, 134, 144, 145, 149, 151, 153, 154, 157, 165, 167, 168, 169, 171, 183, 189, 192, 196, 199, 203, 204, 207, 208, 213, 226, 227, 231, 233, 237, 238, 241, 244, 247, 251, 258, 260, 268, 274, 275, 281, 288, 289, 297, 302, 319, 324, 329, 333, 339, 340, 342, 347, 353, 360, 362, 363, 378, 391, 393, 394, 395, 398, 402, 404, 405, 406, 407, 409, 414, 418, 421, 425, 428, 430, 433, 434, 436, 439, 440, 446, 450, 451, 452, 453, 456, 458, 459, 461, 463, 467, 468, 470, 478, 484, 485, 486, 488, 491, 493, 494, 495, 510, 512, 513, 514, 517, 518, 521, 526, 528, 529, 531, 534, 537, 542, 544, 547, 550, 559, 562, 563, 567, 571, 572, 574, 577, 579, 583, 584, 593, 594, 595, 597, 600, 618, 623, 629, 630, 631, 632, 633, 642, 650, 659, 660, 666, 675, 677, 681, 686, 688, 690, 692, 694, 697, 702, 708, 713, 716, 718, 722, 724, 731, 736, 737, 739, 744, 745, 750, 751, 752, 754, 760, 766, 770, 774, 776, 779, 780, 783, 790, 792, 793, 797, 798, 799, 805, 806, 807, 808, 809, 811, 812, 814, 816, 820, 837, 842, 852, 855, 856, 861, 865, 871, 872, 873, 876, 878, 881, 883, 884, 887, 889, 891, 895, 896, 897, 900, 905, 912, 915, 918, 919, 920, 928, 932, 933, 934, 937, 940, 947, 948, 957, 959, 960, 962, 966, 969, 973, 974, 975, 976, 980, 990, 992, 1000, 1002, 1019, 1022, 1024, 1025, 1032, 1039, 1052, 1054, 1055, 1061, 1062, 1063, 1065, 1066, 1069, 1071, 1073, 1074, 1075, 1078, 1082, 1084, 1085, 1088, 1089, 1090, 1092, 1093, 1095, 1098, 1102, 1105, 1107, 1116, 1124, 1128, 1160, 1162, 1172, 1173, 1175, 1178, 1186, 1189, 1191, 1194, 1197, 1201, 1203, 1206, 1211, 1215, 1217, 1218, 1225, 1230, 1231, 1235, 1237, 1238, 1239, 1240, 1243, 1248, 1249, 1253, 1258, 1259, 1262, 1263, 1268, 1269, 1280, 1284, 1291, 1300, 1305, 1308, 1315, 1320, 1322, 1331, 1333, 1334, 1335, 1336, 1340, 1343, 1352, 1354, 1362, 1368, 1370, 1385, 1387, 1389, 1396, 1398, 1400, 1408, 1412, 1414, 1415, 1426, 1427, 1428, 1441, 1442, 1444, 1449, 1452, 1455, 1458, 1459, 1460, 1461, 1464, 1466, 1467, 1471, 1473, 1474, 1475, 1480, 1485, 1486, 1487, 1489, 1490, 1491]
+Number of extractions: 1500
++++++++++++++++++++++++++++++++++++++++++++++
+Mistaken conversation: -
+Mistaken extraction: {'work': 'conduct a daily safety check', 'days': ['2020-02-13', '2020-02-14', '2020-02-15', '2020-02-16'], 'hours': (7, 11)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: -
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "review operational data",
+    "days": [
+      "2024-02-23",
+      "2024-02-24",
+      "2024-02-25",
+      "2024-02-26",
+      "2024-02-16",
+      "2024-02-15",
+      "2024-02-14",
+      "2024-02-18"
+    ],
+    "hours": [
+      7,
+      9
+    ]
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "maintain a training schedule",
+    "days": [
+      "2024-07-18",
+      "2024-07-19",
+      "2024-07-21"
+    ],
+    "hours": (7, 11)
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: -
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: -
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "record daily observations",
+    "days": [
+      "2024-02-03",
+      "2024-02-04",
+      "2024-02-05",
+      "2024-02-06"
+    ],
+    "hours": (7, 10)
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "check routine communications",
+    "days": [
+      "2024-02-29",
+      "2024-03-01",
+      "2024-03-02"
+    ],
+    "hours": (
+      7,
+      11
+    )
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'prepare a daily briefing', 'days': ['2020-11-09', '2020-11-15'], 'hours': (11, 15)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'conduct a daily review session', 'days': ['2022-12-19', '2022-12-20', '2022-12-21', '2022-12-22'], 'hours': (7, 10)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'conduct a daily review session', 'days': ['2021-10-25', '2021-10-26', '2021-10-27', '2021-10-28'], 'hours': (11, 13)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'perform routine testing', 'days': ['2021-11-07', '2021-11-08', '2021-11-09'], 'hours': (9, 11)}
+--------------------------------
+---------------------------------------- Hard Attempt 1 of 25 ----------------------------------------
+Soft Attempt 0 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 1 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 2 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 3 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 4 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 5 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 6 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 7 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 8 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 9 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Number of mistaken generated conversations: 12
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Number of generated conversations: 1500
+Generating extractions...
+1 - Number of extractions that will be generated: 420
+2 - Regenerating works if needed
+Regenerating works: Attempt 0 of 10
+Regenerating works: Attempt 1 of 10
+Regenerating works: Attempt 2 of 10
+Regenerating works: Attempt 3 of 10
+Regenerating works: Attempt 4 of 10
+Regenerating works: Attempt 5 of 10
+Regenerating works: Attempt 6 of 10
+Regenerating works: Attempt 7 of 10
+Regenerating works: Attempt 8 of 10
+Regenerating works: Attempt 9 of 10
+Number of mistaken works in after 25 attempts: 420
+3 - Regenerating conversation if needed...
+Number of mistaken works in after 10 attempts: 420
+Number of mistaken extractions: 417
+[2, 10, 13, 15, 16, 17, 19, 23, 24, 30, 31, 33, 34, 35, 37, 39, 44, 45, 47, 48, 50, 52, 57, 59, 62, 65, 71, 76, 77, 78, 79, 81, 82, 85, 88, 90, 92, 93, 99, 100, 106, 110, 118, 121, 134, 144, 145, 149, 151, 153, 154, 157, 165, 167, 168, 169, 171, 183, 189, 192, 196, 199, 203, 204, 207, 208, 213, 226, 227, 231, 233, 237, 238, 241, 244, 247, 251, 258, 260, 268, 274, 275, 281, 288, 289, 297, 302, 319, 324, 329, 333, 339, 340, 342, 347, 353, 360, 362, 363, 378, 391, 393, 394, 395, 398, 402, 404, 405, 406, 407, 409, 414, 418, 421, 425, 428, 430, 433, 434, 436, 439, 440, 446, 450, 451, 452, 453, 456, 458, 459, 461, 463, 467, 468, 470, 478, 484, 485, 486, 488, 491, 493, 494, 495, 510, 512, 513, 514, 517, 518, 521, 526, 528, 529, 531, 534, 537, 542, 544, 547, 550, 559, 562, 563, 567, 571, 572, 574, 577, 579, 583, 584, 593, 594, 595, 597, 600, 618, 623, 629, 630, 632, 633, 642, 650, 659, 660, 666, 675, 677, 681, 686, 688, 690, 692, 694, 697, 702, 708, 713, 716, 718, 722, 724, 731, 736, 737, 739, 744, 745, 750, 751, 752, 754, 760, 766, 770, 774, 776, 779, 780, 783, 790, 792, 793, 797, 798, 799, 805, 806, 807, 808, 809, 811, 812, 814, 816, 820, 837, 842, 855, 856, 861, 865, 871, 872, 873, 876, 878, 881, 883, 884, 887, 889, 891, 895, 896, 897, 900, 905, 912, 915, 918, 919, 920, 928, 932, 933, 934, 937, 940, 947, 948, 957, 959, 960, 962, 966, 969, 973, 974, 975, 976, 980, 990, 992, 1000, 1002, 1019, 1022, 1024, 1025, 1032, 1039, 1052, 1054, 1055, 1061, 1062, 1063, 1065, 1066, 1069, 1071, 1073, 1074, 1075, 1078, 1082, 1084, 1085, 1088, 1089, 1090, 1092, 1093, 1098, 1102, 1105, 1107, 1116, 1124, 1128, 1160, 1162, 1172, 1173, 1175, 1178, 1186, 1189, 1191, 1194, 1197, 1201, 1203, 1206, 1211, 1215, 1217, 1218, 1225, 1230, 1231, 1235, 1237, 1238, 1239, 1240, 1243, 1248, 1249, 1253, 1258, 1259, 1262, 1263, 1268, 1269, 1280, 1284, 1291, 1300, 1305, 1308, 1315, 1320, 1322, 1331, 1333, 1334, 1335, 1336, 1340, 1343, 1352, 1354, 1362, 1368, 1370, 1385, 1387, 1389, 1396, 1398, 1400, 1408, 1412, 1414, 1415, 1426, 1427, 1428, 1441, 1442, 1444, 1449, 1452, 1455, 1458, 1459, 1460, 1461, 1464, 1466, 1467, 1471, 1473, 1474, 1475, 1480, 1485, 1486, 1487, 1489, 1490, 1491]
+Number of extractions: 1500
++++++++++++++++++++++++++++++++++++++++++++++
+Mistaken conversation: -
+Mistaken extraction: {'work': 'conduct a daily safety check', 'days': ['2020-02-13', '2020-02-14', '2020-02-15', '2020-02-16'], 'hours': (7, 11)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "Conduct routine inspections",
+    "days": [
+      "2024-02-16",
+      "2024-02-17",
+      "2024-02-18",
+      "2024-02-19",
+      "2024-02-20",
+      "2024-02-21",
+      "2024-02-22"
+    ],
+    "hours": (7, 11)
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "review operational data",
+    "days": [
+      "2024-02-23",
+      "2024-02-24",
+      "2024-02-25",
+      "2024-02-26"
+    ],
+    "hours": (7, 9)
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: -
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "update a progress tracker",
+    "days": [
+      "2024-02-16",
+      "2024-02-17"
+    ],
+    "hours": (
+      11,
+      15
+    )
+  },
+  {
+    "work": "volunteer to teach coding",
+    "days": [
+      "2024-02-24"
+    ],
+    "hours": (
+      0,
+      0
+    )
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "monitor quality control metrics",
+    "days": [
+      "2024-02-22",
+      "2024-02-23",
+      "2024-02-24",
+      "2024-02-25"
+    ],
+    "hours": (
+      15,
+      19
+    )
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "record daily observations",
+    "days": [
+      "2024-02-14",
+      "2024-02-15",
+      "2024-02-16",
+      "2024-02-17"
+    ],
+    "hours": (
+      7,
+      10
+    )
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "check routine communications",
+    "days": [
+      "2024-02-22",
+      "2024-02-23",
+      "2024-02-24"
+    ],
+    "hours": (7, 11)
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'prepare a daily briefing', 'days': ['2020-11-09', '2020-11-15'], 'hours': (11, 15)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'conduct a daily review session', 'days': ['2022-12-19', '2022-12-20', '2022-12-21', '2022-12-22'], 'hours': (7, 10)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'conduct a daily review session', 'days': ['2021-10-25', '2021-10-26', '2021-10-27', '2021-10-28'], 'hours': (11, 13)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'perform routine testing', 'days': ['2021-11-07', '2021-11-08', '2021-11-09'], 'hours': (9, 11)}
+--------------------------------
+---------------------------------------- Hard Attempt 2 of 25 ----------------------------------------
+Soft Attempt 0 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 1 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 2 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 3 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 4 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 5 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 6 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 7 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 8 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 9 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Number of mistaken generated conversations: 12
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Number of generated conversations: 1500
+Generating extractions...
+1 - Number of extractions that will be generated: 417
+2 - Regenerating works if needed
+Regenerating works: Attempt 0 of 10
+Regenerating works: Attempt 1 of 10
+Regenerating works: Attempt 2 of 10
+Regenerating works: Attempt 3 of 10
+Regenerating works: Attempt 4 of 10
+Regenerating works: Attempt 5 of 10
+Regenerating works: Attempt 6 of 10
+Regenerating works: Attempt 7 of 10
+Regenerating works: Attempt 8 of 10
+Regenerating works: Attempt 9 of 10
+Number of mistaken works in after 25 attempts: 417
+3 - Regenerating conversation if needed...
+Number of mistaken works in after 10 attempts: 417
+Number of mistaken extractions: 414
+[2, 10, 13, 15, 16, 17, 19, 23, 24, 30, 31, 33, 34, 35, 37, 39, 44, 45, 47, 48, 50, 52, 57, 59, 62, 65, 71, 76, 77, 78, 79, 81, 82, 85, 88, 90, 92, 93, 99, 100, 106, 110, 118, 121, 134, 144, 145, 149, 151, 153, 154, 157, 165, 167, 168, 169, 171, 183, 189, 192, 196, 199, 203, 204, 207, 208, 213, 226, 227, 231, 233, 237, 238, 241, 244, 247, 251, 258, 260, 268, 274, 275, 281, 288, 289, 297, 302, 319, 324, 329, 333, 339, 340, 342, 347, 353, 360, 362, 363, 391, 393, 394, 395, 398, 402, 404, 405, 406, 407, 409, 414, 418, 421, 425, 428, 430, 433, 434, 436, 439, 440, 446, 450, 451, 452, 453, 456, 458, 459, 461, 463, 467, 468, 470, 478, 484, 485, 486, 488, 491, 493, 494, 495, 510, 512, 513, 514, 517, 518, 521, 526, 528, 529, 531, 534, 537, 542, 544, 547, 550, 559, 562, 563, 567, 571, 572, 574, 577, 579, 583, 584, 593, 594, 595, 597, 600, 618, 623, 629, 630, 632, 633, 642, 650, 659, 660, 666, 675, 677, 681, 686, 688, 690, 692, 694, 697, 702, 708, 713, 716, 718, 722, 724, 731, 736, 737, 739, 744, 745, 750, 751, 752, 760, 766, 770, 774, 776, 779, 780, 783, 790, 792, 793, 797, 798, 799, 805, 806, 807, 808, 809, 811, 812, 814, 816, 820, 837, 842, 855, 856, 861, 865, 871, 872, 873, 876, 878, 881, 883, 884, 887, 889, 891, 895, 896, 897, 900, 905, 912, 915, 918, 919, 920, 928, 932, 933, 934, 937, 940, 947, 948, 957, 959, 960, 962, 966, 969, 973, 974, 975, 976, 980, 990, 992, 1000, 1002, 1019, 1022, 1024, 1025, 1032, 1039, 1052, 1054, 1055, 1061, 1062, 1063, 1065, 1066, 1069, 1071, 1073, 1074, 1075, 1078, 1082, 1084, 1085, 1088, 1089, 1090, 1092, 1093, 1098, 1102, 1105, 1107, 1116, 1124, 1128, 1160, 1162, 1172, 1173, 1175, 1178, 1186, 1189, 1191, 1194, 1197, 1201, 1203, 1206, 1211, 1215, 1217, 1218, 1225, 1230, 1231, 1235, 1237, 1238, 1239, 1240, 1243, 1248, 1249, 1253, 1258, 1259, 1262, 1263, 1268, 1269, 1280, 1284, 1291, 1300, 1305, 1308, 1315, 1320, 1322, 1331, 1334, 1335, 1336, 1340, 1343, 1352, 1354, 1362, 1368, 1370, 1385, 1387, 1389, 1396, 1398, 1400, 1408, 1412, 1414, 1415, 1426, 1427, 1428, 1441, 1442, 1444, 1449, 1452, 1455, 1458, 1459, 1460, 1461, 1464, 1466, 1467, 1471, 1473, 1474, 1475, 1480, 1485, 1486, 1487, 1489, 1490, 1491]
+Number of extractions: 1500
++++++++++++++++++++++++++++++++++++++++++++++
+Mistaken conversation: -
+Mistaken extraction: {'work': 'conduct a daily safety check', 'days': ['2020-02-13', '2020-02-14', '2020-02-15', '2020-02-16'], 'hours': (7, 11)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "conduct routine inspections",
+    "days": [
+      "2024-02-22",
+      "2024-02-23",
+      "2024-02-24",
+      "2024-02-25",
+      "2024-02-26",
+      "2024-02-27"
+    ],
+    "hours": (7, 11)
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "reviewing operational data",
+    "days": [
+      "2024-02-16",
+      "2024-02-17",
+      "2024-02-18",
+      "2024-02-19"
+    ],
+    "hours": (
+      7,
+      9
+    )
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: -
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "update a progress tracker",
+    "days": [
+      "2024-02-27",
+      "2024-02-28"
+    ],
+    "hours": (
+      11,
+      15
+    )
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "monitor quality control metrics",
+    "days": [
+      "2024-02-27",
+      "2024-02-28",
+      "2024-02-29"
+    ],
+    "hours": (
+      15,
+      19
+    )
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: -
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: -
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'prepare a daily briefing', 'days': ['2020-11-09', '2020-11-15'], 'hours': (11, 15)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'conduct a daily review session', 'days': ['2022-12-19', '2022-12-20', '2022-12-21', '2022-12-22'], 'hours': (7, 10)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'conduct a daily review session', 'days': ['2021-10-25', '2021-10-26', '2021-10-27', '2021-10-28'], 'hours': (11, 13)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'perform routine testing', 'days': ['2021-11-07', '2021-11-08', '2021-11-09'], 'hours': (9, 11)}
+--------------------------------
+---------------------------------------- Hard Attempt 3 of 25 ----------------------------------------
+Soft Attempt 0 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 1 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 2 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 3 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 4 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 5 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 6 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 7 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 8 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 9 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Number of mistaken generated conversations: 12
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Number of generated conversations: 1500
+Generating extractions...
+1 - Number of extractions that will be generated: 414
+2 - Regenerating works if needed
+Regenerating works: Attempt 0 of 10
+Regenerating works: Attempt 1 of 10
+Regenerating works: Attempt 2 of 10
+Regenerating works: Attempt 3 of 10
+Regenerating works: Attempt 4 of 10
+Regenerating works: Attempt 5 of 10
+Regenerating works: Attempt 6 of 10
+Regenerating works: Attempt 7 of 10
+Regenerating works: Attempt 8 of 10
+Regenerating works: Attempt 9 of 10
+Number of mistaken works in after 25 attempts: 414
+3 - Regenerating conversation if needed...
+Number of mistaken works in after 10 attempts: 414
+Number of mistaken extractions: 409
+[2, 10, 13, 15, 16, 17, 19, 23, 24, 30, 31, 33, 34, 35, 37, 39, 44, 45, 47, 48, 50, 52, 57, 59, 62, 65, 71, 76, 77, 78, 79, 81, 82, 85, 88, 90, 92, 93, 99, 100, 106, 110, 118, 121, 134, 144, 145, 149, 151, 153, 154, 157, 165, 167, 168, 169, 171, 183, 189, 192, 196, 199, 203, 204, 207, 208, 213, 226, 227, 231, 233, 237, 238, 241, 244, 247, 251, 258, 260, 268, 274, 275, 281, 288, 289, 297, 302, 319, 324, 329, 333, 339, 340, 342, 347, 353, 360, 362, 363, 391, 393, 394, 395, 398, 402, 404, 405, 406, 407, 409, 414, 418, 421, 425, 428, 430, 433, 434, 436, 439, 440, 446, 450, 451, 452, 453, 456, 458, 459, 461, 463, 467, 468, 470, 478, 484, 485, 486, 488, 491, 493, 494, 495, 510, 512, 513, 514, 517, 518, 521, 526, 528, 529, 531, 534, 537, 542, 544, 547, 550, 559, 562, 563, 567, 571, 572, 574, 577, 579, 583, 584, 594, 595, 597, 600, 618, 623, 629, 630, 632, 633, 642, 650, 659, 660, 666, 675, 677, 681, 686, 688, 690, 692, 694, 697, 702, 708, 713, 716, 722, 724, 731, 736, 737, 739, 744, 745, 750, 751, 752, 760, 766, 770, 774, 776, 779, 780, 783, 790, 792, 793, 797, 798, 799, 805, 806, 807, 808, 809, 811, 812, 814, 816, 820, 837, 842, 855, 856, 861, 865, 871, 872, 873, 876, 878, 881, 883, 884, 887, 889, 891, 895, 896, 897, 900, 905, 912, 915, 919, 920, 928, 932, 933, 934, 937, 940, 947, 948, 957, 959, 960, 962, 966, 969, 973, 974, 975, 976, 980, 992, 1000, 1002, 1019, 1022, 1024, 1025, 1032, 1039, 1052, 1054, 1055, 1061, 1062, 1063, 1065, 1066, 1069, 1071, 1073, 1074, 1075, 1078, 1082, 1084, 1085, 1088, 1089, 1090, 1092, 1093, 1098, 1102, 1105, 1107, 1116, 1124, 1128, 1160, 1162, 1172, 1173, 1175, 1178, 1186, 1189, 1191, 1194, 1197, 1201, 1203, 1206, 1211, 1215, 1217, 1218, 1225, 1230, 1231, 1235, 1237, 1238, 1239, 1240, 1243, 1248, 1249, 1253, 1258, 1259, 1262, 1263, 1268, 1269, 1280, 1284, 1291, 1300, 1305, 1308, 1315, 1320, 1322, 1331, 1334, 1335, 1336, 1340, 1343, 1352, 1354, 1362, 1368, 1370, 1385, 1387, 1389, 1396, 1398, 1400, 1408, 1412, 1414, 1415, 1426, 1427, 1428, 1441, 1442, 1444, 1449, 1452, 1455, 1458, 1459, 1460, 1461, 1464, 1467, 1471, 1473, 1474, 1475, 1480, 1485, 1486, 1487, 1489, 1490, 1491]
+Number of extractions: 1500
++++++++++++++++++++++++++++++++++++++++++++++
+Mistaken conversation: -
+Mistaken extraction: {'work': 'conduct a daily safety check', 'days': ['2020-02-13', '2020-02-14', '2020-02-15', '2020-02-16'], 'hours': (7, 11)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "Conduct routine inspections",
+    "days": [
+      "2024-02-22",
+      "2024-02-23",
+      "2024-02-24",
+      "2024-02-25"
+    ],
+    "hours": (
+      7,
+      11
+    )
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: -
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "maintain a training schedule",
+    "days": [
+      "2024-02-23",
+      "2024-03-01",
+      "2024-03-03"
+    ],
+    "hours": [
+      7,
+      11
+    ]
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "update a progress tracker",
+    "days": [
+      "2024-02-29",
+      "2024-02-28",
+      "2024-03-01"
+    ],
+    "hours": (
+      11,
+      15
+    )
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "monitor quality control metrics",
+    "days": [
+      "2024-02-26",
+      "2024-02-27",
+      "2024-02-28"
+    ],
+    "hours": (
+      15,
+      19
+    )
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "record daily observations",
+    "days": [
+      "2024-02-08",
+      "2024-02-09",
+      "2024-02-10",
+      "2024-02-11"
+    ],
+    "hours": (
+      7,
+      10
+    )
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: ```json
+[
+  {
+    "work": "checking routine communications",
+    "days": [
+      "2024-07-03",
+      "2024-07-04",
+      "2024-07-05"
+    ],
+    "hours": (7, 11)
+  }
+]
+```
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'prepare a daily briefing', 'days': ['2020-11-09', '2020-11-15'], 'hours': (11, 15)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'conduct a daily review session', 'days': ['2022-12-19', '2022-12-20', '2022-12-21', '2022-12-22'], 'hours': (7, 10)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'conduct a daily review session', 'days': ['2021-10-25', '2021-10-26', '2021-10-27', '2021-10-28'], 'hours': (11, 13)}
+--------------------------------
+Mistaken conversation: -
+Mistaken extraction: {'work': 'perform routine testing', 'days': ['2021-11-07', '2021-11-08', '2021-11-09'], 'hours': (9, 11)}
+--------------------------------
+---------------------------------------- Hard Attempt 4 of 25 ----------------------------------------
+Soft Attempt 0 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 1 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 2 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 3 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 4 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 5 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 6 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 7 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
