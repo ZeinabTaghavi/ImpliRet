@@ -885,3 +885,30 @@ Soft Attempt 7 of 10
 len(conversation_list) 1500
 Number of mistaken generated outputs: 12
 Number of generated outputs: 1500
+Soft Attempt 8 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Soft Attempt 9 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+len(conversation_list) 1500
+Number of mistaken generated outputs: 12
+Number of generated outputs: 1500
+Number of mistaken generated conversations: 12
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Mistaken conversation: -
+Number of generated conversations: 1500
+Generating extractions...
+1 - Number of extractions that will be generated: 409
