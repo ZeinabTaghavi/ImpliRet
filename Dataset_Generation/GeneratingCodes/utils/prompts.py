@@ -136,12 +136,18 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
 - Preserve all exact numbers and the original relative phrasing contained in the `bought` sentences.  
 - Explicitly state that `user_1` did **not** buy from the first brand.  
 - Explicitly state that `user_1` **did** buy from the second brand.  
-- Use the `starting_phrase` as the opening line of the response.
+- Use the `starting_phrase` as the opening line of the first utterance.
 - All sentences must be grammatically correct.  
 - The conversation must consist of **exactly 10 utterances**, each on its own line.  
 
 **Output Format**
 Only 10 lines of dialogue are separated by newlines. For each line, separate the user name (one of the values of `user_1['name']` or `user_2['name']`) and the utterance with a colon.
+
+### EXAMPLE (structure only)
+user_1['name']: <starting_phrase> ...  
+user_2['name']: ...  
+...
+
 
 INPUT: {context}
 '''
@@ -258,13 +264,18 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
 - user_2['name'] replies naturally without referencing trip or locational information.
 - You may use the information in user_1["persona"] and user_2["persona"] to make the responses more natural.
 - `type_of_location` describes the kind of place user_1 visited and can help make the conversation sound natural.
-- Use the `starting_phrase` as the opening line of the response.
+- Use the `starting_phrase` as the opening line of the first utterance.
 - Make sure that you generate grammatically correct sentences.
 - The conversation must consist of exactly 10 utterances.
 - Each utterance is on its own line.
 
 **Output Format**
 Only 10 lines of dialogue are separated by newlines. For each line, separate the user name (one of the values of `user_1['name']` or `user_2['name']`) and the utterance with a colon.
+### EXAMPLE (structure only)
+user_1['name']: <starting_phrase> ...  
+user_2['name']: ...  
+...
+
 
 INPUT: {context}
 '''
@@ -385,13 +396,18 @@ Generate a natural conversation between two people ("user_1" and "user_2") based
 - Mention the `work` in the conversation exactly as it is (only change the tense if needed).
 - Do not change the "message_time" information. Ensure that the "hours" you use in the conversation for "work" are correct and accurate. For example, if the work is "updating a work log" and the "message_time" is ("2023-07-21", "Friday", 14), and the "hours" are (7, 10), You can use it like this: "2023-07-21", "Alaina", "I have to update a work log tomorrow from 7 in the morning for three hours."
 - The message time is the time at which the conversation is being sent; Use the hour provided in message_time. For each utterance, randomly select a valid minute (00-59), ensuring that time either increases or remains the same across the 10 utterances.The final format of the message time should be like this: "YYYY-MM-DD HH:MM" (e.g., "2024-01-01 12:00").
-- Use the `starting_phrase` as the opening line of the response.
+- Use the `starting_phrase` as the opening line of the first utterance.
 - Make sure that you generate grammatically correct sentences.
 - The conversation must consist of exactly 10 utterances.
 - Each utterance is on its own line.
 
 **Output Format**
 Only 10 lines of dialogue are separated by newlines. For each line, separate the final formatted message time and the user name (one of the values of `user_1['name']` or `user_2['name']`) with a comma, and separate the user name and the utterance with a colon.
+### EXAMPLE (structure only)
+user_1['name']: <starting_phrase> ...  
+user_2['name']: ...  
+...
+
 
 INPUT: {context}
 '''

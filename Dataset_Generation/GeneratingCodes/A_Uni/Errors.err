@@ -1,19 +1,0 @@
-Note: Environment variable`HF_TOKEN` is set and is the current active token independently from the token you've just configured.
-2025-06-08 09:48:40,974	INFO worker.py:1879 -- Started a local Ray instance. View the dashboard at [1m[32mhttp://127.0.0.1:8265 [39m[22m
-[36m(RayWorkerWrapper pid=128126)[0m Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards:   0% Completed | 0/12 [00:00<?, ?it/s]
-[36m(RayWorkerWrapper pid=128112)[0m Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.[32m [repeated 3x across cluster][0m
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards:   8% Completed | 1/12 [00:04<00:52,  4.75s/it]
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards:  17% Completed | 2/12 [00:10<00:50,  5.05s/it]
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards:  25% Completed | 3/12 [00:15<00:45,  5.10s/it]
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards:  33% Completed | 4/12 [00:20<00:41,  5.17s/it]
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards:  42% Completed | 5/12 [00:25<00:36,  5.20s/it]
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards:  50% Completed | 6/12 [00:26<00:21,  3.61s/it]
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards:  58% Completed | 7/12 [00:31<00:20,  4.20s/it]
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards:  67% Completed | 8/12 [00:36<00:18,  4.51s/it]
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards:  75% Completed | 9/12 [00:42<00:14,  4.76s/it]
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards:  83% Completed | 10/12 [00:47<00:09,  4.84s/it]
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards:  92% Completed | 11/12 [00:52<00:04,  4.98s/it]
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards: 100% Completed | 12/12 [00:57<00:00,  5.11s/it]
-[36m(RayWorkerWrapper pid=128112)[0m Loading safetensors checkpoint shards: 100% Completed | 12/12 [00:57<00:00,  4.82s/it]
-[36m(RayWorkerWrapper pid=128112)[0m 
