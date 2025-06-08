@@ -17,5 +17,9 @@ conda activate base
 echo "Starting the job" 
 
 srun python3 ./Dataset_Generation/GeneratingCodes/Conversation_Gen.py --track A --conv_type Uni
+echo "Conversation Generation for first step is done"
+srun python3 ./Dataset_Generation/GeneratingCodes/Conversation_Gen.py --track A --conv_type Uni
+echo "Conversation Generation for second step is done"
+
 
 echo "Job finished"
