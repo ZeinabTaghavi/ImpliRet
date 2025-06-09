@@ -1,1 +1,181 @@
 Starting the job
+INFO 06-09 10:28:33 [__init__.py:243] Automatically detected platform cuda.
+----- Experiment Setup ----
+model_name: google/gemma-3-27b-it
+track: T
+conv_type: Uni
+datasets_helping_folder: ./Dataset_Generation/Dataset_Helping
+Number of GPUs: 4
+---------------------------
+Loading the model...
+INFO 06-09 10:28:46 [__init__.py:31] Available plugins for group vllm.general_plugins:
+INFO 06-09 10:28:46 [__init__.py:33] - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver
+INFO 06-09 10:28:46 [__init__.py:36] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 06-09 10:29:04 [config.py:793] This model supports multiple tasks: {'embed', 'score', 'reward', 'generate', 'classify'}. Defaulting to 'generate'.
+INFO 06-09 10:29:04 [config.py:2118] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 06-09 10:29:08 [core.py:438] Waiting for init message from front-end.
+INFO 06-09 10:29:08 [core.py:65] Initializing a V1 LLM engine (v0.9.0.1) with config: model='google/gemma-3-27b-it', speculative_config=None, tokenizer='google/gemma-3-27b-it', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=4096, download_dir='/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/', load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=google/gemma-3-27b-it, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level": 3, "custom_ops": ["none"], "splitting_ops": ["vllm.unified_attention", "vllm.unified_attention_with_output"], "compile_sizes": [], "inductor_compile_config": {"enable_auto_functionalized_v2": false}, "use_cudagraph": true, "cudagraph_num_of_warmups": 1, "cudagraph_capture_sizes": [512, 504, 496, 488, 480, 472, 464, 456, 448, 440, 432, 424, 416, 408, 400, 392, 384, 376, 368, 360, 352, 344, 336, 328, 320, 312, 304, 296, 288, 280, 272, 264, 256, 248, 240, 232, 224, 216, 208, 200, 192, 184, 176, 168, 160, 152, 144, 136, 128, 120, 112, 104, 96, 88, 80, 72, 64, 56, 48, 40, 32, 24, 16, 8, 4, 2, 1], "max_capture_size": 512}
+INFO 06-09 10:29:44 [ray_utils.py:333] No current placement group found. Creating a new placement group.
+INFO 06-09 10:29:45 [ray_distributed_executor.py:176] use_ray_spmd_worker: True
+[36m(pid=26010)[0m INFO 06-09 10:29:55 [__init__.py:243] Automatically detected platform cuda.
+INFO 06-09 10:30:01 [ray_distributed_executor.py:352] non_carry_over_env_vars from config: set()
+INFO 06-09 10:30:01 [ray_distributed_executor.py:354] Copying the following environment variables to workers: ['VLLM_USE_RAY_SPMD_WORKER', 'VLLM_USE_RAY_COMPILED_DAG', 'VLLM_WORKER_MULTIPROC_METHOD', 'VLLM_USE_V1']
+INFO 06-09 10:30:01 [ray_distributed_executor.py:357] If certain env vars should NOT be copied to workers, add them to /dss/dsshome1/0B/di38wip/.config/vllm/ray_non_carry_over_env_vars.json file
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:30:01 [__init__.py:31] Available plugins for group vllm.general_plugins:
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:30:01 [__init__.py:33] - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:30:01 [__init__.py:36] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+[36m(pid=26023)[0m INFO 06-09 10:29:55 [__init__.py:243] Automatically detected platform cuda.[32m [repeated 3x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[36m(RayWorkerWrapper pid=26010)[0m WARNING 06-09 10:30:06 [utils.py:2671] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7f84b6e53860>
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:30:12 [utils.py:1077] Found nccl from library libnccl.so.2
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:30:12 [pynccl.py:69] vLLM is using nccl==2.26.2
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:30:01 [__init__.py:31] Available plugins for group vllm.general_plugins:[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:30:01 [__init__.py:33] - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:30:01 [__init__.py:36] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26026)[0m WARNING 06-09 10:30:06 [utils.py:2671] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7edaf3b93440>[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:30:14 [custom_all_reduce_utils.py:245] reading GPU P2P access cache from /dss/dsshome1/0B/di38wip/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:30:14 [shm_broadcast.py:250] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_fba5ee89'), local_subscribe_addr='ipc:///tmp/bfa1ba5c-f167-4dc6-84f9-eedf2fac1355', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:30:14 [parallel_state.py:1064] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[36m(RayWorkerWrapper pid=26023)[0m WARNING 06-09 10:30:26 [topk_topp_sampler.py:58] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[36m(RayWorkerWrapper pid=26023)[0m INFO 06-09 10:30:12 [utils.py:1077] Found nccl from library libnccl.so.2[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26023)[0m INFO 06-09 10:30:12 [pynccl.py:69] vLLM is using nccl==2.26.2[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:30:14 [custom_all_reduce_utils.py:245] reading GPU P2P access cache from /dss/dsshome1/0B/di38wip/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:30:14 [parallel_state.py:1064] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:30:27 [gpu_model_runner.py:1531] Starting to load model google/gemma-3-27b-it...
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:30:28 [cuda.py:217] Using Flash Attention backend on V1 engine.
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:30:29 [backends.py:35] Using InductorAdaptor
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:30:29 [weight_utils.py:291] Using model weights format ['*.safetensors']
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:31:58 [default_loader.py:280] Loading weights took 87.36 seconds
+[36m(RayWorkerWrapper pid=26017)[0m WARNING 06-09 10:30:27 [topk_topp_sampler.py:58] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:30:27 [gpu_model_runner.py:1531] Starting to load model google/gemma-3-27b-it...[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:30:28 [cuda.py:217] Using Flash Attention backend on V1 engine.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:30:29 [backends.py:35] Using InductorAdaptor[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:30:29 [weight_utils.py:291] Using model weights format ['*.safetensors'][32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:31:59 [gpu_model_runner.py:1549] Model loading took 13.1667 GiB and 90.938318 seconds
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:31:59 [gpu_model_runner.py:1863] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 32 image items of the maximum feature size.
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:32:40 [backends.py:459] Using cache directory: /dss/dsshome1/0B/di38wip/.cache/vllm/torch_compile_cache/29d75a4ef6/rank_1_0 for vLLM's torch.compile
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:31:58 [default_loader.py:280] Loading weights took 88.06 seconds[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:31:59 [gpu_model_runner.py:1549] Model loading took 13.1667 GiB and 90.964680 seconds[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:31:59 [gpu_model_runner.py:1863] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 32 image items of the maximum feature size.[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:32:40 [backends.py:469] Dynamo bytecode transform time: 25.62 s
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:33:08 [backends.py:132] Directly load the compiled graph(s) for shape None from the cache, took 25.591 s
+[36m(RayWorkerWrapper pid=26017)[0m INFO 06-09 10:32:43 [backends.py:459] Using cache directory: /dss/dsshome1/0B/di38wip/.cache/vllm/torch_compile_cache/29d75a4ef6/rank_3_0 for vLLM's torch.compile[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26017)[0m INFO 06-09 10:32:43 [backends.py:469] Dynamo bytecode transform time: 27.87 s[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26010)[0m INFO 06-09 10:33:18 [monitor.py:33] torch.compile takes 26.51 s in total
+[36m(RayWorkerWrapper pid=26023)[0m INFO 06-09 10:33:09 [backends.py:132] Directly load the compiled graph(s) for shape None from the cache, took 25.512 s[32m [repeated 3x across cluster][0m
+INFO 06-09 10:33:21 [kv_cache_utils.py:637] GPU KV cache size: 483,200 tokens
+INFO 06-09 10:33:21 [kv_cache_utils.py:640] Maximum concurrency for 4,096 tokens per request: 117.97x
+INFO 06-09 10:33:21 [kv_cache_utils.py:637] GPU KV cache size: 480,816 tokens
+INFO 06-09 10:33:21 [kv_cache_utils.py:640] Maximum concurrency for 4,096 tokens per request: 117.39x
+INFO 06-09 10:33:21 [kv_cache_utils.py:637] GPU KV cache size: 483,200 tokens
+INFO 06-09 10:33:21 [kv_cache_utils.py:640] Maximum concurrency for 4,096 tokens per request: 117.97x
+INFO 06-09 10:33:21 [kv_cache_utils.py:637] GPU KV cache size: 480,816 tokens
+INFO 06-09 10:33:21 [kv_cache_utils.py:640] Maximum concurrency for 4,096 tokens per request: 117.39x
+[36m(RayWorkerWrapper pid=26023)[0m INFO 06-09 10:34:18 [custom_all_reduce.py:195] Registering 8308 cuda graph addresses
+[36m(RayWorkerWrapper pid=26026)[0m INFO 06-09 10:33:18 [monitor.py:33] torch.compile takes 25.62 s in total[32m [repeated 3x across cluster][0m
+[36m(RayWorkerWrapper pid=26023)[0m INFO 06-09 10:34:20 [gpu_model_runner.py:1933] Graph capturing finished in 58 secs, took 4.04 GiB
+INFO 06-09 10:34:20 [core.py:167] init engine (profile, create kv cache, warmup model) took 140.95 seconds
+Model loaded successfully using vLLM.
+-------------------------------- Generating starting lines of conversations --------------------------------
+Loading starting conversations from ./Dataset_Generation/Dataset_Helping/T_Uni/T_Uni_Structured_Generated_starting_main_conversations.jsonl
+---------------------------------------- Generating the conversations ----------------------------------------
+length of prompts_conversation_generation:  1500
+Loading outputs from step 1...
+len(conversation_list) 1500
+Outputs loaded from ./Dataset_Generation/Dataset_Helping/T_Uni/T_Uni_Structured_Generated_conversation.jsonl and ./Dataset_Generation/Dataset_Helping/T_Uni/T_Uni_Structured_Generated_feature_extraction.jsonl
+Number of mistaken conversations: 0
+Number of mistaken extractions: 75
+End of step 1
+mistaken_extracted_idx: [23, 31, 39, 47, 52, 62, 65, 77, 78, 81, 90, 99, 125, 170, 196, 199, 229, 230, 247, 257, 258, 274, 329, 342, 391, 404, 450, 453, 485, 486, 493, 494, 495, 528, 544, 545, 574, 618, 633, 635, 660, 664, 685, 686, 708, 737, 811, 872, 873, 876, 934, 937, 962, 964, 973, 976, 994, 1011, 1039, 1116, 1220, 1232, 1239, 1248, 1284, 1315, 1370, 1385, 1400, 1430, 1460, 1473, 1474, 1475, 1480]
+---------------------------------------- Hard Attempt 0 of 25 ----------------------------------------
+Soft Attempt 0 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 0
+Number of generated outputs: 1500
+No mistaken generated outputs
+len(conversation_list) 1500
+Number of mistaken generated outputs: 0
+Number of generated outputs: 1500
+Number of mistaken generated conversations: 0
+Number of generated conversations: 1500
+Generating extractions...
+1 - Number of extractions that will be generated: 75
+INFO 06-09 10:34:43 [chat_utils.py:419] Detected the chat template content format to be 'openai'. You can set `--chat-template-content-format` to override this.
+INFO 06-09 10:34:43 [ray_distributed_executor.py:561] VLLM_USE_RAY_COMPILED_DAG_CHANNEL_TYPE = auto
+INFO 06-09 10:34:43 [ray_distributed_executor.py:563] VLLM_USE_RAY_COMPILED_DAG_OVERLAP_COMM = False
+INFO 06-09 10:34:43 [ray_distributed_executor.py:578] RAY_CGRAPH_get_timeout is set to 300
+2 - Regenerating works if needed
+Regenerating works: Attempt 0 of 10
+Regenerating works: Attempt 1 of 10
+Regenerating works: Attempt 2 of 10
+Regenerating works: Attempt 3 of 10
+Regenerating works: Attempt 4 of 10
+Regenerating works: Attempt 5 of 10
+Regenerating works: Attempt 6 of 10
+Regenerating works: Attempt 7 of 10
+Regenerating works: Attempt 8 of 10
+Regenerating works: Attempt 9 of 10
+Number of mistaken works in after 25 attempts: 75
+3 - Regenerating conversation if needed...
+Number of mistaken works in after 10 attempts: 75
+Number of mistaken extractions: 75
+[23, 31, 39, 47, 52, 62, 65, 77, 78, 81, 90, 99, 125, 170, 196, 199, 229, 230, 247, 257, 258, 274, 329, 342, 391, 404, 450, 453, 485, 486, 493, 494, 495, 528, 544, 545, 574, 618, 633, 635, 660, 664, 685, 686, 708, 737, 811, 872, 873, 876, 934, 937, 962, 964, 973, 976, 994, 1011, 1039, 1116, 1220, 1232, 1239, 1248, 1284, 1315, 1370, 1385, 1400, 1430, 1460, 1473, 1474, 1475, 1480]
+Number of extractions: 1500
++++++++++++++++++++++++++++++++++++++++++++++
+---------------------------------------- Hard Attempt 1 of 25 ----------------------------------------
+Soft Attempt 0 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 0
+Number of generated outputs: 1500
+No mistaken generated outputs
+len(conversation_list) 1500
+Number of mistaken generated outputs: 0
+Number of generated outputs: 1500
+Number of mistaken generated conversations: 0
+Number of generated conversations: 1500
+Generating extractions...
+1 - Number of extractions that will be generated: 75
+2 - Regenerating works if needed
+Regenerating works: Attempt 0 of 10
+Regenerating works: Attempt 1 of 10
+Regenerating works: Attempt 2 of 10
+Regenerating works: Attempt 3 of 10
+Regenerating works: Attempt 4 of 10
+Regenerating works: Attempt 5 of 10
+Regenerating works: Attempt 6 of 10
+Regenerating works: Attempt 7 of 10
+Regenerating works: Attempt 8 of 10
+Regenerating works: Attempt 9 of 10
+Number of mistaken works in after 25 attempts: 75
+3 - Regenerating conversation if needed...
+Number of mistaken works in after 10 attempts: 75
+Number of mistaken extractions: 75
+[23, 31, 39, 47, 52, 62, 65, 77, 78, 81, 90, 99, 125, 170, 196, 199, 229, 230, 247, 257, 258, 274, 329, 342, 391, 404, 450, 453, 485, 486, 493, 494, 495, 528, 544, 545, 574, 618, 633, 635, 660, 664, 685, 686, 708, 737, 811, 872, 873, 876, 934, 937, 962, 964, 973, 976, 994, 1011, 1039, 1116, 1220, 1232, 1239, 1248, 1284, 1315, 1370, 1385, 1400, 1430, 1460, 1473, 1474, 1475, 1480]
+Number of extractions: 1500
++++++++++++++++++++++++++++++++++++++++++++++
+---------------------------------------- Hard Attempt 2 of 25 ----------------------------------------
+Soft Attempt 0 of 10
+len(conversation_list) 1500
+Number of mistaken generated outputs: 0
+Number of generated outputs: 1500
+No mistaken generated outputs
+len(conversation_list) 1500
+Number of mistaken generated outputs: 0
+Number of generated outputs: 1500
+Number of mistaken generated conversations: 0
+Number of generated conversations: 1500
+Generating extractions...
+1 - Number of extractions that will be generated: 75
+2 - Regenerating works if needed
+Regenerating works: Attempt 0 of 10
+Regenerating works: Attempt 1 of 10
+Regenerating works: Attempt 2 of 10
+Regenerating works: Attempt 3 of 10
+Regenerating works: Attempt 4 of 10
+Regenerating works: Attempt 5 of 10
+Regenerating works: Attempt 6 of 10
+Regenerating works: Attempt 7 of 10
+Regenerating works: Attempt 8 of 10
+Regenerating works: Attempt 9 of 10
+Number of mistaken works in after 25 attempts: 75
+3 - Regenerating conversation if needed...
+Number of mistaken works in after 10 attempts: 75
