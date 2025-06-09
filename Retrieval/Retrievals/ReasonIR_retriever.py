@@ -17,6 +17,7 @@ except ImportError:
     exit(1)
 
 import numpy as np
+import torch
 
 class ReasonIRRetriever:
 
@@ -29,7 +30,11 @@ class ReasonIRRetriever:
         self.k = k
         self.llm_model_name = llm_model_name
         self.model_kwargs = {"torch_dtype": "auto"}
-        self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs)
+        try:
+            self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs, torch_dtype=torch.bfloat16)
+        except Exception as e:
+            print(f"Could not use bfloat16 for ReasonIR model. Using float16 instead.")
+            self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs, torch_dtype=torch.float16)
         self.model.set_pooling_include_prompt(include_prompt=False) # exclude the prompt during pooling
 
         doc_instruction = ""

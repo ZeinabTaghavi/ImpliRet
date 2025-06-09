@@ -4,17 +4,22 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
 #SBATCH -t 0-08:00:00
-#SBATCH -o ./retrieve_Hippo_t_uni_25_26.out
-#SBATCH -e ./retrieve_Hippo_t_uni_25_26.err
+#SBATCH -o ./retrieve_Hippo.out
+#SBATCH -e ./retrieve_Hippo.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=zeinabtaghavi1377@gmail.com
 
 source /dss/dsshome1/0B/di38wip/.bashrc
+
+conda create -n hipporag python=3.10
+conda activate hipporag
+pip install hipporag
+
 export HF_HOME='/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/'
 export HF_TOKEN='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'
-
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 export VLLM_WORKER_MULTIPROC_METHOD=spawn
+
 
 vllm serve meta-llama/Llama-3.3-70B-Instruct \
     --tensor-parallel-size 2 \

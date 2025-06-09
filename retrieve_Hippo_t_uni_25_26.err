@@ -1,0 +1,106 @@
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/30 [00:00<?, ?it/s]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:   3% Completed | 1/30 [00:09<04:42,  9.73s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:   7% Completed | 2/30 [00:17<04:02,  8.67s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  10% Completed | 3/30 [00:25<03:48,  8.45s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  13% Completed | 4/30 [00:32<03:23,  7.82s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  17% Completed | 5/30 [00:39<03:10,  7.62s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  20% Completed | 6/30 [00:47<03:01,  7.57s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  23% Completed | 7/30 [00:54<02:53,  7.54s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  27% Completed | 8/30 [01:02<02:45,  7.53s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  30% Completed | 9/30 [01:09<02:33,  7.32s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  33% Completed | 10/30 [01:16<02:24,  7.20s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  37% Completed | 11/30 [01:22<02:10,  6.89s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  40% Completed | 12/30 [01:29<02:02,  6.81s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  43% Completed | 13/30 [01:35<01:56,  6.83s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  47% Completed | 14/30 [01:45<02:04,  7.78s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  50% Completed | 15/30 [01:59<02:24,  9.60s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  53% Completed | 16/30 [02:13<02:31, 10.82s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  57% Completed | 17/30 [02:25<02:27, 11.36s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  60% Completed | 18/30 [02:38<02:21, 11.76s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  63% Completed | 19/30 [02:52<02:16, 12.39s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  67% Completed | 20/30 [03:05<02:05, 12.53s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  70% Completed | 21/30 [03:18<01:54, 12.77s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  73% Completed | 22/30 [03:31<01:42, 12.79s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  77% Completed | 23/30 [03:37<01:15, 10.75s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  80% Completed | 24/30 [03:50<01:08, 11.42s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  83% Completed | 25/30 [04:03<00:58, 11.77s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  87% Completed | 26/30 [04:16<00:49, 12.32s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  90% Completed | 27/30 [04:29<00:37, 12.59s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  93% Completed | 28/30 [04:43<00:25, 12.82s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards:  97% Completed | 29/30 [04:57<00:13, 13.34s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards: 100% Completed | 30/30 [05:13<00:00, 13.90s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m Loading safetensors checkpoint shards: 100% Completed | 30/30 [05:13<00:00, 10.43s/it]
+[1;36m(VllmWorker rank=0 pid=121200)[0;0m 
+Process EngineCore_0:
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 504, in run_engine_core
+    raise e
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 491, in run_engine_core
+    engine_core = EngineCoreProc(*args, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 390, in __init__
+    super().__init__(vllm_config, executor_class, log_stats,
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 78, in __init__
+    self._initialize_kv_caches(vllm_config)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 164, in _initialize_kv_caches
+    self.model_executor.initialize_from_config(kv_cache_configs)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 65, in initialize_from_config
+    self.collective_rpc("compile_or_warm_up_model")
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 215, in collective_rpc
+    result = get_response(w, dequeue_timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 202, in get_response
+    raise RuntimeError(
+RuntimeError: Worker failed with error 'CUDA out of memory occurred when warming up sampler with 256 dummy requests. Please try lowering `max_num_seqs` or `gpu_memory_utilization` when initializing the engine.', please check the stack trace above for the root cause
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/miniconda3/bin/vllm", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/entrypoints/cli/main.py", line 56, in main
+    args.dispatch_function(args)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/entrypoints/cli/serve.py", line 42, in cmd
+    uvloop.run(run_server(args))
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/uvloop/__init__.py", line 109, in run
+    return __asyncio.run(
+           ^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/uvloop/__init__.py", line 61, in wrapper
+    return await main
+           ^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 1324, in run_server
+    async with build_async_engine_client(args) as engine_client:
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 153, in build_async_engine_client
+    async with build_async_engine_client_from_engine_args(
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 185, in build_async_engine_client_from_engine_args
+    async_llm = AsyncLLM.from_vllm_config(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 157, in from_vllm_config
+    return cls(
+           ^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 123, in __init__
+    self.engine_core = core_client_class(
+                       ^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 734, in __init__
+    super().__init__(
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 418, in __init__
+    self._wait_for_engine_startup(output_address, parallel_config)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 484, in _wait_for_engine_startup
+    raise RuntimeError("Engine core initialization failed. "
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+slurmstepd: error: *** JOB 5175562 ON lrz-dgx-a100-004 CANCELLED AT 2025-06-09T12:10:17 ***

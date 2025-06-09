@@ -21,8 +21,8 @@ echo "Starting the job"
 python Experiments/evaluation/sync_run_tests.py \
        --config Experiments/evaluation/run_configs/LC/A_Uni_llama_LC_all.yaml
 
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/LC/A_Uni_llama_LC_1.yaml
+# python Experiments/evaluation/sync_run_tests.py \
+#        --config Experiments/evaluation/run_configs/LC/A_Uni_llama_LC_1.yaml
 
 python Experiments/evaluation/sync_run_tests.py \
        --config Experiments/evaluation/run_configs/LC/A_Uni_llama_LC_10.yaml
@@ -30,12 +30,12 @@ python Experiments/evaluation/sync_run_tests.py \
 
 
 
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/LC/A_Multi_llama_LC_all.yaml
+# python Experiments/evaluation/sync_run_tests.py \
+#        --config Experiments/evaluation/run_configs/LC/A_Multi_llama_LC_all.yaml
 
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/LC/A_Multi_llama_LC_1.yaml
+# python Experiments/evaluation/sync_run_tests.py \
+#        --config Experiments/evaluation/run_configs/LC/A_Multi_llama_LC_1.yaml
 
 
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/LC/A_Multi_llama_LC_10.yaml
+# python Experiments/evaluation/sync_run_tests.py \
+#        --config Experiments/evaluation/run_configs/LC/A_Multi_llama_LC_10.yaml

@@ -1,0 +1,5 @@
+Retrieving for track A, type Uni, retriever_name reasonir
+Could not use bfloat16 for ReasonIR model. Using float16 instead.
+Retrieving for track A, type Multi, retriever_name reasonir
+Could not use bfloat16 for ReasonIR model. Using float16 instead.
+Retrieving for track F, type Uni, retriever_name reasonir

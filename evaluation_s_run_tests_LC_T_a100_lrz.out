@@ -137,3 +137,134 @@ Sending prompts to model...
 
  ----------- [STEP 3] Generating Responses -----------
 INFO 06-09 11:18:56 [chat_utils.py:419] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+
+ ----------- [STEP 4] Processing Results -----------
+
+ ----------- [STEP 6] Computing Scores -----------
+
+ ----------- [STEP 7] Saving Results -----------
+
+ ----------- Evaluation Complete -----------
+Results saved to: ./Experiments/evaluation/results/T_Uni/llama_3.3_70b/T_Uni_llama_3.3_70b_-1_1749460302.json
+[run_tests] Experiment completed.
+INFO 06-09 12:36:27 [__init__.py:243] Automatically detected platform cuda.
+[run_tests] Parsed CLI / YAML arguments
+[run_tests] Found model‑config and dataset files.
+[run_tests] Initialising ExperimentTester …
+
+ ----------- [STEP 1] Initialization -----------
+Loading dataset configurations...
+
+ ----------- [STEP 2] Processing Data -----------
+Building conversation dictionaries...
+[Init] ExperimentTester initialisation complete. Results will be written to ./Experiments/evaluation/results/T_Uni/llama_3.3_70b/T_Uni_llama_3.3_70b_1_1749465390.json
+
+ ----------- [STEP 4] Running Evaluation -----------
+Processing 1500 examples...
+
+ ----------- [STEP 5] Generating Responses -----------
+Loading model and passing prompts to it...
+
+ ----------- [STEP 1] Checking vLLM Installation -----------
+
+ ----------- [STEP 2] Setting Up Model Configuration -----------
+[ModelLoader] tensor_parallel_size=4. Ensure you have enough GPU memory for all shards.
+[ModelLoader] Loading meta-llama/Llama-3.3-70B-Instruct via local vLLM (TP=4, util=0.9, dir=None)
+
+ ----------- [STEP 3] Loading Model -----------
+INFO 06-09 12:36:30 [__init__.py:31] Available plugins for group vllm.general_plugins:
+INFO 06-09 12:36:30 [__init__.py:33] - lora_filesystem_resolver -> vllm.plugins.lora_resolvers.filesystem_resolver:register_filesystem_resolver
+INFO 06-09 12:36:30 [__init__.py:36] All plugins in this group will be loaded. Set `VLLM_PLUGINS` to control which plugins to load.
+INFO 06-09 12:36:42 [config.py:793] This model supports multiple tasks: {'embed', 'reward', 'score', 'generate', 'classify'}. Defaulting to 'generate'.
+INFO 06-09 12:36:42 [config.py:1875] Defaulting to use mp for distributed inference
+INFO 06-09 12:36:42 [config.py:2118] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 06-09 12:36:45 [core.py:438] Waiting for init message from front-end.
+INFO 06-09 12:36:45 [core.py:65] Initializing a V1 LLM engine (v0.9.0.1) with config: model='meta-llama/Llama-3.3-70B-Instruct', speculative_config=None, tokenizer='meta-llama/Llama-3.3-70B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=131072, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=meta-llama/Llama-3.3-70B-Instruct, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level": 3, "custom_ops": ["none"], "splitting_ops": ["vllm.unified_attention", "vllm.unified_attention_with_output"], "compile_sizes": [], "inductor_compile_config": {"enable_auto_functionalized_v2": false}, "use_cudagraph": true, "cudagraph_num_of_warmups": 1, "cudagraph_capture_sizes": [512, 504, 496, 488, 480, 472, 464, 456, 448, 440, 432, 424, 416, 408, 400, 392, 384, 376, 368, 360, 352, 344, 336, 328, 320, 312, 304, 296, 288, 280, 272, 264, 256, 248, 240, 232, 224, 216, 208, 200, 192, 184, 176, 168, 160, 152, 144, 136, 128, 120, 112, 104, 96, 88, 80, 72, 64, 56, 48, 40, 32, 24, 16, 8, 4, 2, 1], "max_capture_size": 512}
+WARNING 06-09 12:36:45 [multiproc_worker_utils.py:306] Reducing Torch parallelism from 8 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 06-09 12:36:45 [shm_broadcast.py:250] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3], buffer_handle=(4, 10485760, 10, 'psm_2ec5dc76'), local_subscribe_addr='ipc:///tmp/4e66e068-4d6d-41b5-aaf4-2342c5d9736c', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 06-09 12:36:46 [utils.py:2671] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fd0fddfd940>
+WARNING 06-09 12:36:46 [utils.py:2671] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fcfd5b17020>
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:36:46 [shm_broadcast.py:250] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_28891afd'), local_subscribe_addr='ipc:///tmp/fe93a52f-16c1-4690-a510-142396d661ca', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 06-09 12:36:46 [utils.py:2671] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fd0fdc98590>
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:36:46 [shm_broadcast.py:250] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_8e856e30'), local_subscribe_addr='ipc:///tmp/9e891d77-d824-494a-bd7f-7f4ef41e98a6', remote_subscribe_addr=None, remote_addr_ipv6=False)
+WARNING 06-09 12:36:46 [utils.py:2671] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fd0fdc98590>
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:36:46 [shm_broadcast.py:250] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_486724e2'), local_subscribe_addr='ipc:///tmp/ee0ef038-3763-45a0-bdd0-1d6201861888', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:36:46 [shm_broadcast.py:250] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_e140c63a'), local_subscribe_addr='ipc:///tmp/b8918136-c613-4892-b482-4f56ef5afca0', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:36:47 [utils.py:1077] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:36:47 [utils.py:1077] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:36:47 [pynccl.py:69] vLLM is using nccl==2.26.2
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:36:47 [pynccl.py:69] vLLM is using nccl==2.26.2
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:36:47 [utils.py:1077] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:36:47 [utils.py:1077] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:36:47 [pynccl.py:69] vLLM is using nccl==2.26.2
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:36:47 [pynccl.py:69] vLLM is using nccl==2.26.2
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:36:47 [custom_all_reduce_utils.py:245] reading GPU P2P access cache from /dss/dsshome1/0B/di38wip/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:36:47 [custom_all_reduce_utils.py:245] reading GPU P2P access cache from /dss/dsshome1/0B/di38wip/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:36:47 [custom_all_reduce_utils.py:245] reading GPU P2P access cache from /dss/dsshome1/0B/di38wip/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:36:47 [custom_all_reduce_utils.py:245] reading GPU P2P access cache from /dss/dsshome1/0B/di38wip/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:36:47 [shm_broadcast.py:250] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_207428e1'), local_subscribe_addr='ipc:///tmp/83fd0fb8-1039-4941-9c9b-293f2fece68c', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:36:47 [parallel_state.py:1064] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:36:47 [parallel_state.py:1064] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:36:47 [parallel_state.py:1064] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 3, EP rank 3
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:36:47 [parallel_state.py:1064] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 2, EP rank 2
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m WARNING 06-09 12:36:47 [topk_topp_sampler.py:58] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m WARNING 06-09 12:36:47 [topk_topp_sampler.py:58] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m WARNING 06-09 12:36:47 [topk_topp_sampler.py:58] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m WARNING 06-09 12:36:47 [topk_topp_sampler.py:58] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:36:47 [gpu_model_runner.py:1531] Starting to load model meta-llama/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:36:47 [gpu_model_runner.py:1531] Starting to load model meta-llama/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:36:47 [gpu_model_runner.py:1531] Starting to load model meta-llama/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:36:47 [gpu_model_runner.py:1531] Starting to load model meta-llama/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:36:48 [cuda.py:217] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:36:48 [cuda.py:217] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:36:48 [cuda.py:217] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:36:48 [cuda.py:217] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:36:48 [backends.py:35] Using InductorAdaptor
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:36:48 [backends.py:35] Using InductorAdaptor
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:36:48 [backends.py:35] Using InductorAdaptor
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:36:48 [backends.py:35] Using InductorAdaptor
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:36:48 [weight_utils.py:291] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:36:48 [weight_utils.py:291] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:36:48 [weight_utils.py:291] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:36:48 [weight_utils.py:291] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:39:39 [default_loader.py:280] Loading weights took 169.27 seconds
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:39:39 [default_loader.py:280] Loading weights took 170.46 seconds
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:39:39 [default_loader.py:280] Loading weights took 169.87 seconds
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:39:39 [default_loader.py:280] Loading weights took 169.49 seconds
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:39:40 [gpu_model_runner.py:1549] Model loading took 32.8894 GiB and 171.749585 seconds
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:39:40 [gpu_model_runner.py:1549] Model loading took 32.8894 GiB and 171.787233 seconds
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:39:40 [gpu_model_runner.py:1549] Model loading took 32.8894 GiB and 171.790850 seconds
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:39:40 [gpu_model_runner.py:1549] Model loading took 32.8894 GiB and 171.750637 seconds
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:40:00 [backends.py:459] Using cache directory: /dss/dsshome1/0B/di38wip/.cache/vllm/torch_compile_cache/06b96e5ca3/rank_2_0 for vLLM's torch.compile
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:40:00 [backends.py:469] Dynamo bytecode transform time: 20.10 s
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:40:00 [backends.py:459] Using cache directory: /dss/dsshome1/0B/di38wip/.cache/vllm/torch_compile_cache/06b96e5ca3/rank_0_0 for vLLM's torch.compile
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:40:00 [backends.py:469] Dynamo bytecode transform time: 20.43 s
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:40:08 [backends.py:459] Using cache directory: /dss/dsshome1/0B/di38wip/.cache/vllm/torch_compile_cache/06b96e5ca3/rank_1_0 for vLLM's torch.compile
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:40:08 [backends.py:469] Dynamo bytecode transform time: 27.97 s
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:40:08 [backends.py:459] Using cache directory: /dss/dsshome1/0B/di38wip/.cache/vllm/torch_compile_cache/06b96e5ca3/rank_3_0 for vLLM's torch.compile
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:40:08 [backends.py:469] Dynamo bytecode transform time: 27.98 s
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:40:17 [backends.py:132] Directly load the compiled graph(s) for shape None from the cache, took 16.354 s
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:40:22 [backends.py:132] Directly load the compiled graph(s) for shape None from the cache, took 19.994 s
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:40:23 [backends.py:132] Directly load the compiled graph(s) for shape None from the cache, took 13.783 s
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:40:23 [backends.py:132] Directly load the compiled graph(s) for shape None from the cache, took 13.843 s
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:40:27 [monitor.py:33] torch.compile takes 20.10 s in total
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:40:27 [monitor.py:33] torch.compile takes 27.98 s in total
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:40:27 [monitor.py:33] torch.compile takes 20.43 s in total
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:40:27 [monitor.py:33] torch.compile takes 27.97 s in total
+INFO 06-09 12:40:31 [kv_cache_utils.py:637] GPU KV cache size: 458,096 tokens
+INFO 06-09 12:40:31 [kv_cache_utils.py:640] Maximum concurrency for 131,072 tokens per request: 3.49x
+INFO 06-09 12:40:31 [kv_cache_utils.py:637] GPU KV cache size: 456,256 tokens
+INFO 06-09 12:40:31 [kv_cache_utils.py:640] Maximum concurrency for 131,072 tokens per request: 3.48x
+INFO 06-09 12:40:31 [kv_cache_utils.py:637] GPU KV cache size: 456,256 tokens
+INFO 06-09 12:40:31 [kv_cache_utils.py:640] Maximum concurrency for 131,072 tokens per request: 3.48x
+INFO 06-09 12:40:31 [kv_cache_utils.py:637] GPU KV cache size: 458,096 tokens
+INFO 06-09 12:40:31 [kv_cache_utils.py:640] Maximum concurrency for 131,072 tokens per request: 3.49x
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:41:03 [custom_all_reduce.py:195] Registering 10626 cuda graph addresses
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:41:04 [custom_all_reduce.py:195] Registering 10626 cuda graph addresses
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:41:11 [custom_all_reduce.py:195] Registering 10626 cuda graph addresses
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:41:11 [custom_all_reduce.py:195] Registering 10626 cuda graph addresses
+[1;36m(VllmWorker rank=2 pid=3181525)[0;0m INFO 06-09 12:41:11 [gpu_model_runner.py:1933] Graph capturing finished in 40 secs, took 4.57 GiB
+[1;36m(VllmWorker rank=3 pid=3181526)[0;0m INFO 06-09 12:41:11 [gpu_model_runner.py:1933] Graph capturing finished in 40 secs, took 4.57 GiB
+[1;36m(VllmWorker rank=0 pid=3181523)[0;0m INFO 06-09 12:41:11 [gpu_model_runner.py:1933] Graph capturing finished in 40 secs, took 4.57 GiB
+[1;36m(VllmWorker rank=1 pid=3181524)[0;0m INFO 06-09 12:41:11 [gpu_model_runner.py:1933] Graph capturing finished in 40 secs, took 4.57 GiB
+INFO 06-09 12:41:11 [core.py:167] init engine (profile, create kv cache, warmup model) took 91.19 seconds

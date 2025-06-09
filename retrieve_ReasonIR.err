@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 34, in __init__
+    self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs, torch_dtype=torch.bfloat16)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SentenceTransformer.__init__() got an unexpected keyword argument 'torch_dtype'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
+    save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 93, in save_retriever_indices
+    retriever = retriever_module(corpus, k=len(corpus))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 37, in __init__
+    self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs, torch_dtype=torch.float16)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SentenceTransformer.__init__() got an unexpected keyword argument 'torch_dtype'
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 34, in __init__
+    self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs, torch_dtype=torch.bfloat16)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SentenceTransformer.__init__() got an unexpected keyword argument 'torch_dtype'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
+    save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 93, in save_retriever_indices
+    retriever = retriever_module(corpus, k=len(corpus))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 37, in __init__
+    self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs, torch_dtype=torch.float16)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: SentenceTransformer.__init__() got an unexpected keyword argument 'torch_dtype'
