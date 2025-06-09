@@ -54,16 +54,16 @@ def merging_dataset(base_path):
                 "forum_question": forum_question,
                 "message_date": message_date,
                 "user": user['name'],
-                "context": f"{message_date} {hour:02d}:{minute[0]:02d}, {user['name']}: {user_response}",
+                "context": f"{message_date} {hour:02d}:{minute[0]:02d}, {user['name']}: {user_response}".encode('utf-8').decode('unicode_escape'),
                 "question": posts[j]['question'],
                 "answer": posts[j]['answer']
             })
 
-    with open(base_path + 'Data/S_Multi.jsonl', 'w', encoding='utf-8') as f:
+    with open(base_path + 'Data/F_Multi.jsonl', 'w', encoding='utf-8') as f:
         for item in dataset:
             json.dump(item, f, ensure_ascii=False)
             f.write('\n')
-    print(f"S_Multi: {len(dataset)}, stored in {base_path}/Data/A_Multi.jsonl")
+    print(f"F_Multi: {len(dataset)}, stored in {base_path}/Data/F_Multi.jsonl")
 
 if __name__ == "__main__":
     base_path = './Dataset_Generation/'
