@@ -19,7 +19,7 @@ class HippoRAG2Retriever:
     def __init__(self, 
                 corpus: list[str], 
                 k: int=5, 
-                save_dir: str ='MetatagIndexing/Experiments/Retrieval/Util_Data/HippoRAG_outputs',
+                save_dir: str ='Retrieval/Retrievals/HippoRAG_outputs',
                 llm_model_name: str = 'meta-llama/Llama-3.3-70B-Instruct',
                 embedding_model_name: str = 'facebook/contriever'):
 

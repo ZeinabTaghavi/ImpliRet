@@ -1,0 +1,30 @@
+usage: sync_run_tests.py [-h] [--config CONFIG] [--print_config [=flags]]
+                         [--dataset_folder DATASET_FOLDER] [--track {T,A,S}]
+                         [--type {Uni,Multi}] [--output_folder OUTPUT_FOLDER]
+                         [--k K] [--user_retrieval {true,false}]
+                         [--retriever RETRIEVER]
+                         [--retriever_index_folder RETRIEVER_INDEX_FOLDER]
+                         --model_name MODEL_NAME
+                         --model_configs_dir MODEL_CONFIGS_DIR
+                         [--metric METRIC] [--seed SEED]
+error: Parser key "track": 'F' not among choices ['T', 'A', 'S']
+usage: sync_run_tests.py [-h] [--config CONFIG] [--print_config [=flags]]
+                         [--dataset_folder DATASET_FOLDER] [--track {T,A,S}]
+                         [--type {Uni,Multi}] [--output_folder OUTPUT_FOLDER]
+                         [--k K] [--user_retrieval {true,false}]
+                         [--retriever RETRIEVER]
+                         [--retriever_index_folder RETRIEVER_INDEX_FOLDER]
+                         --model_name MODEL_NAME
+                         --model_configs_dir MODEL_CONFIGS_DIR
+                         [--metric METRIC] [--seed SEED]
+error: Parser key "track": 'F' not among choices ['T', 'A', 'S']
+usage: sync_run_tests.py [-h] [--config CONFIG] [--print_config [=flags]]
+                         [--dataset_folder DATASET_FOLDER] [--track {T,A,S}]
+                         [--type {Uni,Multi}] [--output_folder OUTPUT_FOLDER]
+                         [--k K] [--user_retrieval {true,false}]
+                         [--retriever RETRIEVER]
+                         [--retriever_index_folder RETRIEVER_INDEX_FOLDER]
+                         --model_name MODEL_NAME
+                         --model_configs_dir MODEL_CONFIGS_DIR
+                         [--metric METRIC] [--seed SEED]
+error: Parser key "track": 'F' not among choices ['T', 'A', 'S']

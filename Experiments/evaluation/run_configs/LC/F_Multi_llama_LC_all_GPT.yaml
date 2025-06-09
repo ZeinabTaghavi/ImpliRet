@@ -1,0 +1,18 @@
+# dataset / split
+dataset_folder: ./Dataset_Generation/Data/
+track: F
+data_type: Multi
+
+# model (vLLM server)
+# the exact name of the model is in config file in the model_configs directory
+model_name: gpt-4.1-2025-04-14          # uses the local vLLM config
+model_configs_dir: Experiments/evaluation/model_configs
+
+# decoding / eval
+metric: EM , contains , rouge-recall
+k: -1
+user_retrieval: false
+seed: 42
+
+# results
+output_folder: ./Experiments/evaluation/results/

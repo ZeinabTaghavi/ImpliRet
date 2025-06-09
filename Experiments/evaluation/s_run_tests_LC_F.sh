@@ -4,8 +4,8 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
 #SBATCH -t 0-08:00:00
-#SBATCH -o ./evaluation_s_run_tests_LC_A_a100_lrz.out
-#SBATCH -e ./evaluation_s_run_tests_LC_A_a100_lrz.err
+#SBATCH -o ./evaluation_s_run_tests_LC_a100_lrz.out
+#SBATCH -e ./evaluation_s_run_tests_LC_a100_lrz.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=zeinabtaghavi1377@gmail.com
 
@@ -18,24 +18,25 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 echo "Starting the job" 
 
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/LC/A_Uni_llama_LC_all.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/LC/A_Uni_llama_LC_1.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/LC/A_Uni_llama_LC_10.yaml
-
-
 
 
 python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/LC/A_Multi_llama_LC_all.yaml
+       --config Experiments/evaluation/run_configs/LC/F_Uni_llama_LC_all.yaml
 
 python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/LC/A_Multi_llama_LC_1.yaml
+       --config Experiments/evaluation/run_configs/LC/F_Uni_llama_LC_1.yaml
 
 
 python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/LC/A_Multi_llama_LC_10.yaml
+       --config Experiments/evaluation/run_configs/LC/F_Uni_llama_LC_10.yaml
+
+
+python Experiments/evaluation/sync_run_tests.py \
+       --config Experiments/evaluation/run_configs/LC/F_Multi_llama_LC_all.yaml
+
+python Experiments/evaluation/sync_run_tests.py \
+       --config Experiments/evaluation/run_configs/LC/F_Multi_llama_LC_1.yaml
+
+python Experiments/evaluation/sync_run_tests.py \
+       --config Experiments/evaluation/run_configs/LC/F_Multi_llama_LC_10.yaml
+

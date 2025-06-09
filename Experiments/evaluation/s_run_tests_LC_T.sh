@@ -20,32 +20,23 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 echo "Starting the job" 
 
 
-# python Experiments/evaluation/sync_run_tests.py \
-#        --config Experiments/evaluation/run_configs/LC/T_Uni_llama_LC_all.yaml
+python Experiments/evaluation/sync_run_tests.py \
+       --config Experiments/evaluation/run_configs/LC/T_Uni_llama_LC_all.yaml
 
 python Experiments/evaluation/sync_run_tests.py \
        --config Experiments/evaluation/run_configs/LC/T_Uni_llama_LC_1.yaml
 
-# python Experiments/evaluation/sync_run_tests.py \
-#        --config Experiments/evaluation/run_configs/LC/T_Uni_llama_LC_5.yaml
-
-# python Experiments/evaluation/sync_run_tests.py \
-#        --config Experiments/evaluation/run_configs/LC/T_Uni_llama_LC_10.yaml
-
-# python Experiments/evaluation/sync_run_tests.py \
-#        --config Experiments/evaluation/run_configs/LC/T_Uni_llama_LC_20.yaml
+python Experiments/evaluation/sync_run_tests.py \
+       --config Experiments/evaluation/run_configs/LC/T_Uni_llama_LC_10.yaml
 
 
 
-# python Experiments/evaluation/sync_run_tests.py \
-#        --config Experiments/evaluation/run_configs/LC/T_Multi_llama_LC_all.yaml
+python Experiments/evaluation/sync_run_tests.py \
+       --config Experiments/evaluation/run_configs/LC/T_Multi_llama_LC_all.yaml
 
-# python Experiments/evaluation/sync_run_tests.py \
-#        --config Experiments/evaluation/run_configs/LC/T_Multi_llama_LC_1.yaml
+python Experiments/evaluation/sync_run_tests.py \
+       --config Experiments/evaluation/run_configs/LC/T_Multi_llama_LC_1.yaml
 
-# python Experiments/evaluation/sync_run_tests.py \
-#        --config Experiments/evaluation/run_configs/LC/T_Multi_llama_LC_5.yaml
-
-# python Experiments/evaluation/sync_run_tests.py \
-#        --config Experiments/evaluation/run_configs/LC/T_Multi_llama_LC_10.yaml
+python Experiments/evaluation/sync_run_tests.py \
+       --config Experiments/evaluation/run_configs/LC/T_Multi_llama_LC_10.yaml
 

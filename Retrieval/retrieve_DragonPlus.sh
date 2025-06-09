@@ -34,11 +34,11 @@ python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Da
 
 
 echo "Retrieving for track S, type Multi, retriever_name dragonplus"
-python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Data/ --output_folder ./Retrieval/Results/ --track S --type Multi --retriever_name dragonplus
+python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Data/ --output_folder ./Retrieval/Results/ --track F --type Multi --retriever_name dragonplus
 
 
 echo "Retrieving for track S, type Uni, retriever_name dragonplus"
-python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Data/ --output_folder ./Retrieval/Results/ --track S --type Uni --retriever_name dragonplus
+python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Data/ --output_folder ./Retrieval/Results/ --track F --type Uni --retriever_name dragonplus
 
 
 

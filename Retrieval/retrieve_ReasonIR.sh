@@ -35,22 +35,22 @@ python ./Retrieval/retrieve_indexing.py \
     --retriever_name reasonir 
 
 
-# echo "Retrieving for track S, type Uni, retriever_name reasonir"
-# python ./Retrieval/retrieve_indexing.py \
-#     --dataset_folder ./Dataset_Generation/Data/ \
-#     --output_folder ./Retrieval/Results/ \
-#     --track S \
-#     --type Uni \
-#     --retriever_name reasonir
+echo "Retrieving for track F, type Uni, retriever_name reasonir"
+python ./Retrieval/retrieve_indexing.py \
+    --dataset_folder ./Dataset_Generation/Data/ \
+    --output_folder ./Retrieval/Results/ \
+    --track F \
+    --type Uni \
+    --retriever_name reasonir
 
 
-# echo "Retrieving for track S, type Multi, retriever_name reasonir"
-# python ./Retrieval/retrieve_indexing.py \
-#     --dataset_folder ./Dataset_Generation/Data/ \
-#     --output_folder ./Retrieval/Results/ \
-#     --track S \
-#     --type Multi \
-#     --retriever_name reasonir
+echo "Retrieving for track F, type Multi, retriever_name reasonir"
+python ./Retrieval/retrieve_indexing.py \
+    --dataset_folder ./Dataset_Generation/Data/ \
+    --output_folder ./Retrieval/Results/ \
+    --track F \
+    --type Multi \
+    --retriever_name reasonir
 
 echo "Retrieving for track T, type Uni, retriever_name reasonir"
 python ./Retrieval/retrieve_indexing.py \
@@ -61,11 +61,11 @@ python ./Retrieval/retrieve_indexing.py \
     --retriever_name reasonir
 
 
-# echo "Retrieving for track T, type Multi, retriever_name reasonir"
-# python ./Retrieval/retrieve_indexing.py \
-#     --dataset_folder ./Dataset_Generation/Data/ \
-#     --output_folder ./Retrieval/Results/ \
-#     --track T \
-#     --type Multi \
-#     --retriever_name reasonir
+echo "Retrieving for track T, type Multi, retriever_name reasonir"
+python ./Retrieval/retrieve_indexing.py \
+    --dataset_folder ./Dataset_Generation/Data/ \
+    --output_folder ./Retrieval/Results/ \
+    --track T \
+    --type Multi \
+    --retriever_name reasonir
 
