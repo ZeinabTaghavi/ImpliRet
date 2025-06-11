@@ -57,7 +57,7 @@ def merging_dataset(base_path):
                 "forum_question": forum_question,
                 "message_date": f"{message_date} {hour:02d}:{minute[0]:02d}",
                 "user": user['name'],
-                "context": f"{message_date} {hour:02d}:{minute[0]:02d}, {user['name']}: {user_response}".encode('utf-8').decode('unicode_escape'),
+                "context": f"{message_date} {hour:02d}:{minute[0]:02d}, {user['name']}: {user_response}".encode('utf-8').decode('utf-8'),
                 "question": posts[j]['question'],
                 "answer": posts[j]['answer']
             })

@@ -124,7 +124,7 @@ def merging_dataset(base_path):
                 "user_ID": user_ID,
                 "user": user['name'],
                 "user_2": user_2['name'],
-                "context": '\n'.join(conversation).replace(f"{user['name']}: {user_2['name']}:", f"{user_2['name']}:").replace(f"{user_2['name']}: {user['name']}:", f"{user['name']}:").replace(f"{user_2['name']}: {user_2['name']}:", f"{user_2['name']}:").replace(f"{user['name']}: {user['name']}:", f"{user['name']}:").encode('utf-8').decode('unicode_escape'),
+                "context": '\n'.join(conversation).replace(f"{user['name']}: {user_2['name']}:", f"{user_2['name']}:").replace(f"{user_2['name']}: {user['name']}:", f"{user['name']}:").replace(f"{user_2['name']}: {user_2['name']}:", f"{user_2['name']}:").replace(f"{user['name']}: {user['name']}:", f"{user['name']}:").encode('utf-8').decode('utf-8'),
                 "extra_info": {k:v for k,v in shopping_info_list[j].items() if k in ['shopping_type', 'item_to_buy', 'high_price_brand', 'low_price_brand']},
                 "question": question,
                 "answer": shopping_info_list[j]['final_shopping'],

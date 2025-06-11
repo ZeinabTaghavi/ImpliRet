@@ -76,7 +76,7 @@ def merging_dataset(base_path):
                 "user_ID": user_ID,
                 "user": user['name'],
                 "user_2": user_2['name'],
-                "context": '\n'.join(conversations).replace(f"{user}: {user_2}:", f"{user_2}:").replace(f"{user_2}: {user}:", f"{user}:").replace(f"{user_2}: {user_2}:", f"{user_2}:").replace(f"{user}: {user}:", f"{user}:").encode('utf-8').decode('unicode_escape'),
+                "context": '\n'.join(conversations).replace(f"{user}: {user_2}:", f"{user_2}:").replace(f"{user_2}: {user}:", f"{user}:").replace(f"{user_2}: {user_2}:", f"{user_2}:").replace(f"{user}: {user}:", f"{user}:").encode('utf-8').decode('utf-8'),
                 "extra_info": {k:v for k,v in trip_info_list[j].items() if k in ['type_of_location']},
                 "question": question,
                 "answer": trip_info_list[j]['trip_purpose']
