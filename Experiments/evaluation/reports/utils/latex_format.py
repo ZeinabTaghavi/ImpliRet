@@ -4,7 +4,7 @@ import os
 # New function to save LaTeX tables for each metric
 def save_latex_tables(entries: List[dict], metrics: List[str], report_output_folder: str):
     # Mapping of track codes to names
-    track_names = {"S": "Semantic", "A": "Arithmetic", "T": "Temporal"}
+    track_names = {"F": "World.K", "A": "Arithmetic", "T": "Temporal"}
     # Sort all k values except -1 first, then append -1 last
     all_ks = sorted(k for k in {e["k"] for e in entries} if k != -1)
     ks = all_ks + ([-1] if -1 in {e["k"] for e in entries} else [])
@@ -24,7 +24,7 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
         added_entries = 0
         lines = []
         # Header: Experiment and metric track names
-        header1 = ["Experiment"] + [track_names[t] for t in ["S", "A", "T"]] + ['Uni Avg', 'Multi Avg']
+        header1 = ["Experiment"] + [track_names[t] for t in ["F", "A", "T"]] + ['Uni Avg', 'Multi Avg']
         lines.append(" | ".join(header1) + " \\\\")
         # Second header: K and Uni/Multi
         header2 = ["K"] + ["Uni & Multi"] * 3 + ["", ""]
@@ -47,7 +47,7 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
                 uni_values = []
                 multi_values = []
                 
-                for t in ["S", "A", "T"]:
+                for t in ["F", "A", "T"]:
                     for conv in ["Uni", "Multi"]:
                         entry = lookup.get((exp_key, k, t, conv))
                         if entry:
@@ -97,7 +97,7 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
         }):
             for k in ks:
                 combined_values = []
-                for t in ["S", "A", "T"]:
+                for t in ["F", "A", "T"]:
                     for conv in ["Uni", "Multi"]:
                         entry = lookup.get((exp_key, k, t, conv))
                         if entry:

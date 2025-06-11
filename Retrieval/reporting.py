@@ -121,7 +121,7 @@ def main():
 
     # Print LaTeX table
     def print_retrieval_latex(recall_results, f):
-        tracks = ["S", "A", "T"]
+        tracks = ["F", "A", "T"]
         convs = ["Uni", "Multi"]
         # Header
         f.write("Experiment & Semantic & Arithmetic & Temporal & Average \\\n")
@@ -171,7 +171,7 @@ def main():
         Write a LaTeX table that averages the Uni and Multi conversational modes for each track.
         Accepts the same `results` structure as the detailed table function.
         """
-        tracks = ["S", "A", "T"]
+        tracks = ["F", "A", "T"]
         convs = ["Uni", "Multi"]
         # Header
         f.write("Experiment & K & Semantic & Arithmetic & Temporal & Average \\\n")
@@ -256,7 +256,7 @@ MRR@\(k\) & NDCG@\(k\) \\
 """
         f.write(header)
 
-        tracks = ["S", "A", "T"]
+        tracks = ["F", "A", "T"]
         convs = ["Uni", "Multi"]
         retrievers = sorted({r for (_, _, r) in rec_results})
         for retriever in retrievers:

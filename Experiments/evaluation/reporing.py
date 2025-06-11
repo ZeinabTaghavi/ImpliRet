@@ -9,115 +9,6 @@ from reports.utils.latex_format import save_latex_tables
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 
-# # --- Heatmap plotting function ---
-# def plot_span_heatmap(entries: List[dict], experiment_type: str, track: str, conv_type: str, report_output_folder: str, filter_mode: int = 0):
-#     """
-#     Build and save a heatmap where each row corresponds to a K value,
-#     columns to token positions, and intensity to gold-span counts.
-#     Y-axis labels include avg rouge-l-recall for each K.
-#     """
-#     # Filter entries
-#     filtered = [e for e in entries
-#                 if e["experiment_type"] == experiment_type
-#                 and e["track"] == track
-#                 and e["conv_type"] == conv_type]
-#     if not filtered:
-#         return
-#     # Determine max span length
-#     max_len = max(max(e["all_spans"]) for e in filtered)
-#     # filter_mode: 0=all items, 1=only rouge1>0, -1=only rouge1==0
-#     fmap = filter_mode
-#     # Build a list of (avg_r1, counts) then sort by avg_r1 descending
-#     rows = []
-#     for e_k in filtered:
-#         avg_r1 = e_k["report"]["rouge-l-recall"]["Avg"]
-#         counts = [0] * max_len
-#         scores = e_k.get("rouge1_scores", [])
-#         for idx, gs in enumerate(e_k.get("gold_spans", [])):
-#             # apply filter
-#             r1 = scores[idx] if idx < len(scores) else 0.0
-#             if fmap == 1 and r1 <= 0:
-#                 continue
-#             if fmap == -1 and r1 != 0:
-#                 continue
-#             if not gs:
-#                 continue
-#             start, end = gs
-#             start = max(0, min(max_len, start))
-#             end = max(start, min(max_len, end))
-#             for i in range(start, end):
-#                 counts[i] += 1
-#         rows.append((avg_r1, counts))
-#     # sort descending
-#     rows.sort(key=lambda x: x[0], reverse=True)
-#     matrix = [[0 for _ in range(max_len)] for _ in range(120)]
-
-#     for index, (avg_r1, counts) in enumerate(rows):
-#         for i in range(int(avg_r1*100), int(avg_r1*100) + 10):
-#             if sum(matrix[119-i]) == 0:
-#                 matrix[119-i] = counts
-#             elif i < int(avg_r1*100)+12:
-#                 matrix[119-i] = counts
-
-#     y_labels = [f"{round(avg_r1 * 100, 2)}%" for avg_r1, _ in rows]
-#     # Plot heatmap with custom colormap: white for zero, then light green→blue
-#     plt.figure(figsize=(10, len(y_labels)*0.5 + 2))
-#     # Create a colormap: white for zeros, then light green to blue
-#     if filter_mode == 1:
-#         cmap = mcolors.LinearSegmentedColormap.from_list(
-#             'white_green',
-#             [
-#                 (0.0, 'white'),
-#                 (0.0001, '#c7e9c0'),  # light green
-#                 (0.4, '#2ca25f'),
-#                 (1.0, '#006d2c')  # dark green
-#             ]
-#         )
-#     elif filter_mode == -1:
-#         cmap = mcolors.LinearSegmentedColormap.from_list(
-#             'white_red',
-#             [
-#                 (0.0, 'white'),
-#                 (0.0001, '#fee0d2'),  # light red
-#                 (0.4, '#de2d26'),
-#                 (1.0, '#a50f15')  # dark red
-#             ]
-#         )
-#     else:
-#         cmap = mcolors.LinearSegmentedColormap.from_list(
-#             'white_green_blue',
-#             [
-#                 (0.0, 'white'),
-#                 (0.0001, '#c7e9c0'),  # light green
-#                 (0.4, '#2171b5'),
-#                 (1.0, '#042B6B')  # blue
-#             ]
-#         )
-
-#     # Use a norm so that zero maps to the white entry
-#     norm = mcolors.Normalize(vmin=0, vmax=max(max(row) for row in matrix) if matrix else 1)
-
-#     plt.imshow(matrix, aspect='auto', interpolation='nearest', cmap=cmap, norm=norm)
-#     cbar = plt.colorbar(label='Span Count')
-#     # Add legend-like annotation explaining colors
-#     cbar.ax.set_ylabel('Counting Span of Gold Passages', rotation=270, labelpad=15)
-#     # Remove y-axis inversion, show highest Rouge at top
-#     # Replace x-axis tick labels: do not show token positions
-#     plt.xticks([])
-#     plt.xlabel("Input Prompt Length")
-#     y_positions = [119 - (int(avg_r1*100) + 5) for avg_r1, _ in rows]
-#     plt.yticks(y_positions, y_labels)
-#     plt.ylabel(f"Average ROUGE-1")
-#     plt.figtext(0.5, 0.01, 'Counting Span of Gold Passages in the Input Prompt, while model answered correctly.', 
-#                 wrap=True, horizontalalignment='center', fontsize=8)
-#     # Ensure output folder exists
-#     figs_dir = os.path.join(report_output_folder, "figures")
-#     os.makedirs(figs_dir, exist_ok=True)
-#     out_path = os.path.join(figs_dir, f"{experiment_type}_{track}_{conv_type}_mode_{filter_mode}_span_heatmap.png")
-#     plt.tight_layout()
-#     plt.savefig(out_path)
-#     plt.close()
-#     print(f"saved {out_path}")
 
 # Loader class for dataset answers
 class DatasetAnswerLoader:
@@ -347,12 +238,6 @@ def reporting(result_path: str, metrics: List[str], report_output_folder: str, d
     print(f"Metrics: {metrics}")
     print(f"Report output folder: {report_output_folder}")
 
-
-    # # Plot span heatmaps for LC across all track/conv combinations
-    # for track in ["T", "A", "S"]:
-    #     for conv_type in ["Multi", "Uni"]:
-    #         for filter_mode in [0, 1, -1]:
-    #             plot_span_heatmap(entries, "LC", track, conv_type, report_output_folder, filter_mode)
 
     # Generate LaTeX tables for each metric
     save_latex_tables(entries, metrics, report_output_folder)

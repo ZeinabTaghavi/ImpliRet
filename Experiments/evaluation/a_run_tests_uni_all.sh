@@ -17,4 +17,9 @@ export HF_TOKEN='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'
 
 echo "Starting the job" 
 python Experiments/evaluation/async_run_tests.py \
-       --config Experiments/evaluation/run_configs/LC/T_Uni_llama_LC_1_GPT.yaml
+       --config Experiments/evaluation/run_configs/LC/F_Uni_llama_LC_1_GPT.yaml
+
+echo "Starting the job" 
+python Experiments/evaluation/async_run_tests.py \
+       --config Experiments/evaluation/run_configs/LC/F_Multi_llama_LC_1_GPT.yaml
+

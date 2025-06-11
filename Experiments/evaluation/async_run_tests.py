@@ -28,7 +28,7 @@ def main() -> None:
 
     # All fields that might appear in the YAML
     parser.add_argument("--dataset_folder", type=str, default="./Dataset_Generation/Data/")
-    parser.add_argument("--track", type=str, choices=["T", "A", "S"], default="T")
+    parser.add_argument("--track", type=str, choices=["T", "A", "F"], default="T")
     parser.add_argument("--type", dest="data_type", type=str, choices=["Uni", "Multi"], default="Uni")
     parser.add_argument("--output_folder", type=str, default="./MetatagIndexing/Experiments/Results/")
     parser.add_argument("--k", type=int, default=1)
