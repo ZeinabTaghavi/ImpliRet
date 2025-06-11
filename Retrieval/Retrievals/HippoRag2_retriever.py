@@ -60,32 +60,7 @@ class HippoRAG2Retriever:
         scores = sol.doc_scores.tolist() if hasattr(sol.doc_scores, "tolist") else list(sol.doc_scores)
         top_docs = []
         for i in sol.docs:
-            try:
-                idx = [idx for idx, doc in enumerate(self.corpus) if doc == i][0]
-                top_docs.append(self.corpus[idx])
-            except:
-                potential_docs = [index for index, doc in enumerate(self.corpus) if i.split(': ')[0].split('\'')[-1] in doc]
-                if len(list(set(potential_docs))) == 1:
-                    top_docs.append(potential_docs[0])
-                elif len(list(set(potential_docs))) == 0:
-                    print(i)
-                    print("i.split(': ')[0]")
-                    print(i.split(': ')[0])
-                    print("i.split(': ')[1]")
-                    print(i.split(': ')[1])
-                    print("i.split(': ')[0].split('\'')")
-                    print(i.split(': ')[0].split('\''))
-                    print("i.split(': ')[0].split('\'')[-1]")
-                    print(i.split(': ')[0].split('\'')[-1])
-                    for doc in self.corpus:
-                        print(i.split(': ')[0].split('\'')[-1] in doc)
-                        print(doc)
-                    print('--------------------------------')
-                    raise Exception(f"No document found for {i}")
-                else:
-                    print(potential_docs)
-                    top_docs.append(i)
-                    # raise Exception(f"Multiple documents found for {i}")
+            top_docs.append(i)
         return top_docs, scores
 
         

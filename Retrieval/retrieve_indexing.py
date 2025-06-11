@@ -78,7 +78,7 @@ def save_retriever_indices(dataset_folder, output_folder, track, conv_type, retr
         raise Exception("Invalid retriever name")
 
     results = []
-    for user_id in list(user_corpus_dict.keys()):
+    for user_id in list(user_corpus_dict.keys())[:10]:
         corpus = user_corpus_dict[user_id]
         # Clean the cache of hipporag, it keeps the docs from previous runs
         if retriever_name.lower() == "hipporag":

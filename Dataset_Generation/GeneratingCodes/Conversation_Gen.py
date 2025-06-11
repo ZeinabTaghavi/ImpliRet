@@ -291,7 +291,7 @@ def main(num_gpus: int = 4,
             starting_phrase = starting_phrases[i][i_2]
             selected_info = {key: conversation_bunch[key] for key in experiment['selected_info_keys']}
             input_dict = {}
-            input_dict['starting_phrase'] = starting_phrase
+            # input_dict['starting_phrase'] = starting_phrase
 
             # if you need to add more keys to the input_dict, you can do it here
             # it is adding from the data row

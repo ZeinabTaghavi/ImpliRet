@@ -1,0 +1,107 @@
+
+CondaSystemExit: Exiting.
+
+Loading safetensors checkpoint shards:   0% Completed | 0/30 [00:00<?, ?it/s]
+Loading safetensors checkpoint shards:   3% Completed | 1/30 [00:07<03:50,  7.95s/it]
+Loading safetensors checkpoint shards:   7% Completed | 2/30 [00:16<03:49,  8.21s/it]
+Loading safetensors checkpoint shards:  10% Completed | 3/30 [00:25<03:50,  8.56s/it]
+Loading safetensors checkpoint shards:  13% Completed | 4/30 [00:33<03:40,  8.49s/it]
+Loading safetensors checkpoint shards:  17% Completed | 5/30 [00:42<03:39,  8.76s/it]
+Loading safetensors checkpoint shards:  20% Completed | 6/30 [00:51<03:30,  8.79s/it]
+Loading safetensors checkpoint shards:  23% Completed | 7/30 [01:00<03:18,  8.64s/it]
+Loading safetensors checkpoint shards:  27% Completed | 8/30 [01:09<03:12,  8.77s/it]
+Loading safetensors checkpoint shards:  30% Completed | 9/30 [01:18<03:08,  8.96s/it]
+Loading safetensors checkpoint shards:  33% Completed | 10/30 [01:26<02:52,  8.62s/it]
+Loading safetensors checkpoint shards:  37% Completed | 11/30 [01:33<02:34,  8.14s/it]
+Loading safetensors checkpoint shards:  40% Completed | 12/30 [01:39<02:16,  7.57s/it]
+Loading safetensors checkpoint shards:  43% Completed | 13/30 [01:46<02:04,  7.30s/it]
+Loading safetensors checkpoint shards:  47% Completed | 14/30 [01:54<01:59,  7.47s/it]
+Loading safetensors checkpoint shards:  50% Completed | 15/30 [02:07<02:18,  9.24s/it]
+Loading safetensors checkpoint shards:  53% Completed | 16/30 [02:22<02:32, 10.88s/it]
+Loading safetensors checkpoint shards:  57% Completed | 17/30 [02:36<02:33, 11.79s/it]
+Loading safetensors checkpoint shards:  60% Completed | 18/30 [02:49<02:26, 12.21s/it]
+Loading safetensors checkpoint shards:  63% Completed | 19/30 [03:03<02:20, 12.81s/it]
+Loading safetensors checkpoint shards:  67% Completed | 20/30 [03:17<02:10, 13.00s/it]
+Loading safetensors checkpoint shards:  70% Completed | 21/30 [03:30<01:57, 13.11s/it]
+Loading safetensors checkpoint shards:  73% Completed | 22/30 [03:44<01:46, 13.35s/it]
+Loading safetensors checkpoint shards:  77% Completed | 23/30 [03:50<01:18, 11.26s/it]
+Loading safetensors checkpoint shards:  80% Completed | 24/30 [04:03<01:11, 11.87s/it]
+Loading safetensors checkpoint shards:  83% Completed | 25/30 [04:16<00:59, 11.93s/it]
+Loading safetensors checkpoint shards:  87% Completed | 26/30 [04:27<00:47, 11.81s/it]
+Loading safetensors checkpoint shards:  90% Completed | 27/30 [04:38<00:34, 11.43s/it]
+Loading safetensors checkpoint shards:  93% Completed | 28/30 [04:50<00:23, 11.80s/it]
+Loading safetensors checkpoint shards:  97% Completed | 29/30 [05:04<00:12, 12.41s/it]
+Loading safetensors checkpoint shards: 100% Completed | 30/30 [05:19<00:00, 13.15s/it]
+Loading safetensors checkpoint shards: 100% Completed | 30/30 [05:19<00:00, 10.65s/it]
+
+Capturing CUDA graph shapes:   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graph shapes:   3%|▎         | 1/35 [00:00<00:25,  1.33it/s]Capturing CUDA graph shapes:   6%|▌         | 2/35 [00:01<00:21,  1.52it/s]Capturing CUDA graph shapes:   9%|▊         | 3/35 [00:01<00:20,  1.59it/s]Capturing CUDA graph shapes:  11%|█▏        | 4/35 [00:02<00:19,  1.61it/s]Capturing CUDA graph shapes:  14%|█▍        | 5/35 [00:03<00:18,  1.65it/s]Capturing CUDA graph shapes:  17%|█▋        | 6/35 [00:03<00:17,  1.65it/s]Capturing CUDA graph shapes:  20%|██        | 7/35 [00:04<00:16,  1.67it/s]Capturing CUDA graph shapes:  23%|██▎       | 8/35 [00:04<00:15,  1.69it/s]Capturing CUDA graph shapes:  26%|██▌       | 9/35 [00:05<00:15,  1.70it/s]Capturing CUDA graph shapes:  29%|██▊       | 10/35 [00:06<00:14,  1.71it/s]Capturing CUDA graph shapes:  31%|███▏      | 11/35 [00:06<00:14,  1.70it/s]Capturing CUDA graph shapes:  34%|███▍      | 12/35 [00:07<00:13,  1.69it/s]Capturing CUDA graph shapes:  37%|███▋      | 13/35 [00:07<00:12,  1.70it/s]Capturing CUDA graph shapes:  40%|████      | 14/35 [00:08<00:12,  1.71it/s]Capturing CUDA graph shapes:  43%|████▎     | 15/35 [00:08<00:11,  1.72it/s]Capturing CUDA graph shapes:  46%|████▌     | 16/35 [00:09<00:10,  1.73it/s]Capturing CUDA graph shapes:  49%|████▊     | 17/35 [00:10<00:10,  1.77it/s]Capturing CUDA graph shapes:  51%|█████▏    | 18/35 [00:10<00:09,  1.78it/s]Capturing CUDA graph shapes:  54%|█████▍    | 19/35 [00:11<00:08,  1.80it/s]Capturing CUDA graph shapes:  57%|█████▋    | 20/35 [00:11<00:08,  1.77it/s]Capturing CUDA graph shapes:  60%|██████    | 21/35 [00:12<00:07,  1.79it/s]Capturing CUDA graph shapes:  63%|██████▎   | 22/35 [00:12<00:07,  1.81it/s]Capturing CUDA graph shapes:  66%|██████▌   | 23/35 [00:13<00:06,  1.82it/s]Capturing CUDA graph shapes:  69%|██████▊   | 24/35 [00:13<00:06,  1.83it/s]Capturing CUDA graph shapes:  71%|███████▏  | 25/35 [00:14<00:05,  1.81it/s]Capturing CUDA graph shapes:  74%|███████▍  | 26/35 [00:15<00:04,  1.84it/s]Capturing CUDA graph shapes:  77%|███████▋  | 27/35 [00:15<00:04,  1.85it/s]Capturing CUDA graph shapes:  80%|████████  | 28/35 [00:16<00:03,  1.85it/s]Capturing CUDA graph shapes:  83%|████████▎ | 29/35 [00:16<00:03,  1.85it/s]Capturing CUDA graph shapes:  86%|████████▌ | 30/35 [00:17<00:02,  1.88it/s]Capturing CUDA graph shapes:  89%|████████▊ | 31/35 [00:17<00:02,  1.89it/s]Capturing CUDA graph shapes:  91%|█████████▏| 32/35 [00:18<00:01,  1.92it/s]Capturing CUDA graph shapes:  94%|█████████▍| 33/35 [00:18<00:01,  1.93it/s]Capturing CUDA graph shapes:  97%|█████████▋| 34/35 [00:19<00:00,  1.95it/s]Capturing CUDA graph shapes: 100%|██████████| 35/35 [00:20<00:00,  1.56it/s]Capturing CUDA graph shapes: 100%|██████████| 35/35 [00:20<00:00,  1.74it/s]
+INFO:     Started server process [1316598]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+0it [00:00, ?it/s]210it [00:00, 24734.04it/s]
+0it [00:00, ?it/s]210it [00:00, 3191318.26it/s]
+Retrieving:   0%|          | 0/1 [00:00<?, ?it/s]Retrieving: 100%|██████████| 1/1 [00:00<00:00, 21.37it/s]
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
+    save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 102, in save_retriever_indices
+    retrieved_indices = [[corpus.index(doc), round(float(score), 4)] for doc, score in zip(top_docs, scores)]
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 102, in <listcomp>
+    retrieved_indices = [[corpus.index(doc), round(float(score), 4)] for doc, score in zip(top_docs, scores)]
+ValueError: "2024-1-22 11:58, Eric: I believe it's important to rememberâ\x80¦ that when considering a Vaio laptop, the model 2023 was ultimately purchased, and it cost one thousand six hundred and forty dollars for the 2018 model as a reference point for comparison. The Vaio 2023 model is twenty-five percent more expensive than the 2018 model, which might be a worthwhile investment considering its newer features and potentially longer lifespan for your general use needs. As someone working in urban planning, I always appreciate a reliable machine for office work and staying connected, and Vaio generally has a good reputation for build quality. Hopefully, this information helps you in your decision-making process, and you find a laptop that fits your requirements and budget perfectly!" is not in list
+0it [00:00, ?it/s]210it [00:00, 30112.95it/s]
+0it [00:00, ?it/s]210it [00:00, 3250198.67it/s]
+Retrieving:   0%|          | 0/1 [00:00<?, ?it/s]Retrieving: 100%|██████████| 1/1 [00:02<00:00,  2.24s/it]Retrieving: 100%|██████████| 1/1 [00:02<00:00,  2.24s/it]
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
+    save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 102, in save_retriever_indices
+    retrieved_indices = [[corpus.index(doc), round(float(score), 4)] for doc, score in zip(top_docs, scores)]
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 102, in <listcomp>
+    retrieved_indices = [[corpus.index(doc), round(float(score), 4)] for doc, score in zip(top_docs, scores)]
+ValueError: "2024-07-05 10:04, Dante: Hope youâ\x80\x99re having a good day.\n2024-07-05 10:13, Ishaan: I am, thank you! Just finished teaching a particularly lovely session. The energy was amazing. How about you? Anything interesting happening?\n2024-07-05 10:17, Dante: Things are good here. Actually, I just got back from a really interesting trip â\x80\x93 I was at Labia Theatre for attending a meditation retreat. \n2024-07-05 10:22, Ishaan: Oh, wow, that soundsâ\x80¦intense. What led you to that?\n2024-07-05 10:23, Dante: It was a chance to push myself creatively, to explore stillness amidst a lot of noise, you know? I've been feeling the need to recenter lately. It was great.\n2024-07-05 10:38, Ishaan: I can definitely relate to needing to recenter. Life gets so full sometimes. Do you find that poetry and meditation run parallel in that way?\n2024-07-05 10:41, Dante: Absolutely. Both demand a certain level of presence, of paying attention to the subtleties. It was a really worthwhile experience, though quite different than what Iâ\x80\x99m used to.\n2024-07-05 10:42, Ishaan: Thatâ\x80\x99s beautiful. It's fascinating how different practices can lead you back to the same core principles. Iâ\x80\x99ve been experimenting with including more creative writing into my workshops lately.\n2024-07-05 10:43, Dante: Really? Thatâ\x80\x99s fantastic! I think thatâ\x80\x99s a really powerful combination. It's fantastic to find new ways to unlock peopleâ\x80\x99s potential.\n2024-07-05 10:44, Ishaan: I agree completely. Alright, well, I should probably get prepping for tonight's session. It was great catching up, Dante!" is not in list
+0it [00:00, ?it/s]210it [00:00, 30231.81it/s]
+0it [00:00, ?it/s]210it [00:00, 3238249.41it/s]
+Retrieving:   0%|          | 0/1 [00:00<?, ?it/s]Retrieving: 100%|██████████| 1/1 [00:00<00:00, 174.81it/s]
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
+    save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 102, in save_retriever_indices
+    retrieved_indices = [[corpus.index(doc), round(float(score), 4)] for doc, score in zip(top_docs, scores)]
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 102, in <listcomp>
+    retrieved_indices = [[corpus.index(doc), round(float(score), 4)] for doc, score in zip(top_docs, scores)]
+ValueError: '2024-05-05 10:44, Logan: Iâ\x80\x99m not sure if anyone has mentioned, butâ\x80¦ I finally dedicated some quiet time to reading a leisure book two days ago, after returning from a particularly challenging kayaking expedition. As a wilderness guide, Logan usually spends more time navigating rivers than pages, but a friendâ\x80\x99s strong recommendation really piqued my interest. I dove into a book recommended by a close friend, and it was a welcome escape from planning the next trek into the Alaskan wilderness. Itâ\x80\x99s always good to balance practical survival skills with a bit of imaginative storytelling, and Iâ\x80\x99m already looking forward to my next literary adventure.' is not in list
+0it [00:00, ?it/s]210it [00:00, 29983.79it/s]
+0it [00:00, ?it/s]210it [00:00, 3101421.97it/s]
+Retrieving:   0%|          | 0/1 [00:00<?, ?it/s]Retrieving: 100%|██████████| 1/1 [00:01<00:00,  1.88s/it]Retrieving: 100%|██████████| 1/1 [00:01<00:00,  1.88s/it]
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
+    save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 102, in save_retriever_indices
+    retrieved_indices = [[corpus.index(doc), round(float(score), 4)] for doc, score in zip(top_docs, scores)]
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 102, in <listcomp>
+    retrieved_indices = [[corpus.index(doc), round(float(score), 4)] for doc, score in zip(top_docs, scores)]
+ValueError: "2021-05-12 09:15, Dante: Itâ\x80\x99s good to connect.\n2021-05-12 09:22, Rose: Hey Dante, good to hear from you too! How are things going? I just got back from a buying trip - found some amazing pieces!\n2021-05-12 09:35, Dante: Things are alright, a bit hectic actually. I had to revise a project timeline 26 days ago, and it really threw off my schedule. I was working on it from 1 p.m. until three hours after that.\n2021-05-12 09:48, Rose: Oh, wow, that sounds stressful. I completely understand how things can get derailed. Hopefully, youâ\x80\x99ve gotten back on track since then?\n2021-05-12 10:03, Dante: Yeah, slowly but surely. It took a while to readjust. I've been trying to focus on more creative things now, though. I wrote a new poem last night, actually.\n2021-05-12 10:18, Rose: Thatâ\x80\x99s wonderful! I always admire your dedication to your art. What's it about this time?\n2021-05-12 10:31, Dante: Itâ\x80\x99s about the search for belonging, inspired by my travels. Itâ\x80\x99s strange how you find yourself drawn to certain places and people, isn't it?\n2021-05-12 10:47, Rose: Absolutely! I feel that way about vintage â\x80\x93 it's like connecting with the stories of people who came before us. Iâ\x80\x99m thinking of hosting a little event at the shop soon.\n2021-05-12 11:05, Dante: That sounds lovely, Rose! I'd love to come if Iâ\x80\x99m free. Itâ\x80\x99s good to have a little fun sometimes after all that work.\n2021-05-12 11:19, Rose: Perfect! Iâ\x80\x99ll keep you posted. It'll be a nice break from everything, a chance to just relax and enjoy. Let me know when you have some free time and weâ\x80\x99ll get together." is not in list
+0it [00:00, ?it/s]210it [00:00, 30502.97it/s]
+0it [00:00, ?it/s]210it [00:00, 3145728.00it/s]
+Retrieving:   0%|          | 0/1 [00:00<?, ?it/s]Retrieving: 100%|██████████| 1/1 [00:00<00:00,  7.78it/s]Retrieving: 100%|██████████| 1/1 [00:00<00:00,  7.77it/s]
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
+    save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 102, in save_retriever_indices
+    retrieved_indices = [[corpus.index(doc), round(float(score), 4)] for doc, score in zip(top_docs, scores)]
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 102, in <listcomp>
+    retrieved_indices = [[corpus.index(doc), round(float(score), 4)] for doc, score in zip(top_docs, scores)]
+ValueError: '2024-9-1 13:22, Vikram: Just wanted to chime in with my opinion. As someone who works with a lot of tech, including programming and automation â\x80\x93 something I enjoy in my workshop back in Chennai â\x80\x93 I can appreciate the need for a reliable machine without breaking the bank. Looking at the Dynabook options, the model 2021 costs two thousand five hundred and twenty dollars, while the model 2018 is half that price. Ultimately, the poster purchased the Dynabook model 2018, which sounds like a sensible choice for browsing, office work, and streaming, fulfilling the requirements of a general use laptop.' is not in list
+0it [00:00, ?it/s]210it [00:00, 30099.57it/s]
+0it [00:00, ?it/s]210it [00:00, 2516582.40it/s]
+Retrieving:   0%|          | 0/1 [00:00<?, ?it/s]Retrieving: 100%|██████████| 1/1 [00:00<00:00,  7.76it/s]Retrieving: 100%|██████████| 1/1 [00:00<00:00,  7.75it/s]
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
+    save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 102, in save_retriever_indices
+    retrieved_indices = [[corpus.index(doc), round(float(score), 4)] for doc, score in zip(top_docs, scores)]
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 102, in <listcomp>
+    retrieved_indices = [[corpus.index(doc), round(float(score), 4)] for doc, score in zip(top_docs, scores)]
+ValueError: "2024-11-23 09:01, Dante: Hey, how have you been?\n2024-11-23 09:06, Vivian: Iâ\x80\x99m doing well, actually! Been busy with some new initiatives at the conservancy, but it's good busy. Lots of little wins. How about you? Anything exciting happening?\n2024-11-23 09:08, Dante: Things are good. I just got back from quite an intensive period â\x80\x93 I was at Saints Clemens and Pancratius Church for an artist-in-residence program. It wasâ\x80¦ a lot.\n2024-11-23 09:14, Vivian: Oh, wow! That sounds like it demanded a lot of energy. What kind of work were you doing while you were there?\n2024-11-23 09:15, Dante: It was primarily about observing the space and letting it seep into my work, experimenting with forms inspired by the architecture. I ended up writing a series of poems reflecting on memory and time. It was challenging, but deeply rewarding.\n2024-11-23 09:17, Vivian: Thatâ\x80\x99s fascinating. It sounds like a really immersive experience. I imagine a place like that holds a lot of stories.\n2024-11-23 09:43, Dante: Absolutely. It felt like the walls themselves were whispering tales. It really shifted my perspective on things, you know? Iâ\x80\x99m trying to process it all now.\n2024-11-23 09:47, Vivian: I can relate to that â\x80\x93 sometimes fully letting a place influence you takes a while to unpack. What are you working on next, now that it's over?\n2024-11-23 09:53, Dante: Iâ\x80\x99m hoping to adapt some of the poems into a spoken word performance piece. I have a small open mic night booked next week, so I'm prepping for that. A bit daunting, honestly! \n2024-11-23 09:58, Vivian: That sounds amazing! Youâ\x80\x99ll be brilliant, I'm sure. Performing is a brave thing, and you have such a powerful way with words. Iâ\x80\x99m really looking forward to hearing about how it goes." is not in list

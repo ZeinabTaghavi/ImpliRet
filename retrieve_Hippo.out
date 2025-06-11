@@ -1,1516 +1,661 @@
-Retrieving notices: - \ done
-Channels:
- - conda-forge
- - defaults
-Platform: linux-64
-Collecting package metadata (repodata.json): ...working... done
-Solving environment: ...working... done
-
-## Package Plan ##
-
-  environment location: /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag
-
-  added / updated specs:
-    - python=3.10
-
-
-The following packages will be downloaded:
-
-    package                    |            build
-    ---------------------------|-----------------
-    _libgcc_mutex-0.1          |      conda_forge           3 KB  conda-forge
-    _openmp_mutex-4.5          |            2_gnu          23 KB  conda-forge
-    ca-certificates-2025.4.26  |       hbd8a1cb_0         149 KB  conda-forge
-    ld_impl_linux-64-2.43      |       h712a8e2_4         656 KB  conda-forge
-    libexpat-2.7.0             |       h5888daf_0          73 KB  conda-forge
-    libffi-3.4.6               |       h2dba641_1          56 KB  conda-forge
-    libgcc-15.1.0              |       h767d61c_2         810 KB  conda-forge
-    libgcc-ng-15.1.0           |       h69a702a_2          34 KB  conda-forge
-    libgomp-15.1.0             |       h767d61c_2         442 KB  conda-forge
-    liblzma-5.8.1              |       hb9d3cd8_2         110 KB  conda-forge
-    libsqlite-3.50.1           |       hee588c1_0         898 KB  conda-forge
-    openssl-3.5.0              |       h7b32b05_1         3.0 MB  conda-forge
-    pip-25.1.1                 |     pyh8b19718_0         1.2 MB  conda-forge
-    python-3.10.18             |hd6af730_0_cpython        23.9 MB  conda-forge
-    readline-8.2               |       h8c095d6_2         276 KB  conda-forge
-    setuptools-80.9.0          |     pyhff2d567_0         731 KB  conda-forge
-    tk-8.6.13                  |noxft_hd72426e_102         3.1 MB  conda-forge
-    tzdata-2025b               |       h78e105d_0         120 KB  conda-forge
-    ------------------------------------------------------------
-                                           Total:        35.5 MB
-
-The following NEW packages will be INSTALLED:
-
-  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge 
-  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu 
-  bzip2              conda-forge/linux-64::bzip2-1.0.8-h4bc722e_7 
-  ca-certificates    conda-forge/noarch::ca-certificates-2025.4.26-hbd8a1cb_0 
-  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.43-h712a8e2_4 
-  libexpat           conda-forge/linux-64::libexpat-2.7.0-h5888daf_0 
-  libffi             conda-forge/linux-64::libffi-3.4.6-h2dba641_1 
-  libgcc             conda-forge/linux-64::libgcc-15.1.0-h767d61c_2 
-  libgcc-ng          conda-forge/linux-64::libgcc-ng-15.1.0-h69a702a_2 
-  libgomp            conda-forge/linux-64::libgomp-15.1.0-h767d61c_2 
-  liblzma            conda-forge/linux-64::liblzma-5.8.1-hb9d3cd8_2 
-  libnsl             conda-forge/linux-64::libnsl-2.0.1-hd590300_0 
-  libsqlite          conda-forge/linux-64::libsqlite-3.50.1-hee588c1_0 
-  libuuid            conda-forge/linux-64::libuuid-2.38.1-h0b41bf4_0 
-  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.36-hd590300_1 
-  libzlib            conda-forge/linux-64::libzlib-1.3.1-hb9d3cd8_2 
-  ncurses            conda-forge/linux-64::ncurses-6.5-h2d0b736_3 
-  openssl            conda-forge/linux-64::openssl-3.5.0-h7b32b05_1 
-  pip                conda-forge/noarch::pip-25.1.1-pyh8b19718_0 
-  python             conda-forge/linux-64::python-3.10.18-hd6af730_0_cpython 
-  readline           conda-forge/linux-64::readline-8.2-h8c095d6_2 
-  setuptools         conda-forge/noarch::setuptools-80.9.0-pyhff2d567_0 
-  tk                 conda-forge/linux-64::tk-8.6.13-noxft_hd72426e_102 
-  tzdata             conda-forge/noarch::tzdata-2025b-h78e105d_0 
-  wheel              conda-forge/noarch::wheel-0.45.1-pyhd8ed1ab_1 
-
-
-Proceed ([y]/n)? 
-
-Downloading and Extracting Packages: ...working...python-3.10.18       | 23.9 MB   |            |   0% 
-tk-8.6.13            | 3.1 MB    |            |   0% [A
-
-openssl-3.5.0        | 3.0 MB    |            |   0% [A[A
-
-
-pip-25.1.1           | 1.2 MB    |            |   0% [A[A[A
-
-
-
-libsqlite-3.50.1     | 898 KB    |            |   0% [A[A[A[A
-
-
-
-
-libgcc-15.1.0        | 810 KB    |            |   0% [A[A[A[A[A
-
-
-
-
-
-setuptools-80.9.0    | 731 KB    |            |   0% [A[A[A[A[A[A
-
-
-
-
-
-
-ld_impl_linux-64-2.4 | 656 KB    |            |   0% [A[A[A[A[A[A[A
-
-
-
-
-
-
-
-libgomp-15.1.0       | 442 KB    |            |   0% [A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-readline-8.2         | 276 KB    |            |   0% [A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-ca-certificates-2025 | 149 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-tzdata-2025b         | 120 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-liblzma-5.8.1        | 110 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-libexpat-2.7.0       | 73 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-libffi-3.4.6         | 56 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-libgcc-ng-15.1.0     | 34 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_openmp_mutex-4.5    | 23 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_libgcc_mutex-0.1    | 3 KB      |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-pip-25.1.1           | 1.2 MB    | 1          |   1% [A[A[A
-tk-8.6.13            | 3.1 MB    |            |   0% [A
-
-
-
-libsqlite-3.50.1     | 898 KB    | 1          |   2% [A[A[A[A
-
-openssl-3.5.0        | 3.0 MB    |            |   1% [A[Apython-3.10.18       | 23.9 MB   |            |   0% 
-
-
-
-libsqlite-3.50.1     | 898 KB    | ########## | 100% [A[A[A[A
-
-
-pip-25.1.1           | 1.2 MB    | ########## | 100% [A[A[A
-tk-8.6.13            | 3.1 MB    | ########9  |  90% [Apython-3.10.18       | 23.9 MB   | 4          |   5% 
-
-openssl-3.5.0        | 3.0 MB    | #########  |  91% [A[A
-tk-8.6.13            | 3.1 MB    | ########## | 100% [A
-
-openssl-3.5.0        | 3.0 MB    | ########## | 100% [A[A
-
-
-
-
-
-setuptools-80.9.0    | 731 KB    | 2          |   2% [A[A[A[A[A[A
-
-
-
-
-libgcc-15.1.0        | 810 KB    | 1          |   2% [A[A[A[A[A
-
-
-
-
-
-setuptools-80.9.0    | 731 KB    | ########## | 100% [A[A[A[A[A[A
-
-
-
-
-libgcc-15.1.0        | 810 KB    | ########## | 100% [A[A[A[A[A
-
-
-
-
-
-
-ld_impl_linux-64-2.4 | 656 KB    | 2          |   2% [A[A[A[A[A[A[A
-
-
-
-
-
-
-
-libgomp-15.1.0       | 442 KB    | 3          |   4% [A[A[A[A[A[A[A[A
-
-
-
-libsqlite-3.50.1     | 898 KB    | ########## | 100% [A[A[A[A
-
-
-
-
-
-
-
-libgomp-15.1.0       | 442 KB    | ########## | 100% [A[A[A[A[A[A[A[A
-
-
-
-
-
-
-ld_impl_linux-64-2.4 | 656 KB    | ########## | 100% [A[A[A[A[A[A[A
-
-
-
-libsqlite-3.50.1     | 898 KB    | ########## | 100% [A[A[A[A
-
-
-
-
-
-
-
-
-readline-8.2         | 276 KB    | 5          |   6% [A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-readline-8.2         | 276 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-ca-certificates-2025 | 149 KB    | #          |  11% [A[A[A[A[A[A[A[A[A[Apython-3.10.18       | 23.9 MB   | #####      |  50% 
-
-
-
-
-
-
-
-
-
-ca-certificates-2025 | 149 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-tzdata-2025b         | 120 KB    | #3         |  13% [A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-liblzma-5.8.1        | 110 KB    | #4         |  15% [A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-tzdata-2025b         | 120 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-liblzma-5.8.1        | 110 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-libexpat-2.7.0       | 73 KB     | ##2        |  22% [A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-libffi-3.4.6         | 56 KB     | ##8        |  29% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-libexpat-2.7.0       | 73 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-libffi-3.4.6         | 56 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-libgcc-ng-15.1.0     | 34 KB     | ####7      |  47% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_libgcc_mutex-0.1    | 3 KB      | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_libgcc_mutex-0.1    | 3 KB      | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-libgcc-ng-15.1.0     | 34 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_openmp_mutex-4.5    | 23 KB     | ######9    |  69% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_openmp_mutex-4.5    | 23 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Apython-3.10.18       | 23.9 MB   | ########## | 100% python-3.10.18       | 23.9 MB   | ########## | 100% 
-
-openssl-3.5.0        | 3.0 MB    | ########## | 100% [A[A
-
-
-pip-25.1.1           | 1.2 MB    | ########## | 100% [A[A[A
-
-
-pip-25.1.1           | 1.2 MB    | ########## | 100% [A[A[A
-tk-8.6.13            | 3.1 MB    | ########## | 100% [A
-
-
-
-
-libgcc-15.1.0        | 810 KB    | ########## | 100% [A[A[A[A[A
-
-
-
-
-libgcc-15.1.0        | 810 KB    | ########## | 100% [A[A[A[A[A
-
-
-
-
-
-
-
-libgomp-15.1.0       | 442 KB    | ########## | 100% [A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-libgomp-15.1.0       | 442 KB    | ########## | 100% [A[A[A[A[A[A[A[A
-
-
-
-
-
-
-ld_impl_linux-64-2.4 | 656 KB    | ########## | 100% [A[A[A[A[A[A[A
-
-
-
-
-
-
-ld_impl_linux-64-2.4 | 656 KB    | ########## | 100% [A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-readline-8.2         | 276 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-readline-8.2         | 276 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-ca-certificates-2025 | 149 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-ca-certificates-2025 | 149 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-liblzma-5.8.1        | 110 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-liblzma-5.8.1        | 110 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-libexpat-2.7.0       | 73 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-libexpat-2.7.0       | 73 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-libffi-3.4.6         | 56 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-libffi-3.4.6         | 56 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_libgcc_mutex-0.1    | 3 KB      | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-setuptools-80.9.0    | 731 KB    | ########## | 100% [A[A[A[A[A[A
-
-
-
-
-
-setuptools-80.9.0    | 731 KB    | ########## | 100% [A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-libgcc-ng-15.1.0     | 34 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-libgcc-ng-15.1.0     | 34 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_openmp_mutex-4.5    | 23 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_openmp_mutex-4.5    | 23 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-tzdata-2025b         | 120 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-tzdata-2025b         | 120 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[Apython-3.10.18       | 23.9 MB   | ########## | 100%                                                      
-                                                     [A
-
-                                                     [A[A
-
-
-                                                     [A[A[A
-
-
-
-                                                     [A[A[A[A
-
-
-
-
-                                                     [A[A[A[A[A
-
-
-
-
-
-                                                     [A[A[A[A[A[A
-
-
-
-
-
-
-                                                     [A[A[A[A[A[A[A
-
-
-
-
-
-
-
-                                                     [A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-                                                     [A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-                                                     [A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-                                                     [A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-                                                     [A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A done
-Preparing transaction: / - \ | / - done
-Verifying transaction: | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | done
-Executing transaction: - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - done
-#
-# To activate this environment, use
-#
-#     $ conda activate hipporag
-#
-# To deactivate an active environment, use
-#
-#     $ conda deactivate
-
-Collecting hipporag
-  Using cached hipporag-2.0.0a3-py3-none-any.whl.metadata (19 kB)
-Collecting torch==2.5.1 (from hipporag)
-  Downloading torch-2.5.1-cp310-cp310-manylinux1_x86_64.whl.metadata (28 kB)
-Collecting transformers==4.45.2 (from hipporag)
-  Using cached transformers-4.45.2-py3-none-any.whl.metadata (44 kB)
-Collecting vllm==0.6.6.post1 (from hipporag)
-  Using cached vllm-0.6.6.post1-cp38-abi3-manylinux1_x86_64.whl.metadata (11 kB)
-Collecting openai==1.58.1 (from hipporag)
-  Using cached openai-1.58.1-py3-none-any.whl.metadata (27 kB)
-Collecting gritlm==1.0.2 (from hipporag)
-  Using cached gritlm-1.0.2-py3-none-any.whl.metadata (43 kB)
-Collecting networkx==3.4.2 (from hipporag)
-  Using cached networkx-3.4.2-py3-none-any.whl.metadata (6.3 kB)
-Collecting python_igraph==0.11.8 (from hipporag)
-  Using cached python_igraph-0.11.8-py3-none-any.whl.metadata (2.8 kB)
-Collecting tiktoken==0.7.0 (from hipporag)
-  Downloading tiktoken-0.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
-Collecting pydantic==2.10.4 (from hipporag)
-  Using cached pydantic-2.10.4-py3-none-any.whl.metadata (29 kB)
-Collecting tenacity==8.5.0 (from hipporag)
-  Using cached tenacity-8.5.0-py3-none-any.whl.metadata (1.2 kB)
-Collecting einops (from hipporag)
-  Downloading einops-0.8.1-py3-none-any.whl.metadata (13 kB)
-Collecting tqdm (from hipporag)
-  Using cached tqdm-4.67.1-py3-none-any.whl.metadata (57 kB)
-Collecting accelerate>=0.26.1 (from gritlm==1.0.2->hipporag)
-  Downloading accelerate-1.7.0-py3-none-any.whl.metadata (19 kB)
-Collecting datasets>=2.16.1 (from gritlm==1.0.2->hipporag)
-  Downloading datasets-3.6.0-py3-none-any.whl.metadata (19 kB)
-Collecting wandb (from gritlm==1.0.2->hipporag)
-  Downloading wandb-0.20.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
-Collecting mteb (from gritlm==1.0.2->hipporag)
-  Downloading mteb-1.38.27-py3-none-any.whl.metadata (29 kB)
-Collecting anyio<5,>=3.5.0 (from openai==1.58.1->hipporag)
-  Downloading anyio-4.9.0-py3-none-any.whl.metadata (4.7 kB)
-Collecting distro<2,>=1.7.0 (from openai==1.58.1->hipporag)
-  Using cached distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
-Collecting httpx<1,>=0.23.0 (from openai==1.58.1->hipporag)
-  Using cached httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
-Collecting jiter<1,>=0.4.0 (from openai==1.58.1->hipporag)
-  Downloading jiter-0.10.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.2 kB)
-Collecting sniffio (from openai==1.58.1->hipporag)
-  Using cached sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
-Collecting typing-extensions<5,>=4.11 (from openai==1.58.1->hipporag)
-  Downloading typing_extensions-4.14.0-py3-none-any.whl.metadata (3.0 kB)
-Collecting annotated-types>=0.6.0 (from pydantic==2.10.4->hipporag)
-  Using cached annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
-Collecting pydantic-core==2.27.2 (from pydantic==2.10.4->hipporag)
-  Downloading pydantic_core-2.27.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
-Collecting igraph==0.11.8 (from python_igraph==0.11.8->hipporag)
-  Using cached igraph-0.11.8-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
-Collecting texttable>=1.6.2 (from igraph==0.11.8->python_igraph==0.11.8->hipporag)
-  Using cached texttable-1.7.0-py2.py3-none-any.whl.metadata (9.8 kB)
-Collecting regex>=2022.1.18 (from tiktoken==0.7.0->hipporag)
-  Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
-Collecting requests>=2.26.0 (from tiktoken==0.7.0->hipporag)
-  Using cached requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
-Collecting filelock (from torch==2.5.1->hipporag)
-  Downloading filelock-3.18.0-py3-none-any.whl.metadata (2.9 kB)
-Collecting jinja2 (from torch==2.5.1->hipporag)
-  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
-Collecting fsspec (from torch==2.5.1->hipporag)
-  Downloading fsspec-2025.5.1-py3-none-any.whl.metadata (11 kB)
-Collecting nvidia-cuda-nvrtc-cu12==12.4.127 (from torch==2.5.1->hipporag)
-  Using cached nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
-Collecting nvidia-cuda-runtime-cu12==12.4.127 (from torch==2.5.1->hipporag)
-  Using cached nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
-Collecting nvidia-cuda-cupti-cu12==12.4.127 (from torch==2.5.1->hipporag)
-  Using cached nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
-Collecting nvidia-cudnn-cu12==9.1.0.70 (from torch==2.5.1->hipporag)
-  Using cached nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
-Collecting nvidia-cublas-cu12==12.4.5.8 (from torch==2.5.1->hipporag)
-  Using cached nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
-Collecting nvidia-cufft-cu12==11.2.1.3 (from torch==2.5.1->hipporag)
-  Using cached nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
-Collecting nvidia-curand-cu12==10.3.5.147 (from torch==2.5.1->hipporag)
-  Using cached nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
-Collecting nvidia-cusolver-cu12==11.6.1.9 (from torch==2.5.1->hipporag)
-  Using cached nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
-Collecting nvidia-cusparse-cu12==12.3.1.170 (from torch==2.5.1->hipporag)
-  Using cached nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl.metadata (1.6 kB)
-Collecting nvidia-nccl-cu12==2.21.5 (from torch==2.5.1->hipporag)
-  Using cached nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl.metadata (1.8 kB)
-Collecting nvidia-nvtx-cu12==12.4.127 (from torch==2.5.1->hipporag)
-  Using cached nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.7 kB)
-Collecting nvidia-nvjitlink-cu12==12.4.127 (from torch==2.5.1->hipporag)
-  Using cached nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl.metadata (1.5 kB)
-Collecting triton==3.1.0 (from torch==2.5.1->hipporag)
-  Downloading triton-3.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.3 kB)
-Collecting sympy==1.13.1 (from torch==2.5.1->hipporag)
-  Using cached sympy-1.13.1-py3-none-any.whl.metadata (12 kB)
-Collecting mpmath<1.4,>=1.1.0 (from sympy==1.13.1->torch==2.5.1->hipporag)
-  Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
-Collecting huggingface-hub<1.0,>=0.23.2 (from transformers==4.45.2->hipporag)
-  Downloading huggingface_hub-0.32.4-py3-none-any.whl.metadata (14 kB)
-Collecting numpy>=1.17 (from transformers==4.45.2->hipporag)
-  Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
-Collecting packaging>=20.0 (from transformers==4.45.2->hipporag)
-  Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
-Collecting pyyaml>=5.1 (from transformers==4.45.2->hipporag)
-  Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
-Collecting safetensors>=0.4.1 (from transformers==4.45.2->hipporag)
-  Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
-Collecting tokenizers<0.21,>=0.20 (from transformers==4.45.2->hipporag)
-  Downloading tokenizers-0.20.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
-Collecting psutil (from vllm==0.6.6.post1->hipporag)
-  Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
-Collecting sentencepiece (from vllm==0.6.6.post1->hipporag)
-  Downloading sentencepiece-0.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.7 kB)
-Collecting numpy>=1.17 (from transformers==4.45.2->hipporag)
-  Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
-Collecting blake3 (from vllm==0.6.6.post1->hipporag)
-  Downloading blake3-1.0.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
-Collecting py-cpuinfo (from vllm==0.6.6.post1->hipporag)
-  Using cached py_cpuinfo-9.0.0-py3-none-any.whl.metadata (794 bytes)
-Collecting protobuf (from vllm==0.6.6.post1->hipporag)
-  Using cached protobuf-6.31.1-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
-Collecting fastapi!=0.113.*,!=0.114.0,>=0.107.0 (from vllm==0.6.6.post1->hipporag)
-  Downloading fastapi-0.115.12-py3-none-any.whl.metadata (27 kB)
-Collecting aiohttp (from vllm==0.6.6.post1->hipporag)
-  Downloading aiohttp-3.12.11-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.6 kB)
-Collecting uvicorn[standard] (from vllm==0.6.6.post1->hipporag)
-  Downloading uvicorn-0.34.3-py3-none-any.whl.metadata (6.5 kB)
-Collecting prometheus_client>=0.18.0 (from vllm==0.6.6.post1->hipporag)
-  Downloading prometheus_client-0.22.1-py3-none-any.whl.metadata (1.9 kB)
-Collecting pillow (from vllm==0.6.6.post1->hipporag)
-  Downloading pillow-11.2.1-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (8.9 kB)
-Collecting prometheus-fastapi-instrumentator>=7.0.0 (from vllm==0.6.6.post1->hipporag)
-  Downloading prometheus_fastapi_instrumentator-7.1.0-py3-none-any.whl.metadata (13 kB)
-Collecting lm-format-enforcer<0.11,>=0.10.9 (from vllm==0.6.6.post1->hipporag)
-  Using cached lm_format_enforcer-0.10.11-py3-none-any.whl.metadata (17 kB)
-Collecting outlines==0.1.11 (from vllm==0.6.6.post1->hipporag)
-  Using cached outlines-0.1.11-py3-none-any.whl.metadata (17 kB)
-Collecting lark==1.2.2 (from vllm==0.6.6.post1->hipporag)
-  Using cached lark-1.2.2-py3-none-any.whl.metadata (1.8 kB)
-Collecting xgrammar>=0.1.6 (from vllm==0.6.6.post1->hipporag)
-  Downloading xgrammar-0.1.19-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.6 kB)
-Collecting partial-json-parser (from vllm==0.6.6.post1->hipporag)
-  Using cached partial_json_parser-0.2.1.1.post5-py3-none-any.whl.metadata (6.1 kB)
-Collecting pyzmq (from vllm==0.6.6.post1->hipporag)
-  Downloading pyzmq-26.4.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (6.0 kB)
-Collecting msgspec (from vllm==0.6.6.post1->hipporag)
-  Downloading msgspec-0.19.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.9 kB)
-Collecting gguf==0.10.0 (from vllm==0.6.6.post1->hipporag)
-  Using cached gguf-0.10.0-py3-none-any.whl.metadata (3.5 kB)
-Collecting importlib_metadata (from vllm==0.6.6.post1->hipporag)
-  Downloading importlib_metadata-8.7.0-py3-none-any.whl.metadata (4.8 kB)
-Collecting mistral_common>=1.5.0 (from mistral_common[opencv]>=1.5.0->vllm==0.6.6.post1->hipporag)
-  Using cached mistral_common-1.5.6-py3-none-any.whl.metadata (4.6 kB)
-Collecting compressed-tensors==0.8.1 (from vllm==0.6.6.post1->hipporag)
-  Using cached compressed_tensors-0.8.1-py3-none-any.whl.metadata (6.8 kB)
-Collecting depyf==0.18.0 (from vllm==0.6.6.post1->hipporag)
-  Using cached depyf-0.18.0-py3-none-any.whl.metadata (7.1 kB)
-Collecting cloudpickle (from vllm==0.6.6.post1->hipporag)
-  Using cached cloudpickle-3.1.1-py3-none-any.whl.metadata (7.1 kB)
-Collecting ray>=2.9 (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Downloading ray-2.46.0-cp310-cp310-manylinux2014_x86_64.whl.metadata (19 kB)
-Collecting nvidia-ml-py>=12.560.30 (from vllm==0.6.6.post1->hipporag)
-  Downloading nvidia_ml_py-12.575.51-py3-none-any.whl.metadata (9.3 kB)
-Collecting torchvision==0.20.1 (from vllm==0.6.6.post1->hipporag)
-  Downloading torchvision-0.20.1-cp310-cp310-manylinux1_x86_64.whl.metadata (6.1 kB)
-Collecting xformers==0.0.28.post3 (from vllm==0.6.6.post1->hipporag)
-  Downloading xformers-0.0.28.post3-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (1.0 kB)
-Collecting astor (from depyf==0.18.0->vllm==0.6.6.post1->hipporag)
-  Using cached astor-0.8.1-py2.py3-none-any.whl.metadata (4.2 kB)
-Collecting dill (from depyf==0.18.0->vllm==0.6.6.post1->hipporag)
-  Using cached dill-0.4.0-py3-none-any.whl.metadata (10 kB)
-Collecting interegular (from outlines==0.1.11->vllm==0.6.6.post1->hipporag)
-  Using cached interegular-0.3.3-py37-none-any.whl.metadata (3.0 kB)
-Collecting nest_asyncio (from outlines==0.1.11->vllm==0.6.6.post1->hipporag)
-  Using cached nest_asyncio-1.6.0-py3-none-any.whl.metadata (2.8 kB)
-Collecting diskcache (from outlines==0.1.11->vllm==0.6.6.post1->hipporag)
-  Using cached diskcache-5.6.3-py3-none-any.whl.metadata (20 kB)
-Collecting referencing (from outlines==0.1.11->vllm==0.6.6.post1->hipporag)
-  Using cached referencing-0.36.2-py3-none-any.whl.metadata (2.8 kB)
-Collecting jsonschema (from outlines==0.1.11->vllm==0.6.6.post1->hipporag)
-  Downloading jsonschema-4.24.0-py3-none-any.whl.metadata (7.8 kB)
-Collecting pycountry (from outlines==0.1.11->vllm==0.6.6.post1->hipporag)
-  Using cached pycountry-24.6.1-py3-none-any.whl.metadata (12 kB)
-Collecting airportsdata (from outlines==0.1.11->vllm==0.6.6.post1->hipporag)
-  Downloading airportsdata-20250523-py3-none-any.whl.metadata (9.1 kB)
-Collecting outlines_core==0.1.26 (from outlines==0.1.11->vllm==0.6.6.post1->hipporag)
-  Downloading outlines_core-0.1.26-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
-Collecting exceptiongroup>=1.0.2 (from anyio<5,>=3.5.0->openai==1.58.1->hipporag)
-  Downloading exceptiongroup-1.3.0-py3-none-any.whl.metadata (6.7 kB)
-Collecting idna>=2.8 (from anyio<5,>=3.5.0->openai==1.58.1->hipporag)
-  Using cached idna-3.10-py3-none-any.whl.metadata (10 kB)
-Collecting certifi (from httpx<1,>=0.23.0->openai==1.58.1->hipporag)
-  Downloading certifi-2025.4.26-py3-none-any.whl.metadata (2.5 kB)
-Collecting httpcore==1.* (from httpx<1,>=0.23.0->openai==1.58.1->hipporag)
-  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
-Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.23.0->openai==1.58.1->hipporag)
-  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
-Collecting hf-xet<2.0.0,>=1.1.2 (from huggingface-hub<1.0,>=0.23.2->transformers==4.45.2->hipporag)
-  Downloading hf_xet-1.1.3-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (879 bytes)
-Collecting pyarrow>=15.0.0 (from datasets>=2.16.1->gritlm==1.0.2->hipporag)
-  Downloading pyarrow-20.0.0-cp310-cp310-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
-Collecting dill (from depyf==0.18.0->vllm==0.6.6.post1->hipporag)
-  Using cached dill-0.3.8-py3-none-any.whl.metadata (10 kB)
-Collecting pandas (from datasets>=2.16.1->gritlm==1.0.2->hipporag)
-  Downloading pandas-2.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (91 kB)
-Collecting xxhash (from datasets>=2.16.1->gritlm==1.0.2->hipporag)
-  Downloading xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
-Collecting multiprocess<0.70.17 (from datasets>=2.16.1->gritlm==1.0.2->hipporag)
-  Downloading multiprocess-0.70.16-py310-none-any.whl.metadata (7.2 kB)
-Collecting fsspec (from torch==2.5.1->hipporag)
-  Downloading fsspec-2025.3.0-py3-none-any.whl.metadata (11 kB)
-Collecting aiohappyeyeballs>=2.5.0 (from aiohttp->vllm==0.6.6.post1->hipporag)
-  Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
-Collecting aiosignal>=1.1.2 (from aiohttp->vllm==0.6.6.post1->hipporag)
-  Using cached aiosignal-1.3.2-py2.py3-none-any.whl.metadata (3.8 kB)
-Collecting async-timeout<6.0,>=4.0 (from aiohttp->vllm==0.6.6.post1->hipporag)
-  Using cached async_timeout-5.0.1-py3-none-any.whl.metadata (5.1 kB)
-Collecting attrs>=17.3.0 (from aiohttp->vllm==0.6.6.post1->hipporag)
-  Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
-Collecting frozenlist>=1.1.1 (from aiohttp->vllm==0.6.6.post1->hipporag)
-  Downloading frozenlist-1.6.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (17 kB)
-Collecting multidict<7.0,>=4.5 (from aiohttp->vllm==0.6.6.post1->hipporag)
-  Downloading multidict-6.4.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.3 kB)
-Collecting propcache>=0.2.0 (from aiohttp->vllm==0.6.6.post1->hipporag)
-  Downloading propcache-0.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
-Collecting yarl<2.0,>=1.17.0 (from aiohttp->vllm==0.6.6.post1->hipporag)
-  Downloading yarl-1.20.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (72 kB)
-Collecting starlette<0.47.0,>=0.40.0 (from fastapi!=0.113.*,!=0.114.0,>=0.107.0->vllm==0.6.6.post1->hipporag)
-  Downloading starlette-0.46.2-py3-none-any.whl.metadata (6.2 kB)
-Collecting jsonschema-specifications>=2023.03.6 (from jsonschema->outlines==0.1.11->vllm==0.6.6.post1->hipporag)
-  Downloading jsonschema_specifications-2025.4.1-py3-none-any.whl.metadata (2.9 kB)
-Collecting rpds-py>=0.7.1 (from jsonschema->outlines==0.1.11->vllm==0.6.6.post1->hipporag)
-  Downloading rpds_py-0.25.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
-Collecting opencv-python-headless>=4.0.0 (from mistral_common[opencv]>=1.5.0->vllm==0.6.6.post1->hipporag)
-  Using cached opencv_python_headless-4.11.0.86-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (20 kB)
-Collecting click>=7.0 (from ray>=2.9->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Downloading click-8.2.1-py3-none-any.whl.metadata (2.5 kB)
-Collecting msgpack<2.0.0,>=1.0.0 (from ray>=2.9->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Downloading msgpack-1.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (8.4 kB)
-Collecting aiohttp_cors (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached aiohttp_cors-0.8.1-py3-none-any.whl.metadata (20 kB)
-Collecting colorful (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached colorful-0.5.6-py2.py3-none-any.whl.metadata (16 kB)
-Collecting py-spy>=0.2.0 (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached py_spy-0.4.0-py2.py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.whl.metadata (16 kB)
-Collecting grpcio>=1.42.0 (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Downloading grpcio-1.73.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.8 kB)
-Collecting opencensus (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached opencensus-0.11.4-py2.py3-none-any.whl.metadata (12 kB)
-Collecting smart_open (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached smart_open-7.1.0-py3-none-any.whl.metadata (24 kB)
-Collecting virtualenv!=20.21.1,>=20.0.24 (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Downloading virtualenv-20.31.2-py3-none-any.whl.metadata (4.5 kB)
-Collecting charset-normalizer<4,>=2 (from requests>=2.26.0->tiktoken==0.7.0->hipporag)
-  Downloading charset_normalizer-3.4.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (35 kB)
-Collecting urllib3<3,>=1.21.1 (from requests>=2.26.0->tiktoken==0.7.0->hipporag)
-  Downloading urllib3-2.4.0-py3-none-any.whl.metadata (6.5 kB)
-Collecting distlib<1,>=0.3.7 (from virtualenv!=20.21.1,>=20.0.24->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached distlib-0.3.9-py2.py3-none-any.whl.metadata (5.2 kB)
-Collecting platformdirs<5,>=3.9.1 (from virtualenv!=20.21.1,>=20.0.24->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Downloading platformdirs-4.3.8-py3-none-any.whl.metadata (12 kB)
-Collecting ninja (from xgrammar>=0.1.6->vllm==0.6.6.post1->hipporag)
-  Using cached ninja-1.11.1.4-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (5.0 kB)
-Collecting zipp>=3.20 (from importlib_metadata->vllm==0.6.6.post1->hipporag)
-  Downloading zipp-3.23.0-py3-none-any.whl.metadata (3.6 kB)
-Collecting MarkupSafe>=2.0 (from jinja2->torch==2.5.1->hipporag)
-  Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
-Collecting scikit_learn>=1.0.2 (from mteb->gritlm==1.0.2->hipporag)
-  Downloading scikit_learn-1.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (17 kB)
-Collecting scipy>=0.0.0 (from mteb->gritlm==1.0.2->hipporag)
-  Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
-Collecting sentence_transformers>=3.0.0 (from mteb->gritlm==1.0.2->hipporag)
-  Downloading sentence_transformers-4.1.0-py3-none-any.whl.metadata (13 kB)
-Collecting rich>=0.0.0 (from mteb->gritlm==1.0.2->hipporag)
-  Downloading rich-14.0.0-py3-none-any.whl.metadata (18 kB)
-Collecting pytrec-eval-terrier>=0.5.6 (from mteb->gritlm==1.0.2->hipporag)
-  Downloading pytrec_eval_terrier-0.5.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (984 bytes)
-Collecting eval_type_backport>=0.0.0 (from mteb->gritlm==1.0.2->hipporag)
-  Using cached eval_type_backport-0.2.2-py3-none-any.whl.metadata (2.2 kB)
-Collecting polars>=0.20.22 (from mteb->gritlm==1.0.2->hipporag)
-  Downloading polars-1.30.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
-Collecting markdown-it-py>=2.2.0 (from rich>=0.0.0->mteb->gritlm==1.0.2->hipporag)
-  Using cached markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
-Collecting pygments<3.0.0,>=2.13.0 (from rich>=0.0.0->mteb->gritlm==1.0.2->hipporag)
-  Using cached pygments-2.19.1-py3-none-any.whl.metadata (2.5 kB)
-Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=0.0.0->mteb->gritlm==1.0.2->hipporag)
-  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
-Collecting joblib>=1.2.0 (from scikit_learn>=1.0.2->mteb->gritlm==1.0.2->hipporag)
-  Downloading joblib-1.5.1-py3-none-any.whl.metadata (5.6 kB)
-Collecting threadpoolctl>=3.1.0 (from scikit_learn>=1.0.2->mteb->gritlm==1.0.2->hipporag)
-  Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
-Collecting opencensus-context>=0.1.3 (from opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached opencensus_context-0.1.3-py2.py3-none-any.whl.metadata (3.3 kB)
-Collecting six~=1.16 (from opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
-Collecting google-api-core<3.0.0,>=1.0.0 (from opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Downloading google_api_core-2.25.0-py3-none-any.whl.metadata (3.0 kB)
-Collecting googleapis-common-protos<2.0.0,>=1.56.2 (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached googleapis_common_protos-1.70.0-py3-none-any.whl.metadata (9.3 kB)
-Collecting proto-plus<2.0.0,>=1.22.3 (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached proto_plus-1.26.1-py3-none-any.whl.metadata (2.2 kB)
-Collecting google-auth<3.0.0,>=2.14.1 (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Downloading google_auth-2.40.3-py2.py3-none-any.whl.metadata (6.2 kB)
-Collecting cachetools<6.0,>=2.0.0 (from google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached cachetools-5.5.2-py3-none-any.whl.metadata (5.4 kB)
-Collecting pyasn1-modules>=0.2.1 (from google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
-Collecting rsa<5,>=3.1.4 (from google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached rsa-4.9.1-py3-none-any.whl.metadata (5.6 kB)
-Collecting pyasn1>=0.1.3 (from rsa<5,>=3.1.4->google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Using cached pyasn1-0.6.1-py3-none-any.whl.metadata (8.4 kB)
-Collecting python-dateutil>=2.8.2 (from pandas->datasets>=2.16.1->gritlm==1.0.2->hipporag)
-  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
-Collecting pytz>=2020.1 (from pandas->datasets>=2.16.1->gritlm==1.0.2->hipporag)
-  Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
-Collecting tzdata>=2022.7 (from pandas->datasets>=2.16.1->gritlm==1.0.2->hipporag)
-  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
-Collecting wrapt (from smart_open->ray[default]>=2.9->vllm==0.6.6.post1->hipporag)
-  Downloading wrapt-1.17.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.4 kB)
-Collecting httptools>=0.6.3 (from uvicorn[standard]->vllm==0.6.6.post1->hipporag)
-  Downloading httptools-0.6.4-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.6 kB)
-Collecting python-dotenv>=0.13 (from uvicorn[standard]->vllm==0.6.6.post1->hipporag)
-  Downloading python_dotenv-1.1.0-py3-none-any.whl.metadata (24 kB)
-Collecting uvloop>=0.15.1 (from uvicorn[standard]->vllm==0.6.6.post1->hipporag)
-  Downloading uvloop-0.21.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
-Collecting watchfiles>=0.13 (from uvicorn[standard]->vllm==0.6.6.post1->hipporag)
-  Downloading watchfiles-1.0.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.9 kB)
-Collecting websockets>=10.4 (from uvicorn[standard]->vllm==0.6.6.post1->hipporag)
-  Downloading websockets-15.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.8 kB)
-Collecting gitpython!=3.1.29,>=1.0.0 (from wandb->gritlm==1.0.2->hipporag)
-  Using cached GitPython-3.1.44-py3-none-any.whl.metadata (13 kB)
-Collecting sentry-sdk>=2.0.0 (from wandb->gritlm==1.0.2->hipporag)
-  Downloading sentry_sdk-2.29.1-py2.py3-none-any.whl.metadata (10 kB)
-Collecting setproctitle (from wandb->gritlm==1.0.2->hipporag)
-  Downloading setproctitle-1.3.6-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (10 kB)
-Collecting gitdb<5,>=4.0.1 (from gitpython!=3.1.29,>=1.0.0->wandb->gritlm==1.0.2->hipporag)
-  Using cached gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
-Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython!=3.1.29,>=1.0.0->wandb->gritlm==1.0.2->hipporag)
-  Using cached smmap-5.0.2-py3-none-any.whl.metadata (4.3 kB)
-Using cached hipporag-2.0.0a3-py3-none-any.whl (83 kB)
-Using cached gritlm-1.0.2-py3-none-any.whl (17 kB)
-Using cached networkx-3.4.2-py3-none-any.whl (1.7 MB)
-Using cached openai-1.58.1-py3-none-any.whl (454 kB)
-Using cached pydantic-2.10.4-py3-none-any.whl (431 kB)
-Downloading pydantic_core-2.27.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 9.3 MB/s eta 0:00:00
-Using cached python_igraph-0.11.8-py3-none-any.whl (9.1 kB)
-Using cached igraph-0.11.8-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
-Using cached tenacity-8.5.0-py3-none-any.whl (28 kB)
-Downloading tiktoken-0.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 6.3 MB/s eta 0:00:00
-Downloading torch-2.5.1-cp310-cp310-manylinux1_x86_64.whl (906.4 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 906.4/906.4 MB 6.8 MB/s eta 0:00:00
-Using cached nvidia_cublas_cu12-12.4.5.8-py3-none-manylinux2014_x86_64.whl (363.4 MB)
-Using cached nvidia_cuda_cupti_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (13.8 MB)
-Using cached nvidia_cuda_nvrtc_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (24.6 MB)
-Using cached nvidia_cuda_runtime_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (883 kB)
-Using cached nvidia_cudnn_cu12-9.1.0.70-py3-none-manylinux2014_x86_64.whl (664.8 MB)
-Using cached nvidia_cufft_cu12-11.2.1.3-py3-none-manylinux2014_x86_64.whl (211.5 MB)
-Using cached nvidia_curand_cu12-10.3.5.147-py3-none-manylinux2014_x86_64.whl (56.3 MB)
-Using cached nvidia_cusolver_cu12-11.6.1.9-py3-none-manylinux2014_x86_64.whl (127.9 MB)
-Using cached nvidia_cusparse_cu12-12.3.1.170-py3-none-manylinux2014_x86_64.whl (207.5 MB)
-Using cached nvidia_nccl_cu12-2.21.5-py3-none-manylinux2014_x86_64.whl (188.7 MB)
-Using cached nvidia_nvjitlink_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (21.1 MB)
-Using cached nvidia_nvtx_cu12-12.4.127-py3-none-manylinux2014_x86_64.whl (99 kB)
-Using cached sympy-1.13.1-py3-none-any.whl (6.2 MB)
-Using cached transformers-4.45.2-py3-none-any.whl (9.9 MB)
-Downloading triton-3.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (209.5 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 209.5/209.5 MB 9.1 MB/s eta 0:00:00
-Using cached vllm-0.6.6.post1-cp38-abi3-manylinux1_x86_64.whl (201.1 MB)
-Using cached compressed_tensors-0.8.1-py3-none-any.whl (87 kB)
-Using cached depyf-0.18.0-py3-none-any.whl (38 kB)
-Using cached gguf-0.10.0-py3-none-any.whl (71 kB)
-Using cached lark-1.2.2-py3-none-any.whl (111 kB)
-Using cached outlines-0.1.11-py3-none-any.whl (87 kB)
-Downloading outlines_core-0.1.26-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (343 kB)
-Downloading torchvision-0.20.1-cp310-cp310-manylinux1_x86_64.whl (7.2 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.2/7.2 MB 17.3 MB/s eta 0:00:00
-Downloading xformers-0.0.28.post3-cp310-cp310-manylinux_2_28_x86_64.whl (16.7 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 16.2 MB/s eta 0:00:00
-Downloading anyio-4.9.0-py3-none-any.whl (100 kB)
-Using cached distro-1.9.0-py3-none-any.whl (20 kB)
-Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
-Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
-Downloading huggingface_hub-0.32.4-py3-none-any.whl (512 kB)
-Downloading hf_xet-1.1.3-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.8 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 15.8 MB/s eta 0:00:00
-Downloading jiter-0.10.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (352 kB)
-Using cached lm_format_enforcer-0.10.11-py3-none-any.whl (44 kB)
-Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
-Downloading numpy-1.26.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.2 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 16.7 MB/s eta 0:00:00
-Downloading tokenizers-0.20.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 13.1 MB/s eta 0:00:00
-Downloading typing_extensions-4.14.0-py3-none-any.whl (43 kB)
-Downloading accelerate-1.7.0-py3-none-any.whl (362 kB)
-Using cached annotated_types-0.7.0-py3-none-any.whl (13 kB)
-Downloading datasets-3.6.0-py3-none-any.whl (491 kB)
-Using cached dill-0.3.8-py3-none-any.whl (116 kB)
-Downloading fsspec-2025.3.0-py3-none-any.whl (193 kB)
-Downloading multiprocess-0.70.16-py310-none-any.whl (134 kB)
-Downloading aiohttp-3.12.11-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.6 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 9.2 MB/s eta 0:00:00
-Using cached async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
-Downloading multidict-6.4.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (219 kB)
-Downloading yarl-1.20.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (333 kB)
-Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
-Using cached aiosignal-1.3.2-py2.py3-none-any.whl (7.6 kB)
-Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
-Downloading exceptiongroup-1.3.0-py3-none-any.whl (16 kB)
-Downloading fastapi-0.115.12-py3-none-any.whl (95 kB)
-Downloading starlette-0.46.2-py3-none-any.whl (72 kB)
-Downloading filelock-3.18.0-py3-none-any.whl (16 kB)
-Downloading frozenlist-1.6.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (224 kB)
-Downloading h11-0.16.0-py3-none-any.whl (37 kB)
-Using cached idna-3.10-py3-none-any.whl (70 kB)
-Using cached interegular-0.3.3-py37-none-any.whl (23 kB)
-Using cached mistral_common-1.5.6-py3-none-any.whl (6.5 MB)
-Downloading jsonschema-4.24.0-py3-none-any.whl (88 kB)
-Downloading jsonschema_specifications-2025.4.1-py3-none-any.whl (18 kB)
-Downloading nvidia_ml_py-12.575.51-py3-none-any.whl (47 kB)
-Using cached opencv_python_headless-4.11.0.86-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (50.0 MB)
-Downloading packaging-25.0-py3-none-any.whl (66 kB)
-Downloading pillow-11.2.1-cp310-cp310-manylinux_2_28_x86_64.whl (4.6 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.6/4.6 MB 17.2 MB/s eta 0:00:00
-Downloading prometheus_client-0.22.1-py3-none-any.whl (58 kB)
-Downloading prometheus_fastapi_instrumentator-7.1.0-py3-none-any.whl (19 kB)
-Downloading propcache-0.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (206 kB)
-Downloading pyarrow-20.0.0-cp310-cp310-manylinux_2_28_x86_64.whl (42.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 MB 19.4 MB/s eta 0:00:00
-Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 3.9 MB/s eta 0:00:00
-Downloading ray-2.46.0-cp310-cp310-manylinux2014_x86_64.whl (68.4 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.4/68.4 MB 13.3 MB/s eta 0:00:00
-Downloading msgpack-1.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (378 kB)
-Downloading click-8.2.1-py3-none-any.whl (102 kB)
-Using cached protobuf-6.31.1-cp39-abi3-manylinux2014_x86_64.whl (321 kB)
-Downloading grpcio-1.73.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.0 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.0/6.0 MB 10.7 MB/s eta 0:00:00
-Using cached py_spy-0.4.0-py2.py3-none-manylinux_2_5_x86_64.manylinux1_x86_64.whl (2.7 MB)
-Using cached referencing-0.36.2-py3-none-any.whl (26 kB)
-Downloading regex-2024.11.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (781 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 781.7/781.7 kB 4.5 MB/s eta 0:00:00
-Using cached requests-2.32.3-py3-none-any.whl (64 kB)
-Downloading charset_normalizer-3.4.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (149 kB)
-Downloading urllib3-2.4.0-py3-none-any.whl (128 kB)
-Downloading certifi-2025.4.26-py3-none-any.whl (159 kB)
-Downloading rpds_py-0.25.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (386 kB)
-Downloading safetensors-0.5.3-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (471 kB)
-Downloading sentencepiece-0.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 5.7 MB/s eta 0:00:00
-Using cached sniffio-1.3.1-py3-none-any.whl (10 kB)
-Using cached texttable-1.7.0-py2.py3-none-any.whl (10 kB)
-Using cached tqdm-4.67.1-py3-none-any.whl (78 kB)
-Downloading virtualenv-20.31.2-py3-none-any.whl (6.1 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.1/6.1 MB 14.3 MB/s eta 0:00:00
-Using cached distlib-0.3.9-py2.py3-none-any.whl (468 kB)
-Downloading platformdirs-4.3.8-py3-none-any.whl (18 kB)
-Downloading xgrammar-0.1.19-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (5.8 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.8/5.8 MB 9.8 MB/s eta 0:00:00
-Using cached aiohttp_cors-0.8.1-py3-none-any.whl (25 kB)
-Downloading airportsdata-20250523-py3-none-any.whl (912 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 912.7/912.7 kB 4.8 MB/s eta 0:00:00
-Using cached astor-0.8.1-py2.py3-none-any.whl (27 kB)
-Downloading blake3-1.0.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (385 kB)
-Using cached cloudpickle-3.1.1-py3-none-any.whl (20 kB)
-Using cached colorful-0.5.6-py2.py3-none-any.whl (201 kB)
-Using cached diskcache-5.6.3-py3-none-any.whl (45 kB)
-Downloading einops-0.8.1-py3-none-any.whl (64 kB)
-Downloading importlib_metadata-8.7.0-py3-none-any.whl (27 kB)
-Downloading zipp-3.23.0-py3-none-any.whl (10 kB)
-Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
-Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
-Downloading msgspec-0.19.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (211 kB)
-Downloading mteb-1.38.27-py3-none-any.whl (1.6 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 7.8 MB/s eta 0:00:00
-Using cached eval_type_backport-0.2.2-py3-none-any.whl (5.8 kB)
-Downloading polars-1.30.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (36.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 36.3/36.3 MB 17.5 MB/s eta 0:00:00
-Downloading pytrec_eval_terrier-0.5.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (287 kB)
-Downloading rich-14.0.0-py3-none-any.whl (243 kB)
-Using cached pygments-2.19.1-py3-none-any.whl (1.2 MB)
-Using cached markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
-Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
-Downloading scikit_learn-1.7.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.9 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.9/12.9 MB 19.3 MB/s eta 0:00:00
-Downloading joblib-1.5.1-py3-none-any.whl (307 kB)
-Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 11.6 MB/s eta 0:00:00
-Downloading sentence_transformers-4.1.0-py3-none-any.whl (345 kB)
-Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
-Using cached nest_asyncio-1.6.0-py3-none-any.whl (5.2 kB)
-Using cached ninja-1.11.1.4-py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (422 kB)
-Using cached opencensus-0.11.4-py2.py3-none-any.whl (128 kB)
-Downloading google_api_core-2.25.0-py3-none-any.whl (160 kB)
-Downloading google_auth-2.40.3-py2.py3-none-any.whl (216 kB)
-Using cached cachetools-5.5.2-py3-none-any.whl (10 kB)
-Using cached googleapis_common_protos-1.70.0-py3-none-any.whl (294 kB)
-Using cached proto_plus-1.26.1-py3-none-any.whl (50 kB)
-Using cached rsa-4.9.1-py3-none-any.whl (34 kB)
-Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
-Using cached opencensus_context-0.1.3-py2.py3-none-any.whl (5.1 kB)
-Using cached pyasn1-0.6.1-py3-none-any.whl (83 kB)
-Using cached pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
-Downloading pandas-2.3.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 13.6 MB/s eta 0:00:00
-Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
-Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
-Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
-Using cached partial_json_parser-0.2.1.1.post5-py3-none-any.whl (10 kB)
-Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
-Using cached py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
-Using cached pycountry-24.6.1-py3-none-any.whl (6.3 MB)
-Downloading pyzmq-26.4.0-cp310-cp310-manylinux_2_28_x86_64.whl (862 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 862.5/862.5 kB 4.4 MB/s eta 0:00:00
-Using cached smart_open-7.1.0-py3-none-any.whl (61 kB)
-Downloading uvicorn-0.34.3-py3-none-any.whl (62 kB)
-Downloading httptools-0.6.4-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (442 kB)
-Downloading python_dotenv-1.1.0-py3-none-any.whl (20 kB)
-Downloading uvloop-0.21.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.8 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 12.2 MB/s eta 0:00:00
-Downloading watchfiles-1.0.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (454 kB)
-Downloading websockets-15.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (181 kB)
-Downloading wandb-0.20.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23.2 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.2/23.2 MB 15.3 MB/s eta 0:00:00
-Using cached GitPython-3.1.44-py3-none-any.whl (207 kB)
-Using cached gitdb-4.0.12-py3-none-any.whl (62 kB)
-Using cached smmap-5.0.2-py3-none-any.whl (24 kB)
-Downloading sentry_sdk-2.29.1-py2.py3-none-any.whl (341 kB)
-Downloading setproctitle-1.3.6-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (30 kB)
-Downloading wrapt-1.17.2-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (82 kB)
-Downloading xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (194 kB)
-Installing collected packages: texttable, sentencepiece, pytz, py-spy, py-cpuinfo, opencensus-context, nvidia-ml-py, mpmath, distlib, colorful, blake3, zipp, xxhash, wrapt, websockets, uvloop, urllib3, tzdata, typing-extensions, tqdm, threadpoolctl, tenacity, sympy, sniffio, smmap, six, setproctitle, safetensors, rpds-py, regex, pyzmq, pyyaml, pytrec-eval-terrier, python-dotenv, pygments, pycountry, pyasn1, pyarrow, psutil, protobuf, propcache, prometheus_client, polars, platformdirs, pillow, partial-json-parser, packaging, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufft-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, ninja, networkx, nest_asyncio, msgspec, msgpack, mdurl, MarkupSafe, lark, joblib, jiter, interegular, igraph, idna, httptools, hf-xet, h11, grpcio, fsspec, frozenlist, filelock, eval_type_backport, einops, distro, diskcache, dill, cloudpickle, click, charset-normalizer, certifi, cachetools, attrs, async-timeout, astor, annotated-types, airportsdata, aiohappyeyeballs, virtualenv, uvicorn, triton, smart_open, sentry-sdk, scipy, rsa, requests, referencing, python_igraph, python-dateutil, pydantic-core, pyasn1-modules, proto-plus, opencv-python-headless, nvidia-cusparse-cu12, nvidia-cudnn-cu12, multiprocess, multidict, markdown-it-py, jinja2, importlib_metadata, httpcore, googleapis-common-protos, gitdb, gguf, exceptiongroup, depyf, aiosignal, yarl, tiktoken, scikit_learn, rich, pydantic, pandas, nvidia-cusolver-cu12, jsonschema-specifications, huggingface-hub, google-auth, gitpython, anyio, watchfiles, wandb, torch, tokenizers, starlette, lm-format-enforcer, jsonschema, httpx, google-api-core, aiohttp, xformers, transformers, torchvision, ray, prometheus-fastapi-instrumentator, outlines_core, opencensus, openai, mistral_common, fastapi, aiohttp_cors, accelerate, xgrammar, sentence_transformers, outlines, datasets, compressed-tensors, vllm, mteb, gritlm, hipporag
+WARNING: A conda environment already exists at '/dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag'
+
+Remove existing environment?
+This will remove ALL directories contained within this specified prefix directory, including any other conda environments.
+
+ (y/[n])? 
+Requirement already satisfied: hipporag in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (2.0.0a3)
+Requirement already satisfied: torch==2.5.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from hipporag) (2.5.1)
+Requirement already satisfied: transformers==4.45.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from hipporag) (4.45.2)
+Requirement already satisfied: vllm==0.6.6.post1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from hipporag) (0.6.6.post1)
+Requirement already satisfied: openai==1.58.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from hipporag) (1.58.1)
+Requirement already satisfied: gritlm==1.0.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from hipporag) (1.0.2)
+Requirement already satisfied: networkx==3.4.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from hipporag) (3.4.2)
+Requirement already satisfied: python_igraph==0.11.8 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from hipporag) (0.11.8)
+Requirement already satisfied: tiktoken==0.7.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from hipporag) (0.7.0)
+Requirement already satisfied: pydantic==2.10.4 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from hipporag) (2.10.4)
+Requirement already satisfied: tenacity==8.5.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from hipporag) (8.5.0)
+Requirement already satisfied: einops in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from hipporag) (0.8.1)
+Requirement already satisfied: tqdm in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from hipporag) (4.67.1)
+Requirement already satisfied: accelerate>=0.26.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from gritlm==1.0.2->hipporag) (1.7.0)
+Requirement already satisfied: datasets>=2.16.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from gritlm==1.0.2->hipporag) (3.6.0)
+Requirement already satisfied: wandb in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from gritlm==1.0.2->hipporag) (0.20.1)
+Requirement already satisfied: mteb in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from gritlm==1.0.2->hipporag) (1.38.27)
+Requirement already satisfied: anyio<5,>=3.5.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from openai==1.58.1->hipporag) (4.9.0)
+Requirement already satisfied: distro<2,>=1.7.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from openai==1.58.1->hipporag) (1.9.0)
+Requirement already satisfied: httpx<1,>=0.23.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from openai==1.58.1->hipporag) (0.28.1)
+Requirement already satisfied: jiter<1,>=0.4.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from openai==1.58.1->hipporag) (0.10.0)
+Requirement already satisfied: sniffio in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from openai==1.58.1->hipporag) (1.3.1)
+Requirement already satisfied: typing-extensions<5,>=4.11 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from openai==1.58.1->hipporag) (4.14.0)
+Requirement already satisfied: annotated-types>=0.6.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from pydantic==2.10.4->hipporag) (0.7.0)
+Requirement already satisfied: pydantic-core==2.27.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from pydantic==2.10.4->hipporag) (2.27.2)
+Requirement already satisfied: igraph==0.11.8 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from python_igraph==0.11.8->hipporag) (0.11.8)
+Requirement already satisfied: texttable>=1.6.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from igraph==0.11.8->python_igraph==0.11.8->hipporag) (1.7.0)
+Requirement already satisfied: regex>=2022.1.18 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from tiktoken==0.7.0->hipporag) (2024.11.6)
+Requirement already satisfied: requests>=2.26.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from tiktoken==0.7.0->hipporag) (2.32.3)
+Requirement already satisfied: filelock in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (3.18.0)
+Requirement already satisfied: jinja2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (3.1.6)
+Requirement already satisfied: fsspec in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (2025.3.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.4.127 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (12.4.127)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.4.127 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (12.4.127)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.4.127 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (12.4.127)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.4.5.8 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (12.4.5.8)
+Requirement already satisfied: nvidia-cufft-cu12==11.2.1.3 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (11.2.1.3)
+Requirement already satisfied: nvidia-curand-cu12==10.3.5.147 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (10.3.5.147)
+Requirement already satisfied: nvidia-cusolver-cu12==11.6.1.9 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (11.6.1.9)
+Requirement already satisfied: nvidia-cusparse-cu12==12.3.1.170 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (12.3.1.170)
+Requirement already satisfied: nvidia-nccl-cu12==2.21.5 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (2.21.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.4.127 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (12.4.127)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.4.127 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (12.4.127)
+Requirement already satisfied: triton==3.1.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (3.1.0)
+Requirement already satisfied: sympy==1.13.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from torch==2.5.1->hipporag) (1.13.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from sympy==1.13.1->torch==2.5.1->hipporag) (1.3.0)
+Requirement already satisfied: huggingface-hub<1.0,>=0.23.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from transformers==4.45.2->hipporag) (0.32.4)
+Requirement already satisfied: numpy>=1.17 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from transformers==4.45.2->hipporag) (1.26.4)
+Requirement already satisfied: packaging>=20.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from transformers==4.45.2->hipporag) (25.0)
+Requirement already satisfied: pyyaml>=5.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from transformers==4.45.2->hipporag) (6.0.2)
+Requirement already satisfied: safetensors>=0.4.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from transformers==4.45.2->hipporag) (0.5.3)
+Requirement already satisfied: tokenizers<0.21,>=0.20 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from transformers==4.45.2->hipporag) (0.20.3)
+Requirement already satisfied: psutil in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (7.0.0)
+Requirement already satisfied: sentencepiece in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.2.0)
+Requirement already satisfied: blake3 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (1.0.5)
+Requirement already satisfied: py-cpuinfo in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (9.0.0)
+Requirement already satisfied: protobuf in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (6.31.1)
+Requirement already satisfied: fastapi!=0.113.*,!=0.114.0,>=0.107.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.115.12)
+Requirement already satisfied: aiohttp in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (3.12.11)
+Requirement already satisfied: uvicorn[standard] in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.34.3)
+Requirement already satisfied: prometheus_client>=0.18.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.22.1)
+Requirement already satisfied: pillow in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (11.2.1)
+Requirement already satisfied: prometheus-fastapi-instrumentator>=7.0.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (7.1.0)
+Requirement already satisfied: lm-format-enforcer<0.11,>=0.10.9 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.10.11)
+Requirement already satisfied: outlines==0.1.11 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.1.11)
+Requirement already satisfied: lark==1.2.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (1.2.2)
+Requirement already satisfied: xgrammar>=0.1.6 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.1.19)
+Requirement already satisfied: partial-json-parser in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.2.1.1.post5)
+Requirement already satisfied: pyzmq in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (26.4.0)
+Requirement already satisfied: msgspec in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.19.0)
+Requirement already satisfied: gguf==0.10.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.10.0)
+Requirement already satisfied: importlib_metadata in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (8.7.0)
+Requirement already satisfied: mistral_common>=1.5.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from mistral_common[opencv]>=1.5.0->vllm==0.6.6.post1->hipporag) (1.5.6)
+Requirement already satisfied: compressed-tensors==0.8.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.8.1)
+Requirement already satisfied: depyf==0.18.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.18.0)
+Requirement already satisfied: cloudpickle in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (3.1.1)
+Requirement already satisfied: ray>=2.9 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (2.46.0)
+Requirement already satisfied: nvidia-ml-py>=12.560.30 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (12.575.51)
+Requirement already satisfied: torchvision==0.20.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.20.1)
+Requirement already satisfied: xformers==0.0.28.post3 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from vllm==0.6.6.post1->hipporag) (0.0.28.post3)
+Requirement already satisfied: astor in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from depyf==0.18.0->vllm==0.6.6.post1->hipporag) (0.8.1)
+Requirement already satisfied: dill in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from depyf==0.18.0->vllm==0.6.6.post1->hipporag) (0.3.8)
+Requirement already satisfied: interegular in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from outlines==0.1.11->vllm==0.6.6.post1->hipporag) (0.3.3)
+Requirement already satisfied: nest_asyncio in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from outlines==0.1.11->vllm==0.6.6.post1->hipporag) (1.6.0)
+Requirement already satisfied: diskcache in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from outlines==0.1.11->vllm==0.6.6.post1->hipporag) (5.6.3)
+Requirement already satisfied: referencing in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from outlines==0.1.11->vllm==0.6.6.post1->hipporag) (0.36.2)
+Requirement already satisfied: jsonschema in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from outlines==0.1.11->vllm==0.6.6.post1->hipporag) (4.24.0)
+Requirement already satisfied: pycountry in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from outlines==0.1.11->vllm==0.6.6.post1->hipporag) (24.6.1)
+Requirement already satisfied: airportsdata in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from outlines==0.1.11->vllm==0.6.6.post1->hipporag) (20250523)
+Requirement already satisfied: outlines_core==0.1.26 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from outlines==0.1.11->vllm==0.6.6.post1->hipporag) (0.1.26)
+Requirement already satisfied: exceptiongroup>=1.0.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from anyio<5,>=3.5.0->openai==1.58.1->hipporag) (1.3.0)
+Requirement already satisfied: idna>=2.8 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from anyio<5,>=3.5.0->openai==1.58.1->hipporag) (3.10)
+Requirement already satisfied: certifi in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai==1.58.1->hipporag) (2025.4.26)
+Requirement already satisfied: httpcore==1.* in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from httpx<1,>=0.23.0->openai==1.58.1->hipporag) (1.0.9)
+Requirement already satisfied: h11>=0.16 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->openai==1.58.1->hipporag) (0.16.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.1.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.23.2->transformers==4.45.2->hipporag) (1.1.3)
+Requirement already satisfied: pyarrow>=15.0.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from datasets>=2.16.1->gritlm==1.0.2->hipporag) (20.0.0)
+Requirement already satisfied: pandas in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from datasets>=2.16.1->gritlm==1.0.2->hipporag) (2.3.0)
+Requirement already satisfied: xxhash in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from datasets>=2.16.1->gritlm==1.0.2->hipporag) (3.5.0)
+Requirement already satisfied: multiprocess<0.70.17 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from datasets>=2.16.1->gritlm==1.0.2->hipporag) (0.70.16)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from aiohttp->vllm==0.6.6.post1->hipporag) (2.6.1)
+Requirement already satisfied: aiosignal>=1.1.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from aiohttp->vllm==0.6.6.post1->hipporag) (1.3.2)
+Requirement already satisfied: async-timeout<6.0,>=4.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from aiohttp->vllm==0.6.6.post1->hipporag) (5.0.1)
+Requirement already satisfied: attrs>=17.3.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from aiohttp->vllm==0.6.6.post1->hipporag) (25.3.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from aiohttp->vllm==0.6.6.post1->hipporag) (1.6.2)
+Requirement already satisfied: multidict<7.0,>=4.5 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from aiohttp->vllm==0.6.6.post1->hipporag) (6.4.4)
+Requirement already satisfied: propcache>=0.2.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from aiohttp->vllm==0.6.6.post1->hipporag) (0.3.1)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from aiohttp->vllm==0.6.6.post1->hipporag) (1.20.0)
+Requirement already satisfied: starlette<0.47.0,>=0.40.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from fastapi!=0.113.*,!=0.114.0,>=0.107.0->vllm==0.6.6.post1->hipporag) (0.46.2)
+Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from jsonschema->outlines==0.1.11->vllm==0.6.6.post1->hipporag) (2025.4.1)
+Requirement already satisfied: rpds-py>=0.7.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from jsonschema->outlines==0.1.11->vllm==0.6.6.post1->hipporag) (0.25.1)
+Requirement already satisfied: opencv-python-headless>=4.0.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from mistral_common[opencv]>=1.5.0->vllm==0.6.6.post1->hipporag) (4.11.0.86)
+Requirement already satisfied: click>=7.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from ray>=2.9->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (8.2.1)
+Requirement already satisfied: msgpack<2.0.0,>=1.0.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from ray>=2.9->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (1.1.0)
+Requirement already satisfied: aiohttp_cors in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (0.8.1)
+Requirement already satisfied: colorful in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (0.5.6)
+Requirement already satisfied: py-spy>=0.2.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (0.4.0)
+Requirement already satisfied: grpcio>=1.42.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (1.73.0)
+Requirement already satisfied: opencensus in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (0.11.4)
+Requirement already satisfied: smart_open in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (7.1.0)
+Requirement already satisfied: virtualenv!=20.21.1,>=20.0.24 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (20.31.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from requests>=2.26.0->tiktoken==0.7.0->hipporag) (3.4.2)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from requests>=2.26.0->tiktoken==0.7.0->hipporag) (2.4.0)
+Requirement already satisfied: distlib<1,>=0.3.7 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from virtualenv!=20.21.1,>=20.0.24->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (0.3.9)
+Requirement already satisfied: platformdirs<5,>=3.9.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from virtualenv!=20.21.1,>=20.0.24->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (4.3.8)
+Requirement already satisfied: ninja in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from xgrammar>=0.1.6->vllm==0.6.6.post1->hipporag) (1.11.1.4)
+Requirement already satisfied: zipp>=3.20 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from importlib_metadata->vllm==0.6.6.post1->hipporag) (3.23.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from jinja2->torch==2.5.1->hipporag) (3.0.2)
+Requirement already satisfied: scikit_learn>=1.0.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from mteb->gritlm==1.0.2->hipporag) (1.7.0)
+Requirement already satisfied: scipy>=0.0.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from mteb->gritlm==1.0.2->hipporag) (1.15.3)
+Requirement already satisfied: sentence_transformers>=3.0.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from mteb->gritlm==1.0.2->hipporag) (4.1.0)
+Requirement already satisfied: rich>=0.0.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from mteb->gritlm==1.0.2->hipporag) (14.0.0)
+Requirement already satisfied: pytrec-eval-terrier>=0.5.6 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from mteb->gritlm==1.0.2->hipporag) (0.5.7)
+Requirement already satisfied: eval_type_backport>=0.0.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from mteb->gritlm==1.0.2->hipporag) (0.2.2)
+Requirement already satisfied: polars>=0.20.22 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from mteb->gritlm==1.0.2->hipporag) (1.30.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from rich>=0.0.0->mteb->gritlm==1.0.2->hipporag) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from rich>=0.0.0->mteb->gritlm==1.0.2->hipporag) (2.19.1)
+Requirement already satisfied: mdurl~=0.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from markdown-it-py>=2.2.0->rich>=0.0.0->mteb->gritlm==1.0.2->hipporag) (0.1.2)
+Requirement already satisfied: joblib>=1.2.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from scikit_learn>=1.0.2->mteb->gritlm==1.0.2->hipporag) (1.5.1)
+Requirement already satisfied: threadpoolctl>=3.1.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from scikit_learn>=1.0.2->mteb->gritlm==1.0.2->hipporag) (3.6.0)
+Requirement already satisfied: opencensus-context>=0.1.3 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (0.1.3)
+Requirement already satisfied: six~=1.16 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (1.17.0)
+Requirement already satisfied: google-api-core<3.0.0,>=1.0.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (2.25.0)
+Requirement already satisfied: googleapis-common-protos<2.0.0,>=1.56.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (1.70.0)
+Requirement already satisfied: proto-plus<2.0.0,>=1.22.3 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (1.26.1)
+Requirement already satisfied: google-auth<3.0.0,>=2.14.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (2.40.3)
+Requirement already satisfied: cachetools<6.0,>=2.0.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (5.5.2)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (0.4.2)
+Requirement already satisfied: rsa<5,>=3.1.4 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (4.9.1)
+Requirement already satisfied: pyasn1>=0.1.3 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from rsa<5,>=3.1.4->google-auth<3.0.0,>=2.14.1->google-api-core<3.0.0,>=1.0.0->opencensus->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (0.6.1)
+Requirement already satisfied: python-dateutil>=2.8.2 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from pandas->datasets>=2.16.1->gritlm==1.0.2->hipporag) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from pandas->datasets>=2.16.1->gritlm==1.0.2->hipporag) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from pandas->datasets>=2.16.1->gritlm==1.0.2->hipporag) (2025.2)
+Requirement already satisfied: wrapt in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from smart_open->ray[default]>=2.9->vllm==0.6.6.post1->hipporag) (1.17.2)
+Requirement already satisfied: httptools>=0.6.3 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from uvicorn[standard]->vllm==0.6.6.post1->hipporag) (0.6.4)
+Requirement already satisfied: python-dotenv>=0.13 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from uvicorn[standard]->vllm==0.6.6.post1->hipporag) (1.1.0)
+Requirement already satisfied: uvloop>=0.15.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from uvicorn[standard]->vllm==0.6.6.post1->hipporag) (0.21.0)
+Requirement already satisfied: watchfiles>=0.13 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from uvicorn[standard]->vllm==0.6.6.post1->hipporag) (1.0.5)
+Requirement already satisfied: websockets>=10.4 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from uvicorn[standard]->vllm==0.6.6.post1->hipporag) (15.0.1)
+Requirement already satisfied: gitpython!=3.1.29,>=1.0.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from wandb->gritlm==1.0.2->hipporag) (3.1.44)
+Requirement already satisfied: sentry-sdk>=2.0.0 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from wandb->gritlm==1.0.2->hipporag) (2.29.1)
+Requirement already satisfied: setproctitle in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from wandb->gritlm==1.0.2->hipporag) (1.3.6)
+Requirement already satisfied: gitdb<5,>=4.0.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from gitpython!=3.1.29,>=1.0.0->wandb->gritlm==1.0.2->hipporag) (4.0.12)
+Requirement already satisfied: smmap<6,>=3.0.1 in /dss/dsshome1/0B/di38wip/miniconda3/envs/hipporag/lib/python3.10/site-packages (from gitdb<5,>=4.0.1->gitpython!=3.1.29,>=1.0.0->wandb->gritlm==1.0.2->hipporag) (5.0.2)
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+INFO 06-09 13:23:07 api_server.py:712] vLLM API server version 0.6.6.post1
+INFO 06-09 13:23:07 api_server.py:713] args: Namespace(subparser='serve', model_tag='meta-llama/Llama-3.3-70B-Instruct', config='', host=None, port=8000, uvicorn_log_level='info', allow_credentials=False, allowed_origins=['*'], allowed_methods=['*'], allowed_headers=['*'], api_key=None, lora_modules=None, prompt_adapters=None, chat_template=None, chat_template_content_format='auto', response_role='assistant', ssl_keyfile=None, ssl_certfile=None, ssl_ca_certs=None, ssl_cert_reqs=0, root_path=None, middleware=[], return_tokens_as_token_ids=False, disable_frontend_multiprocessing=False, enable_request_id_headers=False, enable_auto_tool_choice=False, tool_call_parser=None, tool_parser_plugin='', model='meta-llama/Llama-3.3-70B-Instruct', task='auto', tokenizer=None, skip_tokenizer_init=False, revision=None, code_revision=None, tokenizer_revision=None, tokenizer_mode='auto', trust_remote_code=False, allowed_local_media_path=None, download_dir=None, load_format='auto', config_format=<ConfigFormat.AUTO: 'auto'>, dtype='auto', kv_cache_dtype='auto', quantization_param_path=None, max_model_len=4096, guided_decoding_backend='xgrammar', logits_processor_pattern=None, distributed_executor_backend=None, worker_use_ray=False, pipeline_parallel_size=1, tensor_parallel_size=2, max_parallel_loading_workers=None, ray_workers_use_nsight=False, block_size=None, enable_prefix_caching=None, disable_sliding_window=False, use_v2_block_manager=True, num_lookahead_slots=0, seed=0, swap_space=4, cpu_offload_gb=0, gpu_memory_utilization=0.95, num_gpu_blocks_override=None, max_num_batched_tokens=None, max_num_seqs=None, max_logprobs=20, disable_log_stats=False, quantization=None, rope_scaling=None, rope_theta=None, hf_overrides=None, enforce_eager=False, max_seq_len_to_capture=8192, disable_custom_all_reduce=False, tokenizer_pool_size=0, tokenizer_pool_type='ray', tokenizer_pool_extra_config=None, limit_mm_per_prompt=None, mm_processor_kwargs=None, disable_mm_preprocessor_cache=False, enable_lora=False, enable_lora_bias=False, max_loras=1, max_lora_rank=16, lora_extra_vocab_size=256, lora_dtype='auto', long_lora_scaling_factors=None, max_cpu_loras=None, fully_sharded_loras=False, enable_prompt_adapter=False, max_prompt_adapters=1, max_prompt_adapter_token=0, device='auto', num_scheduler_steps=1, multi_step_stream_outputs=True, scheduler_delay_factor=0.0, enable_chunked_prefill=None, speculative_model=None, speculative_model_quantization=None, num_speculative_tokens=None, speculative_disable_mqa_scorer=False, speculative_draft_tensor_parallel_size=None, speculative_max_model_len=None, speculative_disable_by_batch_size=None, ngram_prompt_lookup_max=None, ngram_prompt_lookup_min=None, spec_decoding_acceptance_method='rejection_sampler', typical_acceptance_sampler_posterior_threshold=None, typical_acceptance_sampler_posterior_alpha=None, disable_logprobs_during_spec_decoding=None, model_loader_extra_config=None, ignore_patterns=[], preemption_mode=None, served_model_name=None, qlora_adapter_name_or_path=None, otlp_traces_endpoint=None, collect_detailed_traces=None, disable_async_output_proc=False, scheduling_policy='fcfs', override_neuron_config=None, override_pooler_config=None, compilation_config=None, kv_transfer_config=None, worker_cls='auto', generation_config=None, disable_log_requests=False, max_log_len=None, disable_fastapi_docs=False, enable_prompt_tokens_details=False, dispatch_function=<function serve at 0x7f557b1e4e50>)
+WARNING 06-09 13:23:07 utils.py:1834] Found ulimit of 51200 and failed to automatically increasewith error current limit exceeds maximum limit. This can cause fd limit errors like`OSError: [Errno 24] Too many open files`. Consider increasing with ulimit -n
+INFO 06-09 13:23:07 api_server.py:199] Started engine process with PID 1317104
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+INFO 06-09 13:23:19 config.py:510] This model supports multiple tasks: {'classify', 'generate', 'reward', 'score', 'embed'}. Defaulting to 'generate'.
+INFO 06-09 13:23:19 config.py:1310] Defaulting to use mp for distributed inference
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+INFO 06-09 13:23:24 config.py:510] This model supports multiple tasks: {'embed', 'reward', 'generate', 'score', 'classify'}. Defaulting to 'generate'.
+INFO 06-09 13:23:24 config.py:1310] Defaulting to use mp for distributed inference
+INFO 06-09 13:23:24 llm_engine.py:234] Initializing an LLM engine (v0.6.6.post1) with config: model='meta-llama/Llama-3.3-70B-Instruct', speculative_config=None, tokenizer='meta-llama/Llama-3.3-70B-Instruct', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=2, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, quantization_param_path=None, device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=meta-llama/Llama-3.3-70B-Instruct, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=False, chunked_prefill_enabled=False, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"candidate_compile_sizes":[],"compile_sizes":[],"capture_sizes":[256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":256}, use_cached_outputs=True, 
+[start_vllm] Waiting for vLLM /health…
+WARNING 06-09 13:23:25 multiproc_worker_utils.py:312] Reducing Torch parallelism from 8 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 06-09 13:23:25 custom_cache_manager.py:17] Setting Triton cache manager to: vllm.triton_utils.custom_cache_manager:CustomCacheManager
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+INFO 06-09 13:23:26 selector.py:120] Using Flash Attention backend.
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:23:33 selector.py:120] Using Flash Attention backend.
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:23:33 multiproc_worker_utils.py:222] Worker ready; awaiting tasks
+[start_vllm] Waiting for vLLM /health…
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:23:34 utils.py:918] Found nccl from library libnccl.so.2
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:23:34 pynccl.py:69] vLLM is using nccl==2.21.5
+INFO 06-09 13:23:34 utils.py:918] Found nccl from library libnccl.so.2
+INFO 06-09 13:23:34 pynccl.py:69] vLLM is using nccl==2.21.5
+[start_vllm] Waiting for vLLM /health…
+INFO 06-09 13:23:35 custom_all_reduce_utils.py:242] reading GPU P2P access cache from /dss/dsshome1/0B/di38wip/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:23:35 custom_all_reduce_utils.py:242] reading GPU P2P access cache from /dss/dsshome1/0B/di38wip/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+INFO 06-09 13:23:35 shm_broadcast.py:255] vLLM message queue communication handle: Handle(connect_ip='127.0.0.1', local_reader_ranks=[1], buffer_handle=(1, 4194304, 6, 'psm_213f0765'), local_subscribe_port=47539, remote_subscribe_port=None)
+INFO 06-09 13:23:35 model_runner.py:1094] Starting to load model meta-llama/Llama-3.3-70B-Instruct...
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:23:35 model_runner.py:1094] Starting to load model meta-llama/Llama-3.3-70B-Instruct...
+[start_vllm] Waiting for vLLM /health…
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:23:36 weight_utils.py:251] Using model weights format ['*.safetensors']
+[start_vllm] Waiting for vLLM /health…
+INFO 06-09 13:23:37 weight_utils.py:251] Using model weights format ['*.safetensors']
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:28:57 model_runner.py:1099] Loading model weights took 65.7407 GB
+INFO 06-09 13:28:57 model_runner.py:1099] Loading model weights took 65.7407 GB
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:29:06 worker.py:241] Memory profiling takes 9.46 seconds
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:29:06 worker.py:241] the current vLLM instance can use total_gpu_memory (79.15GiB) x gpu_memory_utilization (0.95) = 75.19GiB
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:29:06 worker.py:241] model weights take 65.74GiB; non_torch_memory takes 1.55GiB; PyTorch activation peak memory takes 0.52GiB; the rest of the memory reserved for KV Cache is 7.38GiB.
+INFO 06-09 13:29:07 worker.py:241] Memory profiling takes 9.69 seconds
+INFO 06-09 13:29:07 worker.py:241] the current vLLM instance can use total_gpu_memory (79.15GiB) x gpu_memory_utilization (0.95) = 75.19GiB
+INFO 06-09 13:29:07 worker.py:241] model weights take 65.74GiB; non_torch_memory takes 1.55GiB; PyTorch activation peak memory takes 1.23GiB; the rest of the memory reserved for KV Cache is 6.67GiB.
+INFO 06-09 13:29:07 distributed_gpu_executor.py:57] # GPU blocks: 2731, # CPU blocks: 1638
+INFO 06-09 13:29:07 distributed_gpu_executor.py:61] Maximum concurrency for 4096 tokens per request: 10.67x
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:29:22 model_runner.py:1415] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+INFO 06-09 13:29:22 model_runner.py:1415] Capturing cudagraphs for decoding. This may lead to unexpected consequences if the model is not static. To run the model in eager mode, set 'enforce_eager=True' or use '--enforce-eager' in the CLI. If out-of-memory error occurs during cudagraph capture, consider decreasing `gpu_memory_utilization` or switching to eager mode. You can also reduce the `max_num_seqs` as needed to decrease memory usage.
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+[start_vllm] Waiting for vLLM /health…
+INFO 06-09 13:29:42 custom_all_reduce.py:224] Registering 5635 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:29:42 custom_all_reduce.py:224] Registering 5635 cuda graph addresses
+[1;36m(VllmWorkerProcess pid=1317582)[0;0m INFO 06-09 13:29:42 model_runner.py:1535] Graph capturing finished in 20 secs, took 2.32 GiB
+INFO 06-09 13:29:42 model_runner.py:1535] Graph capturing finished in 20 secs, took 2.32 GiB
+INFO 06-09 13:29:42 llm_engine.py:431] init engine (profile, create kv cache, warmup model) took 45.42 seconds
+[start_vllm] Waiting for vLLM /health…
+INFO 06-09 13:29:43 api_server.py:640] Using supplied chat template:
+INFO 06-09 13:29:43 api_server.py:640] None
+INFO 06-09 13:29:43 launcher.py:19] Available routes are:
+INFO 06-09 13:29:43 launcher.py:27] Route: /openapi.json, Methods: HEAD, GET
+INFO 06-09 13:29:43 launcher.py:27] Route: /docs, Methods: HEAD, GET
+INFO 06-09 13:29:43 launcher.py:27] Route: /docs/oauth2-redirect, Methods: HEAD, GET
+INFO 06-09 13:29:43 launcher.py:27] Route: /redoc, Methods: HEAD, GET
+INFO 06-09 13:29:43 launcher.py:27] Route: /health, Methods: GET
+INFO 06-09 13:29:43 launcher.py:27] Route: /tokenize, Methods: POST
+INFO 06-09 13:29:43 launcher.py:27] Route: /detokenize, Methods: POST
+INFO 06-09 13:29:43 launcher.py:27] Route: /v1/models, Methods: GET
+INFO 06-09 13:29:43 launcher.py:27] Route: /version, Methods: GET
+INFO 06-09 13:29:43 launcher.py:27] Route: /v1/chat/completions, Methods: POST
+INFO 06-09 13:29:43 launcher.py:27] Route: /v1/completions, Methods: POST
+INFO 06-09 13:29:43 launcher.py:27] Route: /v1/embeddings, Methods: POST
+INFO 06-09 13:29:43 launcher.py:27] Route: /pooling, Methods: POST
+INFO 06-09 13:29:43 launcher.py:27] Route: /score, Methods: POST
+INFO 06-09 13:29:43 launcher.py:27] Route: /v1/score, Methods: POST
+[start_vllm] Waiting for vLLM /health…
+INFO:     127.0.0.1:60414 - "GET /health HTTP/1.1" 200 OK
+[start_vllm] vLLM is ready!
+Retrieving for track A, type Multi, retriever_name hipporag
+Retrieving for track A, type Uni, retriever_name hipporag
+INFO 06-09 13:30:17 chat_utils.py:333] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+INFO 06-09 13:30:17 logger.py:37] Received request chatcmpl-db98fe268df94082b60bb5ed33d63c43: prompt: '<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\nYour input fields are:\n1. `question` (str): Query for retrieval\n2. `fact_before_filter` (str): Candidate facts to be filtered\n\nYour output fields are:\n1. `fact_after_filter` (Fact): Filtered facts in JSON format\n\nAll interactions will be structured in the following way, with the appropriate values filled in.\n\n[[ ## question ## ]]\n{question}\n\n[[ ## fact_before_filter ## ]]\n{fact_before_filter}\n\n[[ ## fact_after_filter ## ]]\n{fact_after_filter}        # note: the value you produce must be pareseable according to the following JSON schema: {"type": "object", "properties": {"fact": {"type": "array", "description": "A list of facts, each fact is a list of 3 strings: [subject, predicate, object]", "items": {"type": "array", "items": {"type": "string"}}, "title": "Fact"}}, "required": ["fact"], "title": "Fact"}\n\n[[ ## completed ## ]]\n\nIn adhering to this structure, your objective is: \n        You are a critical component of a high-stakes question-answering system used by top researchers and decision-makers worldwide. Your task is to filter facts based on their relevance to a given query, ensuring that the most crucial information is presented to these stakeholders. The query requires careful analysis and possibly multi-hop reasoning to connect different pieces of information. You must select up to 4 relevant facts from the provided candidate list that have a strong connection to the query, aiding in reasoning and providing an accurate answer. The output should be in JSON format, e.g., {"fact": [["s1", "p1", "o1"], ["s2", "p2", "o2"]]}, and if no facts are relevant, return an empty list, {"fact": []}. The accuracy of your response is paramount, as it will directly impact the decisions made by these high-level stakeholders. You must only use facts from the candidate list and not generate new facts. The future of critical decision-making relies on your ability to accurately filter and present relevant information.<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nAre Imperial River (Florida) and Amaradia (Dolj) both located in the same country?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["imperial river", "is located in", "florida"], ["imperial river", "is a river in", "united states"], ["imperial river", "may refer to", "south america"], ["amaradia", "flows through", "ro ia de amaradia"], ["imperial river", "may refer to", "united states"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["imperial river","is located in","florida"],["imperial river","is a river in","united states"],["amaradia","flows through","ro ia de amaradia"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nWhen is the director of film The Ancestor \'s birthday?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["jean jacques annaud", "born on", "1 october 1943"], ["tsui hark", "born on", "15 february 1950"], ["pablo trapero", "born on", "4 october 1971"], ["the ancestor", "directed by", "guido brignone"], ["benh zeitlin", "born on", "october 14  1982"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["the ancestor","directed by","guido brignone"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nIn what geographic region is the country where Teafuone is located?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["teafuaniua", "is on the", "east"], ["motuloa", "lies between", "teafuaniua"], ["motuloa", "lies between", "teafuanonu"], ["teafuone", "is", "islet"], ["teafuone", "located in", "nukufetau"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["teafuone","is","islet"],["teafuone","located in","nukufetau"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nWhen did the director of film S.O.B. (Film) die?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["allan dwan", "died on", "28 december 1981"], ["s o b", "written and directed by", "blake edwards"], ["robert aldrich", "died on", "december 5  1983"], ["robert siodmak", "died on", "10 march 1973"], ["bernardo bertolucci", "died on", "26 november 2018"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["s o b","written and directed by","blake edwards"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nDo both films: Gloria (1980 Film) and A New Life (Film) have the directors from the same country?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["sebasti n lelio watt", "received acclaim for directing", "gloria"], ["gloria", "is", "1980 american thriller crime drama film"], ["a brand new life", "is directed by", "ounie lecomte"], ["gloria", "written and directed by", "john cassavetes"], ["a new life", "directed by", "alan alda"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["gloria","is","1980 american thriller crime drama film"],["gloria","written and directed by","john cassavetes"],["a new life","directed by","alan alda"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nWhat is the date of death of the director of film The Old Guard (1960 Film)?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["the old guard", "is", "1960 french comedy film"], ["gilles grangier", "directed", "the old guard"], ["the old guard", "directed by", "gilles grangier"], ["the old fritz", "directed by", "gerhard lamprecht"], ["oswald albert mitchell", "directed", "old mother riley series of films"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["the old guard","is","1960 french comedy film"],["gilles grangier","directed","the old guard"],["the old guard","directed by","gilles grangier"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nWhen is the composer of film Aulad (1968 Film) \'s birthday?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["aulad", "has music composed by", "chitragupta shrivastava"], ["aadmi sadak ka", "has music by", "ravi"], ["ravi shankar sharma", "composed music for", "hindi films"], ["gulzar", "was born on", "18 august 1934"], ["aulad", "is a", "1968 hindi language drama film"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["aulad","has music composed by","chitragupta shrivastava"],["aulad","is a","1968 hindi language drama film"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nHow many households were in the city where Angelical Tears located?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["dow city", "had", "219 households"], ["tucson", "had", "229 762 households"], ["atlantic city", "has", "15 504 households"], ["angelical tears", "located in", "oklahoma city"], ["atlantic city", "had", "15 848 households"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact": [["angelical tears", "located in", "oklahoma city"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nDid the movies In The Pope\'S Eye and Virgin Mountain, originate from the same country?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["virgin mountain", "released in", "icelandic cinemas"], ["virgin mountain", "directed by", "dagur k ri"], ["virgin mountain", "icelandic title is", "f si"], ["virgin mountain", "won", "2015 nordic council film prize"], ["virgin mountain", "is a", "2015 icelandic drama film"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact": [["virgin mountain", "released in", "icelandic cinemas"], ["virgin mountain", "directed by", "dagur k ri"], ["virgin mountain", "icelandic title is", "f si"], ["virgin mountain", "won", "2015 nordic council film prize"], ["virgin mountain", "is a", "2015 icelandic drama film"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nWhich film has the director who died earlier, The Virtuous Model or Bulldog Drummond\'S Peril?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["the virtuous model", "is", "1919 american silent drama film"], ["bulldog drummond s peril", "directed by", "james p  hogan"], ["the virtuous model", "directed by", "albert capellani"], ["bulldog drummond s revenge", "directed by", "louis king"], ["bulldog drummond s peril", "is", "american film"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact": [["the virtuous model", "is", "1919 american silent drama film"], ["bulldog drummond s peril", "directed by", "james p  hogan"], ["the virtuous model", "directed by", "albert capellani"], ["bulldog drummond s peril", "is", "american film"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nWhat did Dante buy for $1,450?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["dante", "purchased", "poster"], ["dante", "updated", "inventory list"], ["dante", "did not purchase from", "plain english design"], ["dante", "purchased", "stamp"], ["dante", "bought", "dresser"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n', params: SamplingParams(n=1, presence_penalty=0.0, frequency_penalty=0.0, repetition_penalty=1.0, temperature=0.0, top_p=1.0, top_k=-1, min_p=0.0, seed=None, stop=[], stop_token_ids=[], bad_words=[], include_stop_str_in_output=False, ignore_eos=False, max_tokens=512, min_tokens=0, logprobs=None, prompt_logprobs=None, skip_special_tokens=True, spaces_between_special_tokens=True, truncate_prompt_tokens=None, guided_decoding=None), prompt_token_ids: None, lora_request: None, prompt_adapter_request: None.
+INFO 06-09 13:30:17 engine.py:267] Added request chatcmpl-db98fe268df94082b60bb5ed33d63c43.
+INFO 06-09 13:30:18 metrics.py:467] Avg prompt throughput: 505.1 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 6.6%, CPU KV cache usage: 0.0%.
+INFO:     127.0.0.1:45188 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Retrieving for track S, type Multi, retriever_name hipporag
+INFO 06-09 13:30:29 metrics.py:467] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1.6 tokens/s, Running: 0 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.0%, CPU KV cache usage: 0.0%.
+Retrieving for track S, type Uni, retriever_name hipporag
+INFO 06-09 13:30:39 metrics.py:467] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.0%, CPU KV cache usage: 0.0%.
+INFO 06-09 13:30:44 logger.py:37] Received request chatcmpl-0a0981131e54434d9b32821bf1dda2c4: prompt: '<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\nCutting Knowledge Date: December 2023\nToday Date: 26 Jul 2024\n\nYour input fields are:\n1. `question` (str): Query for retrieval\n2. `fact_before_filter` (str): Candidate facts to be filtered\n\nYour output fields are:\n1. `fact_after_filter` (Fact): Filtered facts in JSON format\n\nAll interactions will be structured in the following way, with the appropriate values filled in.\n\n[[ ## question ## ]]\n{question}\n\n[[ ## fact_before_filter ## ]]\n{fact_before_filter}\n\n[[ ## fact_after_filter ## ]]\n{fact_after_filter}        # note: the value you produce must be pareseable according to the following JSON schema: {"type": "object", "properties": {"fact": {"type": "array", "description": "A list of facts, each fact is a list of 3 strings: [subject, predicate, object]", "items": {"type": "array", "items": {"type": "string"}}, "title": "Fact"}}, "required": ["fact"], "title": "Fact"}\n\n[[ ## completed ## ]]\n\nIn adhering to this structure, your objective is: \n        You are a critical component of a high-stakes question-answering system used by top researchers and decision-makers worldwide. Your task is to filter facts based on their relevance to a given query, ensuring that the most crucial information is presented to these stakeholders. The query requires careful analysis and possibly multi-hop reasoning to connect different pieces of information. You must select up to 4 relevant facts from the provided candidate list that have a strong connection to the query, aiding in reasoning and providing an accurate answer. The output should be in JSON format, e.g., {"fact": [["s1", "p1", "o1"], ["s2", "p2", "o2"]]}, and if no facts are relevant, return an empty list, {"fact": []}. The accuracy of your response is paramount, as it will directly impact the decisions made by these high-level stakeholders. You must only use facts from the candidate list and not generate new facts. The future of critical decision-making relies on your ability to accurately filter and present relevant information.<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nAre Imperial River (Florida) and Amaradia (Dolj) both located in the same country?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["imperial river", "is located in", "florida"], ["imperial river", "is a river in", "united states"], ["imperial river", "may refer to", "south america"], ["amaradia", "flows through", "ro ia de amaradia"], ["imperial river", "may refer to", "united states"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["imperial river","is located in","florida"],["imperial river","is a river in","united states"],["amaradia","flows through","ro ia de amaradia"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nWhen is the director of film The Ancestor \'s birthday?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["jean jacques annaud", "born on", "1 october 1943"], ["tsui hark", "born on", "15 february 1950"], ["pablo trapero", "born on", "4 october 1971"], ["the ancestor", "directed by", "guido brignone"], ["benh zeitlin", "born on", "october 14  1982"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["the ancestor","directed by","guido brignone"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nIn what geographic region is the country where Teafuone is located?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["teafuaniua", "is on the", "east"], ["motuloa", "lies between", "teafuaniua"], ["motuloa", "lies between", "teafuanonu"], ["teafuone", "is", "islet"], ["teafuone", "located in", "nukufetau"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["teafuone","is","islet"],["teafuone","located in","nukufetau"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nWhen did the director of film S.O.B. (Film) die?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["allan dwan", "died on", "28 december 1981"], ["s o b", "written and directed by", "blake edwards"], ["robert aldrich", "died on", "december 5  1983"], ["robert siodmak", "died on", "10 march 1973"], ["bernardo bertolucci", "died on", "26 november 2018"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["s o b","written and directed by","blake edwards"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nDo both films: Gloria (1980 Film) and A New Life (Film) have the directors from the same country?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["sebasti n lelio watt", "received acclaim for directing", "gloria"], ["gloria", "is", "1980 american thriller crime drama film"], ["a brand new life", "is directed by", "ounie lecomte"], ["gloria", "written and directed by", "john cassavetes"], ["a new life", "directed by", "alan alda"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["gloria","is","1980 american thriller crime drama film"],["gloria","written and directed by","john cassavetes"],["a new life","directed by","alan alda"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nWhat is the date of death of the director of film The Old Guard (1960 Film)?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["the old guard", "is", "1960 french comedy film"], ["gilles grangier", "directed", "the old guard"], ["the old guard", "directed by", "gilles grangier"], ["the old fritz", "directed by", "gerhard lamprecht"], ["oswald albert mitchell", "directed", "old mother riley series of films"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["the old guard","is","1960 french comedy film"],["gilles grangier","directed","the old guard"],["the old guard","directed by","gilles grangier"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nWhen is the composer of film Aulad (1968 Film) \'s birthday?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["aulad", "has music composed by", "chitragupta shrivastava"], ["aadmi sadak ka", "has music by", "ravi"], ["ravi shankar sharma", "composed music for", "hindi films"], ["gulzar", "was born on", "18 august 1934"], ["aulad", "is a", "1968 hindi language drama film"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact":[["aulad","has music composed by","chitragupta shrivastava"],["aulad","is a","1968 hindi language drama film"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nHow many households were in the city where Angelical Tears located?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["dow city", "had", "219 households"], ["tucson", "had", "229 762 households"], ["atlantic city", "has", "15 504 households"], ["angelical tears", "located in", "oklahoma city"], ["atlantic city", "had", "15 848 households"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact": [["angelical tears", "located in", "oklahoma city"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nDid the movies In The Pope\'S Eye and Virgin Mountain, originate from the same country?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["virgin mountain", "released in", "icelandic cinemas"], ["virgin mountain", "directed by", "dagur k ri"], ["virgin mountain", "icelandic title is", "f si"], ["virgin mountain", "won", "2015 nordic council film prize"], ["virgin mountain", "is a", "2015 icelandic drama film"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact": [["virgin mountain", "released in", "icelandic cinemas"], ["virgin mountain", "directed by", "dagur k ri"], ["virgin mountain", "icelandic title is", "f si"], ["virgin mountain", "won", "2015 nordic council film prize"], ["virgin mountain", "is a", "2015 icelandic drama film"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nWhich film has the director who died earlier, The Virtuous Model or Bulldog Drummond\'S Peril?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["the virtuous model", "is", "1919 american silent drama film"], ["bulldog drummond s peril", "directed by", "james p  hogan"], ["the virtuous model", "directed by", "albert capellani"], ["bulldog drummond s revenge", "directed by", "louis king"], ["bulldog drummond s peril", "is", "american film"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n[[ ## fact_after_filter ## ]]\n{"fact": [["the virtuous model", "is", "1919 american silent drama film"], ["bulldog drummond s peril", "directed by", "james p  hogan"], ["the virtuous model", "directed by", "albert capellani"], ["bulldog drummond s peril", "is", "american film"]]}\n\n[[ ## completed ## ]]<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n[[ ## question ## ]]\nWhat was Dante\'s reason for visiting Germany?\n\n[[ ## fact_before_filter ## ]]\n{"fact": [["dante", "is writing", "poem"], ["dante", "is planning to", "travel"], ["dante", "wrote", "poems"], ["dante", "is focusing on", "writing"], ["dante", "is inspired by", "words"]]}\n\nRespond with the corresponding output fields, starting with the field `[[ ## fact_after_filter ## ]]` (must be formatted as a valid Python Fact), and then ending with the marker for `[[ ## completed ## ]]`.<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n', params: SamplingParams(n=1, presence_penalty=0.0, frequency_penalty=0.0, repetition_penalty=1.0, temperature=0.0, top_p=1.0, top_k=-1, min_p=0.0, seed=None, stop=[], stop_token_ids=[], bad_words=[], include_stop_str_in_output=False, ignore_eos=False, max_tokens=512, min_tokens=0, logprobs=None, prompt_logprobs=None, skip_special_tokens=True, spaces_between_special_tokens=True, truncate_prompt_tokens=None, guided_decoding=None), prompt_token_ids: None, lora_request: None, prompt_adapter_request: None.
+INFO 06-09 13:30:44 engine.py:267] Added request chatcmpl-0a0981131e54434d9b32821bf1dda2c4.
+INFO 06-09 13:30:45 metrics.py:467] Avg prompt throughput: 458.3 tokens/s, Avg generation throughput: 0.2 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 6.6%, CPU KV cache usage: 0.0%.
+INFO:     127.0.0.1:59724 - "POST /v1/chat/completions HTTP/1.1" 200 OK
+Retrieving for track T, type Multi, retriever_name hipporag
+INFO 06-09 13:30:56 metrics.py:467] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 1.6 tokens/s, Running: 0 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.0%, CPU KV cache usage: 0.0%.
+Retrieving for track T, type Uni, retriever_name hipporag
+INFO 06-09 13:31:06 metrics.py:467] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 0.0 tokens/s, Running: 0 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.0%, CPU KV cache usage: 0.0%.

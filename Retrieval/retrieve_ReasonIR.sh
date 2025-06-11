@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-#SBATCH -p mcml-dgx-a100-40x8 
-#SBATCH -q mcml
+#SBATCH -p lrz-dgx-a100-80x8
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G

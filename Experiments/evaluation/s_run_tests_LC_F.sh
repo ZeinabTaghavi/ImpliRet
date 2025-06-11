@@ -4,8 +4,8 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
 #SBATCH -t 0-08:00:00
-#SBATCH -o ./evaluation_s_run_tests_LC_a100_lrz.out
-#SBATCH -e ./evaluation_s_run_tests_LC_a100_lrz.err
+#SBATCH -o ./evaluation_s_run_tests_LC_F_a100_lrz.out
+#SBATCH -e ./evaluation_s_run_tests_LC_F_a100_lrz.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=zeinabtaghavi1377@gmail.com
 
