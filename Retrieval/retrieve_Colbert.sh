@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#SBATCH -p lrz-hgx-h100-94x4  
+#SBATCH -p lrz-hgx-a100-80x4 
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G

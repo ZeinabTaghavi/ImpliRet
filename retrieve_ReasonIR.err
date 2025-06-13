@@ -1,360 +1,216 @@
-You try to use a model that was created with version 4.0.2, however, your version is 3.4.1. This might cause unexpected behavior or errors. In that case, try to update to the latest version.
-
-
-
-The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:06<00:20,  6.78s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:14<00:14,  7.14s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:20<00:06,  6.99s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  4.29s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:21<00:00,  5.28s/it]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  9.54it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  9.66it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 12.11it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 103.74it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 103.56it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 97.10it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.72it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 95.50it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.81it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.99it/s]
 Traceback (most recent call last):
   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
     save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 93, in save_retriever_indices
     retriever = retriever_module(corpus, k=len(corpus))
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 35, in __init__
-    self._build_doc_index(batch_size=32)
-  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 46, in _build_doc_index
-    embeds = self.model.encode(
-             ^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 623, in encode
-    out_features = self.forward(features, **kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 690, in forward
-    input = module(input, **module_kwargs)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py", line 442, in forward
-    output_states = self.auto_model(**trans_features, **kwargs, return_dict=False)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/accelerate/hooks.py", line 176, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/modules/transformers_modules/reasonir/ReasonIR-8B/c3d0690370ff4a8c3d3882d8dfa85c43650034fa/modeling_reasonir_8b.py", line 1049, in forward
-    position_embeddings = self.rotary_emb(hidden_states, position_ids)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/accelerate/hooks.py", line 176, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/modules/transformers_modules/reasonir/ReasonIR-8B/c3d0690370ff4a8c3d3882d8dfa85c43650034fa/modeling_reasonir_8b.py", line 169, in forward
-    freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
-             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cuda:3! (when checking argument for argument mat2 in method wrapper_CUDA_bmm)
-You try to use a model that was created with version 4.0.2, however, your version is 3.4.1. This might cause unexpected behavior or errors. In that case, try to update to the latest version.
-
-
-
-The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.43s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.31s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.23s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.71s/it]
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 34, in __init__
+    self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 348, in __init__
+    self.to(device)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 942, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1341, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 112.00 MiB. GPU 0 has a total capacity of 93.02 GiB of which 17.88 MiB is free. Including non-PyTorch memory, this process has 92.99 GiB memory in use. Of the allocated memory 91.57 GiB is allocated by PyTorch, and 776.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 98.28it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 97.92it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  3.27it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 11.91it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 97.64it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.12it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 97.41it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 97.37it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 97.34it/s]
 Traceback (most recent call last):
   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
     save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 93, in save_retriever_indices
     retriever = retriever_module(corpus, k=len(corpus))
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 35, in __init__
-    self._build_doc_index(batch_size=32)
-  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 46, in _build_doc_index
-    embeds = self.model.encode(
-             ^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 623, in encode
-    out_features = self.forward(features, **kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 690, in forward
-    input = module(input, **module_kwargs)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py", line 442, in forward
-    output_states = self.auto_model(**trans_features, **kwargs, return_dict=False)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/accelerate/hooks.py", line 176, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/modules/transformers_modules/reasonir/ReasonIR-8B/c3d0690370ff4a8c3d3882d8dfa85c43650034fa/modeling_reasonir_8b.py", line 1049, in forward
-    position_embeddings = self.rotary_emb(hidden_states, position_ids)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/accelerate/hooks.py", line 176, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/modules/transformers_modules/reasonir/ReasonIR-8B/c3d0690370ff4a8c3d3882d8dfa85c43650034fa/modeling_reasonir_8b.py", line 169, in forward
-    freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
-             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cuda:3! (when checking argument for argument mat2 in method wrapper_CUDA_bmm)
-You try to use a model that was created with version 4.0.2, however, your version is 3.4.1. This might cause unexpected behavior or errors. In that case, try to update to the latest version.
-
-
-
-The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.44s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.32s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.24s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.72s/it]
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 34, in __init__
+    self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 348, in __init__
+    self.to(device)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 942, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1341, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 112.00 MiB. GPU 0 has a total capacity of 93.02 GiB of which 69.88 MiB is free. Including non-PyTorch memory, this process has 92.94 GiB memory in use. Of the allocated memory 91.46 GiB is allocated by PyTorch, and 836.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 95.69it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 95.38it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 98.43it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 95.85it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 97.83it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 84.69it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 97.32it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 95.14it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 95.63it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.53it/s]
 Traceback (most recent call last):
   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
     save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 93, in save_retriever_indices
     retriever = retriever_module(corpus, k=len(corpus))
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 35, in __init__
-    self._build_doc_index(batch_size=32)
-  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 46, in _build_doc_index
-    embeds = self.model.encode(
-             ^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 623, in encode
-    out_features = self.forward(features, **kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 690, in forward
-    input = module(input, **module_kwargs)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py", line 442, in forward
-    output_states = self.auto_model(**trans_features, **kwargs, return_dict=False)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/accelerate/hooks.py", line 176, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/modules/transformers_modules/reasonir/ReasonIR-8B/c3d0690370ff4a8c3d3882d8dfa85c43650034fa/modeling_reasonir_8b.py", line 1049, in forward
-    position_embeddings = self.rotary_emb(hidden_states, position_ids)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/accelerate/hooks.py", line 176, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/modules/transformers_modules/reasonir/ReasonIR-8B/c3d0690370ff4a8c3d3882d8dfa85c43650034fa/modeling_reasonir_8b.py", line 169, in forward
-    freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
-             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cuda:3! (when checking argument for argument mat2 in method wrapper_CUDA_bmm)
-You try to use a model that was created with version 4.0.2, however, your version is 3.4.1. This might cause unexpected behavior or errors. In that case, try to update to the latest version.
-
-
-
-The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.45s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.32s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.24s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.72s/it]
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 34, in __init__
+    self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 348, in __init__
+    self.to(device)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 942, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1341, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 112.00 MiB. GPU 0 has a total capacity of 93.02 GiB of which 49.88 MiB is free. Including non-PyTorch memory, this process has 92.96 GiB memory in use. Of the allocated memory 91.46 GiB is allocated by PyTorch, and 856.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 94.74it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 95.15it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 95.60it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 95.13it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 93.56it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 93.79it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 93.48it/s]
 Traceback (most recent call last):
   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
     save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 93, in save_retriever_indices
     retriever = retriever_module(corpus, k=len(corpus))
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 35, in __init__
-    self._build_doc_index(batch_size=32)
-  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 46, in _build_doc_index
-    embeds = self.model.encode(
-             ^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 623, in encode
-    out_features = self.forward(features, **kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 690, in forward
-    input = module(input, **module_kwargs)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py", line 442, in forward
-    output_states = self.auto_model(**trans_features, **kwargs, return_dict=False)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/accelerate/hooks.py", line 176, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/modules/transformers_modules/reasonir/ReasonIR-8B/c3d0690370ff4a8c3d3882d8dfa85c43650034fa/modeling_reasonir_8b.py", line 1049, in forward
-    position_embeddings = self.rotary_emb(hidden_states, position_ids)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/accelerate/hooks.py", line 176, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/modules/transformers_modules/reasonir/ReasonIR-8B/c3d0690370ff4a8c3d3882d8dfa85c43650034fa/modeling_reasonir_8b.py", line 169, in forward
-    freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
-             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cuda:3! (when checking argument for argument mat2 in method wrapper_CUDA_bmm)
-You try to use a model that was created with version 4.0.2, however, your version is 3.4.1. This might cause unexpected behavior or errors. In that case, try to update to the latest version.
-
-
-
-The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.45s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.32s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.24s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.72s/it]
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 34, in __init__
+    self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 348, in __init__
+    self.to(device)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 942, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1341, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 112.00 MiB. GPU 0 has a total capacity of 93.02 GiB of which 69.88 MiB is free. Including non-PyTorch memory, this process has 92.94 GiB memory in use. Of the allocated memory 91.46 GiB is allocated by PyTorch, and 836.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.78it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.81it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 92.47it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 98.03it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.07it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 94.82it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.89it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.84it/s]
 Traceback (most recent call last):
   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
     save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 93, in save_retriever_indices
     retriever = retriever_module(corpus, k=len(corpus))
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 35, in __init__
-    self._build_doc_index(batch_size=32)
-  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 46, in _build_doc_index
-    embeds = self.model.encode(
-             ^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 623, in encode
-    out_features = self.forward(features, **kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 690, in forward
-    input = module(input, **module_kwargs)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py", line 442, in forward
-    output_states = self.auto_model(**trans_features, **kwargs, return_dict=False)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/accelerate/hooks.py", line 176, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/modules/transformers_modules/reasonir/ReasonIR-8B/c3d0690370ff4a8c3d3882d8dfa85c43650034fa/modeling_reasonir_8b.py", line 1049, in forward
-    position_embeddings = self.rotary_emb(hidden_states, position_ids)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/accelerate/hooks.py", line 176, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/modules/transformers_modules/reasonir/ReasonIR-8B/c3d0690370ff4a8c3d3882d8dfa85c43650034fa/modeling_reasonir_8b.py", line 169, in forward
-    freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
-             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cuda:3! (when checking argument for argument mat2 in method wrapper_CUDA_bmm)
-You try to use a model that was created with version 4.0.2, however, your version is 3.4.1. This might cause unexpected behavior or errors. In that case, try to update to the latest version.
-
-
-
-The `load_in_4bit` and `load_in_8bit` arguments are deprecated and will be removed in the future versions. Please, pass a `BitsAndBytesConfig` object in `quantization_config` argument instead.
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:07,  2.46s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:04<00:04,  2.32s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:06<00:02,  2.24s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:06<00:00,  1.72s/it]
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 34, in __init__
+    self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 348, in __init__
+    self.to(device)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 942, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1341, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 112.00 MiB. GPU 0 has a total capacity of 93.02 GiB of which 81.88 MiB is free. Including non-PyTorch memory, this process has 92.93 GiB memory in use. Of the allocated memory 91.46 GiB is allocated by PyTorch, and 824.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 99.18it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 98.61it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 98.74it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 97.84it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 97.48it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.89it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 96.97it/s]
 Traceback (most recent call last):
   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 135, in <module>
     save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
   File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/./Retrieval/retrieve_indexing.py", line 93, in save_retriever_indices
     retriever = retriever_module(corpus, k=len(corpus))
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 35, in __init__
-    self._build_doc_index(batch_size=32)
-  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 46, in _build_doc_index
-    embeds = self.model.encode(
-             ^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 623, in encode
-    out_features = self.forward(features, **kwargs)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 690, in forward
-    input = module(input, **module_kwargs)
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/models/Transformer.py", line 442, in forward
-    output_states = self.auto_model(**trans_features, **kwargs, return_dict=False)
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/accelerate/hooks.py", line 176, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/modules/transformers_modules/reasonir/ReasonIR-8B/c3d0690370ff4a8c3d3882d8dfa85c43650034fa/modeling_reasonir_8b.py", line 1049, in forward
-    position_embeddings = self.rotary_emb(hidden_states, position_ids)
-                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1751, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1762, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/accelerate/hooks.py", line 176, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/dss/dssmcmlfs01/pn25pu/pn25pu-dss-0000/taghavi/HuggingFaceCache/modules/transformers_modules/reasonir/ReasonIR-8B/c3d0690370ff4a8c3d3882d8dfa85c43650034fa/modeling_reasonir_8b.py", line 169, in forward
-    freqs = (inv_freq_expanded.float() @ position_ids_expanded.float()).transpose(1, 2)
-             ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cuda:3! (when checking argument for argument mat2 in method wrapper_CUDA_bmm)
+  File "/dss/dsshome1/0B/di38wip/ImpliRet_edited/Retrieval/Retrievals/ReasonIR_retriever.py", line 34, in __init__
+    self.model = SentenceTransformer(self.llm_model_name, trust_remote_code=True, model_kwargs=self.model_kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/sentence_transformers/SentenceTransformer.py", line 348, in __init__
+    self.to(device)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1355, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 915, in _apply
+    module._apply(fn)
+  [Previous line repeated 3 more times]
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 942, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/miniconda3/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1341, in convert
+    return t.to(
+           ^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 112.00 MiB. GPU 0 has a total capacity of 93.02 GiB of which 69.88 MiB is free. Including non-PyTorch memory, this process has 92.94 GiB memory in use. Of the allocated memory 91.46 GiB is allocated by PyTorch, and 836.60 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
