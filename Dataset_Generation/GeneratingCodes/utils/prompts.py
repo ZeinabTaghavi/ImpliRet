@@ -110,6 +110,7 @@ INPUT: {context}
 "PROMPTS_A_Uni": { 
 
 'CONVERSATION_GENERATION_PROMPT' : '''
+
 **Task**
 Generate a natural conversation between two people ("user_1" and "user_2") based on a shopping list.
 
@@ -186,6 +187,7 @@ INPUT: {context}
 # S_Multi
 "PROMPTS_S_Multi": { 
 'CONVERSATION_GENERATION_PROMPT' : '''
+
 **Task**
 Generate a natural response to a forum question.
 
@@ -244,6 +246,7 @@ INPUT: {context}
 # S_Uni
 "PROMPTS_S_Uni": { 
 'CONVERSATION_GENERATION_PROMPT' : '''
+
 **Task**
 Generate a natural conversation between two people ("user_1" and "user_2") based on a trip.
 
@@ -314,6 +317,7 @@ INPUT: {context}
 # T_Multi
 "PROMPTS_T_Multi": { 
 'CONVERSATION_GENERATION_PROMPT' : '''
+
 **Task**
 Generate a natural response to a forum question.
 
