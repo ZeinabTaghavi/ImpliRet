@@ -59,7 +59,7 @@ def merging_dataset(base_path):
                 "user_ID": user_ID,
                 "user": user['name'],
                 "user_2": user_2['name'],
-                "context": conversation.encode('utf-8').decode('utf-8'),
+                "context": conversation.encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "extra_info": {k:v for k,v in schedule_info_list[j].items() if k in ['activity_type', 'days', 'hours']},
                 "question": question,
                 "answer": schedule_info_list[j]['work']
