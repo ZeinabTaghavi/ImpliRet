@@ -117,17 +117,19 @@ def merging_dataset(base_path):
             if conversation == '-':
                 print(conversation, i*30 + j)
                 raise Exception("conversation is '-'")
+            
+            assert len(shopping_info_list[j]['final_shopping'].split(' - ')) == 2, f"final_shopping is not in the correct format: {shopping_info_list[j]}"
 
             price_format = str(shopping_info_list[j]['final_price']) if shopping_info_list[j]['final_price'] < 1000 else f"{str(shopping_info_list[j]['final_price'])[:-3]},{str(shopping_info_list[j]['final_price'])[-3:]}"
             question = f"What did {user['name']} buy for ${price_format}?"
             dataset.append({
-                "user_ID": user_ID,
-                "user": user['name'],
-                "user_2": user_2['name'],
-                "context": '\n'.join(conversation).replace(f"{user['name']}: {user_2['name']}:", f"{user_2['name']}:").replace(f"{user_2['name']}: {user['name']}:", f"{user['name']}:").replace(f"{user_2['name']}: {user_2['name']}:", f"{user_2['name']}:").replace(f"{user['name']}: {user['name']}:", f"{user['name']}:").encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
-                "extra_info": {k:v for k,v in shopping_info_list[j].items() if k in ['shopping_type', 'item_to_buy', 'high_price_brand', 'low_price_brand']},
+                "id": i*30 + j,
+                "tuple_set_id": user_ID,
+                "main_speaker": user['name'],
+                "pos_document": '\n'.join(conversation).replace(f"{user['name']}: {user_2['name']}:", f"{user_2['name']}:").replace(f"{user_2['name']}: {user['name']}:", f"{user['name']}:").replace(f"{user_2['name']}: {user_2['name']}:", f"{user_2['name']}:").replace(f"{user['name']}: {user['name']}:", f"{user['name']}:").encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "question": question,
-                "answer": shopping_info_list[j]['final_shopping'],
+                "answer": f"{shopping_info_list[j]['final_shopping'].split(' - ')[1]} {shopping_info_list[j]['final_shopping'].split(' - ')[0].lower()}",
+                "explicit_hint": [f"shopping_type: {shopping_info_list[j]['shopping_type']}", f"item_to_buy: {shopping_info_list[j]['item_to_buy']}", f"high_price_brand: {shopping_info_list[j]['high_price_brand'][0]}, {shopping_info_list[j]['high_price_brand'][1]}", f"low_price_brand: {shopping_info_list[j]['low_price_brand'][0]}, {shopping_info_list[j]['low_price_brand'][1]}"]
             })
      
 

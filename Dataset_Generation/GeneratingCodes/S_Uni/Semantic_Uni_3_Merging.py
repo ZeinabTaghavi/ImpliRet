@@ -73,16 +73,16 @@ def merging_dataset(base_path):
 
             question = f"What was {user['name']}'s reason for visiting {trip_info_list[j]['trip_country']}?"
             dataset.append({
-                "user_ID": user_ID,
-                "user": user['name'],
-                "user_2": user_2['name'],
-                "context": '\n'.join(conversations).replace(f"{user}: {user_2}:", f"{user_2}:").replace(f"{user_2}: {user}:", f"{user}:").replace(f"{user_2}: {user_2}:", f"{user_2}:").replace(f"{user}: {user}:", f"{user}:").encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
-                "extra_info": {k:v for k,v in trip_info_list[j].items() if k in ['type_of_location']},
+                "id": i*30 + j,
+                "tuple_set_id": user_ID,
+                "main_speaker": user['name'],
+                "pos_document": '\n'.join(conversations).replace(f"{user}: {user_2}:", f"{user_2}:").replace(f"{user_2}: {user}:", f"{user}:").replace(f"{user_2}: {user_2}:", f"{user_2}:").replace(f"{user}: {user}:", f"{user}:").encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "question": question,
-                "answer": trip_info_list[j]['trip_purpose']
+                "answer": trip_info_list[j]['trip_purpose'],
+                "explicit_hint": [trip_info_list[j]['trip_destination']]
             })
 
-    with open(base_path + '/Data/F_Uni.jsonl', 'w', encoding='utf-8') as f:
+    with open(base_path + '/Data/W_Uni.jsonl', 'w', encoding='utf-8') as f:
         for item in dataset:
             json.dump(item, f, ensure_ascii=False)
             f.write('\n')

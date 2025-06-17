@@ -52,14 +52,13 @@ def merging_dataset(base_path):
                 print(user_response, i*30 + j)
                 raise Exception("user_response is '-'")
             dataset.append({
-                "user_ID": i,
-                "topic": topic,
+                "id": i*30 + j,
+                "tuple_set_id": i,
                 "forum_question": forum_question,
-                "message_date": f"{message_date} {hour:02d}:{minute[0]:02d}",
-                "user": user['name'],
-                "context": f"{message_date} {hour:02d}:{minute[0]:02d}, {user['name']}: {user_response}".encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
+                "pos_document": f"{message_date} {hour:02d}:{minute[0]:02d}, {user['name']}: {user_response}".encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "question": posts[j]['question'],
-                "answer": posts[j]['answer']
+                "answer": posts[j]['answer'],
+                "explicit_hint": [posts[j]['forum_post'][0], posts[j]['offset_days']],
             })
             
     with open(base_path + '/Data/T_Multi.jsonl', 'w', encoding='utf-8') as f:

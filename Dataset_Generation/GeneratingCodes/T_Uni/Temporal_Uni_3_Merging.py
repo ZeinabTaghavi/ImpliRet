@@ -54,15 +54,15 @@ def merging_dataset(base_path):
                 raise Exception("conversation is '-'")
             work_date = datetime.strptime(schedule_info_list[j]['question_time'][0], "%Y-%m-%d").strftime("%B %d, %Y")
             work_hour = schedule_info_list[j]['question_time'][1]
-            question = f"What was {user} scheduled to be doing at {work_hour}:00 on {work_date}?"
+            question = f"What was {user['name']} scheduled to be doing at {work_hour}:00 on {work_date}?"
             dataset.append({
-                "user_ID": user_ID,
-                "user": user['name'],
-                "user_2": user_2['name'],
-                "context": conversation.encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
-                "extra_info": {k:v for k,v in schedule_info_list[j].items() if k in ['activity_type', 'days', 'hours']},
+                "id": i*30 + j,
+                "tuple_set_id": user_ID,
+                "main_speaker": user['name'],
+                "pos_document": conversation.encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "question": question,
-                "answer": schedule_info_list[j]['work']
+                "answer": schedule_info_list[j]['work'],
+                "explicit_hint": [schedule_info_list[j]['days'], schedule_info_list[j]['hours']]
             })
 
     with open(base_path + '/Data/T_Uni.jsonl', 'w', encoding='utf-8') as f:
