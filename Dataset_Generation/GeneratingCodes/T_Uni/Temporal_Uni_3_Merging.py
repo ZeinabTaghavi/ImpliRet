@@ -55,6 +55,7 @@ def merging_dataset(base_path):
             work_date = datetime.strptime(schedule_info_list[j]['question_time'][0], "%Y-%m-%d").strftime("%B %d, %Y")
             work_hour = schedule_info_list[j]['question_time'][1]
             question = f"What was {user['name']} scheduled to be doing at {work_hour}:00 on {work_date}?"
+            ep_kv = {"days": schedule_info_list[j]['days'], "hours": schedule_info_list[j]['hours']}
             dataset.append({
                 "id": i*30 + j,
                 "tuple_set_id": user_ID,
@@ -62,7 +63,7 @@ def merging_dataset(base_path):
                 "pos_document": conversation.encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "question": question,
                 "answer": schedule_info_list[j]['work'],
-                "explicit_hint": {"days": schedule_info_list[j]['days'], "hours": schedule_info_list[j]['hours']}
+                "explicit_hint": {'keys': ['days', 'hours'], 'values': [ep_kv['days'], ep_kv['hours']]},
             })
 
     with open(base_path + '/Data/T_Uni.jsonl', 'w', encoding='utf-8') as f:

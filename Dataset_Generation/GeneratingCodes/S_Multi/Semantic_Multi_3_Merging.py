@@ -48,6 +48,7 @@ def merging_dataset(base_path):
 
             if user_response == '-':
                 raise Exception("user_response is '-'")
+            ep_kv = {"landmark": posts[j]['forum_post'][2]}
             dataset.append({
                 "id": i*30 + j,
                 "tuple_set_id": i,
@@ -55,7 +56,7 @@ def merging_dataset(base_path):
                 "pos_document": f"{message_date} {hour:02d}:{minute[0]:02d}, {user['name']}: {user_response}".encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "question": posts[j]['question'],
                 "answer": posts[j]['answer'],
-                "explicit_hint": {"landmark": posts[j]['forum_post'][2]},
+                "explicit_hint": {'keys': ['landmark'], 'values': [ep_kv['landmark']]},
             })
 
     with open(base_path + 'Data/W_Multi.jsonl', 'w', encoding='utf-8') as f:
