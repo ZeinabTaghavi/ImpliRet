@@ -62,7 +62,7 @@ def merging_dataset(base_path):
                 "pos_document": conversation.encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "question": question,
                 "answer": schedule_info_list[j]['work'],
-                "explicit_hint": [schedule_info_list[j]['days'], schedule_info_list[j]['hours']]
+                "explicit_hint": {"days": schedule_info_list[j]['days'], "hours": schedule_info_list[j]['hours']}
             })
 
     with open(base_path + '/Data/T_Uni.jsonl', 'w', encoding='utf-8') as f:

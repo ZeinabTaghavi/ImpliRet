@@ -129,7 +129,7 @@ def merging_dataset(base_path):
                 "pos_document": '\n'.join(conversation).replace(f"{user['name']}: {user_2['name']}:", f"{user_2['name']}:").replace(f"{user_2['name']}: {user['name']}:", f"{user['name']}:").replace(f"{user_2['name']}: {user_2['name']}:", f"{user_2['name']}:").replace(f"{user['name']}: {user['name']}:", f"{user['name']}:").encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "question": question,
                 "answer": f"{shopping_info_list[j]['final_shopping'].split(' - ')[1]} {shopping_info_list[j]['final_shopping'].split(' - ')[0].lower()}",
-                "explicit_hint": [f"shopping_type: {shopping_info_list[j]['shopping_type']}", f"item_to_buy: {shopping_info_list[j]['item_to_buy']}", f"high_price_brand: {shopping_info_list[j]['high_price_brand'][0]}, {shopping_info_list[j]['high_price_brand'][1]}", f"low_price_brand: {shopping_info_list[j]['low_price_brand'][0]}, {shopping_info_list[j]['low_price_brand'][1]}"]
+                "explicit_hint": {"shopping_type": f"{shopping_info_list[j]['shopping_type']}", "item_to_buy": f"{shopping_info_list[j]['item_to_buy']}", "high_price_brand": f"{shopping_info_list[j]['high_price_brand'][0]}, {shopping_info_list[j]['high_price_brand'][1]}", "low_price_brand": f"{shopping_info_list[j]['low_price_brand'][0]}, {shopping_info_list[j]['low_price_brand'][1]}"}
             })
      
 

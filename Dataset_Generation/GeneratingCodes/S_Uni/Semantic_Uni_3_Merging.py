@@ -79,7 +79,7 @@ def merging_dataset(base_path):
                 "pos_document": '\n'.join(conversations).replace(f"{user}: {user_2}:", f"{user_2}:").replace(f"{user_2}: {user}:", f"{user}:").replace(f"{user_2}: {user_2}:", f"{user_2}:").replace(f"{user}: {user}:", f"{user}:").encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "question": question,
                 "answer": trip_info_list[j]['trip_purpose'],
-                "explicit_hint": [trip_info_list[j]['trip_destination']]
+                "explicit_hint": {"landmark": trip_info_list[j]['trip_destination']}
             })
 
     with open(base_path + '/Data/W_Uni.jsonl', 'w', encoding='utf-8') as f:
