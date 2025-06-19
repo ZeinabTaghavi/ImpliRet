@@ -72,7 +72,6 @@ def merging_dataset(base_path):
             assert len(conversations) >= 9, f"{len(conversations)} != 10: {len(conversations)}"    
 
             question = f"What was {user['name']}'s reason for visiting {trip_info_list[j]['trip_country']}?"
-            ep_kv = {"landmark": trip_info_list[j]['trip_destination']}
             dataset.append({
                 "id": i*30 + j,
                 "tuple_set_id": user_ID,
@@ -80,7 +79,7 @@ def merging_dataset(base_path):
                 "pos_document": '\n'.join(conversations).replace(f"{user}: {user_2}:", f"{user_2}:").replace(f"{user_2}: {user}:", f"{user}:").replace(f"{user_2}: {user_2}:", f"{user_2}:").replace(f"{user}: {user}:", f"{user}:").encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "question": question,
                 "answer": trip_info_list[j]['trip_purpose'],
-                "explicit_hint": {'keys': ['landmark'], 'values': [ep_kv['landmark']]},
+                "explicit_hint": f"landmark: {trip_info_list[j]['trip_destination']}"
             })
 
     with open(base_path + '/Data/W_Uni.jsonl', 'w', encoding='utf-8') as f:

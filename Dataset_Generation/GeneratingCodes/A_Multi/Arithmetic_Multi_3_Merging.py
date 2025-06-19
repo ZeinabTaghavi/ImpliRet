@@ -83,7 +83,6 @@ def merging_dataset(base_path):
             item_name = posts[j]['question'].split('model from which brand costs')[0].replace('what ', '').lower().strip()
             price = int(posts[j]['question'].split('that cost $')[1].replace('?', ''))
             price_format = str(price) if price < 1000 else f"{str(price)[:-3]},{str(price)[-3:]}"
-            ep_kv = {"price_1": posts[j]['forum_post'][2][0], "ratio": posts[j]['forum_post'][2][1], "price_2": posts[j]['forum_post'][2][2]}
 
             dataset.append({
                 "id": i*30 + j,
@@ -92,7 +91,7 @@ def merging_dataset(base_path):
                 "pos_document": f"{message_date} {hour:02d}:{minute[0]:02d}, {user['name']}: {user_response}".encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "question": f"What brand and model of {item_name} were priced at ${price_format}?",
                 "answer": f"{posts[j]['answer'][0]} {posts[j]['answer'][1]} model",
-                "explicit_hint": {'keys': ['price_1', 'ratio', 'price_2'], 'values': [ep_kv['price_1'], ep_kv['ratio'], ep_kv['price_2']]},
+                "explicit_hint": f"price_1: {posts[j]['forum_post'][2][0]} ** ratio: {posts[j]['forum_post'][2][1]} ** price_2: {posts[j]['forum_post'][2][2]}",
             })
 
     with open(base_path + 'Data/A_Multi.jsonl', 'w', encoding='utf-8') as f:

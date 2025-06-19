@@ -51,7 +51,6 @@ def merging_dataset(base_path):
             if user_response == '-':
                 print(user_response, i*30 + j)
                 raise Exception("user_response is '-'")
-            ep_kv = {"message_date": posts[j]['forum_post'][0], "offset_days": posts[j]['offset_days']}
             dataset.append({
                 "id": i*30 + j,
                 "tuple_set_id": i,
@@ -59,7 +58,7 @@ def merging_dataset(base_path):
                 "pos_document": f"{message_date} {hour:02d}:{minute[0]:02d}, {user['name']}: {user_response}".encode('utf-8').decode('utf-8').replace('*', '').replace('...', '').replace('"', '').replace('Starting phrase:', ''),
                 "question": posts[j]['question'],
                 "answer": posts[j]['answer'],
-                "explicit_hint": {'keys': ['message_date', 'offset_days'], 'values': [ep_kv['message_date'], ep_kv['offset_days']]},
+                "explicit_hint": f"message_date: {posts[j]['forum_post'][0]} ** offset_days: {posts[j]['offset_days']}",
             })
             
     with open(base_path + '/Data/T_Multi.jsonl', 'w', encoding='utf-8') as f:
