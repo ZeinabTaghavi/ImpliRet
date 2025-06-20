@@ -3,25 +3,31 @@ import json
 import argparse
 import shutil
 from tqdm import tqdm
+from datasets import load_dataset
 
-def save_retriever_indices(dataset_folder, output_folder, track, conv_type, retriever_name, question_type, expanded_question_folder):
-    dataset_path = os.path.join(dataset_folder, f"{track}_{conv_type}.jsonl")
-    with open(dataset_path, "r") as f:
-        dataset = [json.loads(line) for line in f]
+def save_retriever_indices(output_folder, track, conv_type, retriever_name):
 
-    if question_type.lower() == "expanded":
-        with open(os.path.join(expanded_question_folder, f"{track}_{conv_type}.jsonl"), "r") as f:
-            expanded_questions = [json.loads(line) for line in f]
+    # Load the dataset directly from the Hugging Face Hub
+    subset_map = {"Multi": "multispeaker", "Uni": "unispeaker"}
+    split_map = {"A": "arithmetic", "T": "temporal", "W": "wknow"}
 
+    hf_dataset = load_dataset(
+        "zeinabTaghavi/ImpliRet",
+        name=subset_map[conv_type],
+        split=split_map[track]
+    )
 
+    dataset = [item for item in hf_dataset]  # convert to list of dicts
+
+    
     user_corpus= []
     user_questions = []
     user_gold_indices = []
     for idx, item in enumerate(dataset):
         qs = item["question"]
-        context = item["context"]
+        pos_document = item["pos_document"]
 
-        user_corpus.append(context)
+        user_corpus.append(pos_document)
         user_questions.append(qs)
         user_gold_indices.append(idx)
    
@@ -79,7 +85,6 @@ def save_retriever_indices(dataset_folder, output_folder, track, conv_type, retr
 
     retriever = retriever_module(user_corpus, k=len(user_corpus))
     
-    
     for user_id in tqdm(range(len(user_corpus)), desc="Processing questions"):
         top_docs, scores = retriever.retrieve_data(user_questions[user_id])
         if len(top_docs) == 0:
@@ -99,10 +104,7 @@ def save_retriever_indices(dataset_folder, output_folder, track, conv_type, retr
             "index_score_tuple_list": retrieved_indices
         })
     os.makedirs(output_folder, exist_ok=True)
-    if question_type.lower() == "expanded":
-        output_path = os.path.join(output_folder, f"{track}_{conv_type}_{retriever_name}_expanded_questions_index.jsonl")
-    else:   
-        output_path = os.path.join(output_folder, f"{track}_{conv_type}_{retriever_name}_index.jsonl")
+    output_path = os.path.join(output_folder, f"{track}_{conv_type}_{retriever_name}_index.jsonl")
     with open(output_path, "w") as f:
         for entry in results:
             f.write(json.dumps(entry) + "\n")
@@ -110,13 +112,10 @@ def save_retriever_indices(dataset_folder, output_folder, track, conv_type, retr
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset_folder", type=str, default="./Dataset_Generation/Data/")
     parser.add_argument("--output_folder", type=str, default="./Retrieval/Results/")
     parser.add_argument("--track", type=str, default="A")
     parser.add_argument("--type", type=str, default="Multi")
     parser.add_argument("--retriever_name", type=str, default="bm25", help="bm25 or dragonplus or contriever or reasonir")
-    parser.add_argument("--question_type", type=str, default="original", help="original or expanded")
-    parser.add_argument("--expanded_question_folder", type=str, default="./Retrieval/Bright_Questions", help="path to expanded question folder")
     args = parser.parse_args()
 
-    save_retriever_indices(args.dataset_folder, args.output_folder, args.track, args.type, args.retriever_name, args.question_type, args.expanded_question_folder)
+    save_retriever_indices(args.output_folder, args.track, args.type, args.retriever_name)
