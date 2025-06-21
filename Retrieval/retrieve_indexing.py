@@ -119,3 +119,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     save_retriever_indices(args.output_folder, args.track, args.type, args.retriever_name)
+
