@@ -120,3 +120,4 @@ if __name__ == "__main__":
 
     save_retriever_indices(args.output_folder, args.track, args.type, args.retriever_name)
 
+
