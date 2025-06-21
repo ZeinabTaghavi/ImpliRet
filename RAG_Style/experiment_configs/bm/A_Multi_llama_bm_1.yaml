@@ -1,0 +1,23 @@
+# Reasoning Category: Arithmetic:arithmetic, World Knowledge:wknowledge, Temporal:temporal
+# Disource Type: Multi-speaker(forum style):multispeaker, Uni-speaker(chat style):unispeaker
+category: arithmetic
+discourse_type: multispeaker
+
+# Model (vLLM server)
+# The exact name of the model is in config file in the model_configs directory
+model_name: llama_3.3_70b         # uses the vLLM‑API config
+model_configs_dir: RAG_Style/model_configs
+
+# decoding / eval
+metric: EM , contains , rouge-recall
+# Number of retrieved documents
+k: 1
+# Use user retrieval or not, if true, the user retrieval will be used to retrieve the documents
+# if false, the oracle retrieval will be used to retrieve the documents
+user_retrieval: true
+retriever: bm25
+retriever_index_folder: ./Retrieval/results/
+seed: 42
+
+# Results output folder
+output_folder: ./RAG_Style/results/

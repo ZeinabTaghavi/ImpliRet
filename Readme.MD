@@ -10,9 +10,9 @@
 
 ```bash
 # clone & install
-$ git clone https://github.com/ZeinabTaghavi/MetatagIndexing_2.git
-$ cd MetatagIndexing_2
-$ python -m venv .venv && source .venv/bin/activate
+$ git clone https://github.com/ZeinabTaghavi/.git
+$ cd ImpliRet
+$ python -m venv impliret_env && source impliret_env/bin/activate
 $ pip install -r requirements.txt
 ```
 
@@ -21,17 +21,11 @@ $ pip install -r requirements.txt
 ## Repository map
 
 ```
-├── Dataset_Generation/   # ▶ generated corpora, qrels, indexes
-│   ├── Data                    # ▶ Final Datasets
-│   ├── Dataset_Helping         # ▶ Datasets that are required for generatign the final dataset
-│   └── GeneratingCodes         # ▶ Scripts for generating the dataset
-├── Experiments/             
-│   ├── evaluation 
-│   │   ├── model_configs
-│   │   ├── reports 
-│   │   ├── results
-│   │   └── run_configs
-│   └── requirements
+├── RAG_Style/             
+│   ├── model_configs
+│   ├── run_configs
+│   ├── results
+│   └── reports
 ├── Retrieval/         
 │   ├── Retrievals
 │   ├── Results
