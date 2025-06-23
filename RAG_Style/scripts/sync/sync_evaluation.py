@@ -408,7 +408,7 @@ if __name__ == "__main__":
     parser.add_argument("--model_configs_dir", type=str)
     parser.add_argument("--category", type=str, default="temporal", help="(T)emporal, (A)rithmetic or (S)emantic")
     parser.add_argument("--discourse_type", type=str, default="unispeaker", help="Uni or Multi")
-    parser.add_argument("--results_dir", type=str, default="./Experiments/Evaluation/Results/")
+    parser.add_argument("--results_dir", type=str, default="./RAG_Style/results/")
     parser.add_argument("--metric", type=str, default="EM")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--k", type=int, default=1)

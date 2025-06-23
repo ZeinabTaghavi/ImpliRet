@@ -41,10 +41,10 @@ def main() -> None:
     parser.add_argument("--discourse", dest="discourse_type", type=str, choices=["unispeaker", "multispeaker"], default="unispeaker")
     parser.add_argument("--output_folder", type=str, default="./RAG_Style/results/")
     parser.add_argument("--k", type=int, default=1)
-    parser.add_argument("--user_retrieval", type=bool, default=False)
+    parser.add_argument("--use_retrieval", type=bool, default=False)
     parser.add_argument("--retriever", type=str, default="BM25")
     parser.add_argument("--retriever_index_folder", type=str, default="./Retrieval/results/")
-
+    
     parser.add_argument("--model_name", type=str, required=True)
     parser.add_argument("--model_configs_dir", type=str, required=True)
     parser.add_argument("--metric", type=str, default="EM")
@@ -82,7 +82,7 @@ def main() -> None:
         retriever_index_folder=args.retriever_index_folder,
         metric=args.metric,
         k=args.k,
-        use_retrieval=args.user_retrieval,
+        use_retrieval=args.use_retrieval,
         seed=args.seed,
     )
     tester.evaluate()

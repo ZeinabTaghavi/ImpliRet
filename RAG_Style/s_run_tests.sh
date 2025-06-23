@@ -1,11 +1,12 @@
-#!/usr/bin/env bash
-#SBATCH -p lrz-hgx-h100-94x4  
+#!/bin/bash
+#SBATCH -p mcml-dgx-a100-40x8 
+#SBATCH -q mcml
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
-#SBATCH -t 0-08:00:00
-#SBATCH -o ./evaluation_s_run_tests_bm_a100_lrz.out
-#SBATCH -e ./evaluation_s_run_tests_bm_a100_lrz.err
+#SBATCH -t 0-00:30:00
+#SBATCH -o ./s_run_tests.out
+#SBATCH -e ./s_run_tests.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=zeinabtaghavi1377@gmail.com
 
@@ -17,9 +18,9 @@ conda activate base
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 echo "Starting the job" 
-python ./RAG_Style/scripts/sync/sync_evaluation.py \
+python ./RAG_Style/scripts/sync/sync_run_tests.py \
        --config ./RAG_Style/experiment_configs/bm/A_Multi_llama_bm_1.yaml
 
-python ./RAG_Style/scripts/sync/sync_evaluation.py \
+python ./RAG_Style/scripts/sync/sync_run_tests.py \
        --config ./RAG_Style/experiment_configs/oracle_retriever/A_Multi_llama_1.yaml
 

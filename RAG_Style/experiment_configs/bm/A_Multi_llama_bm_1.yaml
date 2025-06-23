@@ -14,7 +14,7 @@ metric: EM , contains , rouge-recall
 k: 1
 # Use user retrieval or not, if true, the user retrieval will be used to retrieve the documents
 # if false, the oracle retrieval will be used to retrieve the documents
-user_retrieval: true
+use_retrieval: true
 retriever: bm25
 retriever_index_folder: ./Retrieval/results/
 seed: 42
