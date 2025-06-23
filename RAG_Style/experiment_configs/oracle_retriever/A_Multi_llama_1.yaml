@@ -18,4 +18,4 @@ use_retrieval: false
 seed: 42
 
 # results
-output_folder: ./Experiments/evaluation/results/
+output_folder: RAG_Style/results/

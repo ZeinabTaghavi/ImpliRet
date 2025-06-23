@@ -26,7 +26,7 @@ class ModelLoader:
         model: str = "meta-llama/Llama-3.3-70B-Instruct",
         download_dir: str | None = "HF_HOME",
         tensor_parallel_size: int | None = None,
-        gpu_memory_utilization: float = 0.9,
+        gpu_memory_utilization: float = 0.90,
         max_model_len: int | None = None,
         **kwargs: Any,
     ) -> None:
@@ -62,12 +62,13 @@ class ModelLoader:
             vllm_kwargs["max_model_len"] = max_model_len
         if hasattr(LLM, "enable_prefix_caching"):
             vllm_kwargs["enable_prefix_caching"] = True
-        if backend:
-            vllm_kwargs["distributed_executor_backend"] = backend
-        if max_model_len:
-            vllm_kwargs["max_model_len"] = max_model_len
+        if "backend" in vllm_kwargs.keys():
+            vllm_kwargs["distributed_executor_backend"] = vllm_kwargs["backend"]
 
         print("\n ----------- [STEP 3] Loading Model -----------")
+        print('vllm_kwargs:')
+        print(vllm_kwargs)
+        print('-'*10)
         try:
             self.llm = LLM(**vllm_kwargs)
             print("Model loaded successfully.")

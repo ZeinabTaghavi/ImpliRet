@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/dss/dsshome1/0B/di38wip/ImpliRet/./RAG_Style/scripts/sync/sync_run_tests.py", line 93, in <module>
+    main()
+  File "/dss/dsshome1/0B/di38wip/ImpliRet/./RAG_Style/scripts/sync/sync_run_tests.py", line 88, in main
+    tester.evaluate()
+  File "/dss/dsshome1/0B/di38wip/ImpliRet/RAG_Style/scripts/sync/sync_evaluation.py", line 338, in evaluate
+    prompts = [self._get_prompt(idx, ex) for idx, ex in enumerate(self.examples)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/ImpliRet/RAG_Style/scripts/sync/sync_evaluation.py", line 324, in _get_prompt
+    context_block = self._select_context(idx)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/ImpliRet/RAG_Style/scripts/sync/sync_evaluation.py", line 310, in _select_context
+    context_convs = self._get_context_convs(self.conversations_dict[tuple_set_id], golden_index, self.k, retrieved_indices)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dss/dsshome1/0B/di38wip/ImpliRet/RAG_Style/scripts/sync/sync_evaluation.py", line 270, in _get_context_convs
+    top_k_indices = [idx for idx, _ in retrieved_indices_sorted[:k]]
+                             ^^^^^^
+ValueError: too many values to unpack (expected 2)

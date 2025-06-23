@@ -1,6 +1,5 @@
 #!/bin/bash
-#SBATCH -p mcml-dgx-a100-40x8 
-#SBATCH -q mcml
+#SBATCH -p lrz-hgx-h100-94x4
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
@@ -21,6 +20,6 @@ echo "Starting the job"
 python ./RAG_Style/scripts/sync/sync_run_tests.py \
        --config ./RAG_Style/experiment_configs/bm/A_Multi_llama_bm_1.yaml
 
-python ./RAG_Style/scripts/sync/sync_run_tests.py \
-       --config ./RAG_Style/experiment_configs/oracle_retriever/A_Multi_llama_1.yaml
+# python ./RAG_Style/scripts/sync/sync_run_tests.py \
+#        --config ./RAG_Style/experiment_configs/oracle_retriever/A_Multi_llama_1.yaml
 
