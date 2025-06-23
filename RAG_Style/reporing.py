@@ -8,7 +8,7 @@ import statistics
 from reports.utils.latex_format import save_latex_tables
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
-
+from datasets import load_dataset
 
 # Loader class for dataset answers
 class DatasetAnswerLoader:
@@ -16,63 +16,68 @@ class DatasetAnswerLoader:
     Loads all JSONL datasets at initialization and provides
     an attach_answers method to annotate result items.
     """
-    def __init__(self, dataset_folder: str):
-        self.data = {}
-        for fname in os.listdir(dataset_folder):
-            if not fname.endswith(".jsonl"):
-                continue
-            track, conv = fname[:-6].split("_", 1)
-            path = os.path.join(dataset_folder, fname)
-            rows = []
-            with open(path, "r", encoding="utf-8") as df:
-                for line in df:
-                    rows.append(json.loads(line))
-            self.data[(track, conv)] = rows
+    def __init__(self, dataset_folder: str = None):
+        """
+        Loads answer rows directly from the public HuggingFace dataset
+        `zeinabTaghavi/ImpliRet` instead of local JSONL files.
 
-    def attach_answers(self, results_list: list, track: str, conv_type: str):
+        The dataset provides two configurations (`multispeaker`, `unispeaker`)
+        and three task splits (`arithmetic`, `wknow`, `temporal`).  For
+        backward‑compatibility with the existing reporting pipeline we map
+        them to the original keys that were previously inferred from local
+        filenames:
+
+            arithmetic  -> 'A'
+            wknow       -> 'W'
+            temporal    -> 'T'
+            multispeaker → 'Multi'
+            unispeaker  → 'Uni'
+        """
+        self.data = {}
+
+        category = ["arithmetic", "wknow", "temporal"]
+        discourse_type = ["multispeaker", "unispeaker"]
+
+        dataset_name = "zeinabTaghavi/ImpliRet"
+        # iterate over each configuration (conversation style)
+        for dis in discourse_type:
+            # load all splits for the given configuration
+            for cat in category:
+                ds_dict = load_dataset("zeinabTaghavi/ImpliRet", name=dis, split=cat)
+                # convert HuggingFace Dataset to a plain list of dicts
+                rows = ds_dict.to_list() if hasattr(ds_dict, "to_list") else list(ds_dict)
+                self.data[(cat, dis)] = rows
+
+    def attach_answers(self, results_list: list, category: str, discourse_type: str):
         """
         For each item in results_list, attach the reference answer
         from the preloaded dataset rows.
         """
-        rows = self.data.get((track, conv_type), [])
+        rows = self.data.get((category, discourse_type), [])
         for item in results_list:
             rid = item.get("id")
-            if isinstance(rid, int) and 0 <= rid < len(rows):
-                row = rows[rid]
-                if conv_type.lower() == "multi":
-                    # item["gold_input"] = f"{row['message_date']}, {row['user']}: {row['user_response']}"
-                    gold_input = row['context']
-                    item_prompt = item["prompt"]
-                    if (gold_input in item_prompt):
-                        start_idx = item_prompt.find(gold_input)
-                        end_idx = start_idx + len(gold_input)
-                        item["gold_span"] = (start_idx, end_idx)
-                        item["all_spans"] = len(item_prompt)
-                    else:
-                        item['gold_span'] = None
-                else:
-                    # item["gold_input"] = str([f"{conv[0]}, {conv[1]}: {conv[2]}" for conv in row['conversation']])
-                    gold_input = row['context']
-                    item_prompt = item["prompt"]
-                    if (gold_input in item_prompt):
-                        start_idx = item_prompt.find(gold_input)
-                        end_idx = start_idx + len(gold_input)
-                        item["gold_span"] = (start_idx, end_idx)
-                        item["all_spans"] = len(item_prompt)
-                    else:
-                        item['gold_span'] = None
+            row = rows[rid]
+
+            gold_input = row['pos_document']
+            item_prompt = item["prompt"]
+            if (gold_input in item_prompt):
+                start_idx = item_prompt.find(gold_input)
+                end_idx = start_idx + len(gold_input)
+                item["gold_span"] = (start_idx, end_idx)
+                item["all_spans"] = len(item_prompt)
+            else:
+                item['gold_span'] = None
+          
 
         return results_list
 
 
-def reporting(result_path: str, metrics: List[str], report_output_folder: str, dataset_folder: str, span_filter: int):
+def reporting(result_path: str, metrics: List[str], report_output_folder: str, span_filter: int):
     # Ensure the input and output directories exist
     if not os.path.isdir(result_path):
         raise FileNotFoundError(f"Results directory not found: {result_path}")
     os.makedirs(report_output_folder, exist_ok=True)
 
-    # Initialize dataset loader for answers
-    answer_loader = DatasetAnswerLoader(dataset_folder)
 
     # List all files under the result path and its subdirectories
 
@@ -82,8 +87,8 @@ def reporting(result_path: str, metrics: List[str], report_output_folder: str, d
     for path in glob.glob(pattern, recursive=True):
         fname = os.path.basename(path)
         parts = fname.split('_')
-        track = parts[0]
-        conv_type = parts[1]
+        category = parts[0]
+        discourse_type = parts[1]
         if "retrieval" in parts:
             experiment_type = "RAG"
             retriever_type = parts[-2]
@@ -97,17 +102,16 @@ def reporting(result_path: str, metrics: List[str], report_output_folder: str, d
         except ValueError:
             raise ValueError(f"k is not an integer: {k}")
         # Derive model_name from filename
-        model_name = fname.split(f"_{k}_")[0].split(f"_{conv_type}_")[-1].strip()
+        model_name = fname.split(f"_{k}_")[0].split(f"_{discourse_type}_")[-1].strip()
         entries.append({
             "experiment_type": experiment_type,
-            "track": track,
-            "conv_type": conv_type,
+            "category": category,
+            "discourse_type": discourse_type,
             "model_name": model_name,
             "retriever_type": retriever_type,
             "k": k,
             "result_file": path
         })
-  
 
     # Compute detailed report for each metric
     for entry in entries:
@@ -115,18 +119,9 @@ def reporting(result_path: str, metrics: List[str], report_output_folder: str, d
         with open(entry["result_file"], "r", encoding="utf-8") as jf:
             data_json = json.load(jf)
         results_list = data_json.get("results", [])
-        # Attach reference answers from the dataset
-        results_list = answer_loader.attach_answers(results_list, entry["track"], entry["conv_type"])
-        # Store all per-item gold spans and full spans on the entry
-        entry["gold_spans"] = [item.get("gold_span") for item in results_list]
-        entry["all_spans"]  = [item.get("all_spans")  for item in results_list]
-        n = len(results_list) or 1
 
-        # store per-item rouge-1 scores for span filtering
-        entry["rouge1_scores"] = [
-            item.get("score")["rouge-1-recall"]
-            for item in results_list
-        ]
+
+        n = len(results_list) or 1
 
         # Initialize per-entry report dict
         entry["report"] = {}
@@ -239,37 +234,38 @@ def reporting(result_path: str, metrics: List[str], report_output_folder: str, d
     print(f"Report output folder: {report_output_folder}")
 
 
-    # Generate LaTeX tables for each metric
-    save_latex_tables(entries, metrics, report_output_folder)
 
-    # --- Generate token counting report ---
-    token_report_path = os.path.join(report_output_folder, "token_counting.txt")
-    with open(token_report_path, "w", encoding="utf-8") as tf:
-        header = [
-            "Experiment", "Track", "ConvType", "Model", "Retriever", "K",
-            "PromptMean", "CompletionMean", "TotalMean"
-        ]
-        tf.write("\t".join(header) + "\n")
-        for entry in entries:
-            exp = entry["experiment_type"]
-            track = entry["track"]
-            conv = entry["conv_type"]
-            model = entry["model_name"]
-            retriever = entry["retriever_type"] or "-"
-            k_val = entry["k"]
-            tokens = entry.get("report", {}).get("tokens", {})
-            p_mean_val = tokens.get("prompt", {}).get("Mean")
-            c_mean_val = tokens.get("completion", {}).get("Mean")
-            t_mean_val = tokens.get("total", {}).get("Mean")
-            prompt_mean = "NA" if p_mean_val is None else str(int(round(p_mean_val)))
-            completion_mean = "NA" if c_mean_val is None else str(int(round(c_mean_val)))
-            total_mean = "NA" if t_mean_val is None else str(int(round(t_mean_val)))
-            row = [
-                str(exp), str(track), str(conv), str(model), str(retriever), str(k_val),
-                str(prompt_mean), str(completion_mean), str(total_mean)
-            ]
-            tf.write("\t".join(row) + "\n")
-    print(f"Token counting report written to {token_report_path}")
+    # # Generate LaTeX tables for each metric
+    # save_latex_tables(entries, metrics, report_output_folder)
+
+    # # --- Generate token counting report ---
+    # token_report_path = os.path.join(report_output_folder, "token_counting.txt")
+    # with open(token_report_path, "w", encoding="utf-8") as tf:
+    #     header = [
+    #         "Experiment", "Category", "DiscourseType", "Model", "Retriever", "K",
+    #         "PromptMean", "CompletionMean", "TotalMean"
+    #     ]
+    #     tf.write("\t".join(header) + "\n")
+    #     for entry in entries:
+    #         exp = entry["experiment_type"]
+    #         category = entry["category"]
+    #         discourse_type = entry["discourse_type"]
+    #         model = entry["model_name"]
+    #         retriever = entry["retriever_type"] or "-"
+    #         k_val = entry["k"]
+    #         tokens = entry.get("report", {}).get("tokens", {})
+    #         p_mean_val = tokens.get("prompt", {}).get("Mean")
+    #         c_mean_val = tokens.get("completion", {}).get("Mean")
+    #         t_mean_val = tokens.get("total", {}).get("Mean")
+    #         prompt_mean = "NA" if p_mean_val is None else str(int(round(p_mean_val)))
+    #         completion_mean = "NA" if c_mean_val is None else str(int(round(c_mean_val)))
+    #         total_mean = "NA" if t_mean_val is None else str(int(round(t_mean_val)))
+    #         row = [
+    #             str(exp), str(category), str(discourse_type), str(model), str(retriever), str(k_val),
+    #             str(prompt_mean), str(completion_mean), str(total_mean)
+    #         ]
+    #         tf.write("\t".join(row) + "\n")
+    # print(f"Token counting report written to {token_report_path}")
 
 
 if __name__ == "__main__":
@@ -279,19 +275,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--result_path",
         type=str,
-        default="Experiments/evaluation/results",
+        default="RAG_Style/results",
         help="Path to directory containing experiment result JSON files"
-    )
-    parser.add_argument(
-        "--dataset_folder",
-        type=str,
-        default="Dataset_Generation/Data",
-        help="Path to directory containing dataset files"
     )
     parser.add_argument(
         "--report_output_folder",
         type=str,
-        default="Experiments/evaluation/reports",
+        default="RAG_Style/reports",
         help="Directory to save generated reports"
     )
     parser.add_argument(
@@ -309,6 +299,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     metrics = [m.strip() for m in args.metrics.split(",") if m.strip()]
-    dataset_folder = args.dataset_folder
     span_filter = args.span_filter
-    reporting(args.result_path, metrics, args.report_output_folder, args.dataset_folder, span_filter)
+    reporting(args.result_path, metrics, args.report_output_folder, span_filter)
