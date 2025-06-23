@@ -4,7 +4,7 @@ import os
 # New function to save LaTeX tables for each metric
 def save_latex_tables(entries: List[dict], metrics: List[str], report_output_folder: str):
     # Mapping of track codes to names
-    track_names = {"A": "Arithmetic", "W": "World.K", "T": "Temporal"}
+    category_names = ["arithmetic", "wknow", "temporal"]
     # Sort all k values except -1 first, then append -1 last
     all_ks = sorted(k for k in {e["k"] for e in entries} if k != -1)
     ks = all_ks + ([-1] if -1 in {e["k"] for e in entries} else [])
@@ -24,10 +24,10 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
         added_entries = 0
         lines = []
         # Header: Experiment and metric track names
-        header1 = ["Experiment"] + [track_names[t] for t in ["A", "W", "T"]] + ['Uni Avg', 'Multi Avg']
+        header1 = ["Experiment"] + category_names + ['Uni Avg', 'Multi Avg']
         lines.append(" | ".join(header1) + " \\\\")
         # Second header: K and Uni/Multi
-        header2 = ["K"] + ["Uni & Multi"] * 3 + ["", ""]
+        header2 = ["K"] + ["unispeaker & multispeaker"] * 3 + ["", ""]
         lines.append(" | ".join(header2) + " \\\\")
         # Separator
         lines.append("\\hline")
@@ -47,8 +47,8 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
                 uni_values = []
                 multi_values = []
                 
-                for t in ["A", "W", "T"]:
-                    for dis in ["Uni", "Multi"]:
+                for t in category_names:
+                    for dis in ["unispeaker", "multispeaker"]:
                         entry = lookup.get((exp_key, k, t, dis))
                         if entry:
                             if m.startswith("tokens-"):
@@ -60,13 +60,15 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
                             else:
                                 val = entry["report"][m]["Avg"]
                             row.append(f"{val:.2f}")
-                            if dis == "Uni":
+                            if dis == "unispeaker":
                                 uni_values.append(val)
                             else:
                                 multi_values.append(val)
                             added_entries += 1
                         else:
                             if not (("RAG" in exp_key and k == -1) or (dis=="Multi" and k==20)):
+                                print('--------------------------------')
+                                print(dis)
                                 print(f"Warning: missing entry: {exp_key}, {k}, {t}, {dis}")
                                 print(f"entry: {entry}")
                                 print()
@@ -87,7 +89,7 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
         # ---- Additional summary: average between Uni and Multi for each k ----
         lines.append("")
         lines.append("\\bigskip")  # vertical space after the first table
-        lines.append("\\textbf{Average between Uni and Multi per $k$} \\\\")
+        lines.append("\\textbf{Average between unispeaker and multispeaker per $k$} \\\\")
         lines.append("\\hline")
         header_combined = ["Experiment", "K", "Avg(Uni+Multi)"]
         lines.append(" & ".join(header_combined) + " \\\\")
@@ -97,8 +99,8 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
         }):
             for k in ks:
                 combined_values = []
-                for t in ["A", "W", "T"]:
-                    for dis in ["Uni", "Multi"]:
+                for t in category_names:
+                    for dis in ["unispeaker", "multispeaker"]:
                         entry = lookup.get((exp_key, k, t, dis))
                         if entry:
                             if m.startswith("tokens-"):

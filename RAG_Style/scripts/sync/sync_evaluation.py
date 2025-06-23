@@ -365,9 +365,11 @@ Answer:
                 "gold": ex["answer"],
                 "response": resp["response"].strip(),
                 "score": score,
-                "prompt_tokens": resp["prompt_tokens"],
-                "completion_tokens": resp["completion_tokens"],
-                "total_tokens": resp["total_tokens"],
+                "tokens": {
+                    "prompt": resp.get("prompt_tokens"),
+                    "completion": resp.get("completion_tokens"),
+                    "total": resp.get("total_tokens"),
+                    },
                 "finish_reason": resp["finish_reason"],
             }
             results.append(result)

@@ -178,9 +178,9 @@ def reporting(result_path: str, metrics: List[str], report_output_folder: str, s
                     }
 
         # Compute token usage stats (flat fields)
-        prompt_tokens = [item.get("prompt_tokens", 0) for item in results_list]
-        completion_tokens = [item.get("completion_tokens", 0) for item in results_list]
-        total_tokens = [item.get("total_tokens", 0) for item in results_list]
+        prompt_tokens = [item.get("tokens", {}).get("prompt", 0) for item in results_list]
+        completion_tokens = [item.get("tokens", {}).get("completion", 0) for item in results_list]
+        total_tokens = [item.get("tokens", {}).get("total", 0) for item in results_list]
 
         entry["report"]["tokens"] = {
             "prompt": {
@@ -234,39 +234,10 @@ def reporting(result_path: str, metrics: List[str], report_output_folder: str, s
     print(f"Report output folder: {report_output_folder}")
 
 
+    # Generate LaTeX tables for each metric
+    save_latex_tables(entries, metrics, report_output_folder)
 
-    # # Generate LaTeX tables for each metric
-    # save_latex_tables(entries, metrics, report_output_folder)
-
-    # # --- Generate token counting report ---
-    # token_report_path = os.path.join(report_output_folder, "token_counting.txt")
-    # with open(token_report_path, "w", encoding="utf-8") as tf:
-    #     header = [
-    #         "Experiment", "Category", "DiscourseType", "Model", "Retriever", "K",
-    #         "PromptMean", "CompletionMean", "TotalMean"
-    #     ]
-    #     tf.write("\t".join(header) + "\n")
-    #     for entry in entries:
-    #         exp = entry["experiment_type"]
-    #         category = entry["category"]
-    #         discourse_type = entry["discourse_type"]
-    #         model = entry["model_name"]
-    #         retriever = entry["retriever_type"] or "-"
-    #         k_val = entry["k"]
-    #         tokens = entry.get("report", {}).get("tokens", {})
-    #         p_mean_val = tokens.get("prompt", {}).get("Mean")
-    #         c_mean_val = tokens.get("completion", {}).get("Mean")
-    #         t_mean_val = tokens.get("total", {}).get("Mean")
-    #         prompt_mean = "NA" if p_mean_val is None else str(int(round(p_mean_val)))
-    #         completion_mean = "NA" if c_mean_val is None else str(int(round(c_mean_val)))
-    #         total_mean = "NA" if t_mean_val is None else str(int(round(t_mean_val)))
-    #         row = [
-    #             str(exp), str(category), str(discourse_type), str(model), str(retriever), str(k_val),
-    #             str(prompt_mean), str(completion_mean), str(total_mean)
-    #         ]
-    #         tf.write("\t".join(row) + "\n")
-    # print(f"Token counting report written to {token_report_path}")
-
+    
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
