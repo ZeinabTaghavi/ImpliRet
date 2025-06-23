@@ -258,7 +258,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--metrics",
         type=str,
-        default="EM,contains,rouge-recall",
+        default="EM,rouge-recall",
         help="Comma-separated list of metrics to include in the report"
     )
     parser.add_argument(

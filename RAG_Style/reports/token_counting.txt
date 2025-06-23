@@ -1,3 +1,0 @@
-Experiment	Category	DiscourseType	Model	Retriever	K	PromptMean	CompletionMean	TotalMean
-LC	arithmetic	multispeaker	gpt-4.1-2025-04-14	-	1	0	0	0
-LC	arithmetic	multispeaker	llama_3.3_70b	-	1	382	66	448

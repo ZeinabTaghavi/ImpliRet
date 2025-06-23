@@ -117,7 +117,10 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
         lines.append("\\hline")
         lines.append("")  # blank line before any subsequent content
         # Write to file
-        fname = os.path.join(report_output_folder, f"{m}_table.tex")
+        if m in ['sentences', 'tokens-prompt', 'tokens-completion', 'tokens-total']:
+            fname = os.path.join(report_output_folder, f"av_num_{m}_table.tex")
+        else:
+            fname = os.path.join(report_output_folder, f"{m}_table.tex")
         with open(fname, "w", encoding="utf-8") as f:
             f.write("\n".join(lines))
         print(f"Added {added_entries} entries for {m}")
