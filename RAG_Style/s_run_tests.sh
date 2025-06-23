@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#SBATCH -p lrz-hgx-a100-80x4
+#SBATCH -p lrz-hgx-h100-94x4  
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
@@ -17,9 +17,9 @@ conda activate base
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 echo "Starting the job" 
-python scripts/sync/sync_evaluation.py \
-       --config experiment_configs/bm/A_Multi_llama_bm_1.yaml
+python ./RAG_Style/scripts/sync/sync_evaluation.py \
+       --config ./RAG_Style/experiment_configs/bm/A_Multi_llama_bm_1.yaml
 
-python scripts/sync/sync_evaluation.py \
-       --config experiment_configs/oracle_retriever/A_Multi_llama_1.yaml
+python ./RAG_Style/scripts/sync/sync_evaluation.py \
+       --config ./RAG_Style/experiment_configs/oracle_retriever/A_Multi_llama_1.yaml
 

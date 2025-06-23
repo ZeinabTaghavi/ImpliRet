@@ -323,18 +323,25 @@ Answer:
             List of selected conversations
         """
         golden_conv = conversations[golden_index]
-        if k == -1:
-            context_convs = conversations
-        elif k == 1:
-            context_convs = [golden_conv]
-        elif k > 1: 
-            # Sample k-1 random conversations and add golden
-            other_convs = conversations[:golden_index] + conversations[golden_index+1:]
-            sampled_convs = random.sample(other_convs, min(k - 1, len(other_convs)))
-            context_convs = [golden_conv] + sampled_convs
-            random.shuffle(context_convs)
+        if self.retriever_index is not None:
+            # Use top k retrieved conversations
+            retrieved_indices_sorted = sorted(self.retriever_index, key=lambda x: x[1], reverse=True)
+            top_k_indices = [idx for idx, _ in retrieved_indices_sorted[:k]]
+            context_convs = [conversations[idx] for idx in top_k_indices]
+        elif self.retriever_index is None:
+            if k == -1:
+                context_convs = conversations
+            elif k == 1:
+                context_convs = [golden_conv]
+            elif k > 1: 
+                # Sample k-1 random conversations and add golden
+                other_convs = conversations[:golden_index] + conversations[golden_index+1:]
+                sampled_convs = random.sample(other_convs, min(k - 1, len(other_convs)))
+                context_convs = [golden_conv] + sampled_convs
+            else:
+                raise ValueError(f"Unknown k value: {k}")
         else:
-            raise ValueError(f"Unknown k value: {k}")
+            raise ValueError(f"Retrieved indices is None: {self.retriever_index}")
    
         random.shuffle(context_convs)
 

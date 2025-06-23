@@ -4,8 +4,8 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
 #SBATCH -t 0-00:30:00
-#SBATCH -o ./evaluation_a_run_tests_multi_all_h100_lrz.out
-#SBATCH -e ./evaluation_a_run_tests_multi_all_h100_lrz.err
+#SBATCH -o ./async_run_multi_llama.out
+#SBATCH -e ./async_run_multi_llama.err
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=zeinabtaghavi1377@gmail.com
 
@@ -24,8 +24,8 @@ PROJECT_ROOT=/dss/dsshome1/0B/di38wip/RAG_Style   # adjust once
 source "$PROJECT_ROOT/scripts/async/start_vllm.sh"
 
 echo "Starting the job" 
-python RAG_Style/scripts/async/async_run_tests.py \
-       --config RAG_Style/experiment_configs/oracle_retriever/A_Multi_llama_1.yaml
+python ./RAG_Style/scripts/async/async_run_tests.py \
+       --config ./RAG_Style/experiment_configs/oracle_retriever/A_Multi_llama_1.yaml
 
 
 # ------------------------------------------------------------------

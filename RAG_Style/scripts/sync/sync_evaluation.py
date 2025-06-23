@@ -90,6 +90,7 @@ class ExperimentTester:
         assert category in ['temporal', 'arithmetic', 'wknowledge'], f"Unknown category: {category}"
         self.dataset = load_dataset("zeinabTaghavi/ImpliRet", name=discourse_type, split=category)
         self.examples = self.dataset.to_list()
+        self.examples = self.examples[:10]
 
         print(f"[Init] Loaded dataset with {len(self.examples)} rows")
         if len(self.examples) == 0:
@@ -171,6 +172,7 @@ Answer:
     }
         # Setup retriever if enabled
         self.retriever = retriever
+        self.retriever_index = None
         if use_retrieval:
             print("\n ----------- [STEP 3] Setting up Retriever -----------")
             self.retriever_index_filename = os.path.join(retriever_index_folder, f"{category}_{discourse_type}_{retriever}_index.jsonl")
@@ -246,7 +248,6 @@ Answer:
     def _get_context_convs(self, conversations: List[Dict[str, Any]], 
                            golden_index: int, 
                            k: int, 
-                           retrieved_indices
                             ) -> List[str]:
         """
         Select conversations to include in the context.
@@ -255,18 +256,17 @@ Answer:
             conversations: List of all available conversations
             golden_index: Index of the golden/correct conversation
             k: Number of conversations to select
-            retrieved_indices: Optional list of (index, score) tuples from retriever
             
         Returns:
             List of selected conversations
         """
         golden_conv = conversations[golden_index]
-        if retrieved_indices is not None:
+        if self.retriever_index is not None:
             # Use top k retrieved conversations
-            retrieved_indices_sorted = sorted(retrieved_indices, key=lambda x: x[1], reverse=True)
+            retrieved_indices_sorted = sorted(self.retriever_index, key=lambda x: x[1], reverse=True)
             top_k_indices = [idx for idx, _ in retrieved_indices_sorted[:k]]
             context_convs = [conversations[idx] for idx in top_k_indices]
-        elif retrieved_indices is None:
+        elif self.retriever_index is None:
             if k == -1:
                 context_convs = conversations
             elif k == 1:
@@ -279,7 +279,7 @@ Answer:
             else:
                 raise ValueError(f"Unknown k value: {k}")
         else:
-            raise ValueError(f"Retrieved indices is None: {retrieved_indices}")
+            raise ValueError(f"Retrieved indices is None: {self.retriever_index}")
 
         random.shuffle(context_convs)
 
