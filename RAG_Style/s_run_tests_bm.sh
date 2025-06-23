@@ -17,70 +17,9 @@ conda activate base
 export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 echo "Starting the job" 
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/A_Multi_llama_bm_1.yaml
+python scripts/sync/sync_evaluation.py \
+       --config experiment_configs/bm/A_Multi_llama_bm_1.yaml
 
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/A_Multi_llama_bm_5.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/A_Multi_llama_bm_10.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/A_Uni_llama_bm_1.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/A_Uni_llama_bm_5.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/A_Uni_llama_bm_10.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/A_Uni_llama_bm_20.yaml
-
-
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/S_Multi_llama_bm_1.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/S_Multi_llama_bm_5.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/S_Multi_llama_bm_10.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/S_Uni_llama_bm_1.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/S_Uni_llama_bm_5.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/S_Uni_llama_bm_10.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/S_Uni_llama_bm_20.yaml
-
-
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/T_Multi_llama_bm_1.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/T_Multi_llama_bm_5.yaml
-
-python Experiments/evaluation/sync_run_tests.py \
-       --config Experiments/evaluation/run_configs/bm/T_Multi_llama_bm_10.yaml
-
-# python Experiments/evaluation/sync_run_tests.py \
-#        --config Experiments/evaluation/run_configs/bm/T_Uni_llama_bm_1.yaml
-
-# python Experiments/evaluation/sync_run_tests.py \
-#        --config Experiments/evaluation/run_configs/bm/T_Uni_llama_bm_5.yaml
-
-# python Experiments/evaluation/sync_run_tests.py \
-#        --config Experiments/evaluation/run_configs/bm/T_Uni_llama_bm_10.yaml
-
-# python Experiments/evaluation/sync_run_tests.py \
-#        --config Experiments/evaluation/run_configs/bm/T_Uni_llama_bm_20.yaml
+python scripts/sync/sync_evaluation.py \
+       --config experiment_configs/oracle_retriever/A_Multi_llama_1.yaml
 

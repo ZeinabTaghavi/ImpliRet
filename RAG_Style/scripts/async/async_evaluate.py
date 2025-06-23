@@ -143,7 +143,7 @@ class ExperimentTester:
         assert self.category in ['temporal', 'arithmetic', 'wknowledge'], f"Unknown category: {self.category}"
         self.dataset = load_dataset("zeinabTaghavi/ImpliRet", name=discourse_type, split=category)
         self.examples = self.dataset.to_list()
-        self.examples = self.examples[:100]
+
         print(f"[Init] Loaded dataset with {len(self.examples)} rows")
         if len(self.examples) == 0:
             raise ValueError(f"Dataset is empty.")
