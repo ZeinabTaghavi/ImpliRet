@@ -8,7 +8,7 @@
 <a href="https://huggingface.co/datasets/ZeinabTaghavi/ImpliRet" target="_blank" rel="noopener">
   <img src="https://img.shields.io/badge/%20Hugging%20Face-ImpliRet-ffca28?style=flat&logo=huggingface&logoColor=white" alt="Hugging Face">
 </a>
-<a href="https://colab.research.google.com/github/ZeinabTaghavi/ImpliRet/blob/master/notebook.ipynb" target="_WORD" rel="noopener">
+<a target="_blank" href="https://colab.research.google.com/github/ZeinabTaghavi/ImpliRet/blob/master/notebook.ipynb" rel="noopener">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
 </a>
 
