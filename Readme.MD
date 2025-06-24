@@ -26,8 +26,8 @@ contains the answer **only implicitly**—via:
 
 - [📈 Results](#results)
 - [📂 Dataset](#dataset)
-- [🛠️ Benchmarks & Baselines](#benchmarks--baselines)
-- [👟 Contributing](#contributing)
+- [ Benchmarks](#benchmarks)
+- [👟 Contributing](#contributing-run-your-own-retriever)
 - [📜 Citation](#citation)
 </details>
 
@@ -120,7 +120,7 @@ $ pip install -r requirements.txt
 ```
 
 ---
-#### Repository map
+<details open><summary><strong>Repository map</strong></summary>
 
 ```
 ├── RAG_Style/     
@@ -135,6 +135,8 @@ $ pip install -r requirements.txt
 │   └── reports
 └── README.md             
 ```
+
+</details>
 
 
 ### 2. Evaluate retrieval baselines
@@ -166,7 +168,7 @@ Here we try Long context and RAG, the setting of the experiments configs are in 
 
 You can choose among three setups for running this experiment:
 
-Note: All examples are for **Arithmetic** category (`A` in the file name) and **Multi Speaker** dicource style (`Multi` in the file name).
+Note: All examples are for **Arithmetic** category (`A` in the file name) and **Multi Speaker** discourse style (`Multi` in the file name).
 
 1- **Simplest way:** Loading the model locally, using vllm with `bash RAG_Style/s_run_tests.sh` that does the following in detail:
 
@@ -222,7 +224,7 @@ python RAG_Style/scripts/async/async_run_tests.py \
 
 #### Evaluating the RAG_Style results
 
-you can have the reporing of RAG with the following command:
+you can generate the reporting of RAG with the following command:
 ```bash
 # Reporting the results:
 python RAG_Style/scripts/reporting.py
