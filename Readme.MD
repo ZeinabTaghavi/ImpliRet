@@ -12,6 +12,8 @@
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
 </a>
 
+</br>
+
 
 **ImpliRet** (**Impli**cit Fact **Ret**rieval) flips the usual IR setup:  
 the **query is intentionally surface-level** (often just a *who / what / when) while the evidence hides **implicitly inside the document** and must be inferred rather than string-matched (e.g., LMU is a univerisity in Germany in the following Gif).
