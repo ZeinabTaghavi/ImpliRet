@@ -254,8 +254,8 @@ The results will be stored at `RAG_Style/results` folder.
 
 We welcome external baselines! The quickest path is through **two companion notebooks**:
 
-| Notebook | Purpose |
-|----------|---------|
+|   Notebook   | Purpose |
+|--------------|---------|
 | [📓 `notebook.ipynb`](https://colab.research.google.com/github/ZeinabTaghavi/ImpliRet/blob/master/notebook.ipynb) | End‑to‑end **evaluation harness** for all built‑in retrievers—run this first to verify your setup. |
 | [🚀 `contribute.ipynb`](https://colab.research.google.com/github/ZeinabTaghavi/ImpliRet/blob/master/contribute.ipynb) | **Step‑by‑step template** for creating a custom `MyRetriever`, indexing the corpus, and running the full metric suite. |
 
