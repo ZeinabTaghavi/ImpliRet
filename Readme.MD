@@ -24,11 +24,11 @@ contains the answer **only implicitly**—via:
 <details open>
 <summary>Table of Contents</summary>
 
-- [📈 Results](#results)
-- [📂 Dataset](#dataset)
-- [ Benchmarks](#benchmarks)
-- [👟 Contributing](#contributing-run-your-own-retriever)
-- [📜 Citation](#citation)
+- [📈 Results](#-results)
+- [📂 Dataset](#-dataset)
+- [🛠️ Benchmarks](#-benchmarks)
+- [👟 Contributing](#-contributing-run-your-own-retriever)
+- [📜 Citation](#-citation)
 </details>
 
 ---
@@ -92,7 +92,6 @@ You can load the `ImpliRet` dataset via [🤗 **Hugging Face**](https://huggingf
 - **Repository**: `zeinabTaghavi/ImpliRet`
 - **Reasoning Categories** (`split`): `arithmetic`, `wknow`, `temporal`
 - **Discourse styles** (`name`): `multispeaker`, `unispeaker`
-
 ```python
 from datasets import load_dataset
 
