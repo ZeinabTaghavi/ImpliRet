@@ -2,10 +2,15 @@
 
 
 
-[![arXiv badge](https://img.shields.io/badge/arXiv-2506.14407-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2506.14407)
-[![Hugging Face](https://img.shields.io/badge/%20Hugging%20Face-ImpliRet-ffca28?style=flat&logo=huggingface&logoColor=white)](https://huggingface.co/datasets/ZeinabTaghavi/ImpliRet)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ZeinabTaghavi/ImpliRet/blob/master/notebook.ipynb)
-
+<a href="https://arxiv.org/abs/2506.14407" target="_blank" rel="noopener">
+  <img src="https://img.shields.io/badge/arXiv-2506.14407-b31b1b.svg?logo=arxiv&logoColor=white" alt="arXiv badge">
+</a>
+<a href="https://huggingface.co/datasets/ZeinabTaghavi/ImpliRet" target="_blank" rel="noopener">
+  <img src="https://img.shields.io/badge/%20Hugging%20Face-ImpliRet-ffca28?style=flat&logo=huggingface&logoColor=white" alt="Hugging Face">
+</a>
+<a href="https://colab.research.google.com/github/ZeinabTaghavi/ImpliRet/blob/master/notebook.ipynb" target="_blank" rel="noopener">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab">
+</a>
 
 
 **ImpliRet** (**Impli**cit Fact **Ret**rieval) flips the usual IR setup:  
