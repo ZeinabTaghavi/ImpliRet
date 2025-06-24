@@ -26,8 +26,8 @@ contains the answer **only implicitly**—via:
 
 - [📈 Results](#-results)
 - [📂 Dataset](#-dataset)
-- [🛠️ Benchmarks](#-dataset)
-- [👟 Contributing](#--contributing)
+- [🛠️ Benchmarks](#benchmarks)
+- [👟 Contributing](#contributing-run-your-own-retriever)
 - [📜 Citation](#-citation)
 </details>
 
