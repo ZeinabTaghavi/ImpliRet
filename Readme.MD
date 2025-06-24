@@ -4,7 +4,7 @@
 
 [![arXiv badge](https://img.shields.io/badge/arXiv-2506.14407-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2506.14407)
 [![Hugging Face](https://img.shields.io/badge/%20Hugging%20Face-ImpliRet-ffca28?style=flat&logo=huggingface&logoColor=white)](https://huggingface.co/datasets/ZeinabTaghavi/ImpliRet)
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ZeinabTaghavi/ImpliRet/blob/main/notebook.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ZeinabTaghavi/ImpliRet/blob/master/notebook.ipynb)
 
 
 
@@ -14,7 +14,7 @@ the *query* to the *documents themselves*. A query is always simple (e.g. *“Wh
 contains the answer **only implicitly**—via:
 
 <p align="center">
-  <img src="Gif_2.gif" alt="Demo of ImpliRet reasoning" width="50%">
+  <img src="Gif_2.gif" alt="Demo of ImpliRet reasoning" width="75%">
 </p>
 
 
