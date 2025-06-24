@@ -256,8 +256,8 @@ We welcome external baselines! The quickest path is through **two companion note
 
 | Notebook | Purpose |
 |----------|---------|
-| [📓 `notebook.ipynb`](notebook.ipynb) | End‑to‑end **evaluation harness** for all built‑in retrievers—run this first to verify your setup. |
-| [🚀 `contribute.ipynb`](contribute.ipynb) | **Step‑by‑step template** for creating a custom `MyRetriever`, indexing the corpus, and running the full metric suite. |
+| [📓 `notebook.ipynb`](https://colab.research.google.com/github/ZeinabTaghavi/ImpliRet/blob/master/notebook.ipynb) | End‑to‑end **evaluation harness** for all built‑in retrievers—run this first to verify your setup. |
+| [🚀 `contribute.ipynb`](https://colab.research.google.com/github/ZeinabTaghavi/ImpliRet/blob/master/contribute.ipynb) | **Step‑by‑step template** for creating a custom `MyRetriever`, indexing the corpus, and running the full metric suite. |
 
 ### Submit your results
 
