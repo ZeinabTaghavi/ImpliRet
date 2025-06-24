@@ -24,12 +24,11 @@ contains the answer **only implicitly**—via:
 <details open>
 <summary>Table of Contents</summary>
 
-- [📈 Results](#-results)
+- [📈 Results](#results)
 - [📂 Dataset](#dataset)
-- [🛠️ Benchmarks & Baselines](#benchmarks)
-- [📓 Quick-start Notebook](#quick-start-notebook)
-- [👟 Contributing](#-contributing---run-your-own-retriever)
-- [📜 Citation](#-citation)
+- [🛠️ Benchmarks & Baselines](#benchmarks--baselines)
+- [👟 Contributing](#contributing)
+- [📜 Citation](#citation)
 </details>
 
 ---
@@ -86,7 +85,7 @@ The table below shows **ROUGE‑1 recall** (R‑1@k) for two long‑context LLM 
 ---
 
 
-## Dataset
+## 📂 Dataset
 
 You can load the `ImpliRet` dataset via [🤗 **Hugging Face**](https://huggingface.co/datasets/ZeinabTaghavi/ImpliRet) like this:
 
@@ -107,10 +106,10 @@ print(ds.features)        # quick schema check
 print(ds[0]["question"])  # sanity sample
 ```
 
-## Benchmarks
+## 🛠️ Benchmarks
 
 
-### 1- Cloning and Instructing Requirements
+### 1. Quick setup
 
 ```bash
 # clone & install
@@ -121,7 +120,6 @@ $ pip install -r requirements.txt
 ```
 
 ---
-
 #### Repository map
 
 ```
@@ -141,11 +139,11 @@ $ pip install -r requirements.txt
 
 ### 2. Evaluate retrieval baselines
 
-Runing the retrievals for generating the indexes:
+Running the retrieval baselines (index creation):
 The retrievals: BM25s, ColBertV2, Contriever, DragonPlus, HippoRagV2, ReasonIR.
 
 Example of running:
-running the retriever and reporting with `bash Retrieval/retrieve.sh` that is doing the following in detail:
+Run the retriever and generate the report with `bash Retrieval/retrieve.sh`, which performs the following steps:
 ```bash
 # Running the retrieval for indexing
 python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse multispeaker --retriever_name bm25
@@ -155,9 +153,9 @@ python Retrieval/reporting.py
 ```
 
 Indexing results are written to `Retrieval/results`.
-Reports(MRR, nDCG\@10…) are being stored in `Retrieval/reports`.
+Reports (MRR, nDCG@10 …) are stored in `Retrieval/reports`.
 
-#### ⚠️ For runing HippoRAG2 and ReasonIR, we used 4 A100 GPUS.
+#### ⚠️  For running HippoRAG 2 and ReasonIR‑8B we used 4× A100 GPUs.
 ---
 
 ### 3. Evaluating RAG Style baselines
@@ -166,19 +164,24 @@ Here we try Long context and RAG, the setting of the experiments configs are in 
 
 #### Running the Experiment
 
-You can have 3 setups for rinning this experiment:
+You can choose among three setups for running this experiment:
 
-1- Loading the model locally, using vllm with `bash RAG_Style/s_run_tests.sh` that does the following in detail:
+Note: All examples are for **Arithmetic** category (`A` in the file name) and **Multi Speaker** dicource style (`Multi` in the file name).
+
+1- **Simplest way:** Loading the model locally, using vllm with `bash RAG_Style/s_run_tests.sh` that does the following in detail:
 
 ```bash
-# example with Llama3.3 70-B 
+# example with 
+# LLM: Llama3.3 70-B, retriever: BM25s
+# Number of documents that are given to LLM: 10
+# Hence, The configuration file name is A_Multi_llama_bm_10.yaml
 export HF_HOME=...
 export HF_TOKEN= ...
 python ./RAG_Style/scripts/sync/sync_run_tests.py \
-       --config ./RAG_Style/experiment_configs/bm/A_Multi_llama_bm_1.yaml
+       --config ./RAG_Style/experiment_configs/bm/A_Multi_llama_bm_10.yaml
 
 ```
-2- loading the vllm on server with `bash RAG_Style/async_run_multi_llama.sh` that does the following in detail:
+2- Loading the vllm on server with `bash RAG_Style/async_run_multi_llama.sh` that does the following in detail:
 ```bash 
 export HF_HOME=...
 export HF_TOKEN= ...
@@ -189,9 +192,12 @@ export HF_TOKEN= ...
 PROJECT_ROOT=...  # adjust once
 source "$PROJECT_ROOT/scripts/async/start_vllm.sh"
 
-echo "Starting the job" 
+# example with 
+# LLM: Llama3.3 70-B, retriever: Oracle (positive document is in the context)
+# Number of documents that are given to LLM: 10 (1 pos, 9 neg)
+# Hence, The configuration file name is A_Multi_llama_1.yaml
 python ./RAG_Style/scripts/async/async_run_tests.py \
-       --config ./RAG_Style/experiment_configs/oracle_retriever/A_Multi_llama_1.yaml
+       --config ./RAG_Style/experiment_configs/oracle_retriever/A_Multi_llama_10.yaml
 
 
 # ------------------------------------------------------------------
@@ -204,25 +210,46 @@ wait $VLLM_PID 2>/dev/null
 ```
 
 3- Using other models like GPT that does not need the server loading with `RAG_Style/async_run_multi_GPT.sh` or in detail: 
-The outputs will be hashed and store in `Experiments/evaluation/results`
+The outputs will be hashed and stored in `Experiments/evaluation/results`.
 ```bash
+# example with 
+# LLM: GPT4.1, retriever: Oracle (positive document is in the context)
+# Number of documents that are given to LLM: 10 (1 pos, 9 neg)
+# Hence, The configuration file name is A_Multi_GPT_10.yaml
 python RAG_Style/scripts/async/async_run_tests.py \
-       --config RAG_Style/experiment_configs/oracle_retriever/A_Multi_GPT_1.yaml
+       --config RAG_Style/experiment_configs/oracle_retriever/A_Multi_GPT_10.yaml
 ```
+
 #### Evaluating the RAG_Style results
 
 you can have the reporing of RAG with the following command:
 ```bash
-# Reporing the resutls:
-python RAG_Style/scripts/reporing.py
+# Reporting the results:
+python RAG_Style/scripts/reporting.py
 ```
 The results will be stored at `RAG_Style/results` folder.
 
 ---
-## 👟 Contributing - Run your own retriever!
+## 👟 Contributing — Run your own retriever
 
-For running your own retriever follow the instruction in the notebook!
-For adding to the Github, just send me your scripts! zeinabtaghavi1377@gmail.com
+We welcome external baselines! The quickest path is through **two companion notebooks**:
+
+| Notebook | Purpose |
+|----------|---------|
+| [📓 `notebook.ipynb`](notebook.ipynb) | End‑to‑end **evaluation harness** for all built‑in retrievers—run this first to verify your setup. |
+| [🚀 `contribute.ipynb`](contribute.ipynb) | **Step‑by‑step template** for creating a custom `MyRetriever`, indexing the corpus, and running the full metric suite. |
+
+### Submit your results
+
+1. **Fork** this repo (or work locally).  
+2. Add your retriever under `Retrieval/retrievers/`.  
+3. Use either notebook to generate  
+   - `Retrieval/results/&lt;your_name&gt;/*.json` – raw rankings  
+   - `Retrieval/reports/&lt;your_name&gt;.md` – metrics row  
+4. Open a pull request **or** email both artefacts (plus a short description) to **zeinabtaghavi1377@gmail.com**.  
+5. We’ll merge, re‑run CI, and append your numbers to Table 2 and the badges.
+
+*Questions?* Open an issue or drop us an email—happy to help!
 
 ---
 ## 📜 Citation
@@ -234,3 +261,4 @@ For adding to the Github, just send me your scripts! zeinabtaghavi1377@gmail.com
   title = {ImpliRet: Benchmarking the Implicit Fact Retrieval Challenge},
   year = {2025},
 }
+```
