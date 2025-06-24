@@ -1,12 +1,17 @@
 # 📚 ImpliRet: Benchmarking the Implicit Fact Retrieval Challenge
 
-
+<p align="center">
 [![arXiv badge](https://img.shields.io/badge/arXiv-2506.14407-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2506.14407)
 [![Hugging Face](https://img.shields.io/badge/%20Hugging%20Face-ImpliRet-ffca28?style=flat&logo=huggingface&logoColor=white)](https://huggingface.co/datasets/ZeinabTaghavi/ImpliRet)
-
+<\p>
 
 **ImpliRet** (**Impli**cit Fact **Ret**rieval) is a six-subset benchmark that shifts the reasoning burden from
 the *query* to the *documents themselves*.  
+
+<p align="center">
+  <img src="Gif_2.gif" alt="Demo of ImpliRet reasoning" width="50%">
+</p>
+
 A query is always simple (e.g. *“Who visited a museum on October 06 2024?”*) but the relevant document
 contains the answer **only implicitly**—via:
 
