@@ -12,16 +12,29 @@ What task is Aquila scheduled to do on 2020-05-01 at 17 o'clock?
 
 from hipporag import HippoRAG
 from hipporag.utils.config_utils import BaseConfig
-
+import os
+import shutil
 
 class HippoRAG2Retriever:
 
     def __init__(self, 
                 corpus: list[str], 
                 k: int=5, 
-                save_dir: str ='Retrieval/Retrievals/HippoRAG_outputs',
+                save_dir: str ='Retrieval/retrievals/HippoRAG_outputs',
                 llm_model_name: str = 'meta-llama/Llama-3.3-70B-Instruct',
                 embedding_model_name: str = 'facebook/contriever'):
+        
+
+         # Clean the cache of hipporag, it keeps the docs from previous runs
+        
+        if os.path.exists('Retrieval/retrievals/HippoRAG_outputs'):
+            shutil.rmtree('Retrieval/retrievals/HippoRAG_outputs')
+            os.makedirs('Retrieval/retrievals/HippoRAG_outputs')
+        # Clear CUDA cache to free up GPU memory
+        import torch
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
 
         self.corpus = corpus
         self.k = k

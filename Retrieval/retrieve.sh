@@ -18,58 +18,48 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 echo "----------------------------  BM25  ----------------------------------"
 echo "Retrieving for track A, type Multi, retriever_name bm25"
-python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Data/ --output_folder ./Retrieval/Results/ --track A --type Multi --retriever_name bm25
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse multispeaker --retriever_name bm25
 
 
 echo "Retrieving for track A, type Uni, retriever_name bm25"
-python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Data/ --output_folder ./Retrieval/Results/ --track A --type Uni --retriever_name bm25
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse unispeaker --retriever_name bm25
 
 
 echo "----------------------------  ColBERT  ----------------------------------"
 echo "Retrieving for track A, type Multi, retriever_name colbert"
-python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Data/ --output_folder ./Retrieval/Results/ --track A --type Multi --retriever_name colbert
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse multispeaker --retriever_name colbert
 
 
 echo "Retrieving for track A, type Uni, retriever_name colbert"
-python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Data/ --output_folder ./Retrieval/Results/ --track A --type Uni --retriever_name colbert
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse unispeaker --retriever_name colbert
 
 
 echo "----------------------------  Contriever  ----------------------------------"
 echo "Retrieving for track A, type Multi, retriever_name contriever"
-python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Data/ --output_folder ./Retrieval/Results/ --track A --type Multi --retriever_name contriever
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse multispeaker --retriever_name contriever
 
 
 echo "Retrieving for track A, type Uni, retriever_name contriever"
-python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Data/ --output_folder ./Retrieval/Results/ --track A --type Uni --retriever_name contriever
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse unispeaker --retriever_name contriever
 
 
 echo "----------------------------  DragonPlus  ----------------------------------"
 echo "Retrieving for track A, type Multi, retriever_name dragonplus"
-python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Data/ --output_folder ./Retrieval/Results/ --track A --type Multi --retriever_name dragonplus
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse multispeaker --retriever_name dragonplus
 
 
 echo "Retrieving for track A, type Uni, retriever_name dragonplus"
-python ./Retrieval/retrieve_indexing.py --dataset_folder ./Dataset_Generation/Data/ --output_folder ./Retrieval/Results/ --track A --type Uni --retriever_name dragonplus
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse unispeaker --retriever_name dragonplus
 
 
 
 echo "----------------------------  ReasonIR  ----------------------------------"
 echo "Retrieving for track A, type Uni, retriever_name reasonir"
-python ./Retrieval/retrieve_indexing.py \
-    --dataset_folder ./Dataset_Generation/Data/ \
-    --output_folder ./Retrieval/Results/ \
-    --track A \
-    --type Uni \
-    --retriever_name reasonir
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse unispeaker --retriever_name reasonir
 
 
 echo "Retrieving for track A, type Multi, retriever_name reasonir"
-python ./Retrieval/retrieve_indexing.py \
-    --dataset_folder ./Dataset_Generation/Data/ \
-    --output_folder ./Retrieval/Results/ \
-    --track A \
-    --type Multi \
-    --retriever_name reasonir 
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse multispeaker --retriever_name reasonir
 
 
 echo "----------------------------  Hippo  ----------------------------------"
@@ -91,18 +81,8 @@ done
 echo "[start_vllm] vLLM is ready!"
 
 echo "Retrieving for track A, type Multi, retriever_name hipporag"
-python ./Retrieval/retrieve_indexing.py \
-    --dataset_folder ./Dataset_Generation/Data/ \
-    --output_folder ./Retrieval/Results/ \
-    --track A \
-    --type Multi \
-    --retriever_name hipporag 
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse multispeaker --retriever_name hipporag
 
 
 echo "Retrieving for track A, type Uni, retriever_name hipporag"
-python ./Retrieval/retrieve_indexing.py \
-    --dataset_folder ./Dataset_Generation/Data/ \
-    --output_folder ./Retrieval/Results/ \
-    --track A \
-    --type Uni \
-    --retriever_name hipporag 
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse unispeaker --retriever_name hipporag

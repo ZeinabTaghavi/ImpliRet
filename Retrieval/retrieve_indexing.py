@@ -5,17 +5,10 @@ import shutil
 from tqdm import tqdm
 from datasets import load_dataset
 
-def save_retriever_indices(output_folder, track, conv_type, retriever_name):
+def save_retriever_indices(output_folder, category, discourse, retriever_name):
 
-    # Load the dataset directly from the Hugging Face Hub
-    subset_map = {"Multi": "multispeaker", "Uni": "unispeaker"}
-    split_map = {"A": "arithmetic", "T": "temporal", "W": "wknow"}
-
-    hf_dataset = load_dataset(
-        "zeinabTaghavi/ImpliRet",
-        name=subset_map[conv_type],
-        split=split_map[track]
-    )
+    
+    hf_dataset = load_dataset("zeinabTaghavi/ImpliRet", name=discourse, split=category)
 
     dataset = [item for item in hf_dataset]  # convert to list of dicts
 
@@ -34,37 +27,37 @@ def save_retriever_indices(output_folder, track, conv_type, retriever_name):
 
     if retriever_name.lower() == "bm25":
         try:
-            from Retrievals.BM_retriever import BM25Retriever
+            from retrievals.BM_retriever import BM25Retriever
             retriever_module = BM25Retriever
         except:
             raise Exception("BM25Retriever not found")
     elif retriever_name.lower() == "dragonplus":
         try:
-            from Retrievals.DragonPlus_retriever import DragonPlusRetriever
+            from retrievals.DragonPlus_retriever import DragonPlusRetriever
             retriever_module = DragonPlusRetriever
         except:
             raise Exception("DragonPlusRetriever not found")
     elif retriever_name.lower() == "contriever":
         try:
-            from Retrievals.Contriever_retriever import ContrieverRetriever
+            from retrievals.Contriever_retriever import ContrieverRetriever
             retriever_module = ContrieverRetriever
         except:
             raise Exception("ContrieverRetriever not found")
     elif retriever_name.lower() == "colbert":
         try:
-            from Retrievals.ColBERT_retriever import ColBERTRetriever
+            from retrievals.ColBERT_retriever import ColBERTRetriever
             retriever_module = ColBERTRetriever
         except:
             raise Exception("ColBERTRetriever not found")
     elif retriever_name.lower() == "reasonir":
         try:
-            from Retrievals.ReasonIR_retriever import ReasonIRRetriever
+            from retrievals.ReasonIR_retriever import ReasonIRRetriever
             retriever_module = ReasonIRRetriever
         except:
             raise Exception("ReasonIRRetriever not found")
     elif retriever_name.lower() == "hipporag":
         try:
-            from Retrievals.HippoRag2_retriever import HippoRAG2Retriever
+            from retrievals.HippoRag2_retriever import HippoRAG2Retriever
             retriever_module = HippoRAG2Retriever
         except:
             raise Exception("HippoRAG2Retriever not found")
@@ -73,15 +66,6 @@ def save_retriever_indices(output_folder, track, conv_type, retriever_name):
 
     results = []
 
-    # Clean the cache of hipporag, it keeps the docs from previous runs
-    if retriever_name.lower() == "hipporag":
-        if os.path.exists('Retrieval/Retrievals/HippoRAG_outputs'):
-            shutil.rmtree('Retrieval/Retrievals/HippoRAG_outputs')
-            os.makedirs('Retrieval/Retrievals/HippoRAG_outputs')
-        # Clear CUDA cache to free up GPU memory
-        import torch
-        if torch.cuda.is_available():
-            torch.cuda.empty_cache()
 
     retriever = retriever_module(user_corpus, k=len(user_corpus))
     
@@ -104,7 +88,7 @@ def save_retriever_indices(output_folder, track, conv_type, retriever_name):
             "index_score_tuple_list": retrieved_indices
         })
     os.makedirs(output_folder, exist_ok=True)
-    output_path = os.path.join(output_folder, f"{track}_{conv_type}_{retriever_name}_index.jsonl")
+    output_path = os.path.join(output_folder, f"{category}_{discourse}_{retriever_name}_index.jsonl")
     with open(output_path, "w") as f:
         for entry in results:
             f.write(json.dumps(entry) + "\n")
@@ -113,11 +97,11 @@ def save_retriever_indices(output_folder, track, conv_type, retriever_name):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--output_folder", type=str, default="./Retrieval/Results/")
-    parser.add_argument("--track", type=str, default="A")
-    parser.add_argument("--type", type=str, default="Multi")
-    parser.add_argument("--retriever_name", type=str, default="bm25", help="bm25 or dragonplus or contriever or reasonir")
+    parser.add_argument("--category", type=str, choices=["temporal", "arithmetic", "wknowledge"], default="arithmetic")
+    parser.add_argument("--discourse", type=str, choices=["unispeaker", "multispeaker"], default="unispeaker")
+    parser.add_argument("--retriever_name", type=str, default="bm25", help="bm25 or dragonplus or contriever or reasonir or hipporag")
     args = parser.parse_args()
 
-    save_retriever_indices(args.output_folder, args.track, args.type, args.retriever_name)
+    save_retriever_indices(args.output_folder, args.category, args.discourse, args.retriever_name)
 
 
