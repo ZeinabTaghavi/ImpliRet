@@ -1,16 +1,79 @@
-# Implicit Reasoning **Evaluation** Suite
+# 📚 ImpliRet: Benchmarking the Implicit Fact Retrieval Challenge
 
-> **Measure how well language models recover facts that are only *implied*, not stated.**
->
-> ⚠️ **Scope notice**: This repository is *not* a general‑purpose NLP toolkit. It contains **just the code & scripts needed to generate our synthetic benchmark, evaluate retrieval baselines, and score language‑model outputs.**
+
+[![arXiv badge](https://img.shields.io/badge/arXiv-2506.14407-b31b1b.svg?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2506.14407)
+[![Hugging Face](https://img.shields.io/badge/%20Hugging%20Face-ImpliRet-ffca28?style=flat&logo=huggingface&logoColor=white)](https://huggingface.co/datasets/ZeinabTaghavi/ImpliRet)
+
+
+**ImpliRet** (**Impli**cit Fact **Ret**rieval) is a six-subset benchmark that shifts the reasoning burden from
+the *query* to the *documents themselves*.  
+A query is always simple (e.g. *“Who visited a museum on October 06 2024?”*) but the relevant document
+contains the answer **only implicitly**—via:
+
+| Reasoning category |    split   | Implicit cue inside the document | Query asks for … |
+|--------------------|------------|----------------------------------|------------------|
+| **Arithmetic**     |`arithmetic`|relative price or percentage (*“model 2019: 2.5 × more expensive…”*) | absolute price |
+| **Temporal**       |`temporal`  | relative date (*“seven days ago”*) | explicit date |
+| **World Knowledge**|`wknow`     | landmark that implies a country (*“Big Ben” ⇒ UK*) | the person / item in that country |
+
+For each category we generate two discourse styles:
+
+|      Discourse   |      name     | style   |
+|------------------|---------------|---------|
+| **Multi Speaker**|`multispeaker` | Multi-speaker **forum thread** (one post ↔︎ one response)
+| **Uni Speaker**  |`unispeaker`   | Uni-speaker **chat** (one-chat ↔︎ 10-turn dialogue)      
 
 ---
 
-## Quick start
+---
+## 📈 Results
+
+### 🔬 Retrieval Evaluatio
+
+The table below reports **nDCG@10** (↑ higher is better) for our baseline retrievers.
+
+| Retriever | W. Know. | Arithmetic | Temporal | Average |
+|-----------|:-------:|:----------:|:--------:|:-------:|
+| ***Sparse*** |  |  |  |  |
+| BM25 | 14.10 | 11.06 | 11.22 | 12.13 |
+| ***Late Interaction*** |  |  |  |  |
+| ColBERT v2 | 16.04 | 14.93 | 12.20 | 14.39 |
+| ***Dense Encoders*** |  |  |  |  |
+| Contriever | 16.15 | 13.84 | 12.59 | 14.19 |
+| Dragon+ | 17.15 | **14.61** | 12.53 | 14.76 |
+| ReasonIR‑8B | **19.53** | 10.74 | **14.93** | **15.07** |
+| ***Knowledge‑Graph‑Augmented*** |  |  |  |  |
+| HippoRAG 2 | 16.38 | 14.21 | 12.50 | 14.36 |
+
+*Table 2. nDCG@10 retrieval performance averaged over uni‑speaker and multi‑speaker documents.*
+
+### 🧩 RAG‑style Evaluation
+
+The table below shows **ROUGE‑1 recall** (R‑1@k) for two long‑context LLM readers when the top‑*k* retrieved documents (oracle setting) are supplied.
+
+| Experiment | *k* | W. Know. | Arithmetic | Temporal | Average |
+|------------|:---:|:--------:|:----------:|:--------:|:-------:|
+| **Llama 3.3 70B** | 1   | **73.79** | **90.13** | **81.85** | **81.92** |
+|                | 10  | 27.37 | 16.98 | 25.23 | 23.19 |
+|                | All | 17.43 | 4.42  | 10.29 | 10.71 |
+| **GPT‑4.1**     | 1   | **93.24** | **92.12** | **84.90** | **88.05** |
+|                | 10  | 62.21 | 23.86 | 15.59 | 35.06 |
+|                | All | 53.91 | 9.28  |  6.93 | 22.90 |
+
+*Table 3. ROUGE‑1 recall (R‑1@k), averaged over uni‑speaker and multi‑speaker documents.*
+
+
+
+
+---
+
+## Evaluation Instruction
+
+
 
 ```bash
 # clone & install
-$ git clone https://github.com/ZeinabTaghavi/.git
+$ git clone https://github.com/ZeinabTaghavi/ImpliRet.git
 $ cd ImpliRet
 $ python -m venv impliret_env && source impliret_env/bin/activate
 $ pip install -r requirements.txt
@@ -21,45 +84,34 @@ $ pip install -r requirements.txt
 ## Repository map
 
 ```
-├── RAG_Style/             
-│   ├── model_configs
-│   ├── run_configs
-│   ├── results
+├── RAG_Style/     
+│   ├── experiment_configs   # Config of RAG with retrievals or Oracle retriever
+│   ├── model_configs        # Config of each LLM that will be used in RAG_Style 
+│   ├── script               # Codes of Asyncron and Syncron experiments
+│   ├── results              
 │   └── reports
 ├── Retrieval/         
-│   ├── Retrievals
-│   ├── Results
+│   ├── retrievals           # Codes of each experiment
+│   ├── results
 │   └── reports
 └── README.md             
 ```
 
 ---
 
-## 1. Generate the benchmark dataset
+## 1. Loading the `ImpliRet` dataset.
 
-We synthesise query–context pairs that hide key facts. Run:
-
-For every track (e.g., A:Arithmetics) for every corpus style (e.g., Uni:Uni-Audience(Chat Style) or Multi:Multi-Audience(Forum Style)):
-    1- Generating the structure of the dataset
-    2- Generating the conversation based on the structured data
-    3- Merging the conversations to reach the final dataset
-```bash
-python Dataset_Generation/GeneratingCodes/A_Multi/Arithmetic_Multi_1_Structure_Gen.py
-bash Dataset_Generation/GeneratingCodes/A_Multi/Arithmetic_Multi_2_Conversation_Gen.sh
-python Dataset_Generation/GeneratingCodes/A_Multi/Arithmetic_Multi_3_Merging.py
+You can load the dataset via Huggingface `zeinabTaghavi/ImpliRet` in the following format:
+There are three reasoning categories (split): `['arithmetic', 'wknow', 'temporal']` and two discource style (name) `['multispeaker','unispeaker']`
+```python
+from datasets import load_dataset
+# forum style, temporal reasoning
+ds = load_dataset("zeinabTaghavi/ImpliRet",
+                  name="multispeaker",
+                  split="temporal")
+print(ds[0]["question"])
+print(ds[0]["pos_document"])
 ```
-
-Outputs:
-
-| file                                       | purpose              |
-| ------------------------------------------ | -------------------- |
-| `A_Uni.jsonl`                              |     Main datasets    |
-| `A_Multi.jsonl`                            |     Main datasets    |
-| `T_Uni.jsonl`                              |     Main datasets    |
-| `T_Multi.jsonl`                            |     Main datasets    |
-| `S_Uni.jsonl`                              |     Main datasets    |
-| `S_Multi.jsonl`                            |     Main datasets    |
----
 
 ## 2. Evaluate retrieval baselines
 
