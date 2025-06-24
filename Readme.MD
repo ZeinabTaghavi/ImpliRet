@@ -261,13 +261,18 @@ We welcome external baselines! The quickest path is through **two companion note
 
 ### Submit your results
 
-1. **Fork** this repo (or work locally).  
-2. Add your retriever under `Retrieval/retrievers/`.  
-3. Use either notebook to generate  
-   - `Retrieval/results/&lt;your_name&gt;/*.json` – raw rankings  
-   - `Retrieval/reports/&lt;your_name&gt;.md` – metrics row  
-4. Open a pull request **or** email both artefacts (plus a short description) to **zeinabtaghavi1377@gmail.com**.  
-5. We’ll merge, re‑run CI, and append your numbers to Table 2 and the badges.
+1. **Fork** this repository (or clone it locally).
+
+2. **Add code (optional).**  
+   Use the [🚀 `contribute.ipynb`](https://colab.research.google.com/github/ZeinabTaghavi/ImpliRet/blob/master/contribute.ipynb) notebook to structure and export your custom retriever code.
+
+3. **Submit results only (optional).**  
+   Prefer to keep your code private? Run `contribute.ipynb`, generate the metrics, and verify the output format.
+
+4. **Send it in.**  
+   Open a pull request **or** email the artefacts (results ± code) plus a short description to **zeinabtaghavi1377@gmail.com**.
+
+5. We’ll merge, trigger CI, and add your numbers to Table 2 and the badges — 🥳🎉
 
 *Questions?* Open an issue or drop us an email—happy to help!
 
