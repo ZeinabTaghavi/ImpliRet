@@ -231,7 +231,7 @@ python RAG_Style/scripts/reporting.py
 The results will be stored at `RAG_Style/results` folder.
 
 ---
-## 👟 Contributing — Run your own retriever
+## 👟 Contributing - Run your own retriever
 
 We welcome external baselines! The quickest path is through **two companion notebooks**:
 
