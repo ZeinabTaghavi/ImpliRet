@@ -3,7 +3,7 @@
 #SBATCH --gres=gpu:4
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=64G
-#SBATCH -t 0-08:00:00
+#SBATCH -t 0-02:00:00
 #SBATCH -o ./retrieve_Colbert.out
 #SBATCH -e ./retrieve_Colbert.err
 #SBATCH --mail-type=ALL
