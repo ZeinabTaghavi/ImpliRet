@@ -70,6 +70,7 @@ The table below shows **ROUGE‑1 recall** (R‑1@k) for two long‑context LLM 
 ## Evaluation Instruction
 
 
+### 1- Cloning and Instructing Requirements
 
 ```bash
 # clone & install
@@ -81,7 +82,7 @@ $ pip install -r requirements.txt
 
 ---
 
-## Repository map
+#### Repository map
 
 ```
 ├── RAG_Style/     
@@ -99,7 +100,7 @@ $ pip install -r requirements.txt
 
 ---
 
-## 1. Loading the `ImpliRet` dataset.
+#### Loading the `ImpliRet` dataset.
 
 You can load the dataset via Huggingface `zeinabTaghavi/ImpliRet` in the following format:
 There are three reasoning categories (split): `['arithmetic', 'wknow', 'temporal']` and two discource style (name) `['multispeaker','unispeaker']`
@@ -119,184 +120,86 @@ Runing the retrievals for generating the indexes:
 The retrievals: BM25s, ColBertV2, Contriever, DragonPlus, HippoRagV2, ReasonIR.
 
 Example of running:
-running the retriever and reporting.
+running the retriever and reporting with `bash Retrieval/retrieve.sh` that is doing the following in detail:
 ```bash
-bash Retrieval/retrieve_BM25s.bash
+# Running the retrieval for indexing
+python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse multispeaker --retriever_name bm25
+
+# Reporting
 python Retrieval/reporting.py
 ```
 
-Scores (MAP, nDCG\@10…) are written to `./Retrieval/Results/A_Multi_bm25_index.jsonl`.
-Reports are storing to `Retrieval/reports/retrieval_report.txt`.
+Indexing results are written to `Retrieval/results`.
+Reports(MRR, nDCG\@10…) are being stored in `Retrieval/reports`.
 
-⚠️ For runing HippoRAG2 and ReasonIR, we used 4 A100 GPUS.
+#### ⚠️ For runing HippoRAG2 and ReasonIR, we used 4 A100 GPUS.
 ---
 
-## 3. Evaluate language‑model reasoning
+## 3. Evaluating RAG Style baselines
 
-Here we try Long context and RAG, the setting of the experiments configs are in the `Experiments/evaluation/run_configs` folder, the  config of models are also stored in `Experiments/evaluation/model_configs`.
+Here we try Long context and RAG, the setting of the experiments configs are in the `RAG_Style/experiment_configs` folder, the  config of models are also stored in `RAG_Style/model_configs`.
+
+### Running the Experiment
+
+You can have 3 setups for rinning this experiment:
+
+1- Loading the model locally, using vllm with `bash RAG_Style/s_run_tests.sh` that does the following in detail:
 
 ```bash
-# example with Llama3.3 70-B Turbo
-# If you want to use OpenAI models, use your API-key, else if you want to load the VLLM on server, user any thing as API key (e.g., `EMPTY`).
-export OPENAI_API_KEY=...
+# example with Llama3.3 70-B 
 export HF_HOME=...
+export HF_TOKEN= ...
+python ./RAG_Style/scripts/sync/sync_run_tests.py \
+       --config ./RAG_Style/experiment_configs/bm/A_Multi_llama_bm_1.yaml
 
-bash Experiments/evaluation/s_run_tests_bm.sh
-# or for using server:
-python Experiments/evaluation/async_evaluate.py \
-  --config Experiments/evaluation/run_configs/bm/A_Multi_llama.yaml
-# or for loading the vllm locally
-python Experiments/evaluation/sync_evaluate.py \
-  --config Experiments/evaluation/run_configs/bm/A_Multi_llama.yaml
+```
+2- loading the vllm on server with `bash RAG_Style/async_run_multi_llama.sh` that does the following in detail:
+```bash 
+export HF_HOME=...
+export HF_TOKEN= ...
+# ------------------------------------------------------------------
+# Start vLLM server via helper script (background) and wait for load
+# ------------------------------------------------------------------
+# run_tests.sh  (top of file)
+PROJECT_ROOT=...  # adjust once
+source "$PROJECT_ROOT/scripts/async/start_vllm.sh"
 
-# reporing the resutls:
-python Experiments/evaluation/reporing.py
+echo "Starting the job" 
+python ./RAG_Style/scripts/async/async_run_tests.py \
+       --config ./RAG_Style/experiment_configs/oracle_retriever/A_Multi_llama_1.yaml
+
+
+# ------------------------------------------------------------------
+# Shut down the vLLM server
+# ------------------------------------------------------------------
+echo "Stopping vLLM server (PID=$VLLM_PID)"
+kill $VLLM_PID
+wait $VLLM_PID 2>/dev/null
+
 ```
 
+3- Using other models like GPT that does not need the server loading with `RAG_Style/async_run_multi_GPT.sh` or in detail: 
 The outputs will be hashed and store in `Experiments/evaluation/results`
-
-
----
-
-## Acknowledgements
-
-Thank you so much!
-
-# Implicit Reasoning Evaluation Suite
-
-> **Assess how well retrieval systems and large‑language models uncover facts that are *implied* rather than explicitly stated.**  
-> This repository is a **three‑stage evaluation pipeline**—dataset generation, retrieval benchmarking, and LLM reasoning—created for research on implicit information understanding.
-
----
-
-## Table of Contents
-1. [Quick Start](#quick-start)  
-2. [Directory Structure](#directory-structure)  
-3. [Stage 1 — Dataset Generation](#stage-1--dataset-generation)  
-4. [Stage 2 — Retrieval Evaluation](#stage-2--retrieval-evaluation)  
-5. [Stage 3 — LLM Reasoning](#stage-3--llm-reasoning)  
-6. [Acknowledgements](#acknowledgements)  
-7. [License](#license)  
-
----
-
-## Quick Start
 ```bash
-# Clone the repo
-git clone https://github.com/ZeinabTaghavi/MetatagIndexing_2.git
-cd MetatagIndexing_2
-
-# Create and activate a virtual environment
-python -m venv .venv && source .venv/bin/activate
-
-# Install all Python dependencies
-pip install -r requirements.txt
+python RAG_Style/scripts/async/async_run_tests.py \
+       --config RAG_Style/experiment_configs/oracle_retriever/A_Multi_GPT_1.yaml
 ```
- 
----
+### Evaluation
 
-## Directory Structure
-```
-Dataset_Generation/             # Stage 1 — synthetic benchmark creation
-│   ├── Data/                   #   ▶ final JSONL datasets
-│   ├── Dataset_Helping/        #   ▶ auxiliary data files
-│   └── GeneratingCodes/        #   ▶ generation scripts (.py / .sh)
-Experiments/                    # Stage 3 — LLM evaluation
-│   └── evaluation/
-│       ├── model_configs/      #   ▶ HF / OpenAI model params
-│       ├── run_configs/        #   ▶ experiment configs (YAML)
-│       ├── results/            #   ▶ raw generations (JSONL)
-│       └── reports/            #   ▶ metric summaries (MD / JSON)
-Retrieval/                      # Stage 2 — retrieval baselines
-│   ├── Retrievals/             #   ▶ indexers & searchers
-│   ├── Results/                #   ▶ TREC run files
-│   └── reports/                #   ▶ IR metric summaries
-README.md
-```
-
----
-
-## Stage 1 — Dataset Generation
-We synthesise multi‑turn conversations that *hide* key facts and cover three topical tracks:
-
-| Track | Domain          | Example implicit relation                     |
-|-------|-----------------|-----------------------------------------------|
-| **A** | Arithmetic      | *“She doubled the number six.” ⇒ 12*          |
-| **T** | Temporal        | *“He left two hours after noon.” ⇒ 14:00 hrs* |
-| **S** | Spatial         | *“The café is next to the library.”*          |
-
-For every **track** (`A`, `T`, `S`) and **audience style** (`Uni` chat vs `Multi` forum) run:
-
+you can have the reporing of RAG with the following command:
 ```bash
-# 1 Generate structured triples
-python Dataset_Generation/GeneratingCodes/A_Multi/Arithmetic_Multi_1_Structure_Gen.py
-
-# 2 Write conversations from the structures
-bash   Dataset_Generation/GeneratingCodes/A_Multi/Arithmetic_Multi_2_Conversation_Gen.sh
-
-# 3 Merge to the final JSONL dataset
-python Dataset_Generation/GeneratingCodes/A_Multi/Arithmetic_Multi_3_Merging.py
+# Reporing the resutls:
+python RAG_Style/scripts/reporing.py
 ```
-
-Generated files:
-
-| File name         | Description                 |
-|-------------------|-----------------------------|
-| `A_Uni.jsonl`     | Arithmetic · single‑speaker |
-| `A_Multi.jsonl`   | Arithmetic · multi‑speaker  |
-| `T_Uni.jsonl`     | Temporal · single‑speaker   |
-| `T_Multi.jsonl`   | Temporal · multi‑speaker    |
-| `S_Uni.jsonl`     | Spatial · single‑speaker    |
-| `S_Multi.jsonl`   | Spatial · multi‑speaker     |
+The results will be stored at `RAG_Style/results` folder.
 
 ---
+## 📜 Citation
 
-## Stage 2 — Retrieval Evaluation
-We benchmark six retrievers: **BM25s, ColBERT‑v2, Contriever, Dragon‑Plus, HippoRAG‑v2, ReasonIR**.
-
-Example (BM25):
-
-```bash
-# Build index & produce rankings
-bash Retrieval/retrieve_BM25s.bash
-
-# Score the run (MAP, nDCG@10, Recall@100…)
-python Retrieval/reporting.py
-```
-
-*Outputs*  
-- Rankings: `Retrieval/Results/A_Multi_bm25_index.jsonl`  
-- Report:  `Retrieval/reports/retrieval_report.txt`
-
-> **GPU demand:** HippoRAG‑v2 and ReasonIR were evaluated on 4 × A100 (80 GB) GPUs.
-
----
-
-## Stage 3 — LLM Reasoning
-We test long‑context and RAG variants with configs in `Experiments/evaluation/run_configs`.
-
-### Run with OpenAI (GPT‑4o) or local VLLM (Llama‑3 70B)
-```bash
-# OpenAI endpoint
-export OPENAI_API_KEY=<your‑key>
-
-bash Experiments/evaluation/s_run_tests_bm.sh       # convenience wrapper
-
-# — OR — evaluate asynchronously on a remote VLLM server
-python Experiments/evaluation/async_evaluate.py \
-  --config Experiments/evaluation/run_configs/bm/A_Multi_llama.yaml
-
-# — OR — run locally in synchronous mode
-python Experiments/evaluation/sync_evaluate.py \
-  --config Experiments/evaluation/run_configs/bm/A_Multi_llama.yaml
-```
-
-Results are hashed and written to `Experiments/evaluation/results/`,  
-with aggregate metrics in `Experiments/evaluation/reports/`.
-
----
-
-## Acknowledgements
-This project was made possible by the enthusiasm of the **Implicit Reasoning Reading Group** and infrastructure kindly provided by LRZ. 
-LMU and MCML, Munich
----
+```bibtex
+@misc{taghavi2025impliret,
+  author={Zeinab Sadat Taghavi and Ali Modarressi and Yunpu Ma and Hinrich Sch{\"u}tze},
+  keywords = {Computation and Language (cs.CL),  Artificial Intelligence (cs.AI),  FOS: Computer and information sciences,  FOS: Computer and information sciences},
+  title = {ImpliRet: Benchmarking the Implicit Fact Retrieval Challenge},
+  year = {2025},
+}

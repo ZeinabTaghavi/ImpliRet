@@ -86,3 +86,8 @@ python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --
 
 echo "Retrieving for track A, type Uni, retriever_name hipporag"
 python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse unispeaker --retriever_name hipporag
+
+
+
+# Reporting
+python Retrieval/reporting.py

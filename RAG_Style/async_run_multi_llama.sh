@@ -34,3 +34,4 @@ python ./RAG_Style/scripts/async/async_run_tests.py \
 echo "Stopping vLLM server (PID=$VLLM_PID)"
 kill $VLLM_PID
 wait $VLLM_PID 2>/dev/null
+
