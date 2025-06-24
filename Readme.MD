@@ -26,7 +26,7 @@ contains the answer **only implicitly**—via:
 
 - [📈 Results](#-results)
 - [📂 Dataset](#-dataset)
-- [📂 Dataset](#--benchmarks)
+- [🛠️ Benchmarks](#-dataset)
 - [👟 Contributing](#--contributing)
 - [📜 Citation](#-citation)
 </details>
