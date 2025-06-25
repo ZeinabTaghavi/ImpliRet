@@ -67,22 +67,3 @@ class ColBERTRetriever:
         top_k_scores = [scores[i] for i in top_k_indices]
         
         return top_k_docs, top_k_scores
-
-# --------------------------------------------------------------
-#
-#                           For Testing
-#
-# --------------------------------------------------------------
-# if __name__ == "__main__":
-#     # Example test
-#     sample_corpus = [
-#         "This is the first passage about information retrieval.",
-#          "Finally, the third text mentions late interaction models.",
-#         "Here's a second document describing ColBERT and semantic search."
-#     ]
-#     retriever = ColBERTRetriever(sample_corpus, k=2)
-#     query = "what is late interaction?"
-#     top_k_docs, top_k_scores = retriever.retrieve_data(query)
-#     print(f"Query: {query!r}")
-#     print("Top-k Documents:", top_k_docs)
-#     print("Scores:", top_k_scores)

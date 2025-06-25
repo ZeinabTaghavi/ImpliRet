@@ -1,14 +1,3 @@
-'''
-- This script is used to implement the BM25 algorithm to retrieve the most relevant documents from the corpus.
-- This script can be called from the controller.py while interpreting the LLM's functionacall script to store the
-corpus and retrieve the most relevant documents from the corpus.
-- The structire of the controller given input is as follows:
-STORE:
-Conversation
-QUERY:
-What task is Aquila scheduled to do on 2020-05-01 at 17 o'clock?
-- Here we interpret the input and store the data in the Temporary Knowledge Base.
-'''
 
 from hipporag import HippoRAG
 from hipporag.utils.config_utils import BaseConfig
