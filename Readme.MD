@@ -37,9 +37,8 @@ the **query is intentionally surface-level** (often just a *who / what / when) w
 <p align="center">
   <img src="Gif_main.gif" alt="Demo of ImpliRet reasoning" width="75%">
 </p>
-
-
  
+
 
 ---
 <details open>
