@@ -35,7 +35,7 @@ the **query is intentionally surface-level** (often just a *who / what / when) w
 > The best baseline (ReasonIR-8B) reaches only **≈ 25 % nDCG@10**, and even GPT-4.1 falters when asked to choose the right passage from 10 look-alikes—highlighting that **document-side reasoning is still an open challenge**.
 
 <p align="center">
-  <img src="Gif.gif" alt="Demo of ImpliRet reasoning" width="75%">
+  <img src="Gif_main.gif" alt="Demo of ImpliRet reasoning" width="75%">
 </p>
 
 
