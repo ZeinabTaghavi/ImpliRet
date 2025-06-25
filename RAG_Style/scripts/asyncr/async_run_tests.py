@@ -1,8 +1,8 @@
 # --------------------------------------------------------------------------- #
-#                            Sync Test Runner                                   #
+#                            Async Test Runner                                  #
 # --------------------------------------------------------------------------- #
 """
-Sync test runner for long-context experiments.
+Async test runner for long-context experiments.
 
 This module provides the main entry point for running experiments, handling:
 - Parsing YAML config and CLI arguments 
@@ -13,16 +13,17 @@ The YAML config can be provided via --config flag and any field can be
 overridden via CLI arguments.
 
 Usage:
-    python sync_run_tests.py --config config.yaml
-    python sync_run_tests.py --model_name llama --category temporal ...
+    python async_run_tests.py --config config.yaml
+    python async_run_tests.py --model_name llama --category temporal ...
 """
 
+# Standard library imports
 from __future__ import annotations
 import os
 from jsonargparse import ArgumentParser, ActionConfigFile
 
 # Local imports
-from sync_evaluation import ExperimentTester
+from RAG_Style.scripts.asyncr.async_evaluate import ExperimentTester
 
 
 # --------------------------------------------------------------------------- #
@@ -41,10 +42,10 @@ def main() -> None:
     parser.add_argument("--discourse", dest="discourse_type", type=str, choices=["unispeaker", "multispeaker"], default="unispeaker")
     parser.add_argument("--output_folder", type=str, default="./RAG_Style/results/")
     parser.add_argument("--k", type=int, default=1)
-    parser.add_argument("--use_retrieval", type=bool, default=False)
+    parser.add_argument("--user_retrieval", type=bool, default=False)
     parser.add_argument("--retriever", type=str, default="BM25")
     parser.add_argument("--retriever_index_folder", type=str, default="./Retrieval/results/")
-    
+
     parser.add_argument("--model_name", type=str, required=True)
     parser.add_argument("--model_configs_dir", type=str, required=True)
     parser.add_argument("--metric", type=str, default="EM")
@@ -82,7 +83,7 @@ def main() -> None:
         retriever_index_folder=args.retriever_index_folder,
         metric=args.metric,
         k=args.k,
-        use_retrieval=args.use_retrieval,
+        use_retrieval=args.user_retrieval,
         seed=args.seed,
     )
     tester.evaluate()

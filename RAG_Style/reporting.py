@@ -5,7 +5,7 @@ from typing import List
 import json
 import statistics
 
-from reports.utils.latex_format import save_latex_tables
+from RAG_Style.reports.utils.latex_format import save_latex_tables
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 from datasets import load_dataset
@@ -72,7 +72,7 @@ class DatasetAnswerLoader:
         return results_list
 
 
-def reporting(result_path: str, metrics: List[str], report_output_folder: str, span_filter: int):
+def reporting(result_path: str, metrics: List[str], report_output_folder: str, warn: bool = True):
     # Ensure the input and output directories exist
     if not os.path.isdir(result_path):
         raise FileNotFoundError(f"Results directory not found: {result_path}")
@@ -125,6 +125,9 @@ def reporting(result_path: str, metrics: List[str], report_output_folder: str, s
 
         # Initialize per-entry report dict
         entry["report"] = {}
+        
+        if type(metrics) == str:
+            metrics = [m.strip() for m in metrics.split(',') if m.strip()]
 
         for m in metrics:
             if m == "EM":
@@ -235,7 +238,7 @@ def reporting(result_path: str, metrics: List[str], report_output_folder: str, s
 
 
     # Generate LaTeX tables for each metric
-    save_latex_tables(entries, metrics, report_output_folder)
+    save_latex_tables(entries, metrics, report_output_folder, warn=warn)
 
     
 
@@ -262,13 +265,12 @@ if __name__ == "__main__":
         help="Comma-separated list of metrics to include in the report"
     )
     parser.add_argument(
-        "--span_filter",
-        type=int,
-        default=0,
-        help="Span filter mode: 0=all items, 1=only rouge1>0, -1=only rouge1==0"
+        "--warn",
+        type=bool,
+        default=True,
+        help="Whether to print warnings"
     )
     args = parser.parse_args()
 
     metrics = [m.strip() for m in args.metrics.split(",") if m.strip()]
-    span_filter = args.span_filter
-    reporting(args.result_path, metrics, args.report_output_folder, span_filter)
+    reporting(args.result_path, metrics, args.report_output_folder)

@@ -23,7 +23,10 @@ import random
 import numpy as np
 from typing import List, Dict, Any, Tuple
 from datasets import load_dataset
-from sync_model_connector import ModelLoader  # your copy sits in evaluation/
+try:
+    from RAG_Style.scripts.syncr.sync_model_connector import ModelLoader  # your copy sits in evaluation/
+except ImportError:
+    from sync_model_connector import ModelLoader  # your copy sits in evaluation/
 from rouge_score import rouge_scorer
 import torch
 

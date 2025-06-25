@@ -2,7 +2,7 @@ from typing import List
 import os
 
 # New function to save LaTeX tables for each metric
-def save_latex_tables(entries: List[dict], metrics: List[str], report_output_folder: str):
+def save_latex_tables(entries: List[dict], metrics: List[str], report_output_folder: str, warn: bool = True):
     # Mapping of track codes to names
     category_names = ["arithmetic", "wknow", "temporal"]
     # Sort all k values except -1 first, then append -1 last
@@ -19,7 +19,6 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
     # Add token and sentence metrics
     real_metrics += ["tokens-prompt", "tokens-completion", "tokens-total", "sentences"]
 
-
     for m in real_metrics:
         added_entries = 0
         lines = []
@@ -30,7 +29,6 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
         header2 = ["K"] + ["unispeaker & multispeaker"] * 3 + ["", ""]
         lines.append(" | ".join(header2) + " \\\\")
         # Separator
-        lines.append("\\hline")
         # Build a lookup by combined experiment key, k, track, conv_type
 
         lookup = {}
@@ -67,11 +65,12 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
                             added_entries += 1
                         else:
                             if not (("RAG" in exp_key and k == -1) or (dis=="Multi" and k==20)):
-                                print('--------------------------------')
-                                print(dis)
-                                print(f"Warning: missing entry: {exp_key}, {k}, {t}, {dis}")
-                                print(f"entry: {entry}")
-                                print()
+                                if warn:
+                                    print('--------------------------------')
+                                    print(dis)
+                                    print(f"Warning: missing entry: {exp_key}, {k}, {t}, {dis}")
+                                    print(f"entry: {entry}")
+                                    print()
                             row.append("-")
                 
                 # Calculate averages
@@ -84,13 +83,10 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
                     
                 lines.append(" & ".join(row) + " \\\\")
             # Separator after each experiment
-            lines.append("\\hline")
 
         # ---- Additional summary: average between Uni and Multi for each k ----
         lines.append("")
-        lines.append("\\bigskip")  # vertical space after the first table
-        lines.append("\\textbf{Average between unispeaker and multispeaker per $k$} \\\\")
-        lines.append("\\hline")
+        lines.append("Average between unispeaker and multispeaker per k")
         header_combined = ["Experiment", "K", "Avg(Uni+Multi)"]
         lines.append(" & ".join(header_combined) + " \\\\")
         for exp_key in sorted({
@@ -114,7 +110,6 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
                 if combined_values:
                     combined_avg = sum(combined_values) / len(combined_values)
                     lines.append(f"{exp_key} & {str(k) if k != -1 else 'all(-1)'} & {combined_avg:.2f} \\\\")
-        lines.append("\\hline")
         lines.append("")  # blank line before any subsequent content
         # Write to file
         if m in ['sentences', 'tokens-prompt', 'tokens-completion', 'tokens-total']:
@@ -123,7 +118,8 @@ def save_latex_tables(entries: List[dict], metrics: List[str], report_output_fol
             fname = os.path.join(report_output_folder, f"{m}_table.tex")
         with open(fname, "w", encoding="utf-8") as f:
             f.write("\n".join(lines))
-        print(f"Added {added_entries} entries for {m}")
-        print(f"Missed {len(entries) - added_entries} entries for {m}")
-        print(f"Filed saved to {fname}")
-        print()
+        if warn:
+            print(f"Added {added_entries} entries for {m}")
+            print(f"Missed {len(entries) - added_entries} entries for {m}")
+            print(f"Filed saved to {fname}")
+            print()

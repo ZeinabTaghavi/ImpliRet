@@ -46,7 +46,7 @@ from typing import List, Dict, Any, Tuple
 import torch
 
 # Local imports
-from async_api_connector import APIConnector  # API connector for model inference
+from RAG_Style.scripts.asyncr.async_api_connector import APIConnector  # API connector for model inference
 from rouge_score import rouge_scorer
 from datasets import load_dataset
 

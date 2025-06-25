@@ -1,0 +1,8 @@
+{
+  "model": "meta-llama/Llama-3.2-3B-Instruct",
+  "api_provider": "vllm",
+  "api_url": "http://localhost:8000/v1",
+  "max_tokens": 256,
+  "max_model_len": 1024
+
+}

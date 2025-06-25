@@ -24,43 +24,67 @@ def save_retriever_indices(output_folder, category, discourse, retriever_name):
         user_questions.append(qs)
         user_gold_indices.append(idx)
    
-
+   
     if retriever_name.lower() == "bm25":
         try:
             from retrievals.BM_retriever import BM25Retriever
             retriever_module = BM25Retriever
         except:
-            raise Exception("BM25Retriever not found")
+            try:    
+                from Retrieval.retrievals.BM_retriever import BM25Retriever
+                retriever_module = BM25Retriever
+            except:
+                raise Exception("BM25Retriever not found")
     elif retriever_name.lower() == "dragonplus":
         try:
             from retrievals.DragonPlus_retriever import DragonPlusRetriever
             retriever_module = DragonPlusRetriever
         except:
-            raise Exception("DragonPlusRetriever not found")
+            try:
+                from Retrieval.retrievals.DragonPlus_retriever import DragonPlusRetriever
+                retriever_module = DragonPlusRetriever
+            except:
+                raise Exception("DragonPlusRetriever not found")
     elif retriever_name.lower() == "contriever":
         try:
             from retrievals.Contriever_retriever import ContrieverRetriever
             retriever_module = ContrieverRetriever
         except:
-            raise Exception("ContrieverRetriever not found")
+            try:
+                from Retrieval.retrievals.Contriever_retriever import ContrieverRetriever
+                retriever_module = ContrieverRetriever
+            except:
+                raise Exception("ContrieverRetriever not found")
     elif retriever_name.lower() == "colbert":
         try:
             from retrievals.ColBERT_retriever import ColBERTRetriever
             retriever_module = ColBERTRetriever
         except:
-            raise Exception("ColBERTRetriever not found")
+            try:
+                from Retrieval.retrievals.ColBERT_retriever import ColBERTRetriever
+                retriever_module = ColBERTRetriever
+            except:
+                raise Exception("ColBERTRetriever not found")
     elif retriever_name.lower() == "reasonir":
         try:
             from retrievals.ReasonIR_retriever import ReasonIRRetriever
             retriever_module = ReasonIRRetriever
         except:
-            raise Exception("ReasonIRRetriever not found")
+            try:
+                from Retrieval.retrievals.ReasonIR_retriever import ReasonIRRetriever
+                retriever_module = ReasonIRRetriever
+            except:
+                raise Exception("ReasonIRRetriever not found")
     elif retriever_name.lower() == "hipporag":
         try:
             from retrievals.HippoRag2_retriever import HippoRAG2Retriever
             retriever_module = HippoRAG2Retriever
         except:
-            raise Exception("HippoRAG2Retriever not found")
+            try:
+                from Retrieval.retrievals.HippoRag2_retriever import HippoRAG2Retriever
+                retriever_module = HippoRAG2Retriever
+            except:
+                raise Exception("HippoRAG2Retriever not found")
     else:
         raise Exception("Invalid retriever name")
 
