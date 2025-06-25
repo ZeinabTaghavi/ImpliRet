@@ -1,4 +1,8 @@
 
+export HF_HOME=...
+export HF_TOKEN= ...
+
+
 echo "----------------------------  BM25  ----------------------------------"
 echo "Retrieving for track A, type Multi, retriever_name bm25"
 python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --category arithmetic --discourse multispeaker --retriever_name bm25

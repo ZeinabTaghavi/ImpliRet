@@ -1,4 +1,6 @@
 
+export HF_HOME=...
+export HF_TOKEN= ...
 export VLLM_WORKER_MULTIPROC_METHOD=fork
 
 echo "Starting the job" 
