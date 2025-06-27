@@ -1,0 +1,8 @@
+{
+    "model": "o4-mini-2025-04-16",
+    "api_provider": "openai",
+    "api_key": "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",
+    "top_p": 1.0,
+    "temperature": 0.0,
+    "tokenizer_model": "o200k_base"
+  }

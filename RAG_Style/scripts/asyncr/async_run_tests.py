@@ -23,7 +23,10 @@ import os
 from jsonargparse import ArgumentParser, ActionConfigFile
 
 # Local imports
-from RAG_Style.scripts.asyncr.async_evaluate import ExperimentTester
+try:
+    from RAG_Style.scripts.asyncr.async_evaluate import ExperimentTester
+except:
+    from async_evaluate import ExperimentTester
 
 
 # --------------------------------------------------------------------------- #
@@ -42,7 +45,7 @@ def main() -> None:
     parser.add_argument("--discourse", dest="discourse_type", type=str, choices=["unispeaker", "multispeaker"], default="unispeaker")
     parser.add_argument("--output_folder", type=str, default="./RAG_Style/results/")
     parser.add_argument("--k", type=int, default=1)
-    parser.add_argument("--user_retrieval", type=bool, default=False)
+    parser.add_argument("--use_retrieval", type=bool, default=False)
     parser.add_argument("--retriever", type=str, default="BM25")
     parser.add_argument("--retriever_index_folder", type=str, default="./Retrieval/results/")
 
@@ -83,7 +86,7 @@ def main() -> None:
         retriever_index_folder=args.retriever_index_folder,
         metric=args.metric,
         k=args.k,
-        use_retrieval=args.user_retrieval,
+        use_retrieval=args.use_retrieval,
         seed=args.seed,
     )
     tester.evaluate()

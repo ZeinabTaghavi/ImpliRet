@@ -46,7 +46,10 @@ from typing import List, Dict, Any, Tuple
 import torch
 
 # Local imports
-from RAG_Style.scripts.asyncr.async_api_connector import APIConnector  # API connector for model inference
+try:
+    from RAG_Style.scripts.asyncr.async_api_connector import APIConnector  # API connector for model inference
+except:
+    from async_api_connector import APIConnector  # API connector for model inference
 from rouge_score import rouge_scorer
 from datasets import load_dataset
 
@@ -228,6 +231,8 @@ Answer:
                 self.retriever_index = load_jsonl(self.retriever_index_filename)
             except:
                 raise ValueError(f"Retriever index file {self.retriever_index_filename} not found")
+        else:   
+            self.retriever_index = None
 
         # Set runtime parameters
         self.metric = metric
@@ -409,9 +414,9 @@ Answer:
         resp = await self.api.generate_response(
             system_prompt=self.system_prompt,
             user_prompt=prompt_text,
-            max_tokens=self.model_cfg.get("max_tokens", 256),
-            temperature=self.model_cfg.get("temperature", 0.0),
-            top_p=self.model_cfg.get("top_p", 1.0),
+            max_tokens=self.model_cfg.get("max_tokens", None),
+            temperature=self.model_cfg.get("temperature", None),
+            top_p=self.model_cfg.get("top_p", None),
             add_default_system_prompt=self.use_default_system_prompt,
         )
         print(f"[RunOne] Example {idx}: model response received")
@@ -451,7 +456,7 @@ Answer:
         
         # Run all examples concurrently
         loop = asyncio.get_event_loop()
-        tasks = [self._run_one(idx, ex) for idx, ex in enumerate(self.examples)]
+        tasks = [self._run_one(idx, ex) for idx, ex in enumerate(self.examples[:10])]
         results = loop.run_until_complete(asyncio.gather(*tasks))
         print("[Evaluate] All tasks finished, writing results …")
 

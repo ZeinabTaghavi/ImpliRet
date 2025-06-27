@@ -136,15 +136,17 @@ class APIConnector:
     # --------------------------------------------------------------------------- #
     #                              Core API Call                                    #
     # --------------------------------------------------------------------------- #
+
     async def generate_response(
         self,
         system_prompt: str,
         user_prompt: Union[str, List[str]],
         *,
-        max_tokens: int = 256,
+
         temperature: float = 0.0,
         top_p: float = 1.0,
         add_default_system_prompt: bool = True,
+        max_tokens = None,
     ) -> Dict[str, Any]:
         """Return a uniform dict regardless of provider (ASYNC version)."""
 
@@ -172,14 +174,21 @@ class APIConnector:
             retry=retry_if_exception_type(RateLimitError),
         )
         async def _call_openai():
+            input_args = {
+            "model": self.model,
+            "messages": messages
+             }
+            if temperature:
+                input_args["temperature"] = temperature
+            if top_p:
+                input_args["top_p"] = top_p
+            if self.api_provider == "openai":
+                input_args["seed"] = 43
+            if max_tokens:  
+                print(f"Using max_tokens: {max_tokens}")
+                input_args["max_tokens"] = max_tokens
             return await self.api.chat.completions.create(
-                model=self.model,
-                messages=messages,
-                max_tokens=max_tokens,
-                temperature=temperature,
-                top_p=top_p,
-                # deterministic seed for reproducibility (OpenAI endpoints only)
-                **({"seed": 43} if self.api_provider == "openai" else {}),
+                **input_args,
             )
         
         # ---- A. remote OpenAI / vLLM / Azure ----
