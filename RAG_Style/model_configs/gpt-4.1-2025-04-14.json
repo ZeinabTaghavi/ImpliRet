@@ -1,7 +1,7 @@
 {
     "model": "gpt-4.1-2025-04-14",
     "api_provider": "openai",
-    "api_key": "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",
+    "api_key": "API_KEY",
     "max_tokens": 256,
     "top_p": 1.0,
     "temperature": 0.0,
