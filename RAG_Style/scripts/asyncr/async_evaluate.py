@@ -143,7 +143,7 @@ class ExperimentTester:
         self.discourse_type = discourse_type
         self.category = category
         assert self.discourse_type in ['unispeaker', 'multispeaker'], f"Unknown data type: {self.discourse_type}"
-        assert self.category in ['temporal', 'arithmetic', 'wknowledge'], f"Unknown category: {self.category}"
+        assert self.category in ['temporal', 'arithmetic', 'wknow'], f"Unknown category: {self.category}"
         self.dataset = load_dataset("zeinabTaghavi/ImpliRet", name=discourse_type, split=category)
         self.examples = self.dataset.to_list()
 
@@ -452,11 +452,11 @@ Answer:
             f"Running {self.model_name} on {len(self.examples)} examples; "
             f"writing to {self.out_path}"
         )
-        print("[Evaluate] Launching async tasks …")
+        # print("[Evaluate] Launching async tasks …")
         
         # Run all examples concurrently
         loop = asyncio.get_event_loop()
-        tasks = [self._run_one(idx, ex) for idx, ex in enumerate(self.examples[:10])]
+        tasks = [self._run_one(idx, ex) for idx, ex in enumerate(self.examples[:40])]
         results = loop.run_until_complete(asyncio.gather(*tasks))
         print("[Evaluate] All tasks finished, writing results …")
 
@@ -500,7 +500,7 @@ if __name__ == "__main__":
     parser.add_argument("--config", action=ActionConfigFile, help="YAML run_config")
     parser.add_argument("--model_name", type=str)
     parser.add_argument("--model_configs_dir", type=str)
-    parser.add_argument("--category", type=str, default="temporal", help="temporal, arithmetic or wknowledge")
+    parser.add_argument("--category", type=str, default="temporal", help="temporal, arithmetic or wknow")
     parser.add_argument("--discourse_type", type=str, default="unispeaker", help="unispeaker or multispeaker")
     parser.add_argument("--results_dir", type=str, default="./RAG_Style/results/")
     parser.add_argument("--metric", type=str, default="EM")
@@ -513,6 +513,7 @@ if __name__ == "__main__":
     parser.add_argument("--use_default_system_prompt", type=bool, default=True)
 
     args = parser.parse_args()
+
 
     # Create and run tester
     tester = ExperimentTester(
@@ -530,4 +531,4 @@ if __name__ == "__main__":
         system_prompt=args.system_prompt,
         use_default_system_prompt=args.use_default_system_prompt,
     )
-    tester.evaluate()
+    # tester.evaluate()

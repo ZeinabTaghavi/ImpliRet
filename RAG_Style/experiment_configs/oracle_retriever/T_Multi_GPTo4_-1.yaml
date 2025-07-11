@@ -1,0 +1,21 @@
+# Reasoning Category: Arithmetic:arithmetic, World Knowledge:wknowledge, Temporal:temporal
+# Disource Type: Multi-speaker(forum style):multispeaker, Uni-speaker(chat style):unispeaker
+category: temporal
+discourse_type: multispeaker
+
+# Model (vLLM server)
+# The exact name of the model is in config file in the model_configs directory
+model_name: o4-mini-2025-04-16       # uses the vLLM‑API config
+model_configs_dir: RAG_Style/model_configs
+
+# Decoding / Eval
+metric: EM , contains , rouge-recall
+# Number of retrieved documents (-1 for all the documents in the pool (50))  
+k: -1
+# Use user retrieval or not, if true, the user retrieval will be used to retrieve the documents
+# if false, the oracle retrieval will be used to retrieve the documents
+use_retrieval: false
+seed: 42
+
+# Results output folder
+output_folder: ./RAG_Style/results/

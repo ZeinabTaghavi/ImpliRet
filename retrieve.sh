@@ -51,7 +51,7 @@ python ./Retrieval/retrieve_indexing.py  --output_folder ./Retrieval/results/ --
 
 # echo "----------------------------  Hippo  ----------------------------------"
 # export VLLM_WORKER_MULTIPROC_METHOD=spawn
-
+# pip install hipporag
 # vllm serve meta-llama/Llama-3.3-70B-Instruct \
 #     --tensor-parallel-size 2 \
 #     --max_model_len 4096 \

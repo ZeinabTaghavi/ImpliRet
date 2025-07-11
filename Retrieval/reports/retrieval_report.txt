@@ -2,37 +2,67 @@ Recall@k results for each reasoning track in both discourse settings.
 Experiment & Semantic & Arithmetic & Temporal & Average \
 K & Uni & Multi & Uni & Multi & Uni & Multi & Uni & Multi \
 \hline
-RAG-bm25 & 10 & - & - & - & 16.27 & - & - & 16.27 \\
+RAG-bm25 & 10 & 30.93 & 33.20 & 30.33 & 16.27 & 23.27 & 26.73 & 26.79 \\
+RAG-colbert & 10 & 31.27 & 35.33 & 32.07 & 33.93 & 24.47 & 29.53 & 31.10 \\
+RAG-contriever & 10 & 31.60 & 37.13 & 28.53 & 31.67 & 25.87 & 28.27 & 30.51 \\
+RAG-dragonplus & 10 & 31.47 & 40.40 & 31.00 & 32.93 & 24.47 & 30.47 & 31.79 \\
+RAG-hipporag & 10 & 31.73 & 37.27 & 28.73 & 32.27 & 25.93 & 28.42 & 30.73 \\
+RAG-reasonir & 10 & 19.73 & 48.73 & 11.80 & 34.47 & 8.20 & 37.53 & 26.74 \\
 
 
 MRR@k results for each reasoning track in both discourse settings.
 Experiment & Semantic & Arithmetic & Temporal & Average \
 K & Uni & Multi & Uni & Multi & Uni & Multi & Uni & Multi \
 \hline
-RAG-bm25 & 10 & - & - & - & 5.61 & - & - & 5.61 \\
+RAG-bm25 & 10 & 9.23 & 9.86 & 9.23 & 5.61 & 6.33 & 7.33 & 7.93 \\
+RAG-colbert & 10 & 9.57 & 11.60 & 9.45 & 9.81 & 6.85 & 8.25 & 9.26 \\
+RAG-contriever & 10 & 9.77 & 12.60 & 8.23 & 9.45 & 8.17 & 8.78 & 9.50 \\
+RAG-dragonplus & 10 & 9.94 & 14.00 & 9.11 & 9.83 & 7.20 & 9.32 & 9.90 \\
+RAG-hipporag & 10 & 9.95 & 12.66 & 8.31 & 10.26 & 8.18 & 8.96 & 9.72 \\
+RAG-reasonir & 10 & 7.75 & 20.71 & 3.87 & 10.39 & 2.95 & 12.60 & 9.71 \\
 
 
 NDCG@k results for each reasoning track in both discourse settings.
 Experiment & Semantic & Arithmetic & Temporal & Average \
 K & Uni & Multi & Uni & Multi & Uni & Multi & Uni & Multi \
 \hline
-RAG-bm25 & 10 & - & - & - & 8.07 & - & - & 8.07 \\
+RAG-bm25 & 10 & 14.18 & 15.20 & 14.05 & 8.07 & 10.20 & 11.76 & 12.24 \\
+RAG-colbert & 10 & 14.54 & 17.03 & 14.62 & 15.30 & 10.86 & 13.12 & 14.25 \\
+RAG-contriever & 10 & 14.77 & 18.23 & 12.87 & 14.52 & 12.22 & 13.25 & 14.31 \\
+RAG-dragonplus & 10 & 14.85 & 20.07 & 14.11 & 15.12 & 11.16 & 14.16 & 14.91 \\
+RAG-hipporag & 10 & 14.94 & 18.30 & 12.97 & 15.29 & 12.24 & 13.42 & 14.53 \\
+RAG-reasonir & 10 & 10.54 & 27.21 & 5.68 & 15.89 & 4.17 & 18.33 & 13.64 \\
 
 
 Recall@k averaged over Uni- and Multi‑audience settings.
 Experiment & K & Semantic & Arithmetic & Temporal & Average \
 \hline
-RAG-bm25 & 10 & - & 16.27 & - & 16.27 \
+RAG-bm25 & 10 & 32.07 & 23.30 & 25.00 & 26.79 \
+RAG-colbert & 10 & 33.30 & 33.00 & 27.00 & 31.10 \
+RAG-contriever & 10 & 34.37 & 30.10 & 27.07 & 30.51 \
+RAG-dragonplus & 10 & 35.93 & 31.97 & 27.47 & 31.79 \
+RAG-hipporag & 10 & 34.50 & 30.50 & 27.18 & 30.73 \
+RAG-reasonir & 10 & 34.23 & 23.13 & 22.87 & 26.74 \
 
 
 MRR@k averaged over Uni- and Multi‑audience settings.
 Experiment & K & Semantic & Arithmetic & Temporal & Average \
 \hline
-RAG-bm25 & 10 & - & 5.61 & - & 5.61 \
+RAG-bm25 & 10 & 9.55 & 7.42 & 6.83 & 7.93 \
+RAG-colbert & 10 & 10.59 & 9.63 & 7.55 & 9.26 \
+RAG-contriever & 10 & 11.19 & 8.84 & 8.48 & 9.50 \
+RAG-dragonplus & 10 & 11.97 & 9.47 & 8.26 & 9.90 \
+RAG-hipporag & 10 & 11.30 & 9.28 & 8.57 & 9.72 \
+RAG-reasonir & 10 & 14.23 & 7.13 & 7.78 & 9.71 \
 
 
 NDCG@k averaged over Uni- and Multi‑audience settings.
 Experiment & K & Semantic & Arithmetic & Temporal & Average \
 \hline
-RAG-bm25 & 10 & - & 8.07 & - & 8.07 \
+RAG-bm25 & 10 & 14.69 & 11.06 & 10.98 & 12.24 \
+RAG-colbert & 10 & 15.79 & 14.96 & 11.99 & 14.25 \
+RAG-contriever & 10 & 16.50 & 13.70 & 12.73 & 14.31 \
+RAG-dragonplus & 10 & 17.46 & 14.61 & 12.66 & 14.91 \
+RAG-hipporag & 10 & 16.62 & 14.13 & 12.83 & 14.53 \
+RAG-reasonir & 10 & 18.88 & 10.78 & 11.25 & 13.64 \
 

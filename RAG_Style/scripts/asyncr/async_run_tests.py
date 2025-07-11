@@ -41,7 +41,7 @@ def main() -> None:
     parser.add_argument("--config", action=ActionConfigFile, help="YAML run_config")
 
     # All fields that might appear in the YAML
-    parser.add_argument("--category", type=str, choices=["temporal", "arithmetic", "wknowledge"], default="temporal")
+    parser.add_argument("--category", type=str, choices=["temporal", "arithmetic", "wknow"], default="temporal")
     parser.add_argument("--discourse", dest="discourse_type", type=str, choices=["unispeaker", "multispeaker"], default="unispeaker")
     parser.add_argument("--output_folder", type=str, default="./RAG_Style/results/")
     parser.add_argument("--k", type=int, default=1)

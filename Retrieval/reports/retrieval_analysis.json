@@ -1,0 +1,86 @@
+{
+    "unispeaker_arithmetic_reasonir": {
+        "i_average_dist": 1190.2993333333334,
+        "agv_repeat_high": 1192.8,
+        "agv_repeat_low": 1116.55,
+        "high_score_overlap": 8.129,
+        "low_score_overlap": 7.581
+    },
+    "unispeaker_temporal_reasonir": {
+        "i_average_dist": 933.2193333333333,
+        "agv_repeat_high": 1346.25,
+        "agv_repeat_low": 1247.45,
+        "high_score_overlap": 41.19283333333333,
+        "low_score_overlap": 47.66296666666667
+    },
+    "unispeaker_wknow_reasonir": {
+        "i_average_dist": 1300.052,
+        "agv_repeat_high": 946.65,
+        "agv_repeat_low": 982.9,
+        "high_score_overlap": 9.725366666666666,
+        "low_score_overlap": 8.144933333333332
+    },
+    "multispeaker_arithmetic_reasonir": {
+        "i_average_dist": 1321.4833333333333,
+        "agv_repeat_high": 359.1,
+        "agv_repeat_low": 1063.9,
+        "high_score_overlap": 38.581,
+        "low_score_overlap": 37.394
+    },
+    "multispeaker_temporal_reasonir": {
+        "i_average_dist": 1352.294,
+        "agv_repeat_high": 408.95,
+        "agv_repeat_low": 736.5,
+        "high_score_overlap": 32.648466666666664,
+        "low_score_overlap": 35.4653
+    },
+    "multispeaker_wknow_reasonir": {
+        "i_average_dist": 1391.1086666666667,
+        "agv_repeat_high": 316.25,
+        "agv_repeat_low": 727.75,
+        "high_score_overlap": 72.93953333333333,
+        "low_score_overlap": 76.74526666666667
+    },
+    "unispeaker_arithmetic_bm25": {
+        "i_average_dist": 865.2246666666666,
+        "agv_repeat_high": 1048.6,
+        "agv_repeat_low": 1181.9,
+        "high_score_overlap": 10.389,
+        "low_score_overlap": 5.186
+    },
+    "unispeaker_temporal_bm25": {
+        "i_average_dist": 1234.6586666666667,
+        "agv_repeat_high": 244.95,
+        "agv_repeat_low": 430.85,
+        "high_score_overlap": 45.092533333333336,
+        "low_score_overlap": 39.13856666666667
+    },
+    "unispeaker_wknow_bm25": {
+        "i_average_dist": 957.9406666666666,
+        "agv_repeat_high": 1080.45,
+        "agv_repeat_low": 815.85,
+        "high_score_overlap": 9.027866666666666,
+        "low_score_overlap": 7.357
+    },
+    "multispeaker_arithmetic_bm25": {
+        "i_average_dist": 630.434,
+        "agv_repeat_high": 1498.3,
+        "agv_repeat_low": 1473.0,
+        "high_score_overlap": 47.725,
+        "low_score_overlap": 38.963
+    },
+    "multispeaker_temporal_bm25": {
+        "i_average_dist": 1257.072,
+        "agv_repeat_high": 230.6,
+        "agv_repeat_low": 1241.4,
+        "high_score_overlap": 31.841233333333335,
+        "low_score_overlap": 32.3163
+    },
+    "multispeaker_wknow_bm25": {
+        "i_average_dist": 1113.324,
+        "agv_repeat_high": 766.4,
+        "agv_repeat_low": 472.4,
+        "high_score_overlap": 76.18266666666666,
+        "low_score_overlap": 70.2431
+    }
+}

@@ -10,7 +10,7 @@ model_configs_dir: RAG_Style/model_configs
 
 # Decoding / Eval
 metric: EM , contains , rouge-recall
-# Number of retrieved documents
+# Number of retrieved documents (-1 for all the documents in the pool (50))  
 k: 1
 # Use user retrieval or not, if true, the user retrieval will be used to retrieve the documents
 # if false, the oracle retrieval will be used to retrieve the documents

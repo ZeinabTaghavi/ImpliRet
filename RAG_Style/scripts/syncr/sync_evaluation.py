@@ -91,7 +91,7 @@ class ExperimentTester:
         # Load dataset
         self.discourse_type = discourse_type
         assert self.discourse_type in ['unispeaker', 'multispeaker'], f"Unknown data type: {self.discourse_type}"
-        assert category in ['temporal', 'arithmetic', 'wknowledge'], f"Unknown category: {category}"
+        assert category in ['temporal', 'arithmetic', 'wknow'], f"Unknown category: {category}"
         self.dataset = load_dataset("zeinabTaghavi/ImpliRet", name=discourse_type, split=category)
         self.examples = self.dataset.to_list()
         

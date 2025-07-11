@@ -5,7 +5,10 @@ from typing import List
 import json
 import statistics
 
-from RAG_Style.reports.utils.latex_format import save_latex_tables
+try:
+    from RAG_Style.reports.utils.latex_format import save_latex_tables
+except:
+    from reports.utils.latex_format import save_latex_tables
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 from datasets import load_dataset

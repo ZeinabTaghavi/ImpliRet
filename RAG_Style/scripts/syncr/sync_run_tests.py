@@ -60,7 +60,7 @@ def run_experiment(arg_list: list[str] | None = None) -> str:
 
     # All fields that might appear in the YAML
     parser.add_argument("--category", type=str,
-                        choices=["temporal", "arithmetic", "wknowledge"],
+                        choices=["temporal", "arithmetic", "wknow"],
                         default="temporal")
     parser.add_argument("--discourse", dest="discourse_type", type=str,
                         choices=["unispeaker", "multispeaker"],
